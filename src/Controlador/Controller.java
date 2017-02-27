@@ -18,9 +18,7 @@ public class Controller {
     }
 
     public void añadireetacemon(Eetakemon e){
-        lista.add(e);
-        System.out.println(lista.isEmpty());
-        System.out.println(lista.size());
+        lista.add(e);//añadir a la lista
     }
 
     public Boolean borrarEetacemonPorId(int id){
@@ -41,16 +39,55 @@ public class Controller {
     }
 
     public void listarTodos(){
-        /*if(lista.isEmpty()){
-            System.out.println("\nLa lista está vacía\n");
+        if(lista.isEmpty()){
+            System.out.println("\nLa lista está vacía");
         }else {
+            System.out.println("\nLista de Eetakemon:");
             for (Eetakemon ek : lista) {
-                System.out.println("Lista de Eetakemon:\n" + ek.getId() + " " + ek.getNombre() + " " + ek.getNivel() + "\n");
+                System.out.println(ek.getId() + " " +
+                        ek.getNombre() + " " + ek.getNivel());
             }
-        }*/
-
-        for (Eetakemon ek : lista) {
-            System.out.println("Lista de Eetakemon:\n" + ek.getId() + " " + ek.getNombre() + " " + ek.getNivel() + "\n");
         }
+        System.out.println("\n");
+    }
+
+    public void buscarPorNombre(String nombre){
+        boolean encontrado=false;
+
+        System.out.println("\nResultados obtenidos:");
+
+        for (Eetakemon ek:lista) {
+            if (ek.getNombre().equalsIgnoreCase(nombre)){
+                System.out.println(ek.getId() + " " +
+                        ek.getNombre() + " " + ek.getNivel());
+                encontrado=true;
+            }
+        }
+
+        if(!encontrado){
+            System.out.println("No se ha encontrado ningun resultado");
+        }
+
+        System.out.println("\n");
+    }
+
+    public void busquedaAvanzada(String s){
+        boolean encontrado=false;
+
+        System.out.println("\nResultados obtenidos:");
+
+        for (Eetakemon ek:lista) {
+            if (ek.getNombre().contains(s)){
+                System.out.println(ek.getId() + " " +
+                        ek.getNombre() + " " + ek.getNivel());
+                encontrado=true;
+            }
+        }
+
+        if(!encontrado){
+            System.out.println("No se ha encontrado ningun resultado");
+        }
+
+        System.out.println("\n");
     }
 }

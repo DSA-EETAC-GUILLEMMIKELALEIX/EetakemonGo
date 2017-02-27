@@ -29,7 +29,8 @@ public class Main {
                     "2-Borrar eetac-emon\n" +
                     "3-Listar eetac-emon\n" +
                     "4-Buscar por nombre\n"+
-                    "5-Salir");
+                    "5-Busqueda avanzada\n"+
+                    "6-Salir");
 
             entradaTeclado = scanner.nextLine (); //Invocamos un método sobre un objeto Scanner
 
@@ -37,7 +38,7 @@ public class Main {
                 case "1":
                     nivel=-1;
 
-                    System.out.println("Escribe el nombre del eetac-emon que quieras añadir:");
+                    System.out.println("\nEscribe el nombre del eetac-emon que quieras añadir:");
                     nom = scanner.nextLine(); //Invocamos un método sobre un objeto Scanner
 
                     while(nivel==-1) {
@@ -54,13 +55,14 @@ public class Main {
                     c.añadireetacemon(eetakemon);
                     id++;
 
+                    System.out.println("\n");
                     break;
                 case "2":
                     boolean borrado = true;
                     int idTemp=-1;
 
                     while(idTemp==-1) {
-                        System.out.println("Escribe el id del eetak-emon que quieras borrar:");
+                        System.out.println("\nEscribe el id del eetak-emon que quieras borrar:");
                         entradaTeclado = scanner.nextLine(); //Invocamos un método sobre u1n objeto Scanner
                         try {
                             idTemp = Integer.parseInt(entradaTeclado);
@@ -82,13 +84,17 @@ public class Main {
                     c.listarTodos();
                     break;
                 case "4":
-                    System.out.println("Escribe el nombre eetac-emon que quieras buscar:");
-                    String entradaTeclado3 = "";
-                    Scanner entradaeetacemon3 = new Scanner(System.in);
-                    entradaTeclado3 = entradaeetacemon3.nextLine(); //Invocamos un método sobre u1n objeto Scanner
-                    //Llamar a la funcion buscar pasandole entradaeetacemon2 y que devuelva el Eetakemon
+                    System.out.println("\nEscribe el nombre eetac-emon que quieras buscar:");
+                    entradaTeclado = scanner.nextLine(); //Invocamos un método sobre u1n objeto Scanner
+                    c.buscarPorNombre(entradaTeclado);
                     break;
                 case "5":
+                    System.out.println("\nEscribe el fragmento a buscar:");
+                    entradaTeclado = scanner.nextLine(); //Invocamos un método sobre u1n objeto Scanner
+                    c.busquedaAvanzada(entradaTeclado);
+                    break;
+                case "6":
+                    System.out.println("\nAdiós");
                     bucle=false;
                     break;
             }
