@@ -18,7 +18,7 @@ public class Controller {
     public void añadireetakemon(Eetakemon e){
         lista.add(e);//añadir a la lista
     }
-
+    //metodo que borra un eetakemon por ID
     public Boolean borrarEetakemonPorId(int id){
         int i=0;
         boolean borrado=false;
@@ -35,7 +35,7 @@ public class Controller {
 
     return borrado;
     }
-
+    //metodo que lista los eetakemons
     public void listarTodos(){
         if(lista.isEmpty()){
             System.out.println("\nLa lista está vacía");
@@ -48,7 +48,7 @@ public class Controller {
         }
         System.out.println("\n");
     }
-
+    //metodo que busca eetakemons por nombre
     public void buscarPorNombre(String nombre){
         boolean encontrado=false;
 
@@ -68,7 +68,7 @@ public class Controller {
 
         System.out.println("\n");
     }
-
+    //metodo busquedaAvanzada (BOLA EXTRA)
     public void busquedaAvanzada(String s){
         boolean encontrado=false;
 
