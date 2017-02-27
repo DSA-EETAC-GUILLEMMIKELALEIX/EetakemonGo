@@ -1,6 +1,6 @@
 package Controlador;
 
-import Modelo.eetacemon;
+import Modelo.Eetakemon;
 
 import java.util.*;
 
@@ -10,36 +10,47 @@ import java.util.*;
 public class Controller {
 
     //On van les funcions
-    public List<eetacemon> l;
+    private List<Eetakemon> lista;
 
     public Controller(){
-        l = new ArrayList<eetacemon>();
+
+        lista = new ArrayList<Eetakemon>();
     }
 
-    public void añadireetacemon(eetacemon e){
-        System.out.println(l.size());
-        l.add(e);
-        System.out.println(l.size());
+    public void añadireetacemon(Eetakemon e){
+        lista.add(e);
+        System.out.println(lista.isEmpty());
+        System.out.println(lista.size());
     }
 
     public Boolean borrarEetacemonPorId(int id){
-        /*for(int i=0;i<l.size();i++)
-        {
-            if (==id)
-                l.remove(i);
-        }*/
+        int i=0;
+        boolean borrado=false;
 
-    return true;
+        for (Eetakemon ek:lista) {
+            if (ek.getId()==id){
+                lista.remove(i);
+                borrado=true;
+                break;
+            }
+            System.out.println("prueba");
+            i++;
+        }
+
+    return borrado;
     }
 
-    public List<eetacemon> listarTodos(){
-        /*for(int i=0;i<l.size();i++)
-        {
-            System.out.println (l.get(i));
+    public void listarTodos(){
+        /*if(lista.isEmpty()){
+            System.out.println("\nLa lista está vacía\n");
+        }else {
+            for (Eetakemon ek : lista) {
+                System.out.println("Lista de Eetakemon:\n" + ek.getId() + " " + ek.getNombre() + " " + ek.getNivel() + "\n");
+            }
         }*/
-        return l;
-    }
-    /*public eetacemon buscarPorNombre(String nombre){
 
-    }*/
+        for (Eetakemon ek : lista) {
+            System.out.println("Lista de Eetakemon:\n" + ek.getId() + " " + ek.getNombre() + " " + ek.getNivel() + "\n");
+        }
+    }
 }
