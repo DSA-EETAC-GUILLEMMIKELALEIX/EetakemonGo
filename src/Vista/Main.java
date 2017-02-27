@@ -4,7 +4,8 @@ import Modelo.Eetakemon;
 
 import java.util.Scanner;
 /**
- * Created by aleix on 21/2/2017.
+ * Codigo creado por Mikel, Guillem, Aleix y Jose Antonio. Se ha escrito el codigo en local y se ha subido
+ * directamente al repositorio github de Mikel.
  */
 public class Main {
 
