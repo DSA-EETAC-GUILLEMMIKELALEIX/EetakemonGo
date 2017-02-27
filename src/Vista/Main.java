@@ -44,7 +44,7 @@ public class Main {
 
                     while(nivel==-1) {
                         System.out.println("Escribe el nivel del eetak-emon que quieras añadir:");
-                        entradaTeclado = scanner.nextLine(); //Invocamos un método sobre u1n objeto Scanner
+                        entradaTeclado = scanner.nextLine(); //Invocamos un método sobre un objeto Scanner
                         try {
                             nivel = Integer.parseInt(entradaTeclado);
                         } catch (NumberFormatException ex) {
@@ -53,7 +53,7 @@ public class Main {
                     }
 
                     Eetakemon eetakemon = new Eetakemon(nom, id, nivel);
-                    c.añadireetacemon(eetakemon);
+                    c.añadireetakemon(eetakemon);
                     id++;
 
                     System.out.println("\n");
@@ -72,7 +72,7 @@ public class Main {
                         }
                     }
 
-                    borrado= c.borrarEetacemonPorId(idTemp);
+                    borrado= c.borrarEetakemonPorId(idTemp);
 
                     if (borrado) {
                         System.out.println("Borrado correctamente");

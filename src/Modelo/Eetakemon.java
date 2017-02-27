@@ -1,8 +1,5 @@
 package Modelo;
-
-/**
- * Created by aleix on 21/2/2017.
- */
+// Clase que define y permite crear objetos Eetakemon
 public class Eetakemon {
     public String nombre;
     int id;
@@ -15,15 +12,15 @@ public class Eetakemon {
         this.nivel=level;
     }
 
-    //obtener nombre
+    //Obtener nombre
     public String getNombre() {
         return nombre;
     }
-
+    //Obtener ID
     public int getId() {
         return id;
     }
-
+    //Obtener Nivel
     public int getNivel() {
         return nivel;
     }

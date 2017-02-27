@@ -4,24 +4,22 @@ import Modelo.Eetakemon;
 
 import java.util.*;
 
-/**
- * Created by aleix on 21/2/2017.
- */
+//Clase controlador
 public class Controller {
 
-    //On van les funcions
+    //
     private List<Eetakemon> lista;
 
     public Controller(){
 
         lista = new ArrayList<Eetakemon>();//crear la lista
     }
-
-    public void añadireetacemon(Eetakemon e){
+    //metodo que añade un eetakemon a la lista
+    public void añadireetakemon(Eetakemon e){
         lista.add(e);//añadir a la lista
     }
 
-    public Boolean borrarEetacemonPorId(int id){
+    public Boolean borrarEetakemonPorId(int id){
         int i=0;
         boolean borrado=false;
 
