@@ -14,7 +14,7 @@ public class Controller {
 
     public Controller(){
 
-        lista = new ArrayList<Eetakemon>();
+        lista = new ArrayList<Eetakemon>();//crear la lista
     }
 
     public void añadireetacemon(Eetakemon e){

@@ -15,6 +15,7 @@ public class Eetakemon {
         this.nivel=level;
     }
 
+    //obtener nombre
     public String getNombre() {
         return nombre;
     }
