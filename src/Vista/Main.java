@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class Main {
 
     static int id=0;
-
+    //Main
     public static void main (String [ ] args) {
         String entradaTeclado = "";
         Scanner scanner = new Scanner (System.in); //Creación de un objeto Scanner
@@ -23,7 +23,6 @@ public class Main {
             String nom="";
             int nivel=0;
 
-           // Eetakemon d = new Eetakemon(nom,id,nivell);
 
             System.out.println ("Por favor introduzca numero: \n" +
                     "1-Añadir eetac-emon\n" +
@@ -85,16 +84,19 @@ public class Main {
                     c.listarTodos();
                     break;
                 case "4":
+                    //Buscar eetakemon
                     System.out.println("\nEscribe el nombre eetac-emon que quieras buscar:");
-                    entradaTeclado = scanner.nextLine(); //Invocamos un método sobre u1n objeto Scanner
+                    entradaTeclado = scanner.nextLine(); //Invocamos un método sobre un objeto Scanner
                     c.buscarPorNombre(entradaTeclado);
                     break;
                 case "5":
+                    //Fragmento a buscar BOLA EXTRA
                     System.out.println("\nEscribe el fragmento a buscar:");
-                    entradaTeclado = scanner.nextLine(); //Invocamos un método sobre u1n objeto Scanner
+                    entradaTeclado = scanner.nextLine(); //Invocamos un método sobre un objeto Scanner
                     c.busquedaAvanzada(entradaTeclado);
                     break;
                 case "6":
+                    //Para salir
                     System.out.println("\nAdiós");
                     bucle=false;
                     break;
