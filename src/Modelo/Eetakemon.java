@@ -23,6 +23,6 @@ public class Eetakemon {
     //Obtener Nivel
     public int getNivel() {
         return nivel;
-    }
+    }//
 }
 
