@@ -1,9 +1,9 @@
 package Modelo;
 // Clase que define y permite crear objetos Eetakemon
 public class Eetakemon {
-    public String nombre;
-    int id;
-    int nivel;
+    private String nombre;
+    private int id;
+    private int nivel;
 
     public Eetakemon(String name, int id, int level)
     {
