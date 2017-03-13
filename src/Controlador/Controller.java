@@ -7,7 +7,6 @@ import java.util.*;
 //Clase controlador
 public class Controller {
 
-    //
     private List<Eetakemon> lista;
 
     public Controller(){
