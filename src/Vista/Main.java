@@ -18,7 +18,7 @@ public class Main {
         boolean bucle=true;
         Controller c = new Controller();
 
-        System.out.println ("Empezamos el programa");
+        System.out.println ("Empezamoos el programa");
 
         while(bucle) {
             String nom="";
