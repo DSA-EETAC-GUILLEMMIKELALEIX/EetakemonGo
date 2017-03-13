@@ -1,13 +1,15 @@
 package Controlador;
 
 import Modelo.Eetakemon;
+import Modelo.Usuario;
 
 import java.util.*;
 
 //Clase controlador
 public class Controller {
 
-    private List<Eetakemon> lista;
+    private Hashtable<Integer, Eetakemon> tablaEetakemons;
+    private Hashtable<Integer, Usuario> tablaUsuarios;
 
     public Controller(){
 
