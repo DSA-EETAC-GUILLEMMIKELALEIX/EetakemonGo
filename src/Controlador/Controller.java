@@ -1,15 +1,13 @@
 package Controlador;
 
 import Modelo.Eetakemon;
-import Modelo.Usuario;
 
 import java.util.*;
 
 //Clase controlador
 public class Controller {
 
-    private Hashtable<Integer, Eetakemon> tablaEetakemons;
-    private Hashtable<Integer, Usuario> tablaUsuarios;
+    private List<Eetakemon> lista;
 
     public Controller(){
 
@@ -89,8 +87,5 @@ public class Controller {
         }
 
         System.out.println("\n");
-    }
-    public void añadirusuario(Object eetacemon){
-
     }
 }
