@@ -88,4 +88,7 @@ public class Controller {
 
         System.out.println("\n");
     }
+    public void añadirusuario(Object eetacemon){
+
+    }
 }
