@@ -7,7 +7,6 @@ import java.util.*;
 //Clase controlador
 public class Controller {
 
-    //
     private List<Eetakemon> lista;
 
     public Controller(){
@@ -18,8 +17,9 @@ public class Controller {
     public void añadireetakemon(Eetakemon e){
         lista.add(e);//añadir a la lista
     }
+
     //metodo que borra un eetakemon por ID
-    public Boolean borrarEetakemonPorId(int id){
+    /*public Boolean borrarEetakemonPorId(int id){
         int i=0;
         boolean borrado=false;
 
@@ -34,7 +34,7 @@ public class Controller {
         }
 
     return borrado;
-    }
+    }*/
     //metodo que lista los eetakemons
     public void listarTodos(){
         if(lista.isEmpty()){
@@ -56,8 +56,8 @@ public class Controller {
 
         for (Eetakemon ek:lista) {
             if (ek.getNombre().equalsIgnoreCase(nombre)){
-                System.out.println(ek.getId() + " " +
-                        ek.getNombre() + " " + ek.getNivel());
+                System.out.println(ek.getNombre() + " " +
+                        ek.getTipo() + " " + ek.getFoto() + " " + ek.getNivel() + " " + ek.getAtaque());
                 encontrado=true;
             }
         }
@@ -76,8 +76,8 @@ public class Controller {
 
         for (Eetakemon ek:lista) {
             if (ek.getNombre().contains(s)){
-                System.out.println(ek.getId() + " " +
-                        ek.getNombre() + " " + ek.getNivel());
+                System.out.println(ek.getNombre() + " " +
+                        ek.getTipo() + " " + ek.getFoto() + " " + ek.getNivel() + " " + ek.getAtaque());
                 encontrado=true;
             }
         }

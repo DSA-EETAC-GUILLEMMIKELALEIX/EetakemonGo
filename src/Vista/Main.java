@@ -1,6 +1,7 @@
 package Vista;
 import Controlador.Controller;
 import Modelo.Eetakemon;
+import javafx.scene.image.Image;
 
 import java.util.Scanner;
 /**
@@ -21,6 +22,10 @@ public class Main {
 
         while(bucle) {
             String nom="";
+            String tipo="";
+            Image foto;
+            String ataque="";
+
             int nivel=0;
 
 
@@ -51,7 +56,7 @@ public class Main {
                         }
                     }
 
-                    Eetakemon eetakemon = new Eetakemon(nom, id, nivel);
+                    Eetakemon eetakemon = new Eetakemon(nom, tipo, foto, nivel, ataque);
                     c.añadireetakemon(eetakemon);
                     id++;
 
@@ -71,13 +76,13 @@ public class Main {
                         }
                     }
 
-                    borrado= c.borrarEetakemonPorId(idTemp);
+                    /*borrado= c.borrarEetakemonPorId(idTemp);
 
                     if (borrado) {
                         System.out.println("Borrado correctamente");
                     } else {
                         System.out.println("Eetakemon no encontrado");
-                    }
+                    }*/
                     break;
                 case "3":
                     //Llamar a la función Listar si pasarle nada y que devuelva la lista de eetacemons
