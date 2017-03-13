@@ -13,7 +13,8 @@ public class Controller {
 
     public Controller(){
 
-        lista = new ArrayList<Eetakemon>();//crear la lista
+        tablaEetakemons = new Hashtable();
+        tablaUsuarios = new Hashtable<>();
     }
     //metodo que añade un eetakemon a la lista
     public void añadireetakemon(Eetakemon e){
