@@ -90,6 +90,12 @@ public class Controller {
         System.out.println("\n");
     }
     public void añadirusuario(Object eetacemon){
+    Usuario añadir = (Usuario) eetacemon;
+    }
+    public boolean registrovalido(String email){
+
+    }
+    public boolean loginvalido(String email, String contrasena){
 
     }
 }
