@@ -43,8 +43,8 @@ public class Controller {
         }else {
             System.out.println("\nLista de Eetakemon:");
             for (Eetakemon ek : lista) {
-                System.out.println(ek.getId() + " " +
-                        ek.getNombre() + " " + ek.getNivel());
+                System.out.println(ek.getNombre() + " " +
+                        ek.getTipo() + " " + ek.getFoto() + " " + ek.getNivel() + " " + ek.getAtaque());
             }
         }
         System.out.println("\n");
