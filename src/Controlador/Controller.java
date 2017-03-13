@@ -55,8 +55,8 @@ public class Controller {
 
         for (Eetakemon ek:lista) {
             if (ek.getNombre().equalsIgnoreCase(nombre)){
-                System.out.println(ek.getId() + " " +
-                        ek.getNombre() + " " + ek.getNivel());
+                System.out.println(ek.getNombre() + " " +
+                        ek.getTipo() + " " + ek.getFoto() + " " + ek.getNivel() + " " + ek.getAtaque());
                 encontrado=true;
             }
         }
@@ -75,8 +75,8 @@ public class Controller {
 
         for (Eetakemon ek:lista) {
             if (ek.getNombre().contains(s)){
-                System.out.println(ek.getId() + " " +
-                        ek.getNombre() + " " + ek.getNivel());
+                System.out.println(ek.getNombre() + " " +
+                        ek.getTipo() + " " + ek.getFoto() + " " + ek.getNivel() + " " + ek.getAtaque());
                 encontrado=true;
             }
         }
