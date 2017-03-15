@@ -1,5 +1,6 @@
-package Test;
-
+/**
+ * Created by Mikel on 15/03/2017.
+ */
 import Controlador.Controlador;
 
 import static org.junit.Assert.*;

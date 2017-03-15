@@ -9,7 +9,7 @@ public class Usuario{
 
     public Usuario (String nombre, String contrasena, String email){
         this.nombre=nombre;
-        this.contrasena=contrasena;
+        this.contrasena=contrasena;//
         this.email=email;
     }
 
