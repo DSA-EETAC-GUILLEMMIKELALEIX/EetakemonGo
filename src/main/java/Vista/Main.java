@@ -1,5 +1,5 @@
 package Vista;
-import Controlador.Controller;
+import Controlador.Controlador;
 import Modelo.Eetakemon;
 import javafx.scene.image.Image;
 
@@ -10,20 +10,19 @@ import java.util.Scanner;
  */
 public class Main {
 
-    static int id=0;
     //Main
     public static void main (String [ ] args) {
         String entradaTeclado = "";
         Scanner scanner = new Scanner (System.in); //Creación de un objeto Scanner
         boolean bucle=true;
-        Controller c = new Controller();
+        Controlador controlador = Controlador.getControlador();
 
         System.out.println ("Empezamoos el programa");
 
         while(bucle) {
             String nom="";
             String tipo="";
-            Image foto;
+            Image foto=null;
             String ataque="";
 
             int nivel=0;
@@ -57,8 +56,7 @@ public class Main {
                     }
 
                     Eetakemon eetakemon = new Eetakemon(nom, tipo, foto, nivel, ataque);
-                    c.añadireetakemon(eetakemon);
-                    id++;
+
 
                     System.out.println("\n");
                     break;

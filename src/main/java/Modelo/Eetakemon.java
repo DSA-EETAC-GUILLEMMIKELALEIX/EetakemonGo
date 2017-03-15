@@ -4,19 +4,24 @@ import javafx.scene.image.Image;
 
 // Clase que define y permite crear objetos Eetakemon
 public class Eetakemon {
+    private int id;
     private String nombre;
     private String tipo;
     private Image foto;
     private int nivel;
     private String ataque;
 
-    public Eetakemon(String name, String tipo, Image foto, int level, String ataque)
+    public Eetakemon(String nombre, String tipo, Image foto, int level, String ataque)
     {
-        this.nombre = name;
+        this.nombre = nombre;
         this.tipo = tipo;
         this.foto = foto;
         this.nivel=level;
         this.ataque=ataque;
+    }
+
+    public int getId() {
+        return id;
     }
 
     //Obtener nombre
@@ -38,6 +43,31 @@ public class Eetakemon {
     //Obtener ataque
     public String getAtaque() {
         return ataque;
+    }
+
+    //definir Id
+    public void setId(int id) {
+        this.id = id;
+    }
+    //definir Nombre
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    //definir Tipo
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+    //definir Foto
+    public void setFoto(Image foto) {
+        this.foto = foto;
+    }
+    //definir Nivel
+    public void setNivel(int nivel) {
+        this.nivel = nivel;
+    }
+    //definir Ataque
+    public void setAtaque(String ataque) {
+        this.ataque = ataque;
     }
 }
 

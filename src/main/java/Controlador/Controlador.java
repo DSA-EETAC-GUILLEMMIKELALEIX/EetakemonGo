@@ -6,46 +6,84 @@ import Modelo.Usuario;
 import java.util.*;
 
 //Clase controlador
-public class Controller {
+public class Controlador {
+
+    public static Controlador c;
 
     private Hashtable<Integer, Eetakemon> tablaEetakemons;
     private Hashtable<Integer, Usuario> tablaUsuarios;
+    private int eetakemonID=0;
+    private int usuarioID=0;
 
-    public Controller(){
 
-        tablaEetakemons = new Hashtable();
-        tablaUsuarios = new Hashtable<>();
-    }
-    //metodo que añade un eetakemon a la lista
-    public void añadireetakemon(Eetakemon e){
-        lista.add(e);//añadir a la lista
-    }
-    //metodo que borra un eetakemon por ID
-    public Boolean borrarEetakemonPorId(int id){
-        int i=0;
-        boolean borrado=false;
+    public static Controlador getControlador(){
 
-        for (Eetakemon ek:lista) {
-            if (ek.getId()==id){
-                lista.remove(i);
-                borrado=true;
-                break;
-            }
-            System.out.println("prueba");
-            i++;
+        if(c == null){
+            c = new Controlador();
         }
 
-    return borrado;
+        return c;
     }
+
+
+    private Controlador(){
+
+        tablaEetakemons = new Hashtable();
+        tablaUsuarios = new Hashtable();
+    }
+    //metodo que añade un eetakemon a la lista
+    public void añadireATabla(Object o){
+
+        if (o.getClass().equals(Eetakemon.class)) {
+            Eetakemon eTemp = (Eetakemon) o;
+            eTemp.setId(eetakemonID);
+            tablaEetakemons.put(eetakemonID, eTemp);
+            eetakemonID++;
+        }
+        else if(o.getClass().equals(Usuario.class)){
+            Usuario uTemp = (Usuario) o;
+            uTemp.setId(usuarioID);
+            tablaUsuarios.put(usuarioID, uTemp);
+            usuarioID++;
+        }
+    }
+
+    //metodo que borra un eetakemon por ID
+    public Boolean borrarEetakemonPorId(int id){
+
+        boolean borrado=false;
+
+        if (tablaEetakemons.remove(id)!= null){
+            borrado=true;
+        }
+
+        return borrado;
+    }
+
+    public Boolean borrarUsuarioPorId(int id){
+
+        boolean borrado=false;
+
+        if (tablaUsuarios.remove(id)!= null){
+            borrado=true;
+        }
+
+        return borrado;
+    }
+
+
     //metodo que lista los eetakemons
     public void listarTodos(){
-        if(lista.isEmpty()){
+        Enumeration<Eetakemon> enumTemp = tablaEetakemons.elements();
+        List<Eetakemon> listaTemp = Collections.list(enumTemp);
+
+        if(listaTemp.isEmpty()){
             System.out.println("\nLa lista está vacía");
         }else {
             System.out.println("\nLista de Eetakemon:");
-            for (Eetakemon ek : lista) {
-                System.out.println(ek.getNombre() + " " +
-                        ek.getTipo() + " " + ek.getFoto() + " " + ek.getNivel() + " " + ek.getAtaque());
+            for (Eetakemon e : listaTemp) {
+                System.out.println(e.getId()+ " "+e.getNombre() + " " +
+                        e.getTipo() + " " + e.getNivel() + " " + e.getAtaque());
             }
         }
         System.out.println("\n");
