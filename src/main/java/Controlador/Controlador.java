@@ -115,8 +115,6 @@ public class Controlador {
         List<Eetakemon> listaTemp = Collections.list(tablaEetakemons.elements());
         List<Eetakemon> resultados = new ArrayList<Eetakemon>();
 
-
-
         for (Eetakemon ek:listaTemp) {
             if (ek.getNombre().contains(s)){
                 resultados.add(ek);
