@@ -20,6 +20,12 @@ public class Eetakemon {
         this.ataque=ataque;
     }
 
+    public Eetakemon(String nombre, int level)
+    {
+        this.nombre = nombre;
+        this.nivel=level;
+    }
+
     public int getId() {
         return id;
     }

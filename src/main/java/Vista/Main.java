@@ -38,8 +38,8 @@ public class Main {
 
             entradaTeclado = scanner.nextLine (); //Invocamos un método sobre un objeto Scanner
 
-            switch (entradaTeclado) {
-                case "1":
+            switch (Integer.parseInt(entradaTeclado)) {
+                case 1:
                     nivel=-1;
 
                     System.out.println("\nEscribe el nombre del eetac-emon que quieras añadir:");
@@ -56,12 +56,12 @@ public class Main {
                     }
 
                     Eetakemon eetakemon = new Eetakemon(nom, tipo, foto, nivel, ataque);
-
+                    controlador.anadirATabla(eetakemon);
 
                     System.out.println("\n");
                     break;
-                case "2":
-                    boolean borrado = true;
+                case 2:
+                    boolean borrado = false;
                     int idTemp=-1;
 
                     while(idTemp==-1) {
@@ -74,31 +74,31 @@ public class Main {
                         }
                     }
 
-                    /*borrado= c.borrarEetakemonPorId(idTemp);
+                    borrado= controlador.borrarEetakemonPorId(idTemp);
 
                     if (borrado) {
                         System.out.println("Borrado correctamente");
                     } else {
                         System.out.println("Eetakemon no encontrado");
-                    }*/
+                    }
                     break;
-                case "3":
+                case 3:
                     //Llamar a la función Listar si pasarle nada y que devuelva la lista de eetacemons
-                    c.listarTodos();
+                    controlador.listarEetakemon();
                     break;
-                case "4":
+                case 4:
                     //Buscar eetakemon
                     System.out.println("\nEscribe el nombre eetac-emon que quieras buscar:");
                     entradaTeclado = scanner.nextLine(); //Invocamos un método sobre un objeto Scanner
-                    c.buscarPorNombre(entradaTeclado);
+                    controlador.buscarPorNombre(entradaTeclado);
                     break;
-                case "5":
+                case 5:
                     //Fragmento a buscar BOLA EXTRA
                     System.out.println("\nEscribe el fragmento a buscar:");
                     entradaTeclado = scanner.nextLine(); //Invocamos un método sobre un objeto Scanner
-                    c.busquedaAvanzada(entradaTeclado);
+                    controlador.busquedaAvanzada(entradaTeclado);
                     break;
-                case "6":
+                case 6:
                     //Para salir
                     System.out.println("\nAdiós");
                     bucle=false;

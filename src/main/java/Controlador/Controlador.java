@@ -16,6 +16,12 @@ public class Controlador {
     private int usuarioID=0;
 
 
+    private Controlador(){
+
+        tablaEetakemons = new Hashtable();
+        tablaUsuarios = new Hashtable();
+    }
+
     public static Controlador getControlador(){
 
         if(c == null){
@@ -25,14 +31,8 @@ public class Controlador {
         return c;
     }
 
-
-    private Controlador(){
-
-        tablaEetakemons = new Hashtable();
-        tablaUsuarios = new Hashtable();
-    }
     //metodo que añade un eetakemon a la lista
-    public void añadireATabla(Object o){
+    public void anadirATabla(Object o){
 
         if (o.getClass().equals(Eetakemon.class)) {
             Eetakemon eTemp = (Eetakemon) o;
@@ -71,70 +71,78 @@ public class Controlador {
         return borrado;
     }
 
-
     //metodo que lista los eetakemons
-    public void listarTodos(){
-        Enumeration<Eetakemon> enumTemp = tablaEetakemons.elements();
-        List<Eetakemon> listaTemp = Collections.list(enumTemp);
+    public void listarEetakemon(){
+        List<Eetakemon> listaTemp = Collections.list(tablaEetakemons.elements());
 
         if(listaTemp.isEmpty()){
             System.out.println("\nLa lista está vacía");
         }else {
             System.out.println("\nLista de Eetakemon:");
-            for (Eetakemon e : listaTemp) {
+            /*for (Eetakemon e : listaTemp) {
                 System.out.println(e.getId()+ " "+e.getNombre() + " " +
                         e.getTipo() + " " + e.getNivel() + " " + e.getAtaque());
+            }*/
+
+            for (Eetakemon e : listaTemp) {
+                System.out.println(e.getId() + e.getNivel());
             }
         }
         System.out.println("\n");
     }
     //metodo que busca eetakemons por nombre
-    public void buscarPorNombre(String nombre){
-        boolean encontrado=false;
+    public boolean buscarPorNombre(String nombre){
+       List<Eetakemon> listaTemp = Collections.list(tablaEetakemons.elements());
 
         System.out.println("\nResultados obtenidos:");
 
-        for (Eetakemon ek:lista) {
+        for (Eetakemon ek:listaTemp) {
             if (ek.getNombre().equalsIgnoreCase(nombre)){
                 System.out.println(ek.getId() + " " +
                         ek.getNombre() + " " + ek.getNivel());
-                encontrado=true;
+
+                return true;
             }
         }
 
-        if(!encontrado){
-            System.out.println("No se ha encontrado ningun resultado");
-        }
-
+        System.out.println("No se ha encontrado ningun elemento con ese nombre");
         System.out.println("\n");
+
+        return false;
     }
     //metodo busquedaAvanzada (BOLA EXTRA)
-    public void busquedaAvanzada(String s){
-        boolean encontrado=false;
+    public boolean busquedaAvanzada(String s){
+        List<Eetakemon> listaTemp = Collections.list(tablaEetakemons.elements());
+        List<Eetakemon> resultados = new ArrayList<Eetakemon>();
 
-        System.out.println("\nResultados obtenidos:");
 
-        for (Eetakemon ek:lista) {
+
+        for (Eetakemon ek:listaTemp) {
             if (ek.getNombre().contains(s)){
-                System.out.println(ek.getId() + " " +
-                        ek.getNombre() + " " + ek.getNivel());
-                encontrado=true;
+                resultados.add(ek);
             }
         }
 
-        if(!encontrado){
-            System.out.println("No se ha encontrado ningun resultado");
+        if (!resultados.isEmpty()){
+            System.out.println("\nResultados obtenidos:");
+
+            for (Eetakemon e: resultados){
+                System.out.println(e.getId() + " " +
+                    e.getNombre() + " " + e.getNivel());
+            }
+
+            return true;
         }
 
+        System.out.println("No se ha encontrado ningun elemento");
         System.out.println("\n");
+        return false;
     }
-    public void añadirusuario(Object eetacemon){
-    Usuario añadir = (Usuario) eetacemon;
-    }
-    public boolean registrovalido(String email){
 
+    public boolean registrovalido(String email){
+        return true;
     }
     public boolean loginvalido(String email, String contrasena){
-
+        return true;
     }
 }
