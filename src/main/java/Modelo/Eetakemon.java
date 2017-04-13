@@ -75,5 +75,10 @@ public class Eetakemon {
     public void setAtaque(String ataque) {
         this.ataque = ataque;
     }
+
+    @Override
+    public String toString() {
+        return "Eetakemon [Nombre=" + nombre + ", tipo=" + tipo + ", foto=" + foto + ", nivel=" + nivel + ", ataque=" + ataque + "]";
+    }
 }
 

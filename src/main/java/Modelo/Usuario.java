@@ -42,4 +42,9 @@ public class Usuario{
     public void setEmail(String email) {
         this.email = email;
     }
+
+    @Override
+    public String toString() {
+        return "Usuario [Id=" + id + ", nombre=" + nombre + ", contrasena=" + contrasena + ", email=" + email + "]";
+    }
 }
