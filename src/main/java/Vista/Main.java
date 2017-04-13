@@ -34,7 +34,8 @@ public class Main {
                     "3-Listar eetac-emon\n" +
                     "4-Buscar por nombre\n"+
                     "5-Busqueda avanzada\n"+
-                    "6-Salir");
+                    "6-Añadir usuario\n"+
+                    "7-Salir");
 
             entradaTeclado = scanner.nextLine (); //Invocamos un método sobre un objeto Scanner
 
@@ -99,6 +100,8 @@ public class Main {
                     controlador.busquedaAvanzada(entradaTeclado);
                     break;
                 case 6:
+
+                case 7:
                     //Para salir
                     System.out.println("\nAdiós");
                     bucle=false;
