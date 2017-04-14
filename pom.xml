@@ -62,7 +62,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>edu.upc.dsa.Main</mainClass>
+                    <mainClass>java.Vista.Main</mainClass>
                 </configuration>
             </plugin>
         </plugins>
