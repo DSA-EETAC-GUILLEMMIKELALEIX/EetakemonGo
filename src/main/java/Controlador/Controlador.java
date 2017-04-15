@@ -5,6 +5,12 @@ import Modelo.Usuario;
 
 import java.util.*;
 
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import java.util.ArrayList;
+import java.util.List;
+
 //Clase controlador
 public class Controlador {
 
