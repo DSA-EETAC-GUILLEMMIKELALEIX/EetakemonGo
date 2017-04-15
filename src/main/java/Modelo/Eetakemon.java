@@ -7,15 +7,17 @@ public class Eetakemon {
     private int id;
     private String nombre;
     private String tipo;
-    private Image foto;
+    //private Image foto;
     private int nivel;
     private String ataque;
 
-    public Eetakemon(String nombre, String tipo, Image foto, int level, String ataque)
+    public Eetakemon(){}
+
+    public Eetakemon(String nombre, String tipo, /*Image foto,*/ int level, String ataque)
     {
         this.nombre = nombre;
         this.tipo = tipo;
-        this.foto = foto;
+        //this.foto = foto;
         this.nivel=level;
         this.ataque=ataque;
     }
@@ -24,6 +26,8 @@ public class Eetakemon {
     {
         this.nombre = nombre;
         this.nivel=level;
+        this.tipo="tipo";
+        this.ataque="ataque";
     }
 
     public int getId() {
@@ -39,9 +43,11 @@ public class Eetakemon {
         return tipo;
     }
     //Obtener foto
-    public Image getFoto() {
+
+   /* public Image getFoto() {
         return foto;
-    }
+    }*/
+
     //Obtener Nivel
     public int getNivel() {
         return nivel;
@@ -64,9 +70,11 @@ public class Eetakemon {
         this.tipo = tipo;
     }
     //definir Foto
-    public void setFoto(Image foto) {
+
+  /*  public void setFoto(Image foto) {
         this.foto = foto;
-    }
+    }*/
+
     //definir Nivel
     public void setNivel(int nivel) {
         this.nivel = nivel;
@@ -78,7 +86,7 @@ public class Eetakemon {
 
     @Override
     public String toString() {
-        return "Eetakemon [Nombre=" + nombre + ", tipo=" + tipo + ", foto=" + foto + ", nivel=" + nivel + ", ataque=" + ataque + "]";
+        return "Eetakemon [nombre=" + nombre + ", tipo=" + tipo + /*", foto=" + foto +*/ ", nivel=" + nivel + ", ataque=" + ataque + "]";
     }
 }
 
