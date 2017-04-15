@@ -1,8 +1,5 @@
 package Modelo;
 
-/**
- * Created by Mikel on 15/04/2017.
- */
 public class Track {
     String title;
     String singer;

@@ -15,9 +15,6 @@ import java.util.List;
 
 
 
-/**
- * Created by Aleix on 13/04/2017.
- */
 @Path("/json")
 public class JSONservice {
 
@@ -42,9 +39,19 @@ public class JSONservice {
     @GET
     @Path("/get")
     @Produces(MediaType.APPLICATION_JSON)
-    public Eetakemon getTrackInJSON() {
+    public Eetakemon getEetakemon() {
 
         Eetakemon track = new Eetakemon("luis", 3);
+        return track;
+
+    }
+
+    @GET
+    @Path("/get")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Eetakemon getEetakemon2() {
+
+        Eetakemon track = new Eetakemon("juan", 8);
         return track;
 
     }
