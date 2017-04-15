@@ -15,9 +15,6 @@ import java.util.List;
 
 
 
-/**
- * Created by Aleix on 13/04/2017.
- */
 @Path("/json")
 public class JSONservice {
 
