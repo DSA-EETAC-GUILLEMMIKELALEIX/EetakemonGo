@@ -36,6 +36,19 @@ public class JSONservice {
         return e;
     }
 
+
+    @POST
+    @Path("/newEetakemon")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response newUsuario(Eetakemon eetakemon) {
+        c.anadirATabla(eetakemon);
+        return Response.status(201).entity("Eetakemon añadido: ").build();
+    }
+
+
+
+
+
     @GET
     @Path("/get")
     @Produces(MediaType.APPLICATION_JSON)
@@ -56,11 +69,5 @@ public class JSONservice {
 
     }
 
-    @POST
-    @Path("/newEetakemon")
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response newUsuario(Eetakemon eetakemon) {
-        c.anadirATabla(eetakemon);
-        return Response.status(201).entity("Eetakemon añadido: ").build();
-    }
+
 }
