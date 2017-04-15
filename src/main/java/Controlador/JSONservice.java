@@ -59,7 +59,7 @@ public class JSONservice {
     @POST
     @Path("/newEetakemon")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response newUsuario(Eetakemon eetakemon) {
+    public Response newEetakemon(Eetakemon eetakemon) {
         c.anadirATabla(eetakemon);
         return Response.status(201).entity("Eetakemon añadido: ").build();
     }
