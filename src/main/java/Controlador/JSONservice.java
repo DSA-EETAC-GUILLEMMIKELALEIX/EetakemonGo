@@ -2,12 +2,14 @@ package Controlador;
 
 import Modelo.Eetakemon;
 import Modelo.Usuario;
+import Modelo.Track;
 import jdk.nashorn.internal.objects.annotations.Getter;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.awt.*;
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,19 +21,39 @@ import java.util.List;
 @Path("/json")
 public class JSONservice {
 
-    protected List<Usuario> usuarios;
-    protected List<Eetakemon> eetakemons;
+    protected Controlador c;
 
     public JSONservice() {
-        usuarios = new ArrayList<Usuario>();
-        eetakemons = new ArrayList<Eetakemon>();
+        c = Controlador.getControlador();
+        c.anadirATabla(new Eetakemon("Aleix",1));
+        c.anadirATabla(new Eetakemon("Guillem",2));
+        c.anadirATabla(new Eetakemon("MIkel",3));
+    }
+
+    @GET
+    @Path("/got/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Eetakemon getEetakemonId(@PathParam("id") int id) {
+        Eetakemon e = (Eetakemon) c.buscarPorId(id);
+        System.out.println(e.toString());
+        return e;
+    }
+
+    @GET
+    @Path("/get")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Eetakemon getTrackInJSON() {
+
+        Eetakemon track = new Eetakemon("luis", 3);
+        return track;
+
     }
 
     @POST
-    @Path("/new")
+    @Path("/newUser")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response newUsuario(Usuario usuario) {
-        usuarios.add(usuario);
-        return Response.status(201).entity("Track added in position "+usuarios.size()).build();
-    }//hdhfjgh
+        c.anadirATabla(usuario);
+        return Response.status(201).entity("Usuario añadido: ").build();
+    }
 }

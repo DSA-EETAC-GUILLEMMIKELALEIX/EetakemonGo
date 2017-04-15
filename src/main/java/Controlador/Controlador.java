@@ -8,8 +8,8 @@ import java.util.*;
 //Clase controlador
 public class Controlador {
 
+    //variables
     public static Controlador c;
-
     private Hashtable<Integer, Eetakemon> tablaEetakemons;
     private Hashtable<Integer, Usuario> tablaUsuarios;
     private int eetakemonID=0;
@@ -22,6 +22,7 @@ public class Controlador {
         tablaUsuarios = new Hashtable();
     }
 
+    //singleton
     public static Controlador getControlador(){
 
         if(c == null){
@@ -31,7 +32,7 @@ public class Controlador {
         return c;
     }
 
-    //metodo que añade un eetakemon a la lista
+    //metodo que añade un eetakemon a la tabla hash
     public void anadirATabla(Object o){
 
         if (o.getClass().equals(Eetakemon.class)) {
@@ -109,6 +110,18 @@ public class Controlador {
         System.out.println("\n");
 
         return false;
+    }
+
+    public Object buscarPorId(int id){
+        List<Eetakemon> listaTemp = Collections.list(tablaEetakemons.elements());
+
+        for (Eetakemon ek:listaTemp) {
+            if (ek.getId()==id){
+                return ek;
+            }
+        }
+
+        return null;
     }
     //metodo busquedaAvanzada (BOLA EXTRA)
     public boolean busquedaAvanzada(String s){
