@@ -2,17 +2,10 @@ package Controlador;
 
 import Modelo.Eetakemon;
 import Modelo.Usuario;
-import Modelo.Track;
-import jdk.nashorn.internal.objects.annotations.Getter;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.awt.*;
-import java.sql.Connection;
-import java.util.ArrayList;
-import java.util.List;
-
 
 
 @Path("/json")
@@ -24,7 +17,10 @@ public class JSONservice {
         c = Controlador.getControlador();
         c.anadirATabla(new Eetakemon("Aleix",1));
         c.anadirATabla(new Eetakemon("Guillem",2));
-        c.anadirATabla(new Eetakemon("MIkel",3));
+        c.anadirATabla(new Eetakemon("Mikel",3));
+        c.anadirATabla(new Usuario("aleix123","messi1234","aleixdsa@gmail.com"));
+        c.anadirATabla(new Usuario("guillem123","neymar1234","guillemdsa@gmail.com"));
+        c.anadirATabla(new Usuario("Mikel","suarez1234","mikeldsa@gmail.com"));
     }
 
     @GET
