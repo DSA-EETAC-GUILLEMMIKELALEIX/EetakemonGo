@@ -112,12 +112,21 @@ public class Controlador {
         return false;
     }
 
-    public Object buscarPorId(int id){
+    public Object buscarPorIdEetakemon(int id){
         List<Eetakemon> listaTemp = Collections.list(tablaEetakemons.elements());
-
         for (Eetakemon ek:listaTemp) {
             if (ek.getId()==id){
                 return ek;
+            }
+        }
+
+        return null;
+    }
+    public Object buscarPorIdUsuario(int id){
+        List<Usuario> listaTemp = Collections.list(tablaUsuarios.elements());
+        for (Usuario u:listaTemp) {
+            if (u.getId()==id){
+                return u;
             }
         }
 

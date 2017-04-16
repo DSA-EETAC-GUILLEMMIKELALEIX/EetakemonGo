@@ -27,7 +27,7 @@ public class JSONservice {
     @Path("/getEetakemon/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Eetakemon getEetakemonId(@PathParam("id") int id) {
-        Eetakemon e = (Eetakemon) c.buscarPorId(id);
+        Eetakemon e = (Eetakemon) c.buscarPorIdEetakemon(id);
         System.out.println(e.toString());
         return e;
     }
@@ -54,7 +54,7 @@ public class JSONservice {
     @Path("/getUsuario/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Usuario getUsuarioId(@PathParam("id") int id) {
-        Usuario u = (Usuario) c.buscarPorId(id);
+        Usuario u = (Usuario) c.buscarPorIdUsuario(id);
         System.out.println(u.toString());
         return u;
     }
