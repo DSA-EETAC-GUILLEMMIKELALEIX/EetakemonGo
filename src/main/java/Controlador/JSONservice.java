@@ -62,15 +62,6 @@ public class JSONservice {
 
     }
 
-    @GET
-    @Path("/get")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Eetakemon getEetakemon2() {
-
-        Eetakemon track = new Eetakemon("juan", 8);
-        return track;
-
-    }
 
 
 }
