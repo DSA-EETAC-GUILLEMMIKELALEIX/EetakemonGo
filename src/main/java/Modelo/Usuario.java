@@ -7,6 +7,8 @@ public class Usuario{
     private String contrasena;
     private String email;
 
+    public Usuario(){}
+
     public Usuario (String nombre, String contrasena, String email){
         this.nombre=nombre;
         this.contrasena=contrasena;//
