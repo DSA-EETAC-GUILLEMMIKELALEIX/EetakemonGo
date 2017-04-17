@@ -86,7 +86,7 @@ public class Eetakemon {
 
     @Override
     public String toString() {
-        return "Eetakemon [nombre=" + nombre + ", tipo=" + tipo + /*", foto=" + foto +*/ ", nivel=" + nivel + ", ataque=" + ataque + "]";
+        return "Eetakemon [Id = "+id+", nombre=" + nombre + ", tipo=" + tipo + /*", foto=" + foto +*/ ", nivel=" + nivel + ", ataque=" + ataque + "]";
     }
 }
 

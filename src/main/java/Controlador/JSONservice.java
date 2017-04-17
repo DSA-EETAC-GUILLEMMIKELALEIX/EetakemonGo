@@ -59,15 +59,12 @@ public class JSONservice {
         return u;
     }
 
-
-
-    @GET
-    @Path("/get")
+    @DELETE
+    @Path("/delEetakemon/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Eetakemon getEetakemon() {
+    public Response delEetakemon(@PathParam("id") int id) {
 
-        Eetakemon track = new Eetakemon("luis", 3);
-        return track;
-
+        c.borrarEetakemonPorId(id);
+        return Response.status(201).entity("Usuario eliminado").build();
     }
 }
