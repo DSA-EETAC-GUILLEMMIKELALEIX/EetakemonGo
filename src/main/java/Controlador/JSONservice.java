@@ -65,6 +65,15 @@ public class JSONservice {
     public Response delEetakemon(@PathParam("id") int id) {
 
         c.borrarEetakemonPorId(id);
+        return Response.status(201).entity("Eetakemon eliminado").build();
+    }
+
+    @DELETE
+    @Path("/delUser/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response delUsern(@PathParam("id") int id) {
+
+        c.borrarEetakemonPorId(id);
         return Response.status(201).entity("Usuario eliminado").build();
     }
 }
