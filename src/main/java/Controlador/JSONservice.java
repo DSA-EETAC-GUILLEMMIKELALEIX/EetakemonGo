@@ -11,16 +11,10 @@ import javax.ws.rs.core.Response;
 @Path("/json")
 public class JSONservice {
 
-    protected Controlador c;
+    protected Controlador c=Controlador.getControlador();
 
     public JSONservice() {
-        c = Controlador.getControlador();
-        c.anadirATabla(new Eetakemon("Aleix",1));
-        c.anadirATabla(new Eetakemon("Guillem",2));
-        c.anadirATabla(new Eetakemon("Mikel",3));
-        c.anadirATabla(new Usuario("aleix123","messi1234","aleixdsa@gmail.com"));
-        c.anadirATabla(new Usuario("guillem123","neymar1234","guillemdsa@gmail.com"));
-        c.anadirATabla(new Usuario("Mikel","suarez1234","mikeldsa@gmail.com"));
+
     }
 
     @GET

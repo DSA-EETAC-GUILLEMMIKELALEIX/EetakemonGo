@@ -1,6 +1,7 @@
 package Vista;
 import Controlador.Controlador;
 import Modelo.Eetakemon;
+import Modelo.Usuario;
 import javafx.scene.image.Image;
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.grizzly.http.server.StaticHttpHandler;
@@ -39,6 +40,15 @@ public class Main {
      * @throws IOException
      */
     public static void main(String[] args) throws IOException {
+        Controlador c;
+        c = Controlador.getControlador();
+        c.anadirATabla(new Eetakemon("Aleix",1));
+        c.anadirATabla(new Eetakemon("Guillem",2));
+        c.anadirATabla(new Eetakemon("Mikel",3));
+        c.anadirATabla(new Usuario("aleix123","messi1234","aleixdsa@gmail.com"));
+        c.anadirATabla(new Usuario("guillem123","neymar1234","guillemdsa@gmail.com"));
+        c.anadirATabla(new Usuario("Mikel","suarez1234","mikeldsa@gmail.com"));
+
         final HttpServer server = startServer();
 
         StaticHttpHandler staticHttpHandler = new StaticHttpHandler("./public/");
