@@ -73,7 +73,7 @@ public class JSONservice {
     @Produces(MediaType.APPLICATION_JSON)
     public Response delUsern(@PathParam("id") int id) {
 
-        c.borrarEetakemonPorId(id);
+        c.borrarUsuarioPorId(id);
         return Response.status(201).entity("Usuario eliminado").build();
     }
 }
