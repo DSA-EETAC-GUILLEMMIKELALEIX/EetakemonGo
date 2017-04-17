@@ -3,18 +3,25 @@ package Controlador;
 import Modelo.Eetakemon;
 import Modelo.Usuario;
 
+import javax.inject.Singleton;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 
 @Path("/json")
+@Singleton
 public class JSONservice {
 
-    protected Controlador c=Controlador.getControlador();
-
+    protected Controlador c;
     public JSONservice() {
-
+        c = Controlador.getControlador();
+        c.anadirATabla(new Eetakemon("Aleix",1));
+        c.anadirATabla(new Eetakemon("Guillem",2));
+        c.anadirATabla(new Eetakemon("Mikel",3));
+        c.anadirATabla(new Usuario("aleix123","messi1234","aleixdsa@gmail.com"));
+        c.anadirATabla(new Usuario("guillem123","neymar1234","guillemdsa@gmail.com"));
+        c.anadirATabla(new Usuario("Mikel","suarez1234","mikeldsa@gmail.com"));
     }
 
     @GET
@@ -59,15 +66,15 @@ public class JSONservice {
     public Response delEetakemon(@PathParam("id") int id) {
 
         c.borrarEetakemonPorId(id);
-        return Response.status(201).entity("Eetakemon eliminado").build();
+        return Response.status(204).entity("Eetakemon eliminado").build();
     }
 
     @DELETE
     @Path("/delUser/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response delUsern(@PathParam("id") int id) {
+    public Response delUser(@PathParam("id") int id) {
 
         c.borrarUsuarioPorId(id);
-        return Response.status(201).entity("Usuario eliminado").build();
+        return Response.status(204).entity("Usuario eliminado").build();
     }
 }

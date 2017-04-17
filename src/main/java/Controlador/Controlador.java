@@ -9,7 +9,7 @@ import java.util.*;
 public class Controlador {
 
     //variables
-    public static Controlador c;
+    private static Controlador c;
     private Hashtable<Integer, Eetakemon> tablaEetakemons;
     private Hashtable<Integer, Usuario> tablaUsuarios;
     private int eetakemonID=0;
