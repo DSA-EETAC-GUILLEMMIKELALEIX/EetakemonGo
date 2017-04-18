@@ -39,7 +39,7 @@ public class Test {
 
     @org.junit.Test
     public void update(){
-        Usuario u = new Usuario("Guillem","guillem1234", "pepe@gmail.com");
+        Usuario u = new Usuario("Guillem","guillem1234", "guillem@gmail.com");
         u.setNombre("Jose");
         u.setId(0);
         u.update();

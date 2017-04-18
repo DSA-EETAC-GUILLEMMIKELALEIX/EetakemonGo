@@ -13,68 +13,67 @@ import javax.ws.rs.core.Response;
 @Singleton
 public class JSONservice {
 
-    protected Controlador c;
+
     public JSONservice() {
-        c = Controlador.getControlador();
-        c.anadirATabla(new Eetakemon("Aleix",1));
-        c.anadirATabla(new Eetakemon("Guillem",2));
-        c.anadirATabla(new Eetakemon("Mikel",3));
-        c.anadirATabla(new Usuario("aleix123","messi1234","aleixdsa@gmail.com"));
-        c.anadirATabla(new Usuario("guillem123","neymar1234","guillemdsa@gmail.com"));
-        c.anadirATabla(new Usuario("Mikel","suarez1234","mikeldsa@gmail.com"));
     }
 
     @GET
-    @Path("/getEetakemon/{id}")
+    @Path("/Eetakemon/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Eetakemon getEetakemonId(@PathParam("id") int id) {
-        Eetakemon e = (Eetakemon) c.buscarPorIdEetakemon(id);
+        Eetakemon e = new Eetakemon();
+        e.select(id);
         System.out.println(e.toString());
         return e;
     }
 
 
     @POST
-    @Path("/newEetakemon")
+    @Path("/Eetakemon")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response newEetakemon(Eetakemon eetakemon) {
-        c.anadirATabla(eetakemon);
+        eetakemon.setId(0);
+       eetakemon.insert();
         return Response.status(201).entity("Eetakemon añadido: ").build();
     }
 
     @POST
-    @Path("/newUsuario")
+    @Path("/User")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response newUsuario(Usuario usuario) {
-        c.anadirATabla(usuario);
+        usuario.setId(0);
+        usuario.insert();
         return Response.status(201).entity("Usuario añadido: ").build();
     }
 
 
     @GET
-    @Path("/getUsuario/{id}")
+    @Path("/User/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Usuario getUsuarioId(@PathParam("id") int id) {
-        Usuario u = (Usuario) c.buscarPorIdUsuario(id);
+       Usuario u = new Usuario();
+       u.select(id);
         System.out.println(u.toString());
         return u;
     }
 
     @DELETE
-    @Path("/delEetakemon/{id}")
+    @Path("/Eetakemon/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response delEetakemon(@PathParam("id") int id) {
-
-        c.borrarEetakemonPorId(id);
+        Eetakemon e = new Eetakemon();
+        e.setId(id);
+        e.delete();
         return Response.status(204).entity("Eetakemon eliminado").build();
     }
 
     @DELETE
-    @Path("/delUser/{id}")
+    @Path("/User/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response delUser(@PathParam("id") int id) {
-
-        c.borrarUsuarioPorId(id);
+        Usuario u = new Usuario();
+        u.setId(id);
+        u.delete();
         return Response.status(204).entity("Usuario eliminado").build();
     }
 }
