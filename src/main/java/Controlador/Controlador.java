@@ -5,11 +5,17 @@ import Modelo.Usuario;
 
 import java.util.*;
 
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import java.util.ArrayList;
+import java.util.List;
+
 //Clase controlador
 public class Controlador {
 
     //variables
-    public static Controlador c;
+    private static Controlador c;
     private Hashtable<Integer, Eetakemon> tablaEetakemons;
     private Hashtable<Integer, Usuario> tablaUsuarios;
     private int eetakemonID=0;

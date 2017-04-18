@@ -1,6 +1,7 @@
 package Vista;
 import Controlador.Controlador;
 import Modelo.Eetakemon;
+import Modelo.Usuario;
 import javafx.scene.image.Image;
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.grizzly.http.server.StaticHttpHandler;

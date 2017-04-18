@@ -48,6 +48,6 @@ public class Usuario extends DAO{
 
     @Override
     public String toString() {
-        return "Usuario [Id ="+id+"Nombre=" + nombre + ", contrasena=" + contrasena + ", email=" + email + "]";
+        return "Usuario [Id ="+id+", Nombre=" + nombre + ", contrasena=" + contrasena + ", email=" + email + "]";
     }
 }
