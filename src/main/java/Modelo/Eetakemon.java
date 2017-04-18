@@ -1,9 +1,8 @@
 package Modelo;
-
-import javafx.scene.image.Image;
+import Controlador.DAO;
 
 // Clase que define y permite crear objetos Eetakemon
-public class Eetakemon {
+public class Eetakemon extends DAO{
     private int id;
     private String nombre;
     private String tipo;

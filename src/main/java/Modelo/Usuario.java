@@ -1,6 +1,7 @@
 package Modelo;
+import Controlador.DAO;
 
-public class Usuario{
+public class Usuario extends DAO{
 
     private int id;
     private String nombre;
