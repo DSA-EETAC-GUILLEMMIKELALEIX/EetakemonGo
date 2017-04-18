@@ -42,7 +42,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         final HttpServer server = startServer();
 
-        StaticHttpHandler staticHttpHandler = new StaticHttpHandler("./public/");
+        StaticHttpHandler staticHttpHandler = new StaticHttpHandler("./WEB/");
         server.getServerConfiguration().addHttpHandler(staticHttpHandler, "/");
 
 
