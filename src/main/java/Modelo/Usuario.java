@@ -7,6 +7,8 @@ public class Usuario{
     private String contrasena;
     private String email;
 
+    public Usuario(){}
+
     public Usuario (String nombre, String contrasena, String email){
         this.nombre=nombre;
         this.contrasena=contrasena;//
@@ -45,6 +47,6 @@ public class Usuario{
 
     @Override
     public String toString() {
-        return "Usuario [Id=" + id + ", nombre=" + nombre + ", contrasena=" + contrasena + ", email=" + email + "]";
+        return "Usuario [Id ="+id+", Nombre=" + nombre + ", contrasena=" + contrasena + ", email=" + email + "]";
     }
 }

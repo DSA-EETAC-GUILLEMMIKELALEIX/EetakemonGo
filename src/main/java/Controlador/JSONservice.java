@@ -2,58 +2,79 @@ package Controlador;
 
 import Modelo.Eetakemon;
 import Modelo.Usuario;
-import Modelo.Track;
-import jdk.nashorn.internal.objects.annotations.Getter;
 
+import javax.inject.Singleton;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.awt.*;
-import java.sql.Connection;
-import java.util.ArrayList;
-import java.util.List;
 
 
-
-/**
- * Created by Aleix on 13/04/2017.
- */
 @Path("/json")
+@Singleton
 public class JSONservice {
 
     protected Controlador c;
-
     public JSONservice() {
         c = Controlador.getControlador();
         c.anadirATabla(new Eetakemon("Aleix",1));
         c.anadirATabla(new Eetakemon("Guillem",2));
-        c.anadirATabla(new Eetakemon("MIkel",3));
+        c.anadirATabla(new Eetakemon("Mikel",3));
+        c.anadirATabla(new Usuario("aleix123","messi1234","aleixdsa@gmail.com"));
+        c.anadirATabla(new Usuario("guillem123","neymar1234","guillemdsa@gmail.com"));
+        c.anadirATabla(new Usuario("Mikel","suarez1234","mikeldsa@gmail.com"));
     }
 
     @GET
-    @Path("/got/{id}")
+    @Path("/getEetakemon/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Eetakemon getEetakemonId(@PathParam("id") int id) {
-        Eetakemon e = (Eetakemon) c.buscarPorId(id);
+        Eetakemon e = (Eetakemon) c.buscarPorIdEetakemon(id);
         System.out.println(e.toString());
         return e;
     }
 
-    @GET
-    @Path("/get")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Eetakemon getTrackInJSON() {
-
-        Eetakemon track = new Eetakemon("luis", 3);
-        return track;
-
-    }
 
     @POST
     @Path("/newEetakemon")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response newUsuario(Eetakemon eetakemon) {
+    public Response newEetakemon(Eetakemon eetakemon) {
         c.anadirATabla(eetakemon);
         return Response.status(201).entity("Eetakemon añadido: ").build();
+    }
+
+    @POST
+    @Path("/newUsuario")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response newUsuario(Usuario usuario) {
+        c.anadirATabla(usuario);
+        return Response.status(201).entity("Usuario añadido: ").build();
+    }
+
+
+    @GET
+    @Path("/getUsuario/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Usuario getUsuarioId(@PathParam("id") int id) {
+        Usuario u = (Usuario) c.buscarPorIdUsuario(id);
+        System.out.println(u.toString());
+        return u;
+    }
+
+    @DELETE
+    @Path("/delEetakemon/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response delEetakemon(@PathParam("id") int id) {
+
+        c.borrarEetakemonPorId(id);
+        return Response.status(204).entity("Eetakemon eliminado").build();
+    }
+
+    @DELETE
+    @Path("/delUser/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response delUser(@PathParam("id") int id) {
+
+        c.borrarUsuarioPorId(id);
+        return Response.status(204).entity("Usuario eliminado").build();
     }
 }

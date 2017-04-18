@@ -1,6 +1,7 @@
 package Vista;
 import Controlador.Controlador;
 import Modelo.Eetakemon;
+import Modelo.Usuario;
 import javafx.scene.image.Image;
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.grizzly.http.server.StaticHttpHandler;
@@ -11,7 +12,7 @@ import java.io.IOException;
 import java.net.URI;
 import java.util.Scanner;
 /**
- * Codigo creado por Mikel, Guillem, Aleix y Jose Antonio. Se ha escrito el codigo en local y se ha subido
+ * Codigo creado por Mikel, Guillem, Aleix. Se ha escrito el codigo en local y se ha subido
  * directamente al repositorio github de Mikel.
  */
 public class Main {
