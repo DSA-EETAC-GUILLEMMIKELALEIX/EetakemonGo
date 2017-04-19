@@ -48,7 +48,7 @@
                     }
                 })
             });
-            $("#btn2").click(function (){   //el get eetac-emon s'ha de fer amb la mateixa funcio canviant botó i url
+            /*("#btn2").click(function (){   //el get eetac-emon s'ha de fer amb la mateixa funcio canviant botó i url
                 var id= $("#id").val();
 
                 console.log(id);
@@ -59,7 +59,24 @@
                         console.log(responseJSON)
                     }
                 })
+            });*/
+            $("#btn2").click(function() {
+                var id= $("#id").val();
+                console.log(id);
+                $.get("http://localhost:8081/myapp/json/User/"+id),
+                    function(responseJSON) {
+                    console.log(responseJSON);
+                }
             });
+            $("#btn4").click(function() {
+                var id= $("#id").val();
+                console.log(id);
+                $.get("http://localhost:8081/myapp/json/Eetakemon/"+id),
+                    function(responseJSON) {
+                        console.log(responseJSON);
+                    }
+            });
+
         });
     </script>
     <style>
