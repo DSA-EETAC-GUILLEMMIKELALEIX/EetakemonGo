@@ -55,7 +55,7 @@ public class JSONservice {
     @Produces(MediaType.APPLICATION_JSON)
     public Usuario getUsuarioId(@PathParam("id") int id) {
        Usuario u = new Usuario();
-       u.select(id);
+       u.select(id); //poner select(id) o setId(id)
         System.out.println(u.toString());
         return u;
     }
