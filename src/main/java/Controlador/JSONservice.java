@@ -44,6 +44,8 @@ public class JSONservice {
     public Response newUsuario(Usuario usuario) {
         usuario.setId(0);
         usuario.insert();
+        Usuario u = new Usuario();
+        System.out.println(u.getContrasena());
         return Response.status(201).entity("Usuario añadido: ").build();
     }
 
