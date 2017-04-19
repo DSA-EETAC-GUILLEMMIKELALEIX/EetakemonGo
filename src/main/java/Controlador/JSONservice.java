@@ -33,8 +33,7 @@ public class JSONservice {
     @Path("/Eetakemon")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response newEetakemon(Eetakemon eetakemon) {
-        eetakemon.setId(0);
-       eetakemon.insert();
+       eetakemon.crear();
         return Response.status(201).entity("Eetakemon añadido: ").build();
     }
 
@@ -42,8 +41,7 @@ public class JSONservice {
     @Path("/User")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response newUsuario(Usuario usuario) {
-        usuario.setId(0);
-        usuario.insert();
+        usuario.crear();
         Usuario u = new Usuario();
         System.out.println(u.getContrasena());
         return Response.status(201).entity("Usuario añadido: ").build();
@@ -65,7 +63,7 @@ public class JSONservice {
     @Produces(MediaType.APPLICATION_JSON)
     public Response delEetakemon(@PathParam("id") int id) {
         Eetakemon e = new Eetakemon();
-        e.setId(id);
+        e.buscarPorId(id);
         e.delete();
         return Response.status(204).entity("Eetakemon eliminado").build();
     }
@@ -75,7 +73,7 @@ public class JSONservice {
     @Produces(MediaType.APPLICATION_JSON)
     public Response delUser(@PathParam("id") int id) {
         Usuario u = new Usuario();
-        u.setId(id);
+        u.buscarPorId(id);
         u.delete();
         return Response.status(204).entity("Usuario eliminado").build();
     }
