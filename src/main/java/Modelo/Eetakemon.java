@@ -1,8 +1,8 @@
 package Modelo;
-import Controlador.DAO;
+import Controlador.EetakemonDAO;
 
 // Clase que define y permite crear objetos Eetakemon
-public class Eetakemon extends DAO{
+public class Eetakemon extends EetakemonDAO{
     private int id;
     private String nombre;
     private String tipo;

@@ -16,30 +16,33 @@ public class Test {
 
     @org.junit.Test
     public void insert(){
-        Usuario u = new Usuario("Guillem", "guillem1234", "guillem@gmail.com");
-        u.setId(0);
-        u.insert();
+        Usuario u = new Usuario("aasdf", "guillem1234", "guillem@gmail.com");
+        u.crear();
     }
 
     @org.junit.Test
     public void update(){
         Usuario u = new Usuario("Guillem","guillem1234", "guillem@gmail.com");
         u.setNombre("Jose");
-        u.setId(0);
-        u.update();
+        u.actualizar();
     }
 
     @org.junit.Test
     public void select(){
         Usuario u = new Usuario("Guillem","Guillem", "pepe@gmail.com");
-        u.select(0);
+        u.buscarPorId(0);
 
     }
 
     @org.junit.Test
     public void delete() {
         Usuario u = new Usuario("Guillem", "guillem1234", "guillem@gmail.com");
-        u.setId(0);
-        u.delete();
+        u.borrar();
+    }
+
+    @org.junit.Test
+    public void pruebaid(){
+        Usuario u = new Usuario();
+        u.getLastId();
     }
 }

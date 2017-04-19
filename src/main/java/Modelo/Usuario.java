@@ -1,7 +1,7 @@
 package Modelo;
-import Controlador.DAO;
+import Controlador.UsuarioDAO;
 
-public class Usuario extends DAO{
+public class Usuario extends UsuarioDAO{
 
     private int id;
     private String nombre;
@@ -45,6 +45,8 @@ public class Usuario extends DAO{
     public void setEmail(String email) {
         this.email = email;
     }
+
+
 
     @Override
     public String toString() {

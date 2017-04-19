@@ -6,8 +6,10 @@ import java.sql.*;
 import java.util.List;
 
 public abstract class DAO {
+
+
     //obtener la conexión con la base de datos
-    private Connection getConnection(){
+    protected Connection getConnection(){
         Connection conn=null;
         try
         {
@@ -22,7 +24,7 @@ public abstract class DAO {
     }
 
     //insertar en la base de datos
-    public void insert(){
+    protected void insert(){
         Connection con = getConnection();
         StringBuffer query = new StringBuffer("INSERT INTO ");
         query.append(this.getClass().getSimpleName());
@@ -61,7 +63,7 @@ public abstract class DAO {
     }
 
     //actualizar base de datos
-    public void update(){
+    protected void update(){
         Connection con = getConnection();
         StringBuffer query = new StringBuffer("UPDATE ");
         query .append(this.getClass().getSimpleName());
@@ -90,7 +92,7 @@ public abstract class DAO {
     }
 
     //buscar por id en l abase de datos
-    public  void select(int id){
+    protected  void select(int id){
         Connection con = getConnection();
         StringBuffer query = new StringBuffer("SELECT * FROM ");
         query.append(this.getClass().getSimpleName());
@@ -112,7 +114,7 @@ public abstract class DAO {
     }
 
     //eliminar de la base de datos
-    public void delete(){
+    protected void delete(){
         Connection con = getConnection();
         StringBuffer query = new StringBuffer("DELETE FROM ");
         query.append(this.getClass().getSimpleName());
@@ -184,7 +186,7 @@ public abstract class DAO {
     }
 
     //obtiene el nombre del método set de un atributo
-    private String getSetterName(String fieldName) {
+    protected String getSetterName(String fieldName) {
         StringBuilder setterName = new StringBuilder("set");
         setterName.append(capitalizeWord(fieldName));
         System.out.println(setterName);
@@ -192,7 +194,7 @@ public abstract class DAO {
     }
 
     //obtiene el nombre del método get
-    private String getGetterName(String fieldName) {
+    protected String getGetterName(String fieldName) {
         StringBuilder getterName = new StringBuilder("get");
         getterName.append(capitalizeWord(fieldName));
         System.out.println(getterName);
