@@ -21,6 +21,7 @@ public class JSONservice {
     @Path("/Eetakemon/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Eetakemon getEetakemonId(@PathParam("id") int id) {
+        System.out.println(id);
         Eetakemon e = new Eetakemon();
         e.select(id);
         System.out.println(e.toString());

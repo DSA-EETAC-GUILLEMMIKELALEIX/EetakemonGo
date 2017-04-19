@@ -20,7 +20,7 @@
                 console.log(o);
                 $.ajax({
                     type:"POST",
-                    url:"myapp/json/User",
+                    url:ctxPath + "json/User",
                     contentType: "application/json",
                     dataType:"json",
                     data: JSON.stringify(o),
@@ -39,7 +39,7 @@
                 console.log(o);
                 $.ajax({
                     type:"POST",
-                    url:"myapp/json/Eetakemon",
+                    url: ctxPath + "json/Eetakemon",
                     contentType: "application/json",
                     dataType:"json",
                     data: JSON.stringify(o),
@@ -48,20 +48,13 @@
                     }
                 })
             });
-            $("#btn2").click(function (){
-                /*var name= $("#name").val();
-                var password= $("#password").val();
-                var email= $("#email").val();*/
+            $("#btn2").click(function (){   //el get eetac-emon s'ha de fer amb la mateixa funcio canviant botó i url
                 var id= $("#id").val();
 
-                var o = {"nombre":name, "contresena":password,"email":email};
                 console.log(id);
                 $.ajax({
                     type:"GET",
-                    url:"myapp/json/User",
-                    contentType: "application/json",
-                    dataType:"json",
-                    data: id,
+                    url:ctxPath+"json/User/"+ id,
                     success: function(responseJSON) {
                         console.log(responseJSON)
                     }

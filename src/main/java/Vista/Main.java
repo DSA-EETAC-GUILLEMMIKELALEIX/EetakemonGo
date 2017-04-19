@@ -1,5 +1,5 @@
 package Vista;
-import Controlador.Controlador;
+
 import Modelo.Eetakemon;
 import Modelo.Usuario;
 import javafx.scene.image.Image;
