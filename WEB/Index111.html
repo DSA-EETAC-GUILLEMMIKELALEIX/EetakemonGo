@@ -29,11 +29,48 @@
                     }
                 })
             });
+            $("#btn3").click(function (){
+                var name= $("#Eetacname").val();
+                var tipo= $("#Eetactipo").val();
+                var nivel= $("#Eetacnivel").val();
+                var ataque=$("#Eetacataque").val();
+
+                var o = {"nombre":name, "tipo":tipo,"nivel":nivel, "ataque":ataque};
+                console.log(o);
+                $.ajax({
+                    type:"POST",
+                    url: ctxPath + "json/Eetakemon",
+                    contentType: "application/json",
+                    dataType:"json",
+                    data: JSON.stringify(o),
+                    success: function(responseJSON) {
+                        console.log(responseJSON)
+                    }
+                })
+            });
+
+            $("#btn2").click(function() {
+                var id= $("#id").val();
+                console.log(id);
+                $.get("http://localhost:8081/myapp/json/User/"+id),
+                    function(responseJSON) {
+                    console.log(responseJSON);
+                }
+            });
+            $("#btn4").click(function() {
+                var id= $("#id").val();
+                console.log(id);
+                $.get("http://localhost:8081/myapp/json/Eetakemon/"+id),
+                    function(responseJSON) {
+                        console.log(responseJSON);
+                    }
+            });
+
         });
     </script>
     <style>
         body {
-            background-image: url("../../../EetakemonConsola/WEB/images/fondo.jpeg");
+            background-image: url("./images/fondo.jpeg");
             width: 100% ;
             height: 100% ;
             margin: 0 ;
@@ -49,7 +86,6 @@
         h1{
             text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
             text-align: center;
-            padding: 20px 0;
         }
         h2 {
             text-align: right;
@@ -81,7 +117,7 @@
 <body>
 <div class="container">
     <h2>
-        <img src="../../../EetakemonConsola/WEB/images/fondo1.png" style="width:156px;height:160px;position: absolute">
+        <img src="./images/fondo1.png" style="width:156px;height:160px;position: absolute">
     </h2>
 </div>
 <div class = "container" style=" position: absolute;right:35px; bottom:0">
@@ -93,9 +129,18 @@
     Nombre: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="name" ><br><br>
     Contraseña: <input type="text" id="password"><br><br>
     E-mail: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="email" ><br><br>
-    <button type="button" id="btn1" class="btn btn-success btn-lg">Registrarse!</button><br>
-    <p id="res"></p>
+    <button type="button" id="btn1" class="btn btn-success btn-lg">Registrarse!</button>
+    <button type="button" id="btn2" class="btn btn-success btn-lg">Visualizar Usuario!</button>
+    <button type="button" id="btn3" class="btn btn-success btn-lg">Añadir Eetac-emon!</button>
+    <button type="button" id="btn4" class="btn btn-success btn-lg">Visualizar Eetac-emon!</button>
+    ID: <input type="text" id="id" > <br><br>
+
+    Nombre: <input type="text" id="Eetacname" ><br>
+    Tipo: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="Eetactipo"><br>
+    Nivel:&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="Eetacnivel" ><br>
+    Ataque: &nbsp;&nbsp;<input type="text" id="Eetacataque" ><br>
+
 </h1>
-<h4><a href="#" class="fa fa-facebook"></a></h4>
+
 </body>
 </html>

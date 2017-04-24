@@ -2,21 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Registrarse</title>
+    <title>EETAC-EMON</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+    <script src="jquery-3.2.0.min.js"></script>
+    <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.cookie/1.3.1/jquery.cookie.js"></script>
     <script>
         var ctxPath = "http://localhost:8081/myapp/";
         $(document).ready(function(){
             $("#btn1").click(function (){
                 var name= $("#name").val();
                 var password= $("#password").val();
-                var email= $("#email").val();
 
-                var o = {"nombre":name, "contresena":password,"email":email};
+                var o = {"nombre":name, "contresena":password};
                 console.log(o);
                 $.ajax({
                     type:"POST",
@@ -29,55 +30,9 @@
                     }
                 })
             });
-            $("#btn3").click(function (){
-                var name= $("#Eetacname").val();
-                var tipo= $("#Eetactipo").val();
-                var nivel= $("#Eetacnivel").val();
-                var ataque=$("#Eetacataque").val();
-
-                var o = {"nombre":name, "tipo":tipo,"nivel":nivel, "ataque":ataque};
-                console.log(o);
-                $.ajax({
-                    type:"POST",
-                    url: ctxPath + "json/Eetakemon",
-                    contentType: "application/json",
-                    dataType:"json",
-                    data: JSON.stringify(o),
-                    success: function(responseJSON) {
-                        console.log(responseJSON)
-                    }
-                })
-            });
-            /*("#btn2").click(function (){   //el get eetac-emon s'ha de fer amb la mateixa funcio canviant botó i url
-                var id= $("#id").val();
-
-                console.log(id);
-                $.ajax({
-                    type:"GET",
-                    url:ctxPath+"json/User/"+ id,
-                    success: function(responseJSON) {
-                        console.log(responseJSON)
-                    }
-                })
-            });*/
-            $("#btn2").click(function() {
-                var id= $("#id").val();
-                console.log(id);
-                $.get("http://localhost:8081/myapp/json/User/"+id),
-                    function(responseJSON) {
-                    console.log(responseJSON);
-                }
-            });
-            $("#btn4").click(function() {
-                var id= $("#id").val();
-                console.log(id);
-                $.get("http://localhost:8081/myapp/json/Eetakemon/"+id),
-                    function(responseJSON) {
-                        console.log(responseJSON);
-                    }
-            });
-
         });
+
+
     </script>
     <style>
         body {
@@ -97,61 +52,46 @@
         h1{
             text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
             text-align: center;
+            padding: 20px 0;
         }
         h2 {
-            text-align: right;
-            padding: 15px;
+            text-align: center;
+            padding: 50px;
         }
         h3{
-            text-align: right;
-            padding: 15px;
+            text-shadow: -1.5px 0 black, 0 1.5px black, 1.5px 0 black, 0 -1.5px black;
         }
         h4{
+            text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
             text-align: center;
-        }
-        .fa {
-            padding: 15px;
-            font-size: 40px;
-            width: 60px;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 15%;
-            opacity: 0.95;
-        }
-        .fa-facebook {
-            background: #3B5998;
-            color: white;
+            padding: 20px 0;
         }
 
     </style>
+
 </head>
 <body>
+
 <div class="container">
     <h2>
-        <img src="./images/fondo1.png" style="width:156px;height:160px;position: absolute">
+        <img src="./images/nom.png" style="width:640px;height:146px">
     </h2>
+    <h1>
+        Nombre: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="name" ><br><br>
+        Contraseña: <input type="password" id="password"><br>
+    </h1>
+    <h2>
+        <img src="./images/Android_logo.png" style="width:120px;height:100px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="MenuPrincipal.html"><button id="btn1" type2="button" class="btn btn-success btn-lg">&nbsp&nbsp;&nbsp;Entrar!&nbsp;&nbsp;&nbsp;</button></a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <a href="Registrarse.html"><button id="btn2" type="button" class="btn btn-success btn-lg">Registrarse!</button></a>
+    </h2>
+    <p><a href="MenuPrincipal.html"></a></p>
 </div>
-<div class = "container" style=" position: absolute;right:35px; bottom:0">
-    <h3>
-        <a href="WEB.html"><button type="button" class="btn btn-success btn-lg">&nbsp;&nbsp;SALIR&nbsp;&nbsp;&nbsp;</button></a>
+<div>
+    <h3 style="position:absolute; width:100%; bottom: 1px; text-align: right; color: white";>
+    Trabajo realizado por: Aleix Cánovas, Mikel Garralaga, Guillem Muñoz y José An. García
     </h3>
 </div>
-<h1>
-    Nombre: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="name" ><br><br>
-    Contraseña: <input type="text" id="password"><br><br>
-    E-mail: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="email" ><br><br>
-    <button type="button" id="btn1" class="btn btn-success btn-lg">Registrarse!</button>
-    <button type="button" id="btn2" class="btn btn-success btn-lg">Visualizar Usuario!</button>
-    <button type="button" id="btn3" class="btn btn-success btn-lg">Añadir Eetac-emon!</button>
-    <button type="button" id="btn4" class="btn btn-success btn-lg">Visualizar Eetac-emon!</button>
-    ID: <input type="text" id="id" > <br><br>
-
-    Nombre: <input type="text" id="Eetacname" ><br>
-    Tipo: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="Eetactipo"><br>
-    Nivel:&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="Eetacnivel" ><br>
-    Ataque: &nbsp;&nbsp;<input type="text" id="Eetacataque" ><br>
-
-</h1>
-
 </body>
 </html>
