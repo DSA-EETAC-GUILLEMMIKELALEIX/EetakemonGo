@@ -7,9 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/**
- * Created by Mikel on 19/04/2017.
- */
+
 public class EetakemonDAO extends DAO {
     private static int lastId=-1;
 
