@@ -17,11 +17,11 @@
                 var name= $("#name").val();
                 var password= $("#password").val();
 
-                var o = {"nombre":name, "contresena":password};
+                var o = {"nombre":name, "contresena":password, "email":null};
                 console.log(o);
                 $.ajax({
                     type:"POST",
-                    url:ctxPath + "json/LogIn",
+                    url:ctxPath + "json/Login",
                     contentType: "application/json",
                     dataType:"json",
                     data: JSON.stringify(o),

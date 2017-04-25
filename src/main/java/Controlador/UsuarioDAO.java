@@ -1,5 +1,7 @@
 package Controlador;
 
+import Modelo.Usuario;
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.sql.Connection;
@@ -65,6 +67,14 @@ public class UsuarioDAO extends DAO{
 
     public void buscarPorId(int id){
         select(id);
+    }
+
+    public String Loguearse(Usuario usuario)
+    {
+        login(usuario.getNombre(),usuario.getContrasena());
+        String a = "Logueado";
+        return a;
+
     }
 
 }
