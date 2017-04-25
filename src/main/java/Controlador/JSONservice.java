@@ -48,7 +48,6 @@ public class JSONservice {
             return Response.status(201).entity("Usuario añadido: ").build();
         }
         else{
-            System.out.println("Aleix gay");
             return Response.status(202).entity("Usuario ya utilizado: ").build();
         }
     }
