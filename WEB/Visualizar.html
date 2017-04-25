@@ -13,13 +13,13 @@
             $("#btn1").click(function () {
                 var id = $("#id").val();
                 console.log(id);
-                $.get("json/User/" + id),
+                $.get(ctxPath + "json/User/" + id),
                     function (responseJSON) {
                         console.log(responseJSON);
                     }
             });
             $("#btn2").click(function () {
-                $.get("json/UserList/"),
+                $.get(ctxPath + "json/UserList/"),
                     function (responseJSON) {
                         console.log(responseJSON);
                     }
@@ -27,13 +27,13 @@
             $("#btn3").click(function () {
                 var id = $("#id").val();
                 console.log(id);
-                $.get("json/Eetakemon/" + id),
+                $.get(ctxPath + "json/Eetakemon/" + id),
                     function (responseJSON) {
                         console.log(responseJSON);
                     }
             });
             $("#btn4").click(function () {
-                $.get("json/EetakemonList/"),
+                $.get(ctxPath + "json/EetakemonList/"),
                     function (responseJSON) {
                         console.log(responseJSON);
                     }

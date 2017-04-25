@@ -47,15 +47,16 @@ public class JSONservice {
         return Response.status(201).entity("Usuario añadido: ").build();
     }
 
-    /*@POST
+    @POST
     @Path("/Login")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response Login(Usuario usuario) {
         String a;
+        System.out.println(usuario);
         a = usuario.Loguearse(usuario);
         System.out.println(usuario + "  " + a);
         return Response.status(201).entity("Usuario identificado: ").build();
-    }*/
+    }
 
     @GET
     @Path("/User/{id}")
