@@ -24,9 +24,16 @@
                     contentType: "application/json",
                     dataType:"json",
                     data: JSON.stringify(o),
-                    success: function(responseJSON) {
+                    /*success: function(responseJSON) {
                         console.log(responseJSON)
-                    }
+                    }*/
+                    StatusCode:{
+                        201: function(){
+                        window.location.href="MenuPrincipal.html";
+                    },
+                        202: function(){
+                            alert("Usuario ya utilizado"); //alerta
+                        }}
                 })
             });
         });
