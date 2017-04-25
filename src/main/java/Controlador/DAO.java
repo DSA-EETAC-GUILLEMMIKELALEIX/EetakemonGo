@@ -265,7 +265,7 @@ public abstract class DAO {
         }
     }
 
-    //buscar por id en la base de datos
+    /*
     protected void login(String nombre, String password) {
         Connection con = getConnection();
         StringBuffer query = new StringBuffer("SELECT * FROM ");
@@ -285,5 +285,5 @@ public abstract class DAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 }
