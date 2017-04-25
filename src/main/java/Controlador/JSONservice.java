@@ -59,7 +59,7 @@ public class JSONservice {
             return Response.status(201).entity("Usuario identificado: ").build();
         }
         else{
-            return Response.status(201).entity("Usuario incorrecto: ").build();
+            return Response.status(202).entity("Usuario incorrecto: ").build();
         }
     }
 
