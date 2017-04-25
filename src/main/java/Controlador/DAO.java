@@ -17,7 +17,7 @@ public abstract class DAO {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Prueba", "root", "mysql");
-            System.out.println("Conexion creada");
+            logger.info("INFO: conexión creada");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -48,17 +48,17 @@ public abstract class DAO {
         query.deleteCharAt(query.length() - 1);
         query.append(");");
 
-        System.out.println(query.toString());
+        logger.info("INFO: Insert query: "+query.toString());
 
         try {
             PreparedStatement ps = con.prepareStatement(query.toString());
             addFieldsToQuery(ps);
-            System.out.println(ps.toString());
+            logger.info("INFO: Insert statement: "+ps.toString());
             ps.executeUpdate();
             ps.close();
             con.close();
         } catch (com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException e) {
-            System.out.println("Ya existe");
+            logger.info("ALERT: Usuario ya existente");
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (NullPointerException e) {
@@ -83,13 +83,13 @@ public abstract class DAO {
         query.append(" WHERE id=");
         query.append(getPrimaryKey());
         query.append(";");
-        System.out.println(query);
+        logger.info("INFO: Update query: "+query.toString());
 
         try {
             PreparedStatement ps = con.prepareStatement(query.toString());
             addFieldsToQuery(ps);
             ps.executeUpdate();
-            System.out.println(ps.toString());
+            logger.info("INFO: Update prepared statement: "+ps.toString());
             ps.close();
             con.close();
         } catch (SQLException e) {
@@ -106,8 +106,11 @@ public abstract class DAO {
         query.append(this.getClass().getSimpleName());
         query.append(" WHERE id=" + id);
 
+        logger.info("INFO: Select query: "+query.toString());
+
         try {
             PreparedStatement ps = con.prepareStatement(query.toString());
+            logger.info("INFO: Select prepared statement: "+ps.toString());;
             ResultSet rs = ps.executeQuery();
             ResultSetMetaData rsmd = rs.getMetaData();
 

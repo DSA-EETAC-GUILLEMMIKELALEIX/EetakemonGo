@@ -1,0 +1,3 @@
+2017-04-25 19:57:50 INFO  DAO:20 - INFO: conexión creada
+2017-04-25 19:57:50 INFO  DAO:20 - INFO: conexión creada
+2017-04-25 19:57:50 INFO  DAO:51 - INFO: Insert query: INSERT INTO Usuario (id,nombre,contrasena,email) VALUES (?,?,?,?);
