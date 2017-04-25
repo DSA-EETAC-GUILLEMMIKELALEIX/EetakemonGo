@@ -13,7 +13,7 @@ public abstract class DAO {
         Connection conn = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Prueba", "root", "mysql");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Proyecto", "root", "mysql");
             System.out.println("Conexion creada");
         } catch (Exception e) {
             e.printStackTrace();
@@ -286,4 +286,26 @@ public abstract class DAO {
             e.printStackTrace();
         }
     }
+    //validar Registro
+    protected void validarRegistro(String nombre) {
+        Connection con = getConnection();
+        StringBuffer query = new StringBuffer("SELECT * FROM ");
+        query.append(this.getClass().getSimpleName());
+        query.append(" WHERE nombre=" + nombre);
+
+        try {
+            PreparedStatement ps = con.prepareStatement(query.toString());
+            ResultSet rs = ps.executeQuery();
+            ResultSetMetaData rsmd = rs.getMetaData();
+
+            while (rs.next()) {
+                setClassFields(rs, rsmd, this);
+            }
+            ps.close();
+            con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
