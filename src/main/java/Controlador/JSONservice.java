@@ -41,8 +41,15 @@ public class JSONservice {
     @Path("/User")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response newUsuario(Usuario usuario) {
-        usuario.crear();
-        return Response.status(201).entity("Usuario añadido: ").build();
+        Boolean a;
+        a=usuario.validarRegistro(usuario.getNombre());
+        if (a){
+            usuario.crear();
+            return Response.status(201).entity("Usuario añadido: ").build();
+        }
+        else{
+            return Response.status(202).entity("Usuario ya utilizado: ").build();
+        }
     }
 
     @POST
