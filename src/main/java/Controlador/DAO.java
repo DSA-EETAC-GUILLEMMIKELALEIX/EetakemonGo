@@ -63,6 +63,7 @@ public abstract class DAO {
         }
     }
 
+
     //actualizar base de datos
     protected void update() {
         Connection con = getConnection();
@@ -307,5 +308,6 @@ public abstract class DAO {
             e.printStackTrace();
         }
     }
+
 
 }
