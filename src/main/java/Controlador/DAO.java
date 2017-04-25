@@ -266,7 +266,8 @@ public abstract class DAO {
         }
     }
 
-    protected void login(String nombre, String password) {
+    protected boolean login(String nombre, String password) {
+        boolean logeado=false;
         Connection con = getConnection();
         StringBuffer query = new StringBuffer("SELECT nombre,contrasena FROM ");
         query.append(this.getClass().getSimpleName());
@@ -279,17 +280,22 @@ public abstract class DAO {
 
             if(!rs.next()){
                 System.out.println("NO LOGEADO");
+                logeado=false;
+
             }else{
                 System.out.println("Logeado");
+                logeado=true;
             }
             ps.close();
             con.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return logeado;
     }
     //validar Registro
-    protected void validarRegistro(String nombre) {
+    protected boolean validarRegistro(String nombre) {
+        boolean puederegistrarse=false;
         Connection con = getConnection();
         StringBuffer query = new StringBuffer("SELECT * FROM ");
         query.append(this.getClass().getSimpleName());
@@ -300,14 +306,20 @@ public abstract class DAO {
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
                 System.out.println("Usuario ya existente, buscate otro nombre pringao");
+                puederegistrarse=false;
+
+
             }else{
                 System.out.println("Muy bien chaval, no hay nadie con ese nombre");
+                puederegistrarse=true;
+
             }
             ps.close();
             con.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return puederegistrarse;
     }
 
 

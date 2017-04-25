@@ -49,13 +49,18 @@ public class JSONservice {
     @Path("/Login")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response Login(Usuario usuario) {
-        String a;
+        Boolean a;
         System.out.println(usuario);
         String n,c;
         n=usuario.getNombre();
         c=usuario.getContrasena();
-        usuario.login(n,c);
-        return Response.status(201).entity("Usuario identificado: ").build();
+        a=usuario.login(n,c);
+        if (a) {
+            return Response.status(201).entity("Usuario identificado: ").build();
+        }
+        else{
+            return Response.status(201).entity("Usuario incorrecto: ").build();
+        }
     }
 
     @POST
