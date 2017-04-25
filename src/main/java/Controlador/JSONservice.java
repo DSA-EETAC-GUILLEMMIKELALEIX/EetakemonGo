@@ -23,7 +23,7 @@ public class JSONservice {
     public Eetakemon getEetakemonId(@PathParam("id") int id) {
         System.out.println(id);
         Eetakemon e = new Eetakemon();
-        e.select(id);
+        e.buscarPorId(id);
         System.out.println(e.toString());
         return e;
     }
@@ -72,7 +72,7 @@ public class JSONservice {
     @Produces(MediaType.APPLICATION_JSON)
     public Usuario getUsuarioId(@PathParam("id") int id) {
        Usuario u = new Usuario();
-       u.select(id); //poner select(id) o setId(id)
+       u.buscarPorId(id); //poner select(id) o setId(id)
         System.out.println(u.toString());
         return u;
     }
@@ -83,7 +83,7 @@ public class JSONservice {
     public Response delEetakemon(@PathParam("id") int id) {
         Eetakemon e = new Eetakemon();
         e.buscarPorId(id);
-        e.delete();
+        e.borrar();
         return Response.status(204).entity("Eetakemon eliminado").build();
     }
 
@@ -93,7 +93,7 @@ public class JSONservice {
     public Response delUser(@PathParam("id") int id) {
         Usuario u = new Usuario();
         u.buscarPorId(id);
-        u.delete();
+        u.borrar();
         return Response.status(204).entity("Usuario eliminado").build();
     }
 }
