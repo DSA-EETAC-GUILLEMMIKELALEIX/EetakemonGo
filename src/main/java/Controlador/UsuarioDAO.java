@@ -87,12 +87,12 @@ public class UsuarioDAO extends DAO{
         select(id);
     }
 
-    public String Loguearse(Usuario usuario)
+    /*public String Loguearse(Usuario usuario)
     {
         login(usuario.getNombre(),usuario.getContrasena());
         String a = "Logueado";
         return a;
 
-    }
+    }*/
 
 }

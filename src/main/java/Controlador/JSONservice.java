@@ -42,8 +42,6 @@ public class JSONservice {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response newUsuario(Usuario usuario) {
         usuario.crear();
-        Usuario u = new Usuario();
-        System.out.println(u.getContrasena());
         return Response.status(201).entity("Usuario añadido: ").build();
     }
 
@@ -53,8 +51,10 @@ public class JSONservice {
     public Response Login(Usuario usuario) {
         String a;
         System.out.println(usuario);
-        a = usuario.Loguearse(usuario);
-        System.out.println(usuario + "  " + a);
+        String n,c;
+        n=usuario.getNombre();
+        c=usuario.getContrasena();
+        usuario.login(n,c);
         return Response.status(201).entity("Usuario identificado: ").build();
     }
 

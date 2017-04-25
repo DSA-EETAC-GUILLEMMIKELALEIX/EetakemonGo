@@ -13,7 +13,7 @@ public abstract class DAO {
         Connection conn = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Proyecto", "root", "mysql");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Prueba", "root", "mysql");
             System.out.println("Conexion creada");
         } catch (Exception e) {
             e.printStackTrace();
@@ -265,20 +265,21 @@ public abstract class DAO {
         }
     }
 
-
     protected void login(String nombre, String password) {
         Connection con = getConnection();
-        StringBuffer query = new StringBuffer("SELECT * FROM ");
+        StringBuffer query = new StringBuffer("SELECT nombre,contrasena FROM ");
         query.append(this.getClass().getSimpleName());
-        query.append(" WHERE nombre=" + nombre + "contrasena=" + password);
+        query.append(" WHERE nombre='" + nombre + "' AND contrasena='" + password+"';");
 
+        System.out.println(query.toString());
         try {
             PreparedStatement ps = con.prepareStatement(query.toString());
             ResultSet rs = ps.executeQuery();
-            ResultSetMetaData rsmd = rs.getMetaData();
 
-            while (rs.next()) {
-                setClassFields(rs, rsmd, this);
+            if(!rs.next()){
+                System.out.println("NO LOGEADO");
+            }else{
+                System.out.println("Logeado");
             }
             ps.close();
             con.close();
@@ -291,15 +292,15 @@ public abstract class DAO {
         Connection con = getConnection();
         StringBuffer query = new StringBuffer("SELECT * FROM ");
         query.append(this.getClass().getSimpleName());
-        query.append(" WHERE nombre=" + nombre);
+        query.append(" WHERE nombre='" + nombre+"';");
 
         try {
             PreparedStatement ps = con.prepareStatement(query.toString());
             ResultSet rs = ps.executeQuery();
-            ResultSetMetaData rsmd = rs.getMetaData();
-
-            while (rs.next()) {
-                setClassFields(rs, rsmd, this);
+            if(rs.next()){
+                System.out.println("Usuario ya existente, buscate otro nombre pringao");
+            }else{
+                System.out.println("Muy bien chaval, no hay nadie con ese nombre");
             }
             ps.close();
             con.close();
