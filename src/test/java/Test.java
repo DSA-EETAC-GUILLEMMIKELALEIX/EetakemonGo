@@ -36,7 +36,8 @@ public class Test {
 
     @org.junit.Test
     public void delete() {
-        Usuario u = new Usuario("Guillem", "guillem1234", "guillem@gmail.com");
+        Usuario u = new Usuario();
+        u.buscarPorId(0);
         u.borrar();
     }
 

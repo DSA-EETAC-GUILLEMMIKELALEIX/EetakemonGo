@@ -9,11 +9,11 @@ import java.sql.SQLException;
 
 
 public class EetakemonDAO extends DAO {
-    private static int lastId=-1;
+    //private static int lastId=-1;
 
 
     public int getLastId(){
-        if (lastId==-1){
+        /*if (lastId==-1){
             Connection con = getConnection();
             StringBuffer query = new StringBuffer("SELECT MAX(id) FROM ");
             query.append(this.getClass().getSimpleName());
@@ -31,13 +31,33 @@ public class EetakemonDAO extends DAO {
             }
             catch (SQLException e) {e.printStackTrace();}
             catch (NullPointerException e){e.printStackTrace();}
+        }*/
+
+        int lastId=-1;
+        Connection con = getConnection();
+        StringBuffer query = new StringBuffer("SELECT MAX(id) FROM ");
+        query.append(this.getClass().getSimpleName());
+        query.append(";");
+        try {
+            PreparedStatement ps = con.prepareStatement(query.toString());
+            System.out.println(ps.toString());
+            ResultSet rs=ps.executeQuery();
+            rs.next();
+            lastId=rs.getInt(1)+1;
+            ps.close();
+            con.close();
+        } catch (com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException e){
+            System.out.println("Error");
         }
+        catch (SQLException e) {e.printStackTrace();}
+        catch (NullPointerException e){e.printStackTrace();}
+
         return lastId;
     }
 
-    private void setLastId(int lastId) {
+    /*private void setLastId(int lastId) {
         EetakemonDAO.lastId = lastId;
-    }
+    }*/
 
     public void crear(){
         Method method;
@@ -52,7 +72,7 @@ public class EetakemonDAO extends DAO {
         catch (IllegalAccessException e){e.printStackTrace();}
 
         insert();
-        setLastId(getLastId()+1);
+        //setLastId(getLastId()+1);
     }
 
     public void actualizar(){
