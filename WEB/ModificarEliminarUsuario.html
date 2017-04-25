@@ -10,6 +10,26 @@
     <script>
         $(document).ready(function() {
             var ctxPath = "http://localhost:8081/myapp/";
+            $("#btn1").click(function () {
+                var id = $("#id").val();
+                var name = $("#name").val();
+                var password = $("#password").val();
+                var email = $("#email").val();
+
+                var o = {"nombre": name, "contresena": password, "email": email};
+                console.log(o);
+                $.ajax({
+                    type: "POST",
+                    url: ctxPath + "json/User/" + id,
+                    contentType: "application/json",
+                    dataType: "json",
+                    data: id + JSON.stringify(o),
+                    success: function (responseJSON) {
+                        console.log(responseJSON)
+                    }
+                })
+            });
+
         });
     </script>
     <style>
