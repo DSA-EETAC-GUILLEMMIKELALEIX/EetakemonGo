@@ -4,8 +4,11 @@ import java.lang.reflect.*;
 import java.net.ConnectException;
 import java.sql.*;
 import java.util.List;
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.Logger;
 
 public abstract class DAO {
+    protected final static Logger logger = Logger.getLogger(DAO.class);
 
 
     //obtener la conexión con la base de datos
