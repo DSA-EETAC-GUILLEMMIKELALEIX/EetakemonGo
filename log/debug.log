@@ -520,3 +520,13 @@
 2017-04-26 17:15:58 INFO  DAO:140 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@22914c4e: SELECT * FROM Eetakemon WHERE id=1
 2017-04-26 17:16:00 INFO  DAO:30 - INFO: conexión creada
 2017-04-26 17:16:00 INFO  DAO:140 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@5d01256c: SELECT * FROM Eetakemon WHERE id=3
+2017-04-26 17:21:35 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 17:21:35 INFO  DAO:347 - INFO: Logeado: Aleix
+2017-04-26 17:22:24 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 17:22:24 INFO  DAO:140 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@2af983e2: SELECT * FROM Usuario WHERE id=1
+2017-04-26 17:22:26 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 17:22:26 INFO  DAO:140 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@2c640d40: SELECT * FROM Eetakemon WHERE id=3
+2017-04-26 17:27:36 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 17:27:36 INFO  DAO:347 - INFO: Logeado: Aleix
+2017-04-26 17:29:38 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 17:29:38 INFO  DAO:348 - INFO: Logeado: Aleix
