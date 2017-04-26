@@ -128,6 +128,8 @@ public class JSONservice {
         u.borrar();
         return Response.status(204).entity("Usuario eliminado").build();
     }
+
+    //Lista de usuarios
     @GET
     @Path("/UserList")
     @Produces(MediaType.APPLICATION_JSON)
@@ -141,4 +143,20 @@ public class JSONservice {
             return Response.status(202).entity("No se ha podido visualizar el usuario: ").build();
         }
     }
+
+    //Lista de eetac-emons
+    @GET
+    @Path("/EetakemonList")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response ListarEetakemons() {
+        List<Eetakemon> u = new ArrayList<Eetakemon>();
+        u = a.ListarEetakemons();
+        if (u!=null) {
+            return Response.status(201).entity(u).build();
+        }
+        else{
+            return Response.status(202).entity("No se ha podido visualizar el usuario: ").build();
+        }
+    }
+
 }

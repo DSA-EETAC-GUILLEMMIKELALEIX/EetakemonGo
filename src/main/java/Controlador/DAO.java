@@ -1,5 +1,6 @@
 package Controlador;
 
+import Modelo.Eetakemon;
 import Modelo.Usuario;
 import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
 
@@ -366,6 +367,13 @@ public class DAO {
 
     public List<Usuario> ListarUsuarios(){
         List<Usuario> aaa = new ArrayList<Usuario>();
+
+
+        return aaa;
+    }
+
+    public List<Eetakemon> ListarEetakemons(){
+        List<Eetakemon> aaa = new ArrayList<Eetakemon>();
 
 
         return aaa;
