@@ -24,12 +24,34 @@
                     contentType: "application/json",
                     dataType: "json",
                     data: JSON.stringify(o),
-                    success: function (responseJSON) {
-                        console.log(responseJSON)
+                    statusCode:{
+                        201: function () {
+                            alert("Eetakemon creado"); //alerta
+                        },
+                        202: function () {
+                            alert("No se ha creado el Eetakemon"); //alerta
+                        }
                     }
                 })
             });
-
+            $("#btn2").click(function () {
+                var id = $("#id").val();
+                $.ajax({
+                    type: "DELETE",
+                    url: ctxPath + "json/Eetakemon/" + id,
+                    contentType: "application/json",
+                    dataType: "json",
+                    //data: JSON.stringify(o),
+                    statusCode:{
+                        201: function () {
+                            alert("Eetakemon eliminado"); //alerta
+                        },
+                        202: function () {
+                            alert("No se ha podido eliminar el Eetakemon"); //alerta
+                        }
+                    }
+                })
+            });
 
         });
     </script>

@@ -24,8 +24,34 @@
                     contentType: "application/json",
                     dataType: "json",
                     data: id + JSON.stringify(o),
-                    success: function (responseJSON) {
+                    /*success: function (responseJSON) {
                         console.log(responseJSON)
+                    }*/
+                    statusCode:{
+                        201: function () {
+                            alert("Usuario modificado"); //alerta
+                        },
+                        202: function () {
+                            alert("No se ha podido modificar"); //alerta
+                        }
+                    }
+                })
+            });
+            $("#btn2").click(function () {
+                var id = $("#id").val();
+                $.ajax({
+                    type: "DELETE",
+                    url: ctxPath + "json/Eetakemon/" + id,
+                    contentType: "application/json",
+                    dataType: "json",
+                    //data: JSON.stringify(o),
+                    statusCode:{
+                        201: function () {
+                            alert("Usuario eliminado"); //alerta
+                        },
+                        202: function () {
+                            alert("No se ha podido eliminar el Usuario");  //alerta
+                        }
                     }
                 })
             });

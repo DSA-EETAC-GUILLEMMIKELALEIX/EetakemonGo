@@ -5,6 +5,9 @@ import Modelo.Eetakemon;
 import Controlador.DAO;
 import Modelo.Usuario;
 import Controlador.JSONservice;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 
 import static org.junit.Assert.*;
@@ -17,33 +20,35 @@ public class Test {
     @org.junit.Test
     public void insert(){
         Usuario u = new Usuario("aasdf", "guillem1234", "guillem@gmail.com");
-        u.crear();
+        u.insert();
     }
 
     @org.junit.Test
     public void update(){
-        Usuario u = new Usuario("Guillem","guillem1234", "guillem@gmail.com");
+        Usuario u = new Usuario();
+        u.select(3);
         u.setNombre("Jose");
-        u.actualizar();
+        u.update();
     }
 
     @org.junit.Test
     public void select(){
         Usuario u = new Usuario("Guillem","Guillem", "pepe@gmail.com");
-        u.buscarPorId(0);
+        u.select(0);
 
     }
 
     @org.junit.Test
     public void delete() {
         Usuario u = new Usuario();
-        u.buscarPorId(0);
-        u.borrar();
+        u.select(0);
+        u.delete();
     }
 
     @org.junit.Test
-    public void pruebaid(){
-        Usuario u = new Usuario();
-        u.getLastId();
+    public void lista() {
+        List<Object> list;
+        list=new Usuario().findAll();
+        System.out.println();
     }
 }

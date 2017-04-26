@@ -11,36 +11,72 @@
         var ctxPath = "http://localhost:8081/myapp/";
         $(document).ready(function() {
             $("#btn1").click(function () {
+                document.getElementById("texto").value = "";
                 var id = $("#id").val();
                 console.log(id);
-                $.get(ctxPath + "json/User/" + id),
-                    function (responseJSON) {
-                        console.log(responseJSON);
-                        document.getElementById("texto").value = responseJSON;
+                $.ajax({
+                    type: 'GET',
+                    contentType: 'application/json',
+                    url: ctxPath + "json/User/" + id,
+                    statusCode: {
+                        201: function (result) {
+                            document.getElementById("texto").value = result;
+                        },
+                        202: function () {
+                            alert("No se ha podido visualizar");
+                        }
                     }
-            });
+                })
+            })
             $("#btn2").click(function () {
-                $.get(ctxPath + "json/UserList/"),
-                    function (responseJSON) {
-                        console.log(responseJSON);
-                        document.getElementById("texto").value = responseJSON;
+                document.getElementById("texto").value = "";
+                $.ajax({
+                    type: 'GET',
+                    contentType: 'application/json',
+                    url: ctxPath + "json/UserList/",
+                    statusCode: {
+                        201: function (result) {
+                            document.getElementById("texto").value =result; //S'ha de ficar que imprimeixi una llista
+                        },
+                        202: function () {
+                            alert("No se ha podido visualizar");
+                        }
                     }
+                })
             });
             $("#btn3").click(function () {
+                document.getElementById("texto").value = "";
                 var id = $("#id").val();
                 console.log(id);
-                $.get(ctxPath + "json/Eetakemon/" + id),
-                    function (responseJSON) {
-                        console.log(responseJSON);
-                        document.getElementById("texto").value = responseJSON;
+                $.ajax({
+                    type: 'GET',
+                    contentType: 'application/json',
+                    url: ctxPath + "json/Eetakemon/" + id,
+                    statusCode: {
+                        201: function (result) {
+                            document.getElementById("texto").value =result;
+                        },
+                        202: function () {
+                        alert("No se ha podido visualizar");
+                        }
                     }
+                })
             });
             $("#btn4").click(function () {
-                $.get(ctxPath + "json/EetakemonList/"),
-                    function (responseJSON) {
-                        console.log(responseJSON);
-                        document.getElementById("texto").value = responseJSON;
+                document.getElementById("texto").value = "";
+                $.ajax({
+                    type: 'GET',
+                    contentType: 'application/json',
+                    url: ctxPath + "json/EetakemonList",
+                    statusCode: {
+                        201: function (result) {
+                            document.getElementById("texto").value =result; //S'ha de ficar que imprimeixi una llista
+                        },
+                        202: function () {
+                            alert("No se ha podido visualizar");
+                        }
                     }
+                })
             });
         });
     </script>

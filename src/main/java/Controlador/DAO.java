@@ -1,15 +1,25 @@
-package Controlador;import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
+package Controlador;
+
+import Modelo.Eetakemon;
+import Modelo.Usuario;
+import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
 
 import java.lang.reflect.*;
 import java.net.ConnectException;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 
-public abstract class DAO {
+public class DAO {
     protected final static Logger logger = Logger.getLogger(DAO.class);
+    private static DAO dao;
 
+    public static DAO getEetakemonManagerClass() {
+        if (dao == null) {dao = new DAO();}
+        return dao;
+    }
 
     //obtener la conexión con la base de datos
     protected Connection getConnection() {
@@ -26,7 +36,7 @@ public abstract class DAO {
     }
 
     //insertar en la base de datos
-    protected void insert() {
+    public void insert() {
         Connection con = getConnection();
         StringBuffer query = new StringBuffer("INSERT INTO ");
         query.append(this.getClass().getSimpleName());
@@ -34,21 +44,31 @@ public abstract class DAO {
 
         Field[] attributes = this.getClass().getDeclaredFields();
 
-        for (Field f : attributes) {
+        /*for (Field f : attributes) {
             query.append(f.getName());
+            query.append(",");
+        }*/
+
+
+        for(int i =1; i<attributes.length;i++){
+            query.append(attributes[i].getName());
             query.append(",");
         }
 
         query.deleteCharAt(query.length() - 1);
         query.append(") VALUES (");
 
-        for (Field f : attributes) {
+        /*for (Field f : attributes) {
+            query.append("?,");
+        }*/
+        for(int i =1; i<attributes.length;i++){
             query.append("?,");
         }
+
         query.deleteCharAt(query.length() - 1);
         query.append(");");
 
-        logger.info("INFO: Insert query: "+query.toString());
+        System.out.println(query.toString());
 
         try {
             PreparedStatement ps = con.prepareStatement(query.toString());
@@ -58,7 +78,7 @@ public abstract class DAO {
             ps.close();
             con.close();
         } catch (com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException e) {
-            logger.info("ALERT: Usuario ya existente");
+            logger.info("ALERT: Objeto ya existente");
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (NullPointerException e) {
@@ -68,28 +88,36 @@ public abstract class DAO {
 
 
     //actualizar base de datos
-    protected void update() {
+    public Boolean update() {
+        Boolean a = false;
         Connection con = getConnection();
         StringBuffer query = new StringBuffer("UPDATE ");
         query.append(this.getClass().getSimpleName());
         query.append(" SET ");
         Field[] attributes = this.getClass().getDeclaredFields();
 
-        for (Field f : attributes) {
+        /*for (Field f : attributes) {
             query.append(f.getName());
             query.append("=?,");
+        }*/
+        for(int i =1; i<attributes.length;i++){
+            query.append(attributes[i].getName());
+            query.append("=?,");
         }
+
         query.deleteCharAt(query.length() - 1);
         query.append(" WHERE id=");
         query.append(getPrimaryKey());
         query.append(";");
-        logger.info("INFO: Update query: "+query.toString());
+
+        System.out.println(query.toString());
 
         try {
             PreparedStatement ps = con.prepareStatement(query.toString());
             addFieldsToQuery(ps);
             ps.executeUpdate();
-            logger.info("INFO: Update prepared statement: "+ps.toString());
+            logger.info("INFO: Update statement: "+ps.toString());
+            a=true;
             ps.close();
             con.close();
         } catch (SQLException e) {
@@ -97,20 +125,19 @@ public abstract class DAO {
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
+        return a;
     }
 
     //buscar por id en la base de datos
-    protected void select(int id) {
+    public void select(int id) {
         Connection con = getConnection();
         StringBuffer query = new StringBuffer("SELECT * FROM ");
         query.append(this.getClass().getSimpleName());
         query.append(" WHERE id=" + id);
 
-        logger.info("INFO: Select query: "+query.toString());
-
         try {
             PreparedStatement ps = con.prepareStatement(query.toString());
-            logger.info("INFO: Select prepared statement: "+ps.toString());;
+            logger.info("INFO: Select  statement: "+ps.toString());;
             ResultSet rs = ps.executeQuery();
             ResultSetMetaData rsmd = rs.getMetaData();
 
@@ -125,17 +152,17 @@ public abstract class DAO {
     }
 
     //eliminar de la base de datos
-    protected void delete() {
+    public void delete() {
         Connection con = getConnection();
         StringBuffer query = new StringBuffer("DELETE FROM ");
         query.append(this.getClass().getSimpleName());
         query.append(" WHERE id=");
         query.append(getPrimaryKey() + ";");
-        System.out.println(query);
 
         try {
             PreparedStatement ps = con.prepareStatement(query.toString());
-            ps.executeUpdate();
+            ResultSet rs = ps.executeQuery();
+            logger.info("INFO: Select statement: "+ps.toString());
             ps.close();
             con.close();
         } catch (SQLException e) {
@@ -146,7 +173,29 @@ public abstract class DAO {
     }
 
     //seleccionar la tabla de una clase de la base de datos
-    public static List findAll() {
+    public List<Object> findAll() {//a medias
+        Connection con = getConnection();
+        List<Object> list= new ArrayList<>();
+        StringBuffer query = new StringBuffer("SELECT * FROM ");
+        query.append(this.getClass().getSimpleName());
+        query.append(";");
+
+        try {
+            PreparedStatement ps = con.prepareStatement(query.toString());
+            logger.info("INFO: List statement: "+ps.toString());
+            ResultSet rs = ps.executeQuery();
+            ps.close();
+            con.close();
+
+            while(rs.next()){
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+
         return null;
     }
 
@@ -159,11 +208,9 @@ public abstract class DAO {
 
                 if (columnType.equals("VARCHAR")) {//si el valor de la columna es de tipo VARCHAR
                     String resultString = rs.getString(i);
-                    System.out.println(resultString);
                     setStringField(resultString, columnName, o);
                 } else if (columnType.equals("INT")) {//si el valor de la columna es de tipo INT
                     int resultInt = rs.getInt(i);
-                    System.out.println(resultInt);
                     setIntField(resultInt, columnName, o);
                 }
             }
@@ -207,18 +254,16 @@ public abstract class DAO {
     }
 
     //obtiene el nombre del método set de un atributo
-    protected String getSetterName(String fieldName) {
+    private String getSetterName(String fieldName) {
         StringBuilder setterName = new StringBuilder("set");
         setterName.append(capitalizeWord(fieldName));
-        System.out.println(setterName);
         return setterName.toString();
     }
 
     //obtiene el nombre del método get
-    protected String getGetterName(String fieldName) {
+    private String getGetterName(String fieldName) {
         StringBuilder getterName = new StringBuilder("get");
         getterName.append(capitalizeWord(fieldName));
-        System.out.println(getterName);
         return getterName.toString();
     }
 
@@ -253,13 +298,12 @@ public abstract class DAO {
 
     //sustituir interrogates por valores de los campos de la clasel
     private void addFieldsToQuery(PreparedStatement ps) {
-        int i = 1;
-        for (Field field : this.getClass().getDeclaredFields()) {
+        Field[] fields = this.getClass().getDeclaredFields();
+        for (int i=1;i<fields.length;i++) {
             try {
-                Method method = this.getClass().getMethod(getGetterName(field.getName()));
+                Method method = this.getClass().getMethod(getGetterName(fields[i].getName()));
                 Object object = method.invoke(this);
                 ps.setObject(i, object);
-                i++;
             } catch (NoSuchMethodException e) {
                 e.printStackTrace();
             } catch (InvocationTargetException e) {
@@ -272,24 +316,29 @@ public abstract class DAO {
         }
     }
 
+   ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
     protected boolean login(String nombre, String password) {
         boolean logeado=false;
         Connection con = getConnection();
         StringBuffer query = new StringBuffer("SELECT nombre,contrasena FROM ");
         query.append(this.getClass().getSimpleName());
         query.append(" WHERE nombre='" + nombre + "' AND contrasena='" + password+"';");
-
-        System.out.println(query.toString());
         try {
             PreparedStatement ps = con.prepareStatement(query.toString());
             ResultSet rs = ps.executeQuery();
 
+
             if(!rs.next()){
-                System.out.println("NO LOGEADO");
+                logger.info("INFO: No logeado: "+nombre);
                 logeado=false;
 
             }else{
-                System.out.println("Logeado");
+                logger.info("INFO: Logeado: "+nombre);
                 logeado=true;
             }
             ps.close();
@@ -311,12 +360,12 @@ public abstract class DAO {
             PreparedStatement ps = con.prepareStatement(query.toString());
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
-                System.out.println("Usuario ya existente, buscate otro nombre pringao");
+                logger.info("INFO: Usuario ya existente: "+nombre);
                 puederegistrarse=false;
 
 
             }else{
-                System.out.println("Muy bien chaval, no hay nadie con ese nombre");
+                logger.info("INFO: Usuario no existente: "+nombre);
                 puederegistrarse=true;
 
             }
@@ -327,6 +376,4 @@ public abstract class DAO {
         }
         return puederegistrarse;
     }
-
-
 }
