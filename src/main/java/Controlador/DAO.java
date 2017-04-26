@@ -13,7 +13,7 @@ import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 
 public class DAO {
-    protected final static Logger logger = Logger.getLogger(DAO.class);
+    protected final static Logger logger = Logger.getLogger(DAO.class);//
     private static DAO dao;
 
     public static DAO getEetakemonManagerClass() {

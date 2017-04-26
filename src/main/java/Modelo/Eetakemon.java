@@ -8,7 +8,6 @@ public class Eetakemon extends EetakemonDAO{
     private String tipo;
     //private Image foto;
     private int nivel;
-    private String ataque;
 
     public Eetakemon(){}
 
@@ -18,7 +17,6 @@ public class Eetakemon extends EetakemonDAO{
         this.tipo = tipo;
         //this.foto = foto;
         this.nivel=level;
-        this.ataque=ataque;
     }
 
     public Eetakemon(String nombre, int level)
@@ -26,7 +24,6 @@ public class Eetakemon extends EetakemonDAO{
         this.nombre = nombre;
         this.nivel=level;
         this.tipo="tipo";
-        this.ataque="ataque";
     }
 
     public int getId() {
@@ -51,10 +48,6 @@ public class Eetakemon extends EetakemonDAO{
     public int getNivel() {
         return nivel;
     }
-    //Obtener ataque
-    public String getAtaque() {
-        return ataque;
-    }
 
     //definir Id
     public void setId(int id) {
@@ -78,14 +71,10 @@ public class Eetakemon extends EetakemonDAO{
     public void setNivel(int nivel) {
         this.nivel = nivel;
     }
-    //definir Ataque
-    public void setAtaque(String ataque) {
-        this.ataque = ataque;
-    }
 
     @Override
     public String toString() {
-        return "Eetakemon [Id = "+id+", nombre=" + nombre + ", tipo=" + tipo + /*", foto=" + foto +*/ ", nivel=" + nivel + ", ataque=" + ataque + "]";
+        return "Eetakemon [Id = "+id+", nombre=" + nombre + ", tipo=" + tipo + /*", foto=" + foto +*/ ", nivel=" + nivel+"]";
     }
 }
 
