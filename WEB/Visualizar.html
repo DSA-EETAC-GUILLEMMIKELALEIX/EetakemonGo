@@ -19,12 +19,12 @@
                     url: ctxPath + "json/User/" + id,
                     statusCode: {
                         201: function (result) {
-                            document.getElementById("texto").value +=result;
-                            }
+                            document.getElementById("texto").value += result;
                         },
                         202: function () {
                             alert("No se ha podido visualizar");
                         }
+                    }
                 })
             })
             $("#btn2").click(function () {
@@ -35,10 +35,10 @@
                     statusCode: {
                         201: function (result) {
                             document.getElementById("texto").value +=result; //S'ha de ficar que imprimeixi una llista
+                        },
+                        202: function () {
+                            alert("No se ha podido visualizar");
                         }
-                    },
-                    202: function () {
-                        alert("No se ha podido visualizar");
                     }
                 })
             });
@@ -52,10 +52,10 @@
                     statusCode: {
                         201: function (result) {
                             document.getElementById("texto").value +=result;
-                        }
-                    },
-                    202: function () {
+                        },
+                        202: function () {
                         alert("No se ha podido visualizar");
+                        }
                     }
                 })
             });
@@ -63,14 +63,14 @@
                 $.ajax({
                     type: 'GET',
                     contentType: 'application/json',
-                    url: ctxPath + "json/EetakemonList/",
+                    url: ctxPath + "json/EetakemonList",
                     statusCode: {
                         201: function (result) {
                             document.getElementById("texto").value +=result; //S'ha de ficar que imprimeixi una llista
+                        },
+                        202: function () {
+                            alert("No se ha podido visualizar");
                         }
-                    },
-                    202: function () {
-                        alert("No se ha podido visualizar");
                     }
                 })
             });

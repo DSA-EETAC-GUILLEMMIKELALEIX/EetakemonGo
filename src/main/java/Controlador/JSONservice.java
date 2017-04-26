@@ -16,20 +16,25 @@ import java.util.List;
 @Singleton
 public class JSONservice {
 
-
+    protected DAO a;
     public JSONservice() {
+        a=DAO.getEetakemonManagerClass();
     }
 
-    //buscar eetakemon por id
+    //Obtener eetakemon por id
     @GET
     @Path("/Eetakemon/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Eetakemon getEetakemonId(@PathParam("id") int id) {
+    public Response getEetakemonId(@PathParam("id") int id) {
         System.out.println("Id eetac-emon: " + id);
         Eetakemon e = new Eetakemon();
         e.buscarPorId(id);
-        System.out.println(e.toString());
-        return e;
+        if (e.getNombre()!=null) {
+            return Response.status(201).entity(e).build();
+        }
+        else{
+            return Response.status(202).entity("No se ha podido visualizar el usuario: ").build();
+        }
     }
 
     //añadir eetakemon
@@ -114,7 +119,11 @@ public class JSONservice {
         Eetakemon e = new Eetakemon();
         e.buscarPorId(id);
         e.borrar();
-        return Response.status(204).entity("Eetakemon eliminado").build();
+        if (e.getNombre()!= null)
+            return Response.status(201).entity("Eetakemon eliminado").build();
+        else{
+            return Response.status(202).entity("No se ha podido eliminar").build();
+        }
     }
 
     //borrar usuario
@@ -125,14 +134,24 @@ public class JSONservice {
         Usuario u = new Usuario();
         u.buscarPorId(id);
         u.borrar();
-        return Response.status(204).entity("Usuario eliminado").build();
+        if (u.getNombre()!= null)
+            return Response.status(201).entity("Usuario eliminado").build();
+        else{
+            return Response.status(202).entity("No se ha podido eliminar").build();
+        }
     }
+
+    //Lista de usuarios
     @GET
     @Path("/UserList")
     @Produces(MediaType.APPLICATION_JSON)
     public Response ListarUsuarios() {
         List<Usuario> u = new ArrayList<Usuario>();
+<<<<<<< HEAD
         //u = Collections.list(ListarUsuarios());
+=======
+        u = a.ListarUsuarios();
+>>>>>>> origin/test
         if (u!=null) {
             return Response.status(201).entity(u).build();
         }
@@ -140,4 +159,20 @@ public class JSONservice {
             return Response.status(202).entity("No se ha podido visualizar el usuario: ").build();
         }
     }
+
+    //Lista de eetac-emons
+    @GET
+    @Path("/EetakemonList")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response ListarEetakemons() {
+        List<Eetakemon> u = new ArrayList<Eetakemon>();
+        u = a.ListarEetakemons();
+        if (u!=null) {
+            return Response.status(201).entity(u).build();
+        }
+        else{
+            return Response.status(202).entity("No se ha podido visualizar el usuario: ").build();
+        }
+    }
+
 }

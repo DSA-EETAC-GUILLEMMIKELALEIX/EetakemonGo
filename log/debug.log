@@ -64,29 +64,3 @@
 2017-04-26 10:07:18 INFO  DAO:23 - INFO: conexión creada
 2017-04-26 10:07:18 INFO  DAO:112 - INFO: Select query: SELECT * FROM Usuario WHERE id=0
 2017-04-26 10:07:18 INFO  DAO:116 - INFO: Select prepared statement: com.mysql.jdbc.JDBC4PreparedStatement@5fc0ad22: SELECT * FROM Usuario WHERE id=0
-2017-04-26 11:28:42 INFO  DAO:24 - INFO: conexión creada
-2017-04-26 11:28:42 INFO  DAO:70 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@6a396c1e: INSERT INTO Usuario (nombre,contrasena,email) VALUES (0,'aasdf','guillem1234');
-2017-04-26 11:30:06 INFO  DAO:24 - INFO: conexión creada
-2017-04-26 11:30:51 INFO  DAO:70 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@6a396c1e: INSERT INTO Usuario (nombre,contrasena,email) VALUES (0,'aasdf','guillem1234');
-2017-04-26 11:35:26 INFO  DAO:24 - INFO: conexión creada
-2017-04-26 11:35:26 INFO  DAO:70 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@6a396c1e: INSERT INTO Usuario (nombre,contrasena,email) VALUES ('aasdf','guillem1234','guillem@gmail.com');
-2017-04-26 11:55:59 INFO  DAO:24 - INFO: conexión creada
-2017-04-26 11:55:59 INFO  DAO:131 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@6a396c1e: SELECT * FROM Usuario WHERE id=3
-2017-04-26 11:55:59 INFO  DAO:24 - INFO: conexión creada
-2017-04-26 11:55:59 INFO  DAO:112 - INFO: Update statement: com.mysql.jdbc.JDBC4PreparedStatement@6b0c2d26: UPDATE Usuario SET nombre,contrasena,email WHERE id=3;
-2017-04-26 11:56:49 INFO  DAO:24 - INFO: conexión creada
-2017-04-26 11:56:49 INFO  DAO:131 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@6a396c1e: SELECT * FROM Usuario WHERE id=3
-2017-04-26 11:56:49 INFO  DAO:24 - INFO: conexión creada
-2017-04-26 11:58:25 INFO  DAO:112 - INFO: Update statement: com.mysql.jdbc.JDBC4PreparedStatement@6b0c2d26: UPDATE Usuario SET nombre,contrasena,email WHERE id=3;
-2017-04-26 11:58:48 INFO  DAO:24 - INFO: conexión creada
-2017-04-26 11:58:48 INFO  DAO:131 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@6a396c1e: SELECT * FROM Usuario WHERE id=3
-2017-04-26 11:58:48 INFO  DAO:24 - INFO: conexión creada
-2017-04-26 11:59:08 INFO  DAO:112 - INFO: Update statement: com.mysql.jdbc.JDBC4PreparedStatement@6b0c2d26: UPDATE Usuario SET nombre,contrasena,email WHERE id=3;
-2017-04-26 11:59:48 INFO  DAO:24 - INFO: conexión creada
-2017-04-26 11:59:48 INFO  DAO:131 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@6a396c1e: SELECT * FROM Usuario WHERE id=3
-2017-04-26 11:59:48 INFO  DAO:24 - INFO: conexión creada
-2017-04-26 11:59:48 INFO  DAO:112 - INFO: Update statement: com.mysql.jdbc.JDBC4PreparedStatement@6b0c2d26: UPDATE Usuario SET nombre='Jose',contrasena='guillem1234',email='guillem@gmail.com' WHERE id=3;
-2017-04-26 12:00:06 INFO  DAO:24 - INFO: conexión creada
-2017-04-26 12:00:06 INFO  DAO:131 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@47fd17e3: SELECT * FROM Usuario WHERE id=3
-2017-04-26 12:00:06 INFO  DAO:24 - INFO: conexión creada
-2017-04-26 12:00:06 INFO  DAO:112 - INFO: Update statement: com.mysql.jdbc.JDBC4PreparedStatement@2eee9593: UPDATE Usuario SET nombre='Jose',contrasena='guillem1234',email='guillem@gmail.com' WHERE id=3;

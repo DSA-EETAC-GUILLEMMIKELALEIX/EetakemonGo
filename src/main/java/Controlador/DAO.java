@@ -1,5 +1,6 @@
 package Controlador;
 
+import Modelo.Eetakemon;
 import Modelo.Usuario;
 import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
 
@@ -11,9 +12,14 @@ import java.util.List;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 
-public abstract class DAO {
+public class DAO {
     protected final static Logger logger = Logger.getLogger(DAO.class);
+    private static DAO aaa;
 
+    public static DAO getEetakemonManagerClass() {
+        if (aaa == null) {aaa = new DAO();}
+        return aaa;
+    }
 
     //obtener la conexión con la base de datos
     protected Connection getConnection() {
@@ -340,4 +346,58 @@ public abstract class DAO {
         return puederegistrarse;
     }
 
+<<<<<<< HEAD
+=======
+    protected boolean modificar(int id, Usuario usuario) {
+        Boolean a = true;
+        Connection con = getConnection();
+        StringBuffer query = new StringBuffer("UPDATE ");
+        query.append(this.getClass().getSimpleName());
+        query.append(" SET ");
+        Field[] attributes = this.getClass().getDeclaredFields();
+
+        for (Field f : attributes) {
+            query.append(f.getName());
+            query.append("="+  usuario.getNombre() + ",");
+            query.append(f.getName());
+            query.append("="+  usuario.getContrasena() + ",");
+            query.append(f.getName());
+            query.append("="+  usuario.getEmail() + ",");
+        }
+        query.deleteCharAt(query.length() - 1);
+        query.append(" WHERE id="+id);
+        //query.append(getPrimaryKey());
+        query.append(";");
+        logger.info("INFO: Update query: "+query.toString());
+
+        try {
+            PreparedStatement ps = con.prepareStatement(query.toString());
+            addFieldsToQuery(ps);
+            ps.executeUpdate();
+            logger.info("INFO: Update prepared statement: "+ps.toString());
+            ps.close();
+            con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+        return a;
+    }
+
+    public List<Usuario> ListarUsuarios(){
+        List<Usuario> aaa = new ArrayList<Usuario>();
+
+
+        return aaa;
+    }
+
+    public List<Eetakemon> ListarEetakemons(){
+        List<Eetakemon> aaa = new ArrayList<Eetakemon>();
+
+
+        return aaa;
+    }
+
+>>>>>>> origin/test
 }
