@@ -173,7 +173,7 @@ public class DAO {
     }
 
     //seleccionar la tabla de una clase de la base de datos
-    public List<Object> findAll() {//a medias
+    /*public List<Object> findAll() {//a medias
         Connection con = getConnection();
         List<Object> list= new ArrayList<>();
         StringBuffer query = new StringBuffer("SELECT * FROM ");
@@ -184,12 +184,18 @@ public class DAO {
             PreparedStatement ps = con.prepareStatement(query.toString());
             logger.info("INFO: List statement: "+ps.toString());
             ResultSet rs = ps.executeQuery();
+
+            while(rs.next()){
+                Class c  = this.getClass();
+                Object o = c.newInstance();
+//                o."setName"
+
+                list.add(o);
+            }
+
             ps.close();
             con.close();
 
-            while(rs.next()){
-
-            }
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (NullPointerException e) {
@@ -197,7 +203,7 @@ public class DAO {
         }
 
         return null;
-    }
+    }*/
 
     //asigna los valores obtenidos de la consulta SELECT a los atributos de la clase
     private void setClassFields(ResultSet rs, ResultSetMetaData rsmd, Object o) {

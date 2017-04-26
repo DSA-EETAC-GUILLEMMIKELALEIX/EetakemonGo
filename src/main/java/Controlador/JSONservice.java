@@ -154,9 +154,10 @@ public class JSONservice {
     @Path("/UserList")
     @Produces(MediaType.APPLICATION_JSON)
     public Response ListarUsuarios() {
-        List<Object> u ;
-        u = new Usuario().findAll();
+        List<Object> u = new ArrayList<>();
+        //u = dao.findAll();
         if (u!=null) {
+            System.out.println(u);
             return Response.status(201).entity(u).build();
         }
         else{

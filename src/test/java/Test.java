@@ -48,7 +48,7 @@ public class Test {
     @org.junit.Test
     public void lista() {
         List<Object> list;
-        list=new Usuario().findAll();
+        //list=new Usuario().findAll();
         System.out.println();
     }
 }
