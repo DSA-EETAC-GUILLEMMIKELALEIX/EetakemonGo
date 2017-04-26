@@ -5,6 +5,9 @@ import Modelo.Eetakemon;
 import Controlador.DAO;
 import Modelo.Usuario;
 import Controlador.JSONservice;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 
 import static org.junit.Assert.*;
@@ -40,5 +43,12 @@ public class Test {
         Usuario u = new Usuario();
         u.select(0);
         u.delete();
+    }
+
+    @org.junit.Test
+    public void lista() {
+        List<Object> list;
+        list=new Usuario().findAll();
+        System.out.println();
     }
 }

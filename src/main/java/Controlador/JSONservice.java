@@ -16,9 +16,9 @@ import java.util.List;
 @Singleton
 public class JSONservice {
 
-    protected DAO a;
+    protected DAO dao;
     public JSONservice() {
-        a=DAO.getEetakemonManagerClass();
+        dao=DAO.getEetakemonManagerClass();
     }
 
     //Obtener eetakemon por id
@@ -154,8 +154,8 @@ public class JSONservice {
     @Path("/UserList")
     @Produces(MediaType.APPLICATION_JSON)
     public Response ListarUsuarios() {
-        List<Usuario> u = new ArrayList<Usuario>();
-        u = a.findAll();
+        List<Object> u ;
+        u = new Usuario().findAll();
         if (u!=null) {
             return Response.status(201).entity(u).build();
         }
@@ -170,7 +170,7 @@ public class JSONservice {
     @Produces(MediaType.APPLICATION_JSON)
     public Response ListarEetakemons() {
         List<Eetakemon> u = new ArrayList<Eetakemon>();
-        u = a.findAll();
+        //u = dao.findAll();
         if (u!=null) {
             return Response.status(201).entity(u).build();
         }
