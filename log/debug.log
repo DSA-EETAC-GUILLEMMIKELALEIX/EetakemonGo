@@ -64,3 +64,17 @@
 2017-04-26 10:07:18 INFO  DAO:23 - INFO: conexión creada
 2017-04-26 10:07:18 INFO  DAO:112 - INFO: Select query: SELECT * FROM Usuario WHERE id=0
 2017-04-26 10:07:18 INFO  DAO:116 - INFO: Select prepared statement: com.mysql.jdbc.JDBC4PreparedStatement@5fc0ad22: SELECT * FROM Usuario WHERE id=0
+2017-04-26 11:41:27 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 11:41:27 INFO  DAO:288 - INFO: No logeado: Aleix
+2017-04-26 11:41:33 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 11:41:33 INFO  DAO:288 - INFO: No logeado: Aleix
+2017-04-26 11:42:02 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 11:42:02 INFO  DAO:288 - INFO: No logeado: Aleix
+2017-04-26 11:42:07 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 11:42:07 INFO  DAO:288 - INFO: No logeado: Aleix
+2017-04-26 11:42:25 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 11:42:25 INFO  DAO:292 - INFO: Logeado: Aleix
+2017-04-26 11:42:54 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 11:42:54 INFO  DAO:292 - INFO: Logeado: Aleix
+2017-04-26 11:43:00 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 11:43:00 INFO  DAO:118 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@5d1ee34e: SELECT * FROM Eetakemon WHERE id=0
