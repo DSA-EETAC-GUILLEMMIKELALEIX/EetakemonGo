@@ -96,3 +96,7 @@
 2017-04-26 13:07:16 INFO  DAO:76 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@129bba8e: INSERT INTO Eetakemon (nombre,tipo,nivel,ataque) VALUES ('jacinto','normal',0,'pegar');
 2017-04-26 18:00:53 INFO  DAO:30 - INFO: conexión creada
 2017-04-26 18:00:53 INFO  DAO:76 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@3aa9e816: INSERT INTO Usuario (nombre,contrasena,email) VALUES ('Mikel','1234','guillem@gmail.com');
+2017-04-26 19:01:35 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 19:01:35 INFO  DAO:76 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@6fffcba5: INSERT INTO Usuario (nombre,contrasena,email,admin) VALUES ('Mikel','1234','guillem@gmail.com',0);
+2017-04-26 19:03:20 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 19:03:20 INFO  DAO:76 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@6fffcba5: INSERT INTO Usuario (nombre,contrasena,email,admin) VALUES ('Mikel','1234','guillem@gmail.com',0);
