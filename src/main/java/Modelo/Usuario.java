@@ -7,6 +7,7 @@ public class Usuario extends UsuarioDAO{
     private String nombre;
     private String contrasena;
     private String email;
+    private int admin=0;
 
     public Usuario(){}
 
@@ -14,6 +15,7 @@ public class Usuario extends UsuarioDAO{
         this.nombre=nombre;
         this.contrasena=contrasena;//
         this.email=email;
+        
     }
 
     public String getNombre() {
@@ -29,6 +31,14 @@ public class Usuario extends UsuarioDAO{
     }
 
     public String getEmail() { return email; }
+
+    public int getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(int admin) {
+        this.admin = admin;
+    }
 
     public void setId(int id) {
         this.id = id;
@@ -50,6 +60,6 @@ public class Usuario extends UsuarioDAO{
 
     @Override
     public String toString() {
-        return "Usuario [Id ="+id+", Nombre=" + nombre + ", contrasena=" + contrasena + ", email=" + email + "]";
+        return "Usuario [Id ="+id+", Nombre=" + nombre + ", contrasena=" + contrasena + ", email=" + email + ", admin="+admin+"]";
     }
 }
