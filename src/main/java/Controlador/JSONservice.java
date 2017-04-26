@@ -132,7 +132,7 @@ public class JSONservice {
     @Produces(MediaType.APPLICATION_JSON)
     public Response ListarUsuarios() {
         List<Usuario> u = new ArrayList<Usuario>();
-        u = Collections.list(ListarUsuarios())
+        //u = Collections.list(ListarUsuarios());
         if (u!=null) {
             return Response.status(201).entity(u).build();
         }

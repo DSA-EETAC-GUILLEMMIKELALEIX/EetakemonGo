@@ -30,7 +30,7 @@ public abstract class DAO {
     }
 
     //insertar en la base de datos
-    protected void insert() {
+    public void insert() {
         Connection con = getConnection();
         StringBuffer query = new StringBuffer("INSERT INTO ");
         query.append(this.getClass().getSimpleName());
@@ -38,19 +38,31 @@ public abstract class DAO {
 
         Field[] attributes = this.getClass().getDeclaredFields();
 
-        for (Field f : attributes) {
+        /*for (Field f : attributes) {
             query.append(f.getName());
+            query.append(",");
+        }*/
+
+
+        for(int i =1; i<attributes.length;i++){
+            query.append(attributes[i].getName());
             query.append(",");
         }
 
         query.deleteCharAt(query.length() - 1);
         query.append(") VALUES (");
 
-        for (Field f : attributes) {
+        /*for (Field f : attributes) {
+            query.append("?,");
+        }*/
+        for(int i =1; i<attributes.length;i++){
             query.append("?,");
         }
+
         query.deleteCharAt(query.length() - 1);
         query.append(");");
+
+        System.out.println(query.toString());
 
         try {
             PreparedStatement ps = con.prepareStatement(query.toString());
@@ -60,7 +72,7 @@ public abstract class DAO {
             ps.close();
             con.close();
         } catch (com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException e) {
-            logger.info("ALERT: Usuario ya existente");
+            logger.info("ALERT: Objeto ya existente");
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (NullPointerException e) {
@@ -77,14 +89,21 @@ public abstract class DAO {
         query.append(" SET ");
         Field[] attributes = this.getClass().getDeclaredFields();
 
-        for (Field f : attributes) {
+        /*for (Field f : attributes) {
             query.append(f.getName());
             query.append("=?,");
+        }*/
+        for(int i =1; i<attributes.length;i++){
+            query.append(attributes[i].getName());
+            query.append("=?,");
         }
+
         query.deleteCharAt(query.length() - 1);
         query.append(" WHERE id=");
         query.append(getPrimaryKey());
         query.append(";");
+
+        System.out.println(query.toString());
 
         try {
             PreparedStatement ps = con.prepareStatement(query.toString());
@@ -248,13 +267,12 @@ public abstract class DAO {
 
     //sustituir interrogates por valores de los campos de la clasel
     private void addFieldsToQuery(PreparedStatement ps) {
-        int i = 1;
-        for (Field field : this.getClass().getDeclaredFields()) {
+        Field[] fields = this.getClass().getDeclaredFields();
+        for (int i=1;i<fields.length;i++) {
             try {
-                Method method = this.getClass().getMethod(getGetterName(field.getName()));
+                Method method = this.getClass().getMethod(getGetterName(fields[i].getName()));
                 Object object = method.invoke(this);
                 ps.setObject(i, object);
-                i++;
             } catch (NoSuchMethodException e) {
                 e.printStackTrace();
             } catch (InvocationTargetException e) {
@@ -320,50 +338,6 @@ public abstract class DAO {
             e.printStackTrace();
         }
         return puederegistrarse;
-    }
-
-    protected boolean modificar(int id, Usuario usuario) {
-        Boolean a = true;
-        Connection con = getConnection();
-        StringBuffer query = new StringBuffer("UPDATE ");
-        query.append(this.getClass().getSimpleName());
-        query.append(" SET ");
-        Field[] attributes = this.getClass().getDeclaredFields();
-
-        for (Field f : attributes) {
-            query.append(f.getName());
-            query.append("="+  usuario.getNombre() + ",");
-            query.append(f.getName());
-            query.append("="+  usuario.getContrasena() + ",");
-            query.append(f.getName());
-            query.append("="+  usuario.getEmail() + ",");
-        }
-        query.deleteCharAt(query.length() - 1);
-        query.append(" WHERE id="+id);
-        //query.append(getPrimaryKey());
-        query.append(";");
-        logger.info("INFO: Update query: "+query.toString());
-
-        try {
-            PreparedStatement ps = con.prepareStatement(query.toString());
-            addFieldsToQuery(ps);
-            ps.executeUpdate();
-            logger.info("INFO: Update prepared statement: "+ps.toString());
-            ps.close();
-            con.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (NullPointerException e) {
-            e.printStackTrace();
-        }
-        return a;
-    }
-
-    protected List<Usuario> ListarUsuarios(){
-        List<Usuario> aaa = new ArrayList<Usuario>();
-
-
-        return aaa;
     }
 
 }

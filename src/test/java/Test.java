@@ -17,12 +17,13 @@ public class Test {
     @org.junit.Test
     public void insert(){
         Usuario u = new Usuario("aasdf", "guillem1234", "guillem@gmail.com");
-        u.crear();
+        u.insert();
     }
 
     @org.junit.Test
     public void update(){
-        Usuario u = new Usuario("Guillem","guillem1234", "guillem@gmail.com");
+        Usuario u = new Usuario();
+        u.buscarPorId(3);
         u.setNombre("Jose");
         u.actualizar();
     }
