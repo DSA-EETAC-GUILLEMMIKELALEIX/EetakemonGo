@@ -59,13 +59,17 @@ public class JSONservice {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response newUsuario(Usuario usuario) {
         Boolean a;
-        a=usuario.validarRegistro(usuario.getNombre());
-        if (a){
-            usuario.insert();
-            return Response.status(201).entity("Usuario añadido: ").build();
+        if((usuario.getNombre()==null||usuario.getContrasena()==null)||(usuario.getNombre()==null||usuario.getEmail()==null)||(usuario.getContrasena()==null||usuario.getEmail()==null)) {
+            return Response.status(203).entity("Te faltan parametros por añadir: ").build();
         }
-        else{
-            return Response.status(202).entity("Usuario ya utilizado: ").build();
+        else {
+            a = usuario.validarRegistro(usuario.getNombre());
+            if (a) {
+                usuario.insert();
+                return Response.status(201).entity("Usuario añadido: ").build();
+            } else {
+                return Response.status(202).entity("Usuario ya utilizado: ").build();
+            }
         }
     }
 
@@ -93,17 +97,12 @@ public class JSONservice {
     @Path("/User/{id}")
     public Response modificarUsuario(@PathParam("id") int id, Usuario usuario) {
         Boolean a=false;
-        if((usuario.getNombre()==null||usuario.getContrasena()==null)||(usuario.getNombre()==null||usuario.getEmail()==null)||(usuario.getContrasena()==null||usuario.getEmail()==null)) {
-            return Response.status(203).entity("Te faltan parametros por añadir: ").build();
-        }
-        else{
-            usuario.setId(id);
-            a = usuario.update();
-            if (a) {
-                return Response.status(201).entity("Usuario modificado: ").build();
-            } else {
-                return Response.status(202).entity("No se ha podido modifucar: ").build();
-            }
+        usuario.setId(id);
+        a = usuario.update();
+        if (a) {
+            return Response.status(201).entity("Usuario modificado: ").build();
+        } else {
+            return Response.status(202).entity("No se ha podido modifucar: ").build();
         }
     }
 
