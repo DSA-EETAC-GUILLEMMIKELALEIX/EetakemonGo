@@ -370,7 +370,8 @@ public class DAO {
                 puederegistrarse=false;
 
 
-            }else{
+            }
+            else{
                 logger.info("INFO: Usuario no existente: "+nombre);
                 puederegistrarse=true;
 

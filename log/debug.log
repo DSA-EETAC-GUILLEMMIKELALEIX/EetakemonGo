@@ -544,3 +544,25 @@
 2017-04-26 17:54:23 INFO  DAO:347 - INFO: Logeado: Aleix
 2017-04-26 18:12:19 INFO  DAO:30 - INFO: conexión creada
 2017-04-26 18:12:19 INFO  DAO:347 - INFO: Logeado: Aleix
+2017-04-26 18:25:43 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 18:25:43 INFO  DAO:343 - INFO: No logeado: 
+2017-04-26 18:25:48 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 18:25:48 INFO  DAO:374 - INFO: Usuario no existente: 
+2017-04-26 18:25:48 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 18:25:48 INFO  DAO:76 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@4ffa6584: INSERT INTO Usuario (nombre,contrasena,email,admin) VALUES ('','','',0);
+2017-04-26 18:27:01 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 18:27:01 INFO  DAO:374 - INFO: Usuario no existente: 
+2017-04-26 18:27:01 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 18:27:01 INFO  DAO:76 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@3f36f034: INSERT INTO Usuario (nombre,contrasena,email,admin) VALUES ('','','',0);
+2017-04-26 18:28:11 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 18:28:11 INFO  DAO:374 - INFO: Usuario no existente: 
+2017-04-26 18:28:11 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 18:28:11 INFO  DAO:76 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@4cd73cb4: INSERT INTO Usuario (nombre,contrasena,email,admin) VALUES ('','','',0);
+2017-04-26 18:33:59 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 18:33:59 INFO  DAO:375 - INFO: Usuario no existente: 
+2017-04-26 18:33:59 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 18:33:59 INFO  DAO:76 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@5867012b: INSERT INTO Usuario (nombre,contrasena,email,admin) VALUES ('','','',0);
+2017-04-26 18:41:13 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 18:41:13 INFO  DAO:375 - INFO: Usuario no existente: 
+2017-04-26 18:41:13 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 18:41:13 INFO  DAO:76 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@4d9634ad: INSERT INTO Usuario (nombre,contrasena,email,admin) VALUES ('','','',0);
