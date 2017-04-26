@@ -1,5 +1,5 @@
 package Controlador;
-import com.cloudinary.*;
+//import com.cloudinary.*;
 
 /**
  * Created by usuario on 26/04/2017.

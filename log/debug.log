@@ -530,3 +530,17 @@
 2017-04-26 17:27:36 INFO  DAO:347 - INFO: Logeado: Aleix
 2017-04-26 17:29:38 INFO  DAO:30 - INFO: conexión creada
 2017-04-26 17:29:38 INFO  DAO:348 - INFO: Logeado: Aleix
+2017-04-26 17:49:26 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 17:49:26 INFO  DAO:374 - INFO: Usuario no existente: Mikel
+2017-04-26 17:49:26 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 17:49:26 INFO  DAO:76 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@4cd73cb4: INSERT INTO Usuario (nombre,contrasena,email) VALUES ('Mikel','123','mikel@upc.edu');
+2017-04-26 17:49:47 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 17:49:47 INFO  DAO:140 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@3bea46e9: SELECT * FROM Eetakemon WHERE id=2
+2017-04-26 17:49:47 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 17:51:58 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 17:51:58 INFO  DAO:140 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@79e84f4b: SELECT * FROM Eetakemon WHERE id=2
+2017-04-26 17:51:58 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 17:54:23 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 17:54:23 INFO  DAO:347 - INFO: Logeado: Aleix
+2017-04-26 18:12:19 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 18:12:19 INFO  DAO:347 - INFO: Logeado: Aleix
