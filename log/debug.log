@@ -530,3 +530,11 @@
 2017-04-26 17:27:36 INFO  DAO:347 - INFO: Logeado: Aleix
 2017-04-26 17:29:38 INFO  DAO:30 - INFO: conexión creada
 2017-04-26 17:29:38 INFO  DAO:348 - INFO: Logeado: Aleix
+2017-04-26 18:09:08 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 18:09:08 INFO  DAO:76 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@7bb11784: INSERT INTO Usuario (nombre,contrasena,email,admin) VALUES ('aasdf','guillem1234','guillem@gmail.com',0);
+2017-04-26 18:09:44 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 18:09:44 INFO  DAO:344 - INFO: No logeado: Aleix
+2017-04-26 18:10:15 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 18:10:15 INFO  DAO:375 - INFO: Usuario no existente: adfadf
+2017-04-26 18:10:15 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 18:10:15 INFO  DAO:76 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@3b90cab5: INSERT INTO Usuario (nombre,contrasena,email,admin) VALUES ('adfadf','adsfasfd','dfasfda',0);
