@@ -544,3 +544,23 @@
 2017-04-26 17:54:23 INFO  DAO:347 - INFO: Logeado: Aleix
 2017-04-26 18:12:19 INFO  DAO:30 - INFO: conexión creada
 2017-04-26 18:12:19 INFO  DAO:347 - INFO: Logeado: Aleix
+2017-04-26 18:22:10 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 18:22:10 INFO  DAO:374 - INFO: Usuario no existente: 
+2017-04-26 18:22:10 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 18:22:10 INFO  DAO:76 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@4e74d3a5: INSERT INTO Usuario (nombre,contrasena,email,admin) VALUES ('','','',0);
+2017-04-26 18:23:00 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 18:23:00 INFO  DAO:374 - INFO: Usuario no existente: 
+2017-04-26 18:23:00 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 18:23:00 INFO  DAO:76 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@2a462fe8: INSERT INTO Usuario (nombre,contrasena,email,admin) VALUES ('','','',0);
+2017-04-26 18:23:11 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 18:23:11 INFO  DAO:374 - INFO: Usuario no existente: 
+2017-04-26 18:23:11 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 18:23:11 INFO  DAO:76 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@26638e66: INSERT INTO Usuario (nombre,contrasena,email,admin) VALUES ('','','',0);
+2017-04-26 18:23:33 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 18:23:33 INFO  DAO:374 - INFO: Usuario no existente: 
+2017-04-26 18:23:33 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 18:23:33 INFO  DAO:76 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@34157877: INSERT INTO Usuario (nombre,contrasena,email,admin) VALUES ('','','',0);
+2017-04-26 18:24:06 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 18:24:06 INFO  DAO:374 - INFO: Usuario no existente: 
+2017-04-26 18:24:06 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 18:24:06 INFO  DAO:76 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@6259240f: INSERT INTO Usuario (nombre,contrasena,email,admin) VALUES ('','','',0);
