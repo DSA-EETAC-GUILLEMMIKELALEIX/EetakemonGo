@@ -17,6 +17,7 @@ public class JSONservice {
     public JSONservice() {
     }
 
+    //buscar eetakemon por id
     @GET
     @Path("/Eetakemon/{id}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -28,7 +29,7 @@ public class JSONservice {
         return e;
     }
 
-
+    //añadir eetakemon
     @POST
     @Path("/Eetakemon")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -37,6 +38,7 @@ public class JSONservice {
         return Response.status(201).entity("Eetakemon añadido: ").build();
     }
 
+    //añadir usuario
     @POST
     @Path("/User")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -52,6 +54,7 @@ public class JSONservice {
         }
     }
 
+    //logearse
     @POST
     @Path("/Login")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -70,6 +73,7 @@ public class JSONservice {
         }
     }
 
+    //modificar usuario
     @POST
     @Path("/User/{id}")
     public Response modificarUsuario(@PathParam("id") int id, Usuario usuario) {
@@ -83,6 +87,7 @@ public class JSONservice {
         }
     }
 
+    //Obtener usuario
     @GET
     @Path("/User/{id}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -98,6 +103,7 @@ public class JSONservice {
         }
     }
 
+    //borrar eetakemon
     @DELETE
     @Path("/Eetakemon/{id}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -108,6 +114,7 @@ public class JSONservice {
         return Response.status(204).entity("Eetakemon eliminado").build();
     }
 
+    //borrar usuario
     @DELETE
     @Path("/User/{id}")
     @Produces(MediaType.APPLICATION_JSON)

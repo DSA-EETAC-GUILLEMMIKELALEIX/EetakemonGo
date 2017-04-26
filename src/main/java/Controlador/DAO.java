@@ -51,8 +51,6 @@ public abstract class DAO {
         query.deleteCharAt(query.length() - 1);
         query.append(");");
 
-        logger.info("INFO: Insert query: "+query.toString());
-
         try {
             PreparedStatement ps = con.prepareStatement(query.toString());
             addFieldsToQuery(ps);
@@ -86,13 +84,12 @@ public abstract class DAO {
         query.append(" WHERE id=");
         query.append(getPrimaryKey());
         query.append(";");
-        logger.info("INFO: Update query: "+query.toString());
 
         try {
             PreparedStatement ps = con.prepareStatement(query.toString());
             addFieldsToQuery(ps);
             ps.executeUpdate();
-            logger.info("INFO: Update prepared statement: "+ps.toString());
+            logger.info("INFO: Update statement: "+ps.toString());
             ps.close();
             con.close();
         } catch (SQLException e) {
@@ -109,11 +106,9 @@ public abstract class DAO {
         query.append(this.getClass().getSimpleName());
         query.append(" WHERE id=" + id);
 
-        logger.info("INFO: Select query: "+query.toString());
-
         try {
             PreparedStatement ps = con.prepareStatement(query.toString());
-            logger.info("INFO: Select prepared statement: "+ps.toString());;
+            logger.info("INFO: Select  statement: "+ps.toString());;
             ResultSet rs = ps.executeQuery();
             ResultSetMetaData rsmd = rs.getMetaData();
 
@@ -134,10 +129,10 @@ public abstract class DAO {
         query.append(this.getClass().getSimpleName());
         query.append(" WHERE id=");
         query.append(getPrimaryKey() + ";");
-        System.out.println(query);
 
         try {
             PreparedStatement ps = con.prepareStatement(query.toString());
+            logger.info("INFO: Select statement: "+ps.toString());
             ps.executeUpdate();
             ps.close();
             con.close();
@@ -162,11 +157,9 @@ public abstract class DAO {
 
                 if (columnType.equals("VARCHAR")) {//si el valor de la columna es de tipo VARCHAR
                     String resultString = rs.getString(i);
-                    System.out.println(resultString);
                     setStringField(resultString, columnName, o);
                 } else if (columnType.equals("INT")) {//si el valor de la columna es de tipo INT
                     int resultInt = rs.getInt(i);
-                    System.out.println(resultInt);
                     setIntField(resultInt, columnName, o);
                 }
             }
@@ -213,7 +206,6 @@ public abstract class DAO {
     protected String getSetterName(String fieldName) {
         StringBuilder setterName = new StringBuilder("set");
         setterName.append(capitalizeWord(fieldName));
-        System.out.println(setterName);
         return setterName.toString();
     }
 
@@ -221,7 +213,6 @@ public abstract class DAO {
     protected String getGetterName(String fieldName) {
         StringBuilder getterName = new StringBuilder("get");
         getterName.append(capitalizeWord(fieldName));
-        System.out.println(getterName);
         return getterName.toString();
     }
 
@@ -281,18 +272,17 @@ public abstract class DAO {
         StringBuffer query = new StringBuffer("SELECT nombre,contrasena FROM ");
         query.append(this.getClass().getSimpleName());
         query.append(" WHERE nombre='" + nombre + "' AND contrasena='" + password+"';");
-
-        System.out.println(query.toString());
         try {
             PreparedStatement ps = con.prepareStatement(query.toString());
             ResultSet rs = ps.executeQuery();
 
+
             if(!rs.next()){
-                System.out.println("NO LOGEADO");
+                logger.info("INFO: No logeado: "+nombre);
                 logeado=false;
 
             }else{
-                System.out.println("Logeado");
+                logger.info("INFO: Logeado: "+nombre);
                 logeado=true;
             }
             ps.close();
@@ -314,12 +304,12 @@ public abstract class DAO {
             PreparedStatement ps = con.prepareStatement(query.toString());
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
-                System.out.println("Usuario ya existente, buscate otro nombre pringao");
+                logger.info("INFO: Usuario ya existente: "+nombre);
                 puederegistrarse=false;
 
 
             }else{
-                System.out.println("Muy bien chaval, no hay nadie con ese nombre");
+                logger.info("INFO: Usuario no existente: "+nombre);
                 puederegistrarse=true;
 
             }
