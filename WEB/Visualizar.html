@@ -11,6 +11,7 @@
         var ctxPath = "http://localhost:8081/myapp/";
         $(document).ready(function() {
             $("#btn1").click(function () {
+                document.getElementById("texto").value = "";
                 var id = $("#id").val();
                 console.log(id);
                 $.ajax({
@@ -19,7 +20,7 @@
                     url: ctxPath + "json/User/" + id,
                     statusCode: {
                         201: function (result) {
-                            document.getElementById("texto").value += result;
+                            document.getElementById("texto").value = result;
                         },
                         202: function () {
                             alert("No se ha podido visualizar");
@@ -28,13 +29,14 @@
                 })
             })
             $("#btn2").click(function () {
+                document.getElementById("texto").value = "";
                 $.ajax({
                     type: 'GET',
                     contentType: 'application/json',
                     url: ctxPath + "json/UserList/",
                     statusCode: {
                         201: function (result) {
-                            document.getElementById("texto").value +=result; //S'ha de ficar que imprimeixi una llista
+                            document.getElementById("texto").value =result; //S'ha de ficar que imprimeixi una llista
                         },
                         202: function () {
                             alert("No se ha podido visualizar");
@@ -43,6 +45,7 @@
                 })
             });
             $("#btn3").click(function () {
+                document.getElementById("texto").value = "";
                 var id = $("#id").val();
                 console.log(id);
                 $.ajax({
@@ -51,7 +54,7 @@
                     url: ctxPath + "json/Eetakemon/" + id,
                     statusCode: {
                         201: function (result) {
-                            document.getElementById("texto").value +=result;
+                            document.getElementById("texto").value =result;
                         },
                         202: function () {
                         alert("No se ha podido visualizar");
@@ -60,13 +63,14 @@
                 })
             });
             $("#btn4").click(function () {
+                document.getElementById("texto").value = "";
                 $.ajax({
                     type: 'GET',
                     contentType: 'application/json',
                     url: ctxPath + "json/EetakemonList",
                     statusCode: {
                         201: function (result) {
-                            document.getElementById("texto").value +=result; //S'ha de ficar que imprimeixi una llista
+                            document.getElementById("texto").value =result; //S'ha de ficar que imprimeixi una llista
                         },
                         202: function () {
                             alert("No se ha podido visualizar");
