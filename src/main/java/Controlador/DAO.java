@@ -26,6 +26,7 @@ public class DAO {
         Connection conn = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
+            //conn = DriverManager.getConnection("jdbc:mysql://sql8.freemysqlhosting.net/sql8171317", "sql8171317", "5P4v94eLJY");
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Prueba", "root", "mysql");
             logger.info("INFO: conexión creada");
         } catch (Exception e) {
@@ -370,7 +371,8 @@ public class DAO {
                 puederegistrarse=false;
 
 
-            }else{
+            }
+            else{
                 logger.info("INFO: Usuario no existente: "+nombre);
                 puederegistrarse=true;
 

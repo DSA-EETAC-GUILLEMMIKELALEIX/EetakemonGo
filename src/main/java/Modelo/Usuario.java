@@ -2,7 +2,7 @@ package Modelo;
 import Controlador.UsuarioDAO;
 
 public class Usuario extends UsuarioDAO{
-
+//
     private int id;
     private String nombre;
     private String contrasena;
