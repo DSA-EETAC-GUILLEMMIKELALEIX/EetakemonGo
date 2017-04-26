@@ -19,7 +19,7 @@ public class Test {
 
     @org.junit.Test
     public void insert(){
-        Usuario u = new Usuario("aasdf", "guillem1234", "guillem@gmail.com");
+        Usuario u = new Usuario("Mikel", "1234", "guillem@gmail.com");
         u.insert();
     }
 
