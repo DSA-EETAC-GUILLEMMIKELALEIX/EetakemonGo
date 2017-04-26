@@ -48,3 +48,11 @@
 2017-04-26 09:39:45 INFO  DAO:23 - INFO: conexión creada
 2017-04-26 09:39:45 INFO  DAO:112 - INFO: Select query: SELECT * FROM Usuario WHERE id=0
 2017-04-26 09:39:45 INFO  DAO:116 - INFO: Select prepared statement: com.mysql.jdbc.JDBC4PreparedStatement@519eaff8: SELECT * FROM Usuario WHERE id=0
+2017-04-26 09:45:51 INFO  DAO:23 - INFO: conexión creada
+2017-04-26 09:50:36 INFO  DAO:23 - INFO: conexión creada
+2017-04-26 09:50:36 INFO  DAO:112 - INFO: Select query: SELECT * FROM Usuario WHERE id=0
+2017-04-26 09:50:36 INFO  DAO:116 - INFO: Select prepared statement: com.mysql.jdbc.JDBC4PreparedStatement@480a2519: SELECT * FROM Usuario WHERE id=0
+2017-04-26 09:51:54 INFO  DAO:23 - INFO: conexión creada
+2017-04-26 09:52:20 INFO  DAO:23 - INFO: conexión creada
+2017-04-26 09:52:20 INFO  DAO:112 - INFO: Select query: SELECT * FROM Usuario WHERE id=0
+2017-04-26 09:52:20 INFO  DAO:116 - INFO: Select prepared statement: com.mysql.jdbc.JDBC4PreparedStatement@4c023ab8: SELECT * FROM Usuario WHERE id=0

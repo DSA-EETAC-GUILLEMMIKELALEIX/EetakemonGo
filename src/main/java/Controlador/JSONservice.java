@@ -73,7 +73,7 @@ public class JSONservice {
     @POST
     @Path("/User/{id}")
     public Response modificarUsuario(@PathParam("id") int id, Usuario usuario) {
-        Boolean a;
+        Boolean a=false;
         a=usuario.modificar(id, usuario);//Se tiene que llamar a la funcion modificar
         if (a) {
             return Response.status(201).entity("Usuario modificado: ").build();
@@ -88,7 +88,7 @@ public class JSONservice {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getUsuarioId(@PathParam("id") int id) {
        Usuario u = new Usuario();
-       u.buscarPorId(id); //poner select(id) o setId(id)
+       u.buscarPorId(id);
         System.out.println(u.toString());
         if (u.getNombre()!=null) {
             return Response.status(201).entity(u).build();
