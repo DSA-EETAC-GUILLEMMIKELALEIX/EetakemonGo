@@ -7,6 +7,9 @@ import javax.inject.Singleton;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 
 @Path("/json")
@@ -116,5 +119,18 @@ public class JSONservice {
         u.buscarPorId(id);
         u.borrar();
         return Response.status(204).entity("Usuario eliminado").build();
+    }
+    @GET
+    @Path("/UserList")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response ListarUsuarios() {
+        List<Usuario> u = new ArrayList<Usuario>();
+        u = Collections.list(ListarUsuarios())
+        if (u!=null) {
+            return Response.status(201).entity(u).build();
+        }
+        else{
+            return Response.status(202).entity("No se ha podido visualizar el usuario: ").build();
+        }
     }
 }
