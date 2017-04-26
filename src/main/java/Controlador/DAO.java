@@ -125,6 +125,7 @@ public class DAO {
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
+
         return a;
     }
 
