@@ -88,7 +88,7 @@ public class DAO {
 
 
     //actualizar base de datos
-    protected void update() {
+    public void update() {
         Connection con = getConnection();
         StringBuffer query = new StringBuffer("UPDATE ");
         query.append(this.getClass().getSimpleName());
@@ -126,7 +126,7 @@ public class DAO {
     }
 
     //buscar por id en la base de datos
-    protected void select(int id) {
+    public void select(int id) {
         Connection con = getConnection();
         StringBuffer query = new StringBuffer("SELECT * FROM ");
         query.append(this.getClass().getSimpleName());
@@ -149,7 +149,7 @@ public class DAO {
     }
 
     //eliminar de la base de datos
-    protected void delete() {
+    public void delete() {
         Connection con = getConnection();
         StringBuffer query = new StringBuffer("DELETE FROM ");
         query.append(this.getClass().getSimpleName());
@@ -290,6 +290,12 @@ public class DAO {
             }
         }
     }
+
+   ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
 
     protected boolean login(String nombre, String password) {
         boolean logeado=false;
