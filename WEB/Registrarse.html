@@ -15,21 +15,23 @@
                 var name= $("#name").val();
                 var password= $("#password").val();
                 var email= $("#email").val();
-
-                var o = {"nombre":name, "contrasena":password,"email":email};
-                console.log(o);
-                $.ajax({
-                    type:"POST",
-                    url:ctxPath + "json/User",
-                    contentType: "application/json",
-                    dataType:"json",
-                    data: JSON.stringify(o),
-                    /*success: function(responseJSON) {
+                if (name==="" || password==="" || email===""){
+                    alert("Rellena todos los campos");
+                }else {
+                    var o = {"nombre": name, "contrasena": password, "email": email};
+                    console.log(o);
+                    $.ajax({
+                        type: "POST",
+                        url: ctxPath + "json/User",
+                        contentType: "application/json",
+                        dataType: "json",
+                        data: JSON.stringify(o),
+                        /*success: function(responseJSON) {
                         console.log(responseJSON)
                     }*/
-                    statusCode:{
+                        statusCode:{
                         201: function(){
-                        window.location.href="MenuPrincipal.html";
+                            window.location.href= "MenuPrincipal.html";
                         },
                         202: function(){
                             alert("Usuario ya utilizado");//alerta
@@ -37,8 +39,9 @@
                         203: function () {
                             alert("Has de completar todos los campos!"); //alerta
                         }
-                    }
-                })
+                        }
+                    })
+                }
             });
         });
     </script>

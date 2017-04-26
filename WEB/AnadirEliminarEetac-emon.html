@@ -16,23 +16,27 @@
                 var nivel = $("#Eetacnivel").val();
                 var ataque = $("#Eetacataque").val();
 
-                var o = {"nombre": name, "tipo": tipo, "nivel": nivel, "ataque": ataque};
-                console.log(o);
-                $.ajax({
-                    type: "POST",
-                    url: ctxPath + "json/Eetakemon",
-                    contentType: "application/json",
-                    dataType: "json",
-                    data: JSON.stringify(o),
-                    statusCode:{
-                        201: function () {
-                            alert("Eetakemon creado"); //alerta
-                        },
-                        202: function () {
-                            alert("No se ha creado el Eetakemon"); //alerta
+                if(name==="" || tipo==="" || nivel==="" || ataque===""){alert("Rellena todos los campos");}
+                else {
+
+                    var o = {"nombre": name, "tipo": tipo, "nivel": nivel, "ataque": ataque};
+                    console.log(o);
+                    $.ajax({
+                        type: "POST",
+                        url: ctxPath + "json/Eetakemon",
+                        contentType: "application/json",
+                        dataType: "json",
+                        data: JSON.stringify(o),
+                        statusCode: {
+                            201: function () {
+                                alert("Eetakemon creado"); //alerta
+                            },
+                            202: function () {
+                                alert("No se ha creado el Eetakemon"); //alerta
+                            }
                         }
-                    }
-                })
+                    });
+                }
             });
             $("#btn2").click(function () {
                 var id = $("#id").val();
