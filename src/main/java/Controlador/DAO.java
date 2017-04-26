@@ -14,11 +14,11 @@ import org.apache.log4j.Logger;
 
 public class DAO {
     protected final static Logger logger = Logger.getLogger(DAO.class);
-    private static DAO aaa;
+    private static DAO dao;
 
     public static DAO getEetakemonManagerClass() {
-        if (aaa == null) {aaa = new DAO();}
-        return aaa;
+        if (dao == null) {dao = new DAO();}
+        return dao;
     }
 
     //obtener la conexión con la base de datos
@@ -161,8 +161,8 @@ public class DAO {
 
         try {
             PreparedStatement ps = con.prepareStatement(query.toString());
+            ResultSet rs = ps.executeQuery();
             logger.info("INFO: Select statement: "+ps.toString());
-            ps.executeUpdate();
             ps.close();
             con.close();
         } catch (SQLException e) {
@@ -173,7 +173,29 @@ public class DAO {
     }
 
     //seleccionar la tabla de una clase de la base de datos
-    public static List findAll() {
+    public List<Object> findAll() {//a medias
+        Connection con = getConnection();
+        List<Object> list= new ArrayList<>();
+        StringBuffer query = new StringBuffer("SELECT * FROM ");
+        query.append(this.getClass().getSimpleName());
+        query.append(";");
+
+        try {
+            PreparedStatement ps = con.prepareStatement(query.toString());
+            logger.info("INFO: List statement: "+ps.toString());
+            ResultSet rs = ps.executeQuery();
+            ps.close();
+            con.close();
+
+            while(rs.next()){
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+
         return null;
     }
 
@@ -232,14 +254,14 @@ public class DAO {
     }
 
     //obtiene el nombre del método set de un atributo
-    protected String getSetterName(String fieldName) {
+    private String getSetterName(String fieldName) {
         StringBuilder setterName = new StringBuilder("set");
         setterName.append(capitalizeWord(fieldName));
         return setterName.toString();
     }
 
     //obtiene el nombre del método get
-    protected String getGetterName(String fieldName) {
+    private String getGetterName(String fieldName) {
         StringBuilder getterName = new StringBuilder("get");
         getterName.append(capitalizeWord(fieldName));
         return getterName.toString();
