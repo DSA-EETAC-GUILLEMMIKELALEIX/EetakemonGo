@@ -16,8 +16,9 @@ import java.util.List;
 @Singleton
 public class JSONservice {
 
-
+    protected DAO a;
     public JSONservice() {
+        a=DAO.getEetakemonManagerClass();
     }
 
     @GET
@@ -125,7 +126,7 @@ public class JSONservice {
     @Produces(MediaType.APPLICATION_JSON)
     public Response ListarUsuarios() {
         List<Usuario> u = new ArrayList<Usuario>();
-        u = Collections.list(ListarUsuarios())
+        u = a.ListarUsuarios();
         if (u!=null) {
             return Response.status(201).entity(u).build();
         }

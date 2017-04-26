@@ -11,9 +11,14 @@ import java.util.List;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 
-public abstract class DAO {
+public class DAO {
     protected final static Logger logger = Logger.getLogger(DAO.class);
+    private static DAO aaa;
 
+    public static DAO getEetakemonManagerClass() {
+        if (aaa == null) {aaa = new DAO();}
+        return aaa;
+    }
 
     //obtener la conexión con la base de datos
     protected Connection getConnection() {
@@ -369,7 +374,7 @@ public abstract class DAO {
         return a;
     }
 
-    protected List<Usuario> ListarUsuarios(){
+    public List<Usuario> ListarUsuarios(){
         List<Usuario> aaa = new ArrayList<Usuario>();
 
 
