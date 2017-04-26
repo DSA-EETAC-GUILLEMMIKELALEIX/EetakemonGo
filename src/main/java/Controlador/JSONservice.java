@@ -59,7 +59,7 @@ public class JSONservice {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response newUsuario(Usuario usuario) {
         Boolean a;
-        if((usuario.getNombre()==null||usuario.getContrasena()==null)||(usuario.getNombre()==null||usuario.getEmail()==null)||(usuario.getContrasena()==null||usuario.getEmail()==null)) {
+        if((usuario.getNombre()==("")||usuario.getContrasena()==(""))||(usuario.getNombre()==("")||usuario.getEmail()==(""))||(usuario.getContrasena()==("")||usuario.getEmail()==(""))) {
             return Response.status(203).entity("Te faltan parametros por añadir: ").build();
         }
         else {
