@@ -13,14 +13,14 @@
             $("#btn1").click(function () {
                 document.getElementById("texto").value = "";
                 var id = $("#id").val();
-                console.log(id);
                 $.ajax({
                     type: 'GET',
                     contentType: 'application/json',
                     url: ctxPath + "json/User/" + id,
                     statusCode: {
                         201: function (result) {
-                            document.getElementById("texto").value = result;
+                            document.getElementById("texto").value = "Nombre:" + result.nombre + "\nContraseña:" + result.contrasena +
+                                    "\nEmail:" + result.email;
                         },
                         202: function () {
                             alert("No se ha podido visualizar");
@@ -36,7 +36,7 @@
                     url: ctxPath + "json/UserList/",
                     statusCode: {
                         201: function (result) {
-                            document.getElementById("texto").value =result; //S'ha de ficar que imprimeixi una llista
+                            document.getElementById("texto").value =JSON.stringify(result); //S'ha de ficar que imprimeixi una llista
                         },
                         202: function () {
                             alert("No se ha podido visualizar");
@@ -54,7 +54,8 @@
                     url: ctxPath + "json/Eetakemon/" + id,
                     statusCode: {
                         201: function (result) {
-                            document.getElementById("texto").value =result;
+                            document.getElementById("texto").value = "Nombre: " + result.nombre + "\nTipo: " + result.tipo +
+                                "\nNivel: " + result.nivel + "\nAtaque: " + result.ataque;
                         },
                         202: function () {
                         alert("No se ha podido visualizar");
@@ -70,7 +71,7 @@
                     url: ctxPath + "json/EetakemonList",
                     statusCode: {
                         201: function (result) {
-                            document.getElementById("texto").value =result; //S'ha de ficar que imprimeixi una llista
+                            document.getElementById("texto").value =JSON.stringify(result); //S'ha de ficar que imprimeixi una llista
                         },
                         202: function () {
                             alert("No se ha podido visualizar");
@@ -107,6 +108,9 @@
         h3{
             text-align: right;
             padding: 15px;
+        }
+        h4{
+            font-size: 12px;
         }
 
     </style>
