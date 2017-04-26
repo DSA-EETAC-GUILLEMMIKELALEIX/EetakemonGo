@@ -28,7 +28,7 @@ public class JSONservice {
     public Response getEetakemonId(@PathParam("id") int id) {
         System.out.println("Id eetac-emon: " + id);
         Eetakemon e = new Eetakemon();
-        e.buscarPorId(id);
+        e.select(id);
         if (e.getNombre()!=null) {
             return Response.status(201).entity(e).build();
         }
@@ -45,7 +45,7 @@ public class JSONservice {
         Boolean a;
         a=eetakemon.validarRegistro(eetakemon.getNombre());
         if (a) {
-            eetakemon.crear();
+            eetakemon.insert();
             return Response.status(201).entity("Eetakemon añadido: ").build();
         }
         else{
@@ -61,7 +61,7 @@ public class JSONservice {
         Boolean a;
         a=usuario.validarRegistro(usuario.getNombre());
         if (a){
-            usuario.crear();
+            usuario.insert();
             return Response.status(201).entity("Usuario añadido: ").build();
         }
         else{
@@ -93,7 +93,8 @@ public class JSONservice {
     @Path("/User/{id}")
     public Response modificarUsuario(@PathParam("id") int id, Usuario usuario) {
         Boolean a=false;
-        a=usuario.modificar(id, usuario);//Se tiene que llamar a la funcion modificar
+        usuario.setId(id);
+        a = usuario.update();
         if (a) {
             return Response.status(201).entity("Usuario modificado: ").build();
         }
@@ -108,7 +109,7 @@ public class JSONservice {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getUsuarioId(@PathParam("id") int id) {
        Usuario u = new Usuario();
-       u.buscarPorId(id);
+       u.select(id);
         System.out.println(u.toString());
         if (u.getNombre()!=null) {
             return Response.status(201).entity(u).build();
@@ -124,8 +125,8 @@ public class JSONservice {
     @Produces(MediaType.APPLICATION_JSON)
     public Response delEetakemon(@PathParam("id") int id) {
         Eetakemon e = new Eetakemon();
-        e.buscarPorId(id);
-        e.borrar();
+        e.select(id);
+        e.delete();
         if (e.getNombre()!= null)
             return Response.status(201).entity("Eetakemon eliminado").build();
         else{
@@ -139,8 +140,8 @@ public class JSONservice {
     @Produces(MediaType.APPLICATION_JSON)
     public Response delUser(@PathParam("id") int id) {
         Usuario u = new Usuario();
-        u.buscarPorId(id);
-        u.borrar();
+        u.select(id);
+        u.delete();
         if (u.getNombre()!= null)
             return Response.status(201).entity("Usuario eliminado").build();
         else{
@@ -154,7 +155,7 @@ public class JSONservice {
     @Produces(MediaType.APPLICATION_JSON)
     public Response ListarUsuarios() {
         List<Usuario> u = new ArrayList<Usuario>();
-        u = a.ListarUsuarios();
+        u = a.findAll();
         if (u!=null) {
             return Response.status(201).entity(u).build();
         }
@@ -169,7 +170,7 @@ public class JSONservice {
     @Produces(MediaType.APPLICATION_JSON)
     public Response ListarEetakemons() {
         List<Eetakemon> u = new ArrayList<Eetakemon>();
-        u = a.ListarEetakemons();
+        u = a.findAll();
         if (u!=null) {
             return Response.status(201).entity(u).build();
         }

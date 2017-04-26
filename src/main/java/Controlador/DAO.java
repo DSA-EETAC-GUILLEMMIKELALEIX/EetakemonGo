@@ -88,7 +88,8 @@ public class DAO {
 
 
     //actualizar base de datos
-    public void update() {
+    public Boolean update() {
+        Boolean a = false;
         Connection con = getConnection();
         StringBuffer query = new StringBuffer("UPDATE ");
         query.append(this.getClass().getSimpleName());
@@ -116,6 +117,7 @@ public class DAO {
             addFieldsToQuery(ps);
             ps.executeUpdate();
             logger.info("INFO: Update statement: "+ps.toString());
+            a=true;
             ps.close();
             con.close();
         } catch (SQLException e) {
@@ -123,6 +125,7 @@ public class DAO {
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
+        return a;
     }
 
     //buscar por id en la base de datos
