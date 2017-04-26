@@ -24,8 +24,16 @@
                     contentType: "application/json",
                     dataType: "json",
                     data: id + JSON.stringify(o),
-                    success: function (responseJSON) {
+                    /*success: function (responseJSON) {
                         console.log(responseJSON)
+                    }*/
+                    statusCode:{
+                        201: function () {
+                            alert("Usuario modificado"); //alerta
+                        },
+                        202: function () {
+                            alert("No se ha podido modificar"); //alerta
+                        }
                     }
                 })
             });

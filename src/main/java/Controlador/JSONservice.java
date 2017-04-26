@@ -73,10 +73,14 @@ public class JSONservice {
     @POST
     @Path("/User/{id}")
     public Response modificarUsuario(@PathParam("id") int id, Usuario usuario) {
-        usuario.crear();//Se tiene que llamar a la funcion modificar
-        Usuario u = new Usuario();
-        System.out.println(u.getContrasena());
-        return Response.status(201).entity("Usuario añadido: ").build();
+        Boolean a;
+        a=usuario.modificar(id, usuario);//Se tiene que llamar a la funcion modificar
+        if (a) {
+            return Response.status(201).entity("Usuario modificado: ").build();
+        }
+        else{
+            return Response.status(202).entity("No se ha podido modifucar: ").build();
+        }
     }
 
     @GET

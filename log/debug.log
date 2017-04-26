@@ -1,3 +1,27 @@
 2017-04-25 19:57:50 INFO  DAO:20 - INFO: conexión creada
 2017-04-25 19:57:50 INFO  DAO:20 - INFO: conexión creada
 2017-04-25 19:57:50 INFO  DAO:51 - INFO: Insert query: INSERT INTO Usuario (id,nombre,contrasena,email) VALUES (?,?,?,?);
+2017-04-26 08:26:15 INFO  DAO:20 - INFO: conexión creada
+2017-04-26 08:26:45 INFO  DAO:20 - INFO: conexión creada
+2017-04-26 08:26:45 INFO  DAO:20 - INFO: conexión creada
+2017-04-26 08:26:45 INFO  DAO:20 - INFO: conexión creada
+2017-04-26 08:26:45 INFO  DAO:51 - INFO: Insert query: INSERT INTO Usuario (id,nombre,contrasena,email) VALUES (?,?,?,?);
+2017-04-26 08:26:45 INFO  DAO:56 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@4c25000: INSERT INTO Usuario (id,nombre,contrasena,email) VALUES (1,'Aleix','aliex','aleix@upc.edu');
+2017-04-26 08:27:25 INFO  DAO:20 - INFO: conexión creada
+2017-04-26 08:27:34 INFO  DAO:20 - INFO: conexión creada
+2017-04-26 08:27:44 INFO  DAO:20 - INFO: conexión creada
+2017-04-26 08:27:56 INFO  DAO:20 - INFO: conexión creada
+2017-04-26 08:28:02 INFO  DAO:20 - INFO: conexión creada
+2017-04-26 08:28:12 INFO  DAO:20 - INFO: conexión creada
+2017-04-26 08:30:16 INFO  DAO:20 - INFO: conexión creada
+2017-04-26 08:30:24 INFO  DAO:20 - INFO: conexión creada
+2017-04-26 08:32:14 INFO  DAO:20 - INFO: conexión creada
+2017-04-26 08:33:35 INFO  DAO:20 - INFO: conexión creada
+2017-04-26 08:33:42 INFO  DAO:20 - INFO: conexión creada
+2017-04-26 08:33:47 INFO  DAO:20 - INFO: conexión creada
+2017-04-26 08:44:25 INFO  DAO:20 - INFO: conexión creada
+2017-04-26 08:44:53 INFO  DAO:20 - INFO: conexión creada
+2017-04-26 08:44:53 INFO  DAO:20 - INFO: conexión creada
+2017-04-26 08:44:53 INFO  DAO:51 - INFO: Insert query: INSERT INTO Eetakemon (id,nombre,tipo,nivel,ataque) VALUES (?,?,?,?,?);
+2017-04-26 08:44:53 INFO  DAO:56 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@1f5fc38b: INSERT INTO Eetakemon (id,nombre,tipo,nivel,ataque) VALUES (1,'Pikachu','Normal',5,'Electrico');
+2017-04-26 09:03:01 INFO  DAO:23 - INFO: conexión creada

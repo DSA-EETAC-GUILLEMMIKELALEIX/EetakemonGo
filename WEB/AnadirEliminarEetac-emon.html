@@ -24,8 +24,10 @@
                     contentType: "application/json",
                     dataType: "json",
                     data: JSON.stringify(o),
-                    success: function (responseJSON) {
-                        console.log(responseJSON)
+                    statusCode:{
+                        201: function () {
+                            alert("Eetakemon creado"); //alerta
+                        }
                     }
                 })
             });

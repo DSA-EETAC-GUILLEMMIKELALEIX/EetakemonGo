@@ -1,4 +1,7 @@
-package Controlador;import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
+package Controlador;
+
+import Modelo.Usuario;
+import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
 
 import java.lang.reflect.*;
 import java.net.ConnectException;
@@ -328,5 +331,41 @@ public abstract class DAO {
         return puederegistrarse;
     }
 
+    protected boolean modificar(int id, Usuario usuario) {
+        Boolean a = true;
+        Connection con = getConnection();
+        StringBuffer query = new StringBuffer("UPDATE ");
+        query.append(this.getClass().getSimpleName());
+        query.append(" SET ");
+        Field[] attributes = this.getClass().getDeclaredFields();
+
+        for (Field f : attributes) {
+            query.append(f.getName());
+            query.append("="+  usuario.getNombre() + ",");
+            query.append(f.getName());
+            query.append("="+  usuario.getContrasena() + ",");
+            query.append(f.getName());
+            query.append("="+  usuario.getEmail() + ",");
+        }
+        query.deleteCharAt(query.length() - 1);
+        query.append(" WHERE id="+id);
+        //query.append(getPrimaryKey());
+        query.append(";");
+        logger.info("INFO: Update query: "+query.toString());
+
+        try {
+            PreparedStatement ps = con.prepareStatement(query.toString());
+            addFieldsToQuery(ps);
+            ps.executeUpdate();
+            logger.info("INFO: Update prepared statement: "+ps.toString());
+            ps.close();
+            con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+        return a;
+    }
 
 }
