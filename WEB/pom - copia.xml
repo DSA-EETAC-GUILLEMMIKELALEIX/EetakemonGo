@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>groupId</groupId>
-    <artifactId>EetakemonConsola</artifactId>
+    <groupId>PokEETACGroup</groupId>
+    <artifactId>PokEETACArtifact</artifactId>
+    <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>EetakemonConsola</name>
+    <name>PokEETACArtifact</name>
 
     <dependencyManagement>
         <dependencies>
@@ -26,60 +26,51 @@
             <groupId>org.glassfish.jersey.containers</groupId>
             <artifactId>jersey-container-grizzly2-http</artifactId>
         </dependency>
-        <dependency>
+         <dependency>
             <groupId>org.glassfish.jersey.media</groupId>
             <artifactId>jersey-media-moxy</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.glassfish.jersey.media</groupId>
-            <artifactId>jersey-media-json-jackson</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.9</version>
+            <version>4.11</version>
             <scope>test</scope>
         </dependency>
-
         <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>2.8.0</version>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-library</artifactId>
+            <version>1.3</version>
+            <scope>test</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/log4j/log4j -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>6.0.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20160810</version>
+        </dependency>
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
             <version>1.2.17</version>
         </dependency>
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.6</version>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.5</version>
         </dependency>
-
-
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>jstl</artifactId>
-            <version>1.0</version>
-            <scope>runtime</scope>
+            <groupId>org.apache.tomcat.maven</groupId>
+            <artifactId>tomcat7-maven-plugin</artifactId>
+            <version>2.2</version>
         </dependency>
-
-        <!-- https://mvnrepository.com/artifact/com.cloudinary/cloudinary -->
         <dependency>
-            <groupId>com.cloudinary</groupId>
-            <artifactId>cloudinary</artifactId>
-            <version>1.0.2</version>
-        </dependency>
-
-
-
-        <dependency>
-            <groupId>org.webjars</groupId>
-            <artifactId>jquery</artifactId>
-            <version>3.1.1</version>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.4</version>
         </dependency>
     </dependencies>
 
@@ -107,7 +98,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>Vista.Main</mainClass>
+                    <mainClass>serviceLibrary.Main</mainClass>
                 </configuration>
             </plugin>
         </plugins>
@@ -117,5 +108,4 @@
         <jersey.version>2.24</jersey.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-    
 </project>
