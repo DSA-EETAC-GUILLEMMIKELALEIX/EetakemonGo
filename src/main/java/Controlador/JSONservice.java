@@ -86,11 +86,16 @@ public class JSONservice {
     @GET
     @Path("/User/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Usuario getUsuarioId(@PathParam("id") int id) {
+    public Response getUsuarioId(@PathParam("id") int id) {
        Usuario u = new Usuario();
        u.buscarPorId(id); //poner select(id) o setId(id)
         System.out.println(u.toString());
-        return u;
+        if (u.getNombre()!=null) {
+            return Response.status(201).entity(u).build();
+        }
+        else{
+            return Response.status(202).entity("No se ha podido visualizar el usuario: ").build();
+        }
     }
 
     @DELETE

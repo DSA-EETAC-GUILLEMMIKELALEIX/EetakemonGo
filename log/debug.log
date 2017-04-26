@@ -25,3 +25,26 @@
 2017-04-26 08:44:53 INFO  DAO:51 - INFO: Insert query: INSERT INTO Eetakemon (id,nombre,tipo,nivel,ataque) VALUES (?,?,?,?,?);
 2017-04-26 08:44:53 INFO  DAO:56 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@1f5fc38b: INSERT INTO Eetakemon (id,nombre,tipo,nivel,ataque) VALUES (1,'Pikachu','Normal',5,'Electrico');
 2017-04-26 09:03:01 INFO  DAO:23 - INFO: conexión creada
+2017-04-26 09:18:33 INFO  DAO:23 - INFO: conexión creada
+2017-04-26 09:18:33 INFO  DAO:112 - INFO: Select query: SELECT * FROM Usuario WHERE id=0
+2017-04-26 09:18:33 INFO  DAO:116 - INFO: Select prepared statement: com.mysql.jdbc.JDBC4PreparedStatement@6e2ae3fd: SELECT * FROM Usuario WHERE id=0
+2017-04-26 09:34:42 INFO  DAO:23 - INFO: conexión creada
+2017-04-26 09:34:48 INFO  DAO:23 - INFO: conexión creada
+2017-04-26 09:34:48 INFO  DAO:112 - INFO: Select query: SELECT * FROM Usuario WHERE id=0
+2017-04-26 09:34:48 INFO  DAO:116 - INFO: Select prepared statement: com.mysql.jdbc.JDBC4PreparedStatement@13a50609: SELECT * FROM Usuario WHERE id=0
+2017-04-26 09:37:17 INFO  DAO:23 - INFO: conexión creada
+2017-04-26 09:37:17 INFO  DAO:112 - INFO: Select query: SELECT * FROM Usuario WHERE id=0
+2017-04-26 09:37:17 INFO  DAO:116 - INFO: Select prepared statement: com.mysql.jdbc.JDBC4PreparedStatement@14d78e68: SELECT * FROM Usuario WHERE id=0
+2017-04-26 09:37:35 INFO  DAO:23 - INFO: conexión creada
+2017-04-26 09:37:35 INFO  DAO:112 - INFO: Select query: SELECT * FROM Usuario WHERE id=0
+2017-04-26 09:37:35 INFO  DAO:116 - INFO: Select prepared statement: com.mysql.jdbc.JDBC4PreparedStatement@900a5fc: SELECT * FROM Usuario WHERE id=0
+2017-04-26 09:37:38 INFO  DAO:23 - INFO: conexión creada
+2017-04-26 09:37:38 INFO  DAO:112 - INFO: Select query: SELECT * FROM Usuario WHERE id=0
+2017-04-26 09:37:38 INFO  DAO:116 - INFO: Select prepared statement: com.mysql.jdbc.JDBC4PreparedStatement@1ec7341a: SELECT * FROM Usuario WHERE id=0
+2017-04-26 09:39:19 INFO  DAO:23 - INFO: conexión creada
+2017-04-26 09:39:23 INFO  DAO:23 - INFO: conexión creada
+2017-04-26 09:39:26 INFO  DAO:23 - INFO: conexión creada
+2017-04-26 09:39:31 INFO  DAO:23 - INFO: conexión creada
+2017-04-26 09:39:45 INFO  DAO:23 - INFO: conexión creada
+2017-04-26 09:39:45 INFO  DAO:112 - INFO: Select query: SELECT * FROM Usuario WHERE id=0
+2017-04-26 09:39:45 INFO  DAO:116 - INFO: Select prepared statement: com.mysql.jdbc.JDBC4PreparedStatement@519eaff8: SELECT * FROM Usuario WHERE id=0
