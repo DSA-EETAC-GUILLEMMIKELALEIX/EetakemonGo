@@ -5,7 +5,7 @@ package Controlador;
 
 //@Entity(name = "photos")
 /**
- * Created by usuario on 26/04/2017.
+ * Created by  on 26/04/2017.
  */
 //public class FotosCloud {
 //}
