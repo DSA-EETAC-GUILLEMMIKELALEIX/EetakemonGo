@@ -42,8 +42,15 @@ public class JSONservice {
     @Path("/Eetakemon")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response newEetakemon(Eetakemon eetakemon) {
-       eetakemon.crear();
-        return Response.status(201).entity("Eetakemon añadido: ").build();
+        Boolean a;
+        a=eetakemon.validarRegistro(eetakemon.getNombre());
+        if (a) {
+            eetakemon.crear();
+            return Response.status(201).entity("Eetakemon añadido: ").build();
+        }
+        else{
+            return Response.status(202).entity("Eetakemon ya existente: ").build();
+        }
     }
 
     //añadir usuario

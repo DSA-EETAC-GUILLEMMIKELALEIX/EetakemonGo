@@ -78,3 +78,15 @@
 2017-04-26 11:42:54 INFO  DAO:292 - INFO: Logeado: Aleix
 2017-04-26 11:43:00 INFO  DAO:30 - INFO: conexión creada
 2017-04-26 11:43:00 INFO  DAO:118 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@5d1ee34e: SELECT * FROM Eetakemon WHERE id=0
+2017-04-26 12:14:49 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 12:14:49 INFO  DAO:292 - INFO: Logeado: Aleix
+2017-04-26 12:15:18 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 12:15:18 INFO  DAO:292 - INFO: Logeado: Aleix
+2017-04-26 12:16:00 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 12:16:00 INFO  DAO:288 - INFO: No logeado: uqiwbenfa
+2017-04-26 12:16:02 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 12:16:02 INFO  DAO:288 - INFO: No logeado: uqiwbenfa
+2017-04-26 12:16:11 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 12:16:11 INFO  DAO:288 - INFO: No logeado: uqiwbenfa
+2017-04-26 12:17:09 INFO  DAO:30 - INFO: conexión creada
+2017-04-26 12:17:09 INFO  DAO:292 - INFO: Logeado: Aleix
