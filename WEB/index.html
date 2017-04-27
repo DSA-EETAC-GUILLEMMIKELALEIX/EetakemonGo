@@ -16,27 +16,28 @@
             $("#btn1").click(function (){
                 var name= $("#name").val();
                 var password= $("#password").val();
-
-                var o = {"nombre":name, "contrasena":password};
-                console.log(o);
-                $.ajax({
-                    type:"POST",
-                    url:ctxPath + "json/Login",
-                    contentType: "application/json",
-                    dataType:"json",
-                    data: JSON.stringify(o),
-                    /*success: function(responseJSON) {
-                        console.log(responseJSON)
-                    }*/
-                    statusCode:{
-                        201: function(){
-                            window.location.href="MenuPrincipal.html";
-                        },
-                        202: function(){
-                            alert("Error al loguearse"); //alerta
+                if(name==="" || password===""){alert("Rellena todos los campos");}
+                else {
+                    var o = {"nombre": name, "contrasena": password};
+                    console.log(o);
+                    $.ajax({
+                        type: "POST",
+                        url: ctxPath + "json/Login",
+                        contentType: "application/json",
+                        dataType: "json",
+                        data: JSON.stringify(o),
+                        /*success: function(responseJSON) {
+                            console.log(responseJSON)
+                        }*/ statusCode:{
+                            201: function(){
+                                window.location.href="MenuPrincipal.html";
+                            },
+                            202: function(){
+                                alert("Error al loguearse"); //alerta
+                            }
                         }
-                    }
-                })
+                    })
+                }
             });
         });
 

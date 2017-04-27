@@ -206,6 +206,33 @@ public class DAO {
         return null;
     }*/
 
+    //validar Registro
+    protected boolean checkExistent(String field, String value) {
+        boolean puedeRegistrarse=false;
+        Connection con = getConnection();
+        StringBuffer query = new StringBuffer("SELECT * FROM ");
+        query.append(this.getClass().getSimpleName());
+        query.append(" WHERE "+field+" ='" + value+"';");
+
+        try {
+            PreparedStatement ps = con.prepareStatement(query.toString());
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                logger.info("INFO: Usuario ya existente: "+value);
+                puedeRegistrarse=false;
+            }
+            else{
+                logger.info("INFO: Usuario no existente: "+value);
+                puedeRegistrarse=true;
+            }
+            ps.close();
+            con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return puedeRegistrarse;
+    }
+
     //asigna los valores obtenidos de la consulta SELECT a los atributos de la clase
     private void setClassFields(ResultSet rs, ResultSetMetaData rsmd, Object o) {
         try {
@@ -321,67 +348,5 @@ public class DAO {
                 e.printStackTrace();
             }
         }
-    }
-
-   ////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-    protected boolean login(String nombre, String password) {
-        boolean logeado=false;
-        Connection con = getConnection();
-        StringBuffer query = new StringBuffer("SELECT nombre,contrasena FROM ");
-        query.append(this.getClass().getSimpleName());
-        query.append(" WHERE nombre='" + nombre + "' AND contrasena='" + password+"';");
-        try {
-            PreparedStatement ps = con.prepareStatement(query.toString());
-            ResultSet rs = ps.executeQuery();
-
-
-            if(!rs.next()){
-                logger.info("INFO: No logeado: "+nombre);
-                logeado=false;
-
-            }else{
-                logger.info("INFO: Logeado: "+nombre);
-                logeado=true;
-            }
-            ps.close();
-            con.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return logeado;
-    }
-    //validar Registro
-    protected boolean validarRegistro(String nombre) {
-        boolean puederegistrarse=false;
-        Connection con = getConnection();
-        StringBuffer query = new StringBuffer("SELECT * FROM ");
-        query.append(this.getClass().getSimpleName());
-        query.append(" WHERE nombre='" + nombre+"';");
-
-        try {
-            PreparedStatement ps = con.prepareStatement(query.toString());
-            ResultSet rs = ps.executeQuery();
-            if(rs.next()){
-                logger.info("INFO: Usuario ya existente: "+nombre);
-                puederegistrarse=false;
-
-
-            }
-            else{
-                logger.info("INFO: Usuario no existente: "+nombre);
-                puederegistrarse=true;
-
-            }
-            ps.close();
-            con.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return puederegistrarse;
     }
 }

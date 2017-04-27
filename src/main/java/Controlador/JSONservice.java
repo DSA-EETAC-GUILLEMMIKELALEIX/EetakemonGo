@@ -8,7 +8,6 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 
@@ -43,7 +42,7 @@ public class JSONservice {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response newEetakemon(Eetakemon eetakemon) {
         Boolean a;
-        a=eetakemon.validarRegistro(eetakemon.getNombre());
+        a=eetakemon.checkExistent("nombre", eetakemon.getNombre());
         if (a) {
             eetakemon.insert();
             return Response.status(201).entity("Eetakemon añadido: ").build();
@@ -59,7 +58,7 @@ public class JSONservice {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response newUsuario(Usuario usuario) {
         Boolean a;
-        a = usuario.validarRegistro(usuario.getNombre());
+        a = usuario.checkExistent("email",usuario.getEmail());
         if (a) {
             usuario.insert();
             return Response.status(201).entity("Usuario añadido: ").build();
@@ -90,7 +89,7 @@ public class JSONservice {
 
     //modificar usuario
     @POST
-    @Path("/ModificarUser/{id}")
+    @Path("/User/{id}")
     public Response modificarUsuario(@PathParam("id") int id, Usuario usuario) {
         Boolean a=false;
         usuario.setId(id);
@@ -152,7 +151,7 @@ public class JSONservice {
 
     //Lista de usuarios
     @GET
-    @Path("/UserList")
+    @Path("/Users")
     @Produces(MediaType.APPLICATION_JSON)
     public Response ListarUsuarios() {
         List<Object> u = new ArrayList<>();
@@ -168,7 +167,7 @@ public class JSONservice {
 
     //Lista de eetac-emons
     @GET
-    @Path("/EetakemonList")
+    @Path("/Eetakemons")
     @Produces(MediaType.APPLICATION_JSON)
     public Response ListarEetakemons() {
         List<Eetakemon> u = new ArrayList<Eetakemon>();

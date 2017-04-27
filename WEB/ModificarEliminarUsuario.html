@@ -21,7 +21,7 @@
                 console.log(o);
                 $.ajax({
                     type: "POST",
-                    url: ctxPath + "json/ModificarUser/" + id,
+                    url: ctxPath + "json/User/" + id,
                     contentType: "application/json",
                     dataType: "json",
                     data: JSON.stringify(o),
@@ -39,7 +39,7 @@
                 var id = $("#id1").val();
                 $.ajax({
                     type: "DELETE",
-                    url: ctxPath + "json/Eetakemon/" + id,
+                    url: ctxPath + "json/Usuario/" + id,
                     contentType: "application/json",
                     dataType: "json",
                     //data: JSON.stringify(o),
