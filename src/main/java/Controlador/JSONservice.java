@@ -59,17 +59,13 @@ public class JSONservice {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response newUsuario(Usuario usuario) {
         Boolean a;
-        if((usuario.getNombre()==("")||usuario.getContrasena()==(""))||(usuario.getNombre()==("")||usuario.getEmail()==(""))||(usuario.getContrasena()==("")||usuario.getEmail()==(""))) {
-            return Response.status(203).entity("Te faltan parametros por añadir: ").build();
-        }
-        else {
-            a = usuario.validarRegistro(usuario.getNombre());
-            if (a) {
-                usuario.insert();
-                return Response.status(201).entity("Usuario añadido: ").build();
-            } else {
-                return Response.status(202).entity("Usuario ya utilizado: ").build();
-            }
+        a = usuario.validarRegistro(usuario.getNombre());
+        if (a) {
+            usuario.insert();
+            return Response.status(201).entity("Usuario añadido: ").build();
+        } else {
+            return Response.status(202).entity("Usuario ya utilizado: ").build();
+
         }
     }
 
@@ -94,11 +90,13 @@ public class JSONservice {
 
     //modificar usuario
     @POST
-    @Path("/User/{id}")
+    @Path("/ModificarUser/{id}")
     public Response modificarUsuario(@PathParam("id") int id, Usuario usuario) {
         Boolean a=false;
         usuario.setId(id);
+        System.out.println(id);
         a = usuario.update();
+        System.out.println(a);
         if (a) {
             return Response.status(201).entity("Usuario modificado: ").build();
         } else {
@@ -159,7 +157,7 @@ public class JSONservice {
     public Response ListarUsuarios() {
         List<Object> u = new ArrayList<>();
         //u = dao.findAll();
-        if (u!=null) {
+        if (!u.isEmpty()) {
             System.out.println(u);
             return Response.status(201).entity(u).build();
         }
@@ -175,7 +173,7 @@ public class JSONservice {
     public Response ListarEetakemons() {
         List<Eetakemon> u = new ArrayList<Eetakemon>();
         //u = dao.findAll();
-        if (u!=null) {
+        if (!u.isEmpty()) {
             return Response.status(201).entity(u).build();
         }
         else{

@@ -140,3 +140,72 @@
 2017-04-26 19:19:17 INFO  DAO:376 - INFO: Usuario no existente: 
 2017-04-26 19:19:17 INFO  DAO:31 - INFO: conexión creada
 2017-04-26 19:19:17 INFO  DAO:77 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@2fe64b06: INSERT INTO Usuario (nombre,contrasena,email,admin) VALUES ('','','',0);
+2017-04-27 16:19:11 INFO  DAO:31 - INFO: conexión creada
+2017-04-27 16:19:11 INFO  DAO:348 - INFO: Logeado: Aleix
+2017-04-27 16:19:28 INFO  DAO:31 - INFO: conexión creada
+2017-04-27 16:19:28 INFO  DAO:370 - INFO: Usuario ya existente: 
+2017-04-27 16:21:33 INFO  DAO:31 - INFO: conexión creada
+2017-04-27 16:21:33 INFO  DAO:348 - INFO: Logeado: Aleix
+2017-04-27 16:25:43 INFO  DAO:31 - INFO: conexión creada
+2017-04-27 16:25:43 INFO  DAO:120 - INFO: Update statement: com.mysql.jdbc.JDBC4PreparedStatement@51644ac6: UPDATE Usuario SET nombre='Aleix',contrasena=null,email='aleix',admin=1 WHERE id=1;
+2017-04-27 16:27:15 INFO  DAO:31 - INFO: conexión creada
+2017-04-27 16:27:15 INFO  DAO:120 - INFO: Update statement: com.mysql.jdbc.JDBC4PreparedStatement@43752c41: UPDATE Usuario SET nombre='Aleix',contrasena='aleix',email='aleix',admin=1 WHERE id=1;
+2017-04-27 16:33:04 INFO  DAO:31 - INFO: conexión creada
+2017-04-27 16:33:04 INFO  DAO:348 - INFO: Logeado: Aleix
+2017-04-27 16:33:19 INFO  DAO:31 - INFO: conexión creada
+2017-04-27 16:33:19 INFO  DAO:141 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@d9ea4d0: SELECT * FROM Usuario WHERE id=1
+2017-04-27 16:33:31 INFO  DAO:31 - INFO: conexión creada
+2017-04-27 16:33:31 INFO  DAO:141 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@31b150b7: SELECT * FROM Eetakemon WHERE id=1
+2017-04-27 16:37:29 INFO  DAO:31 - INFO: conexión creada
+2017-04-27 16:37:29 INFO  DAO:348 - INFO: Logeado: Aleix
+2017-04-27 16:50:32 INFO  DAO:31 - INFO: conexión creada
+2017-04-27 16:50:32 INFO  DAO:348 - INFO: Logeado: Aleix
+2017-04-27 16:58:45 INFO  DAO:31 - INFO: conexión creada
+2017-04-27 16:58:45 INFO  DAO:348 - INFO: Logeado: Aleix
+2017-04-27 16:58:59 INFO  DAO:31 - INFO: conexión creada
+2017-04-27 16:58:59 INFO  DAO:141 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@11f5466d: SELECT * FROM Usuario WHERE id=1
+2017-04-27 16:59:02 INFO  DAO:31 - INFO: conexión creada
+2017-04-27 16:59:02 INFO  DAO:141 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@783335d0: SELECT * FROM Usuario WHERE id=3
+2017-04-27 17:03:24 INFO  DAO:31 - INFO: conexión creada
+2017-04-27 17:03:24 INFO  DAO:31 - INFO: conexión creada
+2017-04-27 17:03:24 INFO  DAO:348 - INFO: Logeado: Aleix
+2017-04-27 17:03:24 INFO  DAO:348 - INFO: Logeado: Aleix
+2017-04-27 17:04:36 INFO  DAO:31 - INFO: conexión creada
+2017-04-27 17:04:36 INFO  DAO:348 - INFO: Logeado: Aleix
+2017-04-27 17:07:27 INFO  DAO:31 - INFO: conexión creada
+2017-04-27 17:07:27 INFO  DAO:348 - INFO: Logeado: Aleix
+2017-04-27 17:08:42 INFO  DAO:31 - INFO: conexión creada
+2017-04-27 17:08:42 INFO  DAO:348 - INFO: Logeado: Aleix
+2017-04-27 17:17:25 INFO  DAO:31 - INFO: conexión creada
+2017-04-27 17:17:25 INFO  DAO:348 - INFO: Logeado: Aleix
+2017-04-27 17:17:45 INFO  DAO:31 - INFO: conexión creada
+2017-04-27 17:17:45 INFO  DAO:370 - INFO: Usuario ya existente: 
+2017-04-27 17:18:33 INFO  DAO:31 - INFO: conexión creada
+2017-04-27 17:18:33 INFO  DAO:370 - INFO: Usuario ya existente: 
+2017-04-27 17:19:33 INFO  DAO:31 - INFO: conexión creada
+2017-04-27 17:19:33 INFO  DAO:370 - INFO: Usuario ya existente: aleix
+2017-04-27 17:19:45 INFO  DAO:31 - INFO: conexión creada
+2017-04-27 17:19:45 INFO  DAO:370 - INFO: Usuario ya existente: aleix
+2017-04-27 17:19:50 INFO  DAO:31 - INFO: conexión creada
+2017-04-27 17:19:50 INFO  DAO:370 - INFO: Usuario ya existente: aleix
+2017-04-27 17:21:30 INFO  DAO:31 - INFO: conexión creada
+2017-04-27 17:21:30 INFO  DAO:348 - INFO: Logeado: Aleix
+2017-04-27 17:21:39 INFO  DAO:31 - INFO: conexión creada
+2017-04-27 17:21:39 INFO  DAO:370 - INFO: Usuario ya existente: 
+2017-04-27 17:32:50 INFO  DAO:31 - INFO: conexión creada
+2017-04-27 17:32:50 INFO  DAO:348 - INFO: Logeado: Aleix
+2017-04-27 17:33:25 INFO  DAO:31 - INFO: conexión creada
+2017-04-27 17:33:25 INFO  DAO:141 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@3404315: SELECT * FROM Eetakemon WHERE id=2
+2017-04-27 17:33:25 INFO  DAO:31 - INFO: conexión creada
+2017-04-27 17:33:50 INFO  DAO:31 - INFO: conexión creada
+2017-04-27 17:33:50 INFO  DAO:141 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@3d31b4b2: SELECT * FROM Usuario WHERE id=2
+2017-04-27 17:33:56 INFO  DAO:31 - INFO: conexión creada
+2017-04-27 17:33:56 INFO  DAO:141 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@25a1fc1a: SELECT * FROM Usuario WHERE id=3
+2017-04-27 17:34:11 INFO  DAO:31 - INFO: conexión creada
+2017-04-27 17:34:11 INFO  DAO:141 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@4ad67cad: SELECT * FROM Eetakemon WHERE id=2
+2017-04-27 17:34:11 INFO  DAO:31 - INFO: conexión creada
+2017-04-27 17:35:21 INFO  DAO:31 - INFO: conexión creada
+2017-04-27 17:35:21 INFO  DAO:348 - INFO: Logeado: Aleix
+2017-04-27 17:35:47 INFO  DAO:31 - INFO: conexión creada
+2017-04-27 17:35:47 INFO  DAO:141 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@5d1e4bfd: SELECT * FROM Eetakemon WHERE id=2
+2017-04-27 17:35:47 INFO  DAO:31 - INFO: conexión creada

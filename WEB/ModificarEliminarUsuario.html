@@ -15,18 +15,16 @@
                 var name = $("#name").val();
                 var password = $("#password").val();
                 var email = $("#email").val();
+                var admin = $("#admin").val();
 
-                var o = {"nombre": name, "contrasena": password, "email": email};
+                var o = {"nombre": name, "contrasena": password, "email": email, "admin": admin};
                 console.log(o);
                 $.ajax({
                     type: "POST",
-                    url: ctxPath + "json/User/" + id,
+                    url: ctxPath + "json/ModificarUser/" + id,
                     contentType: "application/json",
                     dataType: "json",
-                    data: id + JSON.stringify(o),
-                    /*success: function (responseJSON) {
-                        console.log(responseJSON)
-                    }*/
+                    data: JSON.stringify(o),
                     statusCode:{
                         201: function () {
                             alert("Usuario modificado"); //alerta
@@ -102,11 +100,11 @@
 </div>
 <div>
     <h1>
+        ID: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="id" ><br><br>
         Nombre: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="name" ><br><br>
         Contraseña: <input type="text" id="password"><br><br>
         E-mail: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="email" ><br><br>
         Admin:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="admin" ><br><br>
-        ID: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="id" ><br><br>
         <button type="button" id="btn1" class="btn btn-success btn-lg">Modificar Usuario!</button><br><br>
         ID: <input type="text" id="id1">&nbsp;&nbsp;
         <button type="button" id="btn2" class="btn btn-success btn-lg">Eliminar Usuario!</button>
