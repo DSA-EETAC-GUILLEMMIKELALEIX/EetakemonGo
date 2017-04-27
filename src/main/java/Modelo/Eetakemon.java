@@ -5,9 +5,9 @@ import Controlador.EetakemonDAO;
 public class Eetakemon extends EetakemonDAO{
     private int id;
     private String nombre;
-    private String tipo;
-    //private Image foto;
     private int nivel;
+    private String tipo;
+    private String foto;
 
     public Eetakemon(){}
 
@@ -15,7 +15,7 @@ public class Eetakemon extends EetakemonDAO{
     {
         this.nombre = nombre;
         this.tipo = tipo;
-        //this.foto = foto;
+        this.foto = "foto";
         this.nivel=level;
     }
 
@@ -40,10 +40,6 @@ public class Eetakemon extends EetakemonDAO{
     }
     //Obtener foto
 
-   /* public Image getFoto() {
-        return foto;
-    }*/
-
     //Obtener Nivel
     public int getNivel() {
         return nivel;
@@ -63,13 +59,17 @@ public class Eetakemon extends EetakemonDAO{
     }
     //definir Foto
 
-  /*  public void setFoto(Image foto) {
-        this.foto = foto;
-    }*/
-
     //definir Nivel
     public void setNivel(int nivel) {
         this.nivel = nivel;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 
     @Override

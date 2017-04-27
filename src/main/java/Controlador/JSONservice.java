@@ -44,6 +44,7 @@ public class JSONservice {
         Boolean a;
         a=eetakemon.checkExistent("nombre", eetakemon.getNombre());
         if (a) {
+            eetakemon.setFoto("foto");
             eetakemon.insert();
             return Response.status(201).entity("Eetakemon añadido: ").build();
         }

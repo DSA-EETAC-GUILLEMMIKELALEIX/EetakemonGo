@@ -135,6 +135,7 @@ public class DAO {
         StringBuffer query = new StringBuffer("SELECT * FROM ");
         query.append(this.getClass().getSimpleName());
         query.append(" WHERE id=" + id);
+        query.append(";");
 
         try {
             PreparedStatement ps = con.prepareStatement(query.toString());
@@ -162,8 +163,8 @@ public class DAO {
 
         try {
             PreparedStatement ps = con.prepareStatement(query.toString());
-            ResultSet rs = ps.executeQuery();
-            logger.info("INFO: Select statement: "+ps.toString());
+            ps.executeUpdate();
+            logger.info("INFO: Delete statement: "+ps.toString());
             ps.close();
             con.close();
         } catch (SQLException e) {
@@ -218,11 +219,11 @@ public class DAO {
             PreparedStatement ps = con.prepareStatement(query.toString());
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
-                logger.info("INFO: Usuario ya existente: "+value);
+                logger.info("INFO: Objeto ya existente: "+value);
                 puedeRegistrarse=false;
             }
             else{
-                logger.info("INFO: Usuario no existente: "+value);
+                logger.info("INFO: Objeto no existente: "+value);
                 puedeRegistrarse=true;
             }
             ps.close();

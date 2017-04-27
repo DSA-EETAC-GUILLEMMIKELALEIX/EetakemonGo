@@ -14,12 +14,12 @@
                 var name = $("#Eetacname").val();
                 var tipo = $("#Eetactipo").val();
                 var nivel = $("#Eetacnivel").val();
-                var ataque = $("#Eetacataque").val();
+                //var ataque = $("#Eetacataque").val();
 
-                if(name==="" || tipo==="" || nivel==="" || ataque===""){alert("Rellena todos los campos");}
+                if(name==="" || tipo==="" || nivel===""){alert("Rellena todos los campos");}
                 else {
 
-                    var o = {"nombre": name, "tipo": tipo, "nivel": nivel, "ataque": ataque};
+                    var o = {"nombre": name, "tipo": tipo, "nivel": nivel};
                     console.log(o);
                     $.ajax({
                         type: "POST",
