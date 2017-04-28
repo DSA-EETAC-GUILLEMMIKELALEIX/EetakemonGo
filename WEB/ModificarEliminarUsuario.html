@@ -39,7 +39,7 @@
                 var id = $("#id1").val();
                 $.ajax({
                     type: "DELETE",
-                    url: ctxPath + "json/Usuario/" + id,
+                    url: ctxPath + "json/User/" + id,
                     contentType: "application/json",
                     dataType: "json",
                     //data: JSON.stringify(o),
@@ -101,10 +101,15 @@
 <div>
     <h1>
         ID: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="id" ><br><br>
-        Nombre: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="name" ><br><br>
+        Nombre: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="name" ><br><br>
         Contraseña: <input type="text" id="password"><br><br>
-        E-mail: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="email" ><br><br>
-        Admin:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="admin" ><br><br>
+        E-mail: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="email" ><br><br>
+        Admin:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <select id="admin">
+            <option value="0">NO</option>
+            <option value="1">SI</option>
+        </select>
+        <!--<input type="text" id="admin" >--><br><br>
         <button type="button" id="btn1" class="btn btn-success btn-lg">Modificar Usuario!</button><br><br>
         ID: <input type="text" id="id1">&nbsp;&nbsp;
         <button type="button" id="btn2" class="btn btn-success btn-lg">Eliminar Usuario!</button>
