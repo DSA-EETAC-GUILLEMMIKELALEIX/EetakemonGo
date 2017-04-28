@@ -295,3 +295,17 @@
 2017-04-27 23:16:21 INFO  DAO:142 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@66f2fd27: SELECT * FROM Eetakemon WHERE id=7;
 2017-04-27 23:16:21 INFO  DAO:31 - INFO: conexión creada
 2017-04-27 23:16:21 INFO  DAO:167 - INFO: Delete statement: com.mysql.jdbc.JDBC4PreparedStatement@4a8eb5bf: DELETE FROM Eetakemon WHERE id=7;
+2017-04-28 10:43:40 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 10:43:40 INFO  DAO:223 - INFO: Objeto no existente: charli@gmail.com
+2017-04-28 10:43:40 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 10:43:40 INFO  DAO:77 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@11fb8c69: INSERT INTO Usuario (nombre,contrasena,email,admin) VALUES ('charli','1234','charli@gmail.com',0);
+2017-04-28 10:43:55 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 10:43:55 INFO  DAO:187 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@888dc9a: SELECT * FROM Usuario;
+2017-04-28 10:45:43 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 10:45:43 INFO  DAO:187 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@1f5d0418: SELECT * FROM Usuario;
+2017-04-28 10:49:50 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 10:49:50 INFO  DAO:27 - INFO: No logeado: josef@gmail.com
+2017-04-28 10:50:04 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 10:50:04 INFO  DAO:27 - INFO: No logeado: mikel@gmail.com
+2017-04-28 10:50:14 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 10:50:14 INFO  DAO:31 - INFO: Logeado: mikel@gmail.com
