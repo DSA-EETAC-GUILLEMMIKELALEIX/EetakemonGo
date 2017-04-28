@@ -11,47 +11,55 @@
         $(document).ready(function() {
             var ctxPath = "http://localhost:8081/myapp/";
             $("#btn1").click(function () {
+
                 var id = $("#id").val();
                 var name = $("#name").val();
                 var password = $("#password").val();
                 var email = $("#email").val();
                 var admin = $("#admin").val();
-
-                var o = {"nombre": name, "contrasena": password, "email": email, "admin": admin};
-                console.log(o);
-                $.ajax({
-                    type: "POST",
-                    url: ctxPath + "json/User/" + id,
-                    contentType: "application/json",
-                    dataType: "json",
-                    data: JSON.stringify(o),
-                    statusCode:{
-                        201: function () {
-                            alert("Usuario modificado"); //alerta
-                        },
-                        202: function () {
-                            alert("No se ha podido modificar"); //alerta
+                if (id ===""||name==="" || password==="" || email===""||admin===""){
+                    alert("Rellena todos los campos");
+                }else {
+                    var o = {"nombre": name, "contrasena": password, "email": email, "admin": admin};
+                    console.log(o);
+                    $.ajax({
+                        type: "POST",
+                        url: ctxPath + "json/User/" + id,
+                        contentType: "application/json",
+                        dataType: "json",
+                        data: JSON.stringify(o),
+                        statusCode: {
+                            201: function () {
+                                alert("Usuario modificado"); //alerta
+                            },
+                            202: function () {
+                                alert("No se ha podido modificar"); //alerta
+                            }
                         }
-                    }
-                })
+                    })
+                }
             });
             $("#btn2").click(function () {
                 var id = $("#id1").val();
-                $.ajax({
-                    type: "DELETE",
-                    url: ctxPath + "json/User/" + id,
-                    contentType: "application/json",
-                    dataType: "json",
-                    //data: JSON.stringify(o),
-                    statusCode:{
-                        201: function () {
-                            alert("Usuario eliminado"); //alerta
-                        },
-                        202: function () {
-                            alert("No se ha podido eliminar el Usuario");  //alerta
+                if (id===""){
+                    alert("Rellena el campo ID");
+                }else {
+                    $.ajax({
+                        type: "DELETE",
+                        url: ctxPath + "json/User/" + id,
+                        contentType: "application/json",
+                        dataType: "json",
+                        //data: JSON.stringify(o),
+                        statusCode: {
+                            201: function () {
+                                alert("Usuario eliminado"); //alerta
+                            },
+                            202: function () {
+                                alert("No se ha podido eliminar el Usuario");  //alerta
+                            }
                         }
-                    }
-                })
+                    })
+                }
             });
 
         });
@@ -100,7 +108,7 @@
 </div>
 <div>
     <h1>
-        ID: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="id" ><br><br>
+        ID: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="number" id="id" ><br><br>
         Nombre: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="name" ><br><br>
         Contraseña: <input type="text" id="password"><br><br>
         E-mail: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="email" ><br><br>
