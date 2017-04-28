@@ -12,23 +12,23 @@ import java.sql.SQLException;
 
 public class UsuarioDAO extends DAO{
 
-    protected boolean login(String nombre, String password) {
+    protected boolean login(String email, String password) {
         boolean logeado=false;
         Connection con = getConnection();
         StringBuffer query = new StringBuffer("SELECT nombre,contrasena FROM ");
         query.append(this.getClass().getSimpleName());
-        query.append(" WHERE nombre='" + nombre + "' AND contrasena='" + password+"';");
+        query.append(" WHERE email='" + email + "' AND contrasena='" + password+"';");
         try {
             PreparedStatement ps = con.prepareStatement(query.toString());
             ResultSet rs = ps.executeQuery();
 
 
             if(!rs.next()){
-                logger.info("INFO: No logeado: "+nombre);
+                logger.info("INFO: No logeado: "+email);
                 logeado=false;
 
             }else{
-                logger.info("INFO: Logeado: "+nombre);
+                logger.info("INFO: Logeado: "+email);
                 logeado=true;
             }
             ps.close();

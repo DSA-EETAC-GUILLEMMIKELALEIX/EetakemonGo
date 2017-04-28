@@ -175,7 +175,7 @@ public class DAO {
     }
 
     //seleccionar la tabla de una clase de la base de datos
-    /*public List<Object> findAll() {//a medias
+    public List findAll() {//a medias
         Connection con = getConnection();
         List<Object> list= new ArrayList<>();
         StringBuffer query = new StringBuffer("SELECT * FROM ");
@@ -186,26 +186,23 @@ public class DAO {
             PreparedStatement ps = con.prepareStatement(query.toString());
             logger.info("INFO: List statement: "+ps.toString());
             ResultSet rs = ps.executeQuery();
+            ResultSetMetaData resultSetMetaData = rs.getMetaData();
 
-            while(rs.next()){
-                Class c  = this.getClass();
-                Object o = c.newInstance();
-//                o."setName"
-
-                list.add(o);
+            while (rs.next()) {
+                Class classToLoad = this.getClass();
+                Object newObject = classToLoad.newInstance();
+                setClassFields(rs, resultSetMetaData, newObject);
+                list.add(newObject);
             }
-
             ps.close();
             con.close();
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (NullPointerException e) {
+        } catch (SQLException | NullPointerException | InstantiationException | IllegalAccessException e) {
             e.printStackTrace();
         }
 
-        return null;
-    }*/
+        return list;
+    }
 
     //validar Registro
     protected boolean checkExistent(String field, String value) {
