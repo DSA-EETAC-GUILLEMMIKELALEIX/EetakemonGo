@@ -45,7 +45,7 @@
                             console.log(result);
                             for(i=0;i<1000;i++){
 
-                                document.getElementById("texto").value = "\nID: " + result[i].id + "\nNombre:" + result[i].nombre + "\nContraseña:" + result[i].contrasena +
+                                document.getElementById("texto").value += "\nID: " + result[i].id + "\nNombre:" + result[i].nombre + "\nContraseña:" + result[i].contrasena +
                                 "\nEmail:" + result[i].email;
                             }
                         },
@@ -87,7 +87,11 @@
                     url: ctxPath + "json/Eetakemons",
                     statusCode: {
                         201: function (result) {
-                            document.getElementById("texto").value =JSON.stringify(result); //S'ha de ficar que imprimeixi una llista
+                            for(i=0;i<1000;i++){
+
+                                document.getElementById("texto").value += "\nID: " + result[i].id + "\nNombre:" + result[i].nombre + "\nTipo:" + result[i].tipo +
+                                    "\nNivel:" + result[i].nivel;
+                            }
                         },
                         202: function () {
                             alert("No se ha podido visualizar");

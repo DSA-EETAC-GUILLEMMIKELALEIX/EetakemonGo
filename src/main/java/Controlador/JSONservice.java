@@ -176,8 +176,10 @@ public class JSONservice {
     public Response ListarEetakemons() {
         List<Eetakemon> list = new ArrayList<>();
         list =new Eetakemon().findAll();
+        GenericEntity< List <Eetakemon> > entity;
+        entity  = new GenericEntity< List< Eetakemon > >( list ) { };
         if (!list.isEmpty()) {
-            return Response.status(201).entity(list).build();
+            return Response.status(201).entity(entity).build();
         }
         else{
             return Response.status(202).entity("No se ha podido visualizar el usuario: ").build();
