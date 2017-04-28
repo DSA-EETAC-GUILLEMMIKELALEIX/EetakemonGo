@@ -76,10 +76,10 @@ public class JSONservice {
     public Response Login(Usuario usuario) {
         Boolean a;
         System.out.println(usuario);
-        String n,c;
-        n=usuario.getNombre();
+        String e,c;
+        e=usuario.getEmail();
         c=usuario.getContrasena();
-        a=usuario.login(n,c);
+        a=usuario.login(e,c);
         if (a) {
             return Response.status(201).entity("Usuario identificado: ").build();
         }
@@ -155,11 +155,11 @@ public class JSONservice {
     @Path("/Users")
     @Produces(MediaType.APPLICATION_JSON)
     public Response ListarUsuarios() {
-        List<Object> u = new ArrayList<>();
-        //u = dao.findAll();
-        if (!u.isEmpty()) {
-            System.out.println(u);
-            return Response.status(201).entity(u).build();
+        List<Usuario> list;
+        list = new Usuario().findAll();
+        if (!list.isEmpty()) {
+            System.out.println(list);
+            return Response.status(201).entity(list).build();
         }
         else{
             return Response.status(202).entity("No se ha podido visualizar el usuario: ").build();
@@ -171,10 +171,10 @@ public class JSONservice {
     @Path("/Eetakemons")
     @Produces(MediaType.APPLICATION_JSON)
     public Response ListarEetakemons() {
-        List<Eetakemon> u = new ArrayList<Eetakemon>();
-        //u = dao.findAll();
-        if (!u.isEmpty()) {
-            return Response.status(201).entity(u).build();
+        List<Eetakemon> list = new ArrayList<>();
+        list =new Eetakemon().findAll();
+        if (!list.isEmpty()) {
+            return Response.status(201).entity(list).build();
         }
         else{
             return Response.status(202).entity("No se ha podido visualizar el usuario: ").build();

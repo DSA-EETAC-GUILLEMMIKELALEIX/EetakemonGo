@@ -14,11 +14,11 @@
         var ctxPath = "http://localhost:8081/myapp/";
         $(document).ready(function(){
             $("#btn1").click(function (){
-                var name= $("#name").val();
+                var email= $("#email").val();
                 var password= $("#password").val();
-                if(name==="" || password===""){alert("Rellena todos los campos");}
+                if(email==="" || password===""){alert("Rellena todos los campos");}
                 else {
-                    var o = {"nombre": name, "contrasena": password};
+                    var o = {"email": email, "contrasena": password};
                     console.log(o);
                     $.ajax({
                         type: "POST",
@@ -86,7 +86,7 @@
 </h2>
 <div>
     <h1>
-        Nombre: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="name" required><br><br>
+        Email: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="email" required><br><br>
         Contraseña: <input type="password" id="password" required><br>
     </h1>
     <h2>
