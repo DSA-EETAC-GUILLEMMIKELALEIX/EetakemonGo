@@ -10,4 +10,5 @@ import java.sql.SQLException;
 
 public class EetakemonDAO extends DAO {
 
+
 }

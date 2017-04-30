@@ -9,6 +9,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 import java.util.List;
+import javax.ws.rs.core.GenericEntity;
 
 
 @Path("/json")
@@ -157,9 +158,11 @@ public class JSONservice {
     public Response ListarUsuarios() {
         List<Usuario> list;
         list = new Usuario().findAll();
+        GenericEntity< List <Usuario> > entity;
+        entity  = new GenericEntity< List< Usuario > >( list ) { };
         if (!list.isEmpty()) {
-            System.out.println(list);
-            return Response.status(201).entity(list).build();
+            System.out.println("Lista a enviar" + entity);
+            return Response.status(201).entity(entity).build();
         }
         else{
             return Response.status(202).entity("No se ha podido visualizar el usuario: ").build();
@@ -173,8 +176,10 @@ public class JSONservice {
     public Response ListarEetakemons() {
         List<Eetakemon> list = new ArrayList<>();
         list =new Eetakemon().findAll();
+        GenericEntity< List <Eetakemon> > entity;
+        entity  = new GenericEntity< List< Eetakemon > >( list ) { };
         if (!list.isEmpty()) {
-            return Response.status(201).entity(list).build();
+            return Response.status(201).entity(entity).build();
         }
         else{
             return Response.status(202).entity("No se ha podido visualizar el usuario: ").build();
