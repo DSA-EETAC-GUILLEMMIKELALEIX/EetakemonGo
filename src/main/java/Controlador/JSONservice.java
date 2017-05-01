@@ -83,7 +83,7 @@ public class JSONservice {
         c=usuario.getContrasena();
         a=usuario.login(e,c);
         Usuario u = new Usuario();
-        u.selectemail(usuario.getEmail());
+        u.select(usuario.getEmail());
         if (a) {
             System.out.println(u.getId());
             return Response.status(201).entity(u.getId()).build();

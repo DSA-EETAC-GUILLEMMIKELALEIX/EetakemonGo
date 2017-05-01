@@ -36,16 +36,17 @@ public class UsuarioDAO extends DAO{
         return logeado;
     }
     //buscar por email en la base de datos
-    protected void selectemail(String email) {
+    public void select(String email) {
         Connection con = getConnection();
         StringBuffer query = new StringBuffer("SELECT * FROM ");
         query.append(this.getClass().getSimpleName());
-        query.append(" WHERE email=" + email);
-        query.append(";");
+        query.append(" WHERE email='");
+        query.append(email);
+        query.append("';");
 
         try {
             PreparedStatement ps = con.prepareStatement(query.toString());
-            logger.info("INFO: Select  statement: "+ps.toString());;
+            logger.info("INFO: Select by email  statement: "+ps.toString());;
             ResultSet rs = ps.executeQuery();
             ResultSetMetaData rsmd = rs.getMetaData();
 

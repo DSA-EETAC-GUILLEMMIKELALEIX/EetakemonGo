@@ -27,7 +27,7 @@ public class DAO {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             //conn = DriverManager.getConnection("jdbc:mysql://sql8.freemysqlhosting.net/sql8171317", "sql8171317", "5P4v94eLJY");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Prueba", "root", "mysql");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Proyecto", "root", "mysql");
             logger.info("INFO: conexión creada");
         } catch (Exception e) {
             e.printStackTrace();
@@ -139,7 +139,7 @@ public class DAO {
 
         try {
             PreparedStatement ps = con.prepareStatement(query.toString());
-            logger.info("INFO: Select  statement: "+ps.toString());;
+            logger.info("INFO: Select  by id statement: "+ps.toString());;
             ResultSet rs = ps.executeQuery();
             ResultSetMetaData rsmd = rs.getMetaData();
 
