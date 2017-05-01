@@ -12,6 +12,14 @@
     <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.cookie/1.3.1/jquery.cookie.js"></script>
     <script>
         var ctxPath = "http://localhost:8081/myapp/";
+
+        function saveID(theID) {
+            ID=theID;
+            window.onload=sessionStorage.setItem("ID",ID);
+            console.log(ID);
+        }
+
+
         $(document).ready(function(){
             $("#btn1").click(function (){
                 var email= $("#email").val();
@@ -29,7 +37,8 @@
                         /*success: function(responseJSON) {
                             console.log(responseJSON)
                         }*/ statusCode:{
-                            201: function(){
+                            201: function(result){
+                                saveID(result);
                                 window.location.href="MenuPrincipal.html";
                             },
                             202: function(){
