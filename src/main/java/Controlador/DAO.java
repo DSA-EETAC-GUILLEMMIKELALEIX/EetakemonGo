@@ -27,7 +27,7 @@ public class DAO {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             //conn = DriverManager.getConnection("jdbc:mysql://sql8.freemysqlhosting.net/sql8171317", "sql8171317", "5P4v94eLJY");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Proyecto", "root", "mysql");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Prueba", "root", "mysql");
             logger.info("INFO: conexión creada");
         } catch (Exception e) {
             e.printStackTrace();
@@ -232,7 +232,7 @@ public class DAO {
     }
 
     //asigna los valores obtenidos de la consulta SELECT a los atributos de la clase
-    private void setClassFields(ResultSet rs, ResultSetMetaData rsmd, Object o) {
+    protected void setClassFields(ResultSet rs, ResultSetMetaData rsmd, Object o) {
         try {
             for (int i = 1; i <= rsmd.getColumnCount(); i++) {
                 String columnType = rsmd.getColumnTypeName(i);

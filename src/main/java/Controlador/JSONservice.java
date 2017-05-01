@@ -78,11 +78,15 @@ public class JSONservice {
         Boolean a;
         System.out.println(usuario);
         String e,c;
+        int theid;
         e=usuario.getEmail();
         c=usuario.getContrasena();
         a=usuario.login(e,c);
+        Usuario u = new Usuario();
+        u.selectemail(usuario.getEmail());
         if (a) {
-            return Response.status(201).entity("Usuario identificado: ").build();
+            System.out.println(u.getId());
+            return Response.status(201).entity(u.getId()).build();
         }
         else{
             return Response.status(202).entity("Usuario incorrecto: ").build();

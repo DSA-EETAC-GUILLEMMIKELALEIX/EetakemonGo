@@ -4,10 +4,7 @@ import Modelo.Usuario;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 
 public class UsuarioDAO extends DAO{
@@ -37,5 +34,28 @@ public class UsuarioDAO extends DAO{
             e.printStackTrace();
         }
         return logeado;
+    }
+    //buscar por email en la base de datos
+    protected void selectemail(String email) {
+        Connection con = getConnection();
+        StringBuffer query = new StringBuffer("SELECT * FROM ");
+        query.append(this.getClass().getSimpleName());
+        query.append(" WHERE email=" + email);
+        query.append(";");
+
+        try {
+            PreparedStatement ps = con.prepareStatement(query.toString());
+            logger.info("INFO: Select  statement: "+ps.toString());;
+            ResultSet rs = ps.executeQuery();
+            ResultSetMetaData rsmd = rs.getMetaData();
+
+            while (rs.next()) {
+                setClassFields(rs, rsmd, this);
+            }
+            ps.close();
+            con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
