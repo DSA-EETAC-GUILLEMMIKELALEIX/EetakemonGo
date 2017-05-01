@@ -26,6 +26,9 @@
             userIdCurrentlyLoggedIn = sessionStorage.getItem("userIdCurrentlyLoggedIn");
         }
 
+        function saveout() {
+            window.onload=sessionStorage.setItem("ID",null); //Modificar perque quan es surti que també et redireixi
+        }
     </script>
     <style>
         body {
@@ -86,7 +89,7 @@
                         <div class="modal-title">Seguro que desea salir?</div>
                     </div>
                     <div class="modal-footer">
-                        <a href= "index.html"><button type="button" class="btn btn-default">Salir</button></a>
+                        <a href= "index.html"><button type="button" class="btn btn-default" onclick="saveout();">Salir</button></a>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                     </div>
                 </div>
