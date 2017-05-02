@@ -62,6 +62,22 @@
             });
 
         });
+        function imagePreview() {
+            var file = document.querySelector('input[type=file]').files[0];
+            var reader = new FileReader();
+
+            reader.onloadend = function () {
+                document.getElementById('aqui').src= reader.result;
+            };
+
+            if (file) {
+                reader.readAsDataURL(file);
+
+
+            } else {
+                document.getElementById('aqui').src = "";
+            }
+        }
     </script>
     <style>
         body {
@@ -81,7 +97,7 @@
         h1{
             text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
             text-align: center;
-            padding: 50px 0;
+            padding: 10px 0;
         }
         h2 {
             text-align: right;
@@ -110,6 +126,12 @@
         Nombre: <input type="text" id="Eetacname" ><br><br>
         Tipo: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="Eetactipo"><br><br>
         Nivel:&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="Eetacnivel" ><br><br>
+    </h1>
+    <div align="center">
+        <input id="imageInput" type="file" name="imageInput" accept="image/*" onchange="imagePreview()">
+        <img  id="aqui" src="" height="100" alt="Image preview...">
+    </div>
+    <h1>
         <button type="button" id="btn1" class="btn btn-success btn-lg">Añadir Eetac-emon!</button><br><br>
         ID: <input type="text" id="id" >
         <button type="button" id="btn2" class="btn btn-success btn-lg">Eliminar Eetac-emon!</button>
