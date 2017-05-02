@@ -8,18 +8,32 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
+        var userIdCurrentlyLoggedIn=0;
+
+        console.log("ID inici:" + sessionStorage.getItem("ID"));
+        userIdCurrentlyLoggedIn = sessionStorage.getItem("ID");
+        console.log("ID final:"+userIdCurrentlyLoggedIn);
+        if(userIdCurrentlyLoggedIn==null)
+        {
+            alert("User is not logged in. Redirecting to Login form...");
+            sessionStorage.clear();
+            window.location.replace("./index.html");
+        }
+        else
+        {
+            userIdCurrentlyLoggedIn = sessionStorage.getItem("userIdCurrentlyLoggedIn");
+        }
         $(document).ready(function() {
             var ctxPath = "http://localhost:8081/myapp/";
             $("#btn1").click(function () {
                 var name = $("#Eetacname").val();
                 var tipo = $("#Eetactipo").val();
                 var nivel = $("#Eetacnivel").val();
-                //var ataque = $("#Eetacataque").val();
+                var foto = $('#imageInput').val();
 
-                if(name==="" || tipo==="" || nivel===""){alert("Rellena todos los campos");}
+                if(name==="" || tipo==="" || nivel===""|| foto===""){alert("Rellena todos los campos");}
                 else {
-
-                    var o = {"nombre": name, "tipo": tipo, "nivel": nivel};
+                    var o = {"nombre": name, "tipo": tipo, "nivel": nivel, "foto": foto};
                     console.log(o);
                     $.ajax({
                         type: "POST",
@@ -30,6 +44,28 @@
                         statusCode: {
                             201: function () {
                                 alert("Eetakemon creado"); //alerta
+
+                                var file = document.querySelector('input[type="file"]').files[0];
+
+                                var reader = new FileReader();
+                                reader.readAsDataURL(file);
+                                reader.onload = function() {
+                                    var encodedImage = reader.result;
+                                    var o = {"nombre": name, "tipo": tipo, "nivel": nivel, "foto": encodedImage};
+                                    $.ajax({
+                                        type: "POST",
+                                        url: ctxPath + "json/EetakemonImage",
+                                        contentType: "application/json",
+                                        data: JSON.stringify(o),
+                                        success: [function () {
+                                        }],
+                                        error: [
+                                            function (request, status) {
+                                                alert(status);
+                                            }
+                                        ]
+                                    });
+                                }
                             },
                             202: function () {
                                 alert("No se ha creado el Eetakemon"); //alerta
@@ -125,7 +161,7 @@
     <h1>
         Nombre: <input type="text" id="Eetacname" ><br><br>
         Tipo: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="Eetactipo"><br><br>
-        Nivel:&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="Eetacnivel" ><br><br>
+        Nivel:&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<input type="number" id="Eetacnivel" ><br><br>
     </h1>
     <div align="center">
         <input id="imageInput" type="file" name="imageInput" accept="image/*" onchange="imagePreview()">

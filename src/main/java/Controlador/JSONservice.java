@@ -10,7 +10,9 @@ import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ws.rs.core.GenericEntity;
-
+import java.awt.image.BufferedImage;
+import java.io.*;
+import javax.imageio.ImageIO;
 
 @Path("/json")
 @Singleton
@@ -45,13 +47,31 @@ public class JSONservice {
         Boolean a;
         a=eetakemon.checkExistent("nombre", eetakemon.getNombre());
         if (a) {
-            eetakemon.setFoto("foto");
             eetakemon.insert();
             return Response.status(201).entity("Eetakemon añadido: ").build();
         }
         else{
             return Response.status(202).entity("Eetakemon ya existente: ").build();
         }
+    }
+
+    //foto eetakemon
+    @POST
+    @Path("/EetakemonImage")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void Image(Eetakemon eetakemon) {
+        String base64Image = eetakemon.getFoto().split(",")[1];
+        byte[] imageBytes = javax.xml.bind.DatatypeConverter.parseBase64Binary(base64Image);
+        File imageFile = new File("C:\\Users\\Aleix\\IdeaProjects\\EetakemonConsola\\WEB\\images\\" + eetakemon.getNombre() + ".png");
+
+        try {
+            BufferedImage bufferedImage = ImageIO.read(new ByteArrayInputStream(imageBytes));
+            ImageIO.write(bufferedImage, "png", imageFile);
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+
     }
 
     //añadir usuario

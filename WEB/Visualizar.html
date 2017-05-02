@@ -9,6 +9,21 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
         var ctxPath = "http://localhost:8081/myapp/";
+        var userIdCurrentlyLoggedIn=0;
+
+        console.log("ID inici:" + sessionStorage.getItem("ID"));
+        userIdCurrentlyLoggedIn = sessionStorage.getItem("ID");
+        console.log("ID final:"+userIdCurrentlyLoggedIn);
+        if(userIdCurrentlyLoggedIn==null)
+        {
+            alert("User is not logged in. Redirecting to Login form...");
+            sessionStorage.clear();
+            window.location.replace("./index.html");
+        }
+        else
+        {
+            userIdCurrentlyLoggedIn = sessionStorage.getItem("userIdCurrentlyLoggedIn");
+        }
         $(document).ready(function() {
             $("#btn1").click(function () {
                 document.getElementById("texto").value = "";
