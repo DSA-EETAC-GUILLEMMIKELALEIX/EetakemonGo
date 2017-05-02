@@ -64,6 +64,7 @@ public class JSONservice {
         byte[] imageBytes = javax.xml.bind.DatatypeConverter.parseBase64Binary(base64Image);
         File imageFile = new File("C:\\Users\\Aleix\\IdeaProjects\\EetakemonConsola\\WEB\\images\\" + eetakemon.getNombre() + ".png");
 
+        System.out.println(imageFile);
         try {
             BufferedImage bufferedImage = ImageIO.read(new ByteArrayInputStream(imageBytes));
             ImageIO.write(bufferedImage, "png", imageFile);

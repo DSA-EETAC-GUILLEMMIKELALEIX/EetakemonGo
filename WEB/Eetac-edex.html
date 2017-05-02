@@ -23,6 +23,37 @@
         {
             userIdCurrentlyLoggedIn = sessionStorage.getItem("userIdCurrentlyLoggedIn");
         }
+
+        window.onload = function () {
+            var ctxPath = "http://localhost:8081/myapp/";
+
+            $.ajax({
+                type: 'GET',
+                contentType: 'application/json',
+                url: ctxPath + "json/Eetakemons",
+                success: [
+                    function (result) {
+                        $.each(result, function (i, obj) {
+                            console.log(obj.name);
+                            $("#eetac-edexdiv").append("<div id=\"eetac-edexdiv\">" +
+                                "<div>" +
+                                "<a href = \"Eetac-edex." + obj.nombre + ".html\">" +
+                                "<img alt=\"\" src = \" /images/" + obj.nombre + ".png\"  style=\"width:157px;height:160px;\">" +
+                                "</div>" +
+                                "<a class=\"caption\">" +
+                                "<h4 id=\"info\">" + obj.id + ": " + obj.nombre + "</h4>" +
+                                "</a></div></div>");
+                        });
+                    }
+                ],
+                error: [
+                    function (request, status) {
+                        alert(status);
+                    }
+                ]
+            });
+
+        }
     </script>
     <style>
         body {
@@ -83,48 +114,25 @@
             -webkit-column-gap: 40px;
             column-gap: 40px;
         }
-
     </style>
+
 </head>
 <body>
 <div class="container">
     <h2>
-        <img src="./images/fondo1.png" style="width:156px;height:160px; position: absolute" >
-        <br><br>
+        <img src="./images/fondo1.png" style="width:156px;height:160px;position: absolute">
     </h2>
 </div>
 <div class = "container" style=" position: absolute;right:35px; bottom:0">
     <h3>
-        <a href="MenuPrincipal.html?"><button type="button" class="btn btn-success btn-lg">&nbsp;&nbsp;SALIR&nbsp;&nbsp;&nbsp;</button></a>
+        <a href="MenuPrincipal.html"><button type="button" class="btn btn-success btn-lg">&nbsp;&nbsp;SALIR&nbsp;&nbsp;&nbsp;</button></a>
     </h3>
 </div>
 <div class="first">
     <div class="newspaper">
-        <div class="second">
-
-            <a href="Eetac-edex.Bernorlax.html"><img src="./images/Bernorlax.png" style="width:157px;height:160px;">
-                <h4><figcaption>BERNORLAX</figcaption></h4></a>
-
-            <a href="Eetac-edex.Davyphno.html"><img src="./images/Davyphno.png" style="width:157px;height:160px;">
-                <h4><figcaption>DAVYPHNO</figcaption></h4></a>
-
-            <a href="Eetac-edex.Francerpie.html"><img src="./images/Francerpie.png" style="width:157px;height:160px;">
-                <h4><figcaption>FRANCERPIE</figcaption></h4></a>
-
-            <a href="Eetac-edex.Jesuskou.html"><img src="./images/Jesuskou.png" style="width:157px;height:160px;">
-                <h4><figcaption>JESUSKOU</figcaption></h4></a>
-
-            <a href="Eetac-edex.Jordinine.html"><img src="./images/Jordinine.png" style="width:157px;height:160px;">
-                <h4><figcaption>JORDININE</figcaption></h4></a>
-
-            <a href="Eetac-edex.Lluiskarp.html"><img src="./images/lluiskarp.png" style="width:157px;height:160px;">
-                <h4><figcaption>LLUISKARP</figcaption></h4></a>
-
-            <a href="Eetac-edex.Mewdecerio.html"><img src="./images/Mewdecerio.png" style="width:157px;height:160px;">
-                <h4><figcaption>MEWDECERIO</figcaption></h4></a>
+        <div class="second" id="eetac-edexdiv">
 
         </div>
-
     </div>
 </div>
 </body>
