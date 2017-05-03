@@ -62,9 +62,10 @@ public class JSONservice {
     public void Image(Eetakemon eetakemon) {
         String base64Image = eetakemon.getFoto().split(",")[1];
         byte[] imageBytes = javax.xml.bind.DatatypeConverter.parseBase64Binary(base64Image);
-        File imageFile = new File("C:\\Users\\Aleix\\IdeaProjects\\EetakemonConsola\\WEB\\images\\" + eetakemon.getNombre() + ".png");
+        File imageFile = new File("WEB\\images\\" + eetakemon.getNombre() + ".png");
 
         System.out.println(imageFile);
+        System.out.println();
         try {
             BufferedImage bufferedImage = ImageIO.read(new ByteArrayInputStream(imageBytes));
             ImageIO.write(bufferedImage, "png", imageFile);
