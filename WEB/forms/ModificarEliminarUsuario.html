@@ -9,7 +9,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
         var userIdCurrentlyLoggedIn=0;
-
         console.log("ID inici:" + sessionStorage.getItem("ID"));
         userIdCurrentlyLoggedIn = sessionStorage.getItem("ID");
         console.log("ID final:"+userIdCurrentlyLoggedIn);
@@ -17,7 +16,7 @@
         {
             alert("User is not logged in. Redirecting to Login form...");
             sessionStorage.clear();
-            window.location.replace("./index.html");
+            window.location.replace("../index.html");
         }
         else
         {
@@ -26,7 +25,6 @@
         $(document).ready(function() {
             var ctxPath = "http://localhost:8081/myapp/";
             $("#btn1").click(function () {
-
                 var id = $("#id").val();
                 var name = $("#name").val();
                 var password = $("#password").val();
@@ -76,7 +74,6 @@
                     })
                 }
             });
-
         });
     </script>
     <style>
@@ -107,7 +104,6 @@
             text-align: right;
             padding: 15px;
         }
-
     </style>
 </head>
 <body>

@@ -9,7 +9,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
         var userIdCurrentlyLoggedIn=0;
-
         console.log("ID inici:" + sessionStorage.getItem("ID"));
         userIdCurrentlyLoggedIn = sessionStorage.getItem("ID");
         console.log("ID final:"+userIdCurrentlyLoggedIn);
@@ -17,7 +16,7 @@
         {
             alert("User is not logged in. Redirecting to Login form...");
             sessionStorage.clear();
-            window.location.replace("./index.html");
+            window.location.replace("../index.html");
         }
         else
         {
@@ -30,7 +29,6 @@
                 var tipo = $("#Eetactipo").val();
                 var nivel = $("#Eetacnivel").val();
                 var foto = $('#imageInput').val();
-
                 if(name==="" || tipo==="" || nivel===""|| foto===""){alert("Rellena todos los campos");}
                 else {
                     var o = {"nombre": name, "tipo": tipo, "nivel": nivel, "foto": foto};
@@ -44,9 +42,7 @@
                         statusCode: {
                             201: function () {
                                 alert("Eetakemon creado"); //alerta
-
                                 var file = document.querySelector('input[type="file"]').files[0];
-
                                 var reader = new FileReader();
                                 reader.readAsDataURL(file);
                                 reader.onload = function() {
@@ -96,20 +92,15 @@
                     })
                 }
             });
-
         });
         function imagePreview() {
             var file = document.querySelector('input[type=file]').files[0];
             var reader = new FileReader();
-
             reader.onloadend = function () {
                 document.getElementById('aqui').src= reader.result;
             };
-
             if (file) {
                 reader.readAsDataURL(file);
-
-
             } else {
                 document.getElementById('aqui').src = "";
             }
@@ -143,7 +134,6 @@
             text-align: right;
             padding: 15px;
         }
-
     </style>
 </head>
 <body>
