@@ -26,8 +26,8 @@
             userIdCurrentlyLoggedIn = sessionStorage.getItem("userIdCurrentlyLoggedIn");
         }
 
-        function saveout() {
-            window.onload=sessionStorage.setItem("ID",null); //Modificar perque quan es surti que també et redireixi
+        window.onload = function saveout() {
+            sessionStorage.setItem("ID",null); //Modificar perque quan es surti que també et redireixi
         }
     </script>
     <style>
