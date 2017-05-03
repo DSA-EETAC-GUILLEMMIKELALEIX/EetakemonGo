@@ -43,11 +43,14 @@
                             201: function () {
                                 alert("Eetakemon creado"); //alerta
                                 var file = document.querySelector('input[type="file"]').files[0];
+                                console.log(file);
                                 var reader = new FileReader();
                                 reader.readAsDataURL(file);
+                                console.log(reader);
                                 reader.onload = function() {
                                     var encodedImage = reader.result;
                                     var o = {"nombre": name, "tipo": tipo, "nivel": nivel, "foto": encodedImage};
+                                    console.log(o);
                                     $.ajax({
                                         type: "POST",
                                         url: ctxPath + "json/EetakemonImage",

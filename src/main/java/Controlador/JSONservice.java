@@ -65,7 +65,6 @@ public class JSONservice {
         File imageFile = new File("WEB\\images\\" + eetakemon.getNombre() + ".png");
 
         System.out.println(imageFile);
-        System.out.println();
         try {
             BufferedImage bufferedImage = ImageIO.read(new ByteArrayInputStream(imageBytes));
             ImageIO.write(bufferedImage, "png", imageFile);
