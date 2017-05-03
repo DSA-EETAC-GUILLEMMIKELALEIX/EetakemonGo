@@ -11,50 +11,51 @@
         $(document).ready(function() {
             var ctxPath = "http://localhost:8081/myapp/";
             $("#btn1").click(function () {
-                var name = $("#Eetacname").val();
-                var tipo = $("#Eetactipo").val();
-                var nivel = $("#Eetacnivel").val();
-                //var ataque = $("#Eetacataque").val();
 
-                if(name==="" || tipo==="" || nivel===""){alert("Rellena todos los campos");}
-                else {
-
-                    var o = {"nombre": name, "tipo": tipo, "nivel": nivel};
+                var id = $("#id").val();
+                var name = $("#name").val();
+                var password = $("#password").val();
+                var email = $("#email").val();
+                var admin = $("#admin").val();
+                if (id ===""||name==="" || password==="" || email===""||admin===""){
+                    alert("Rellena todos los campos");
+                }else {
+                    var o = {"nombre": name, "contrasena": password, "email": email, "admin": admin};
                     console.log(o);
                     $.ajax({
                         type: "POST",
-                        url: ctxPath + "json/Eetakemon",
+                        url: ctxPath + "json/User/" + id,
                         contentType: "application/json",
                         dataType: "json",
                         data: JSON.stringify(o),
                         statusCode: {
                             201: function () {
-                                alert("Eetakemon creado"); //alerta
+                                alert("Usuario modificado"); //alerta
                             },
                             202: function () {
-                                alert("No se ha creado el Eetakemon"); //alerta
+                                alert("No se ha podido modificar"); //alerta
                             }
                         }
-                    });
+                    })
                 }
             });
             $("#btn2").click(function () {
-                var id = $("#id").val();
+                var id = $("#id1").val();
                 if (id===""){
                     alert("Rellena el campo ID");
                 }else {
                     $.ajax({
                         type: "DELETE",
-                        url: ctxPath + "json/Eetakemon/" + id,
+                        url: ctxPath + "json/User/" + id,
                         contentType: "application/json",
                         dataType: "json",
                         //data: JSON.stringify(o),
                         statusCode: {
                             201: function () {
-                                alert("Eetakemon eliminado"); //alerta
+                                alert("Usuario eliminado"); //alerta
                             },
                             202: function () {
-                                alert("No se ha podido eliminar el Eetakemon"); //alerta
+                                alert("No se ha podido eliminar el Usuario");  //alerta
                             }
                         }
                     })
@@ -65,7 +66,7 @@
     </script>
     <style>
         body {
-            background-image: url("./images/fondo.jpeg");
+            background-image: url("../images/fondo.jpeg");
             width: 100% ;
             height: 100% ;
             margin: 0 ;
@@ -81,7 +82,7 @@
         h1{
             text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
             text-align: center;
-            padding: 50px 0;
+            padding: 20px 0;
         }
         h2 {
             text-align: right;
@@ -97,7 +98,7 @@
 <body>
 <div class="container">
     <h2>
-        <img src="./images/fondo1.png" style="width:156px;height:160px;position: absolute">
+        <img src="../images/fondo1.png" style="width:156px;height:160px;position: absolute">
     </h2>
 </div>
 <div class = "container" style=" position: absolute;right:35px; bottom:0">
@@ -107,12 +108,19 @@
 </div>
 <div>
     <h1>
-        Nombre: <input type="text" id="Eetacname" ><br><br>
-        Tipo: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="Eetactipo"><br><br>
-        Nivel:&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="Eetacnivel" ><br><br>
-        <button type="button" id="btn1" class="btn btn-success btn-lg">Añadir Eetac-emon!</button><br><br>
-        ID: <input type="text" id="id" >
-        <button type="button" id="btn2" class="btn btn-success btn-lg">Eliminar Eetac-emon!</button>
+        ID: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="number" id="id" ><br><br>
+        Nombre: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="name" ><br><br>
+        Contraseña: <input type="text" id="password"><br><br>
+        E-mail: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="email" id="email" ><br><br>
+        Admin:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <select id="admin">
+            <option value="0">NO</option>
+            <option value="1">SI</option>
+        </select>
+        <!--<input type="text" id="admin" >--><br><br>
+        <button type="button" id="btn1" class="btn btn-success btn-lg">Modificar Usuario!</button><br><br>
+        ID: <input type="text" id="id1">&nbsp;&nbsp;
+        <button type="button" id="btn2" class="btn btn-success btn-lg">Eliminar Usuario!</button>
     </h1>
 </div>
 </body>

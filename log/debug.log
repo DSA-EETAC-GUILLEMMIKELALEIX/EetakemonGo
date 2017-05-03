@@ -209,89 +209,315 @@
 2017-04-27 17:35:47 INFO  DAO:31 - INFO: conexión creada
 2017-04-27 17:35:47 INFO  DAO:141 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@5d1e4bfd: SELECT * FROM Eetakemon WHERE id=2
 2017-04-27 17:35:47 INFO  DAO:31 - INFO: conexión creada
-2017-04-27 22:42:13 INFO  DAO:31 - INFO: conexión creada
-2017-04-27 22:42:13 INFO  DAO:221 - INFO: Usuario ya existente: mikel@gmail.com
-2017-04-27 22:42:26 INFO  DAO:31 - INFO: conexión creada
-2017-04-27 22:42:26 INFO  DAO:31 - INFO: Logeado: mikel
-2017-04-27 22:43:17 INFO  DAO:31 - INFO: conexión creada
-2017-04-27 22:43:17 INFO  DAO:225 - INFO: Usuario no existente: picachu
-2017-04-27 22:43:17 INFO  DAO:31 - INFO: conexión creada
-2017-04-27 22:43:17 INFO  DAO:77 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@14b846fb: INSERT INTO Eetakemon (nombre,tipo,nivel) VALUES ('picachu','mierda',1);
-2017-04-27 22:43:27 INFO  DAO:31 - INFO: conexión creada
-2017-04-27 22:43:27 INFO  DAO:221 - INFO: Usuario ya existente: picachu
-2017-04-27 22:44:15 INFO  DAO:31 - INFO: conexión creada
-2017-04-27 22:44:15 INFO  DAO:225 - INFO: Usuario no existente: raicuaza
-2017-04-27 22:44:15 INFO  DAO:31 - INFO: conexión creada
-2017-04-27 22:44:15 INFO  DAO:77 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@49ee2edc: INSERT INTO Eetakemon (nombre,tipo,nivel) VALUES ('raicuaza','mierda',1);
-2017-04-27 22:44:25 INFO  DAO:31 - INFO: conexión creada
-2017-04-27 22:44:25 INFO  DAO:141 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@3870d0c0: SELECT * FROM Eetakemon WHERE id=2
-2017-04-27 22:45:08 INFO  DAO:31 - INFO: conexión creada
-2017-04-27 22:45:08 INFO  DAO:141 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@5fd5f1d4: SELECT * FROM Usuario WHERE id=1
-2017-04-27 22:45:19 INFO  DAO:31 - INFO: conexión creada
-2017-04-27 22:45:19 INFO  DAO:141 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@49d59a89: SELECT * FROM Usuario WHERE id=2
-2017-04-27 22:45:25 INFO  DAO:31 - INFO: conexión creada
-2017-04-27 22:45:25 INFO  DAO:141 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@365be2af: SELECT * FROM Eetakemon WHERE id=2
-2017-04-27 22:46:11 INFO  DAO:31 - INFO: conexión creada
-2017-04-27 22:46:11 INFO  DAO:141 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@3df55367: SELECT * FROM Eetakemon WHERE id=2
-2017-04-27 22:47:13 INFO  DAO:31 - INFO: conexión creada
-2017-04-27 22:47:13 INFO  DAO:141 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@571d51fd: SELECT * FROM Eetakemon WHERE id=2
-2017-04-27 22:48:04 INFO  DAO:31 - INFO: conexión creada
-2017-04-27 22:48:04 INFO  DAO:141 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@7d8237a6: SELECT * FROM Eetakemon WHERE id=12
-2017-04-27 22:48:08 INFO  DAO:31 - INFO: conexión creada
-2017-04-27 22:48:08 INFO  DAO:141 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@23042594: SELECT * FROM Eetakemon WHERE id=2
-2017-04-27 22:48:13 INFO  DAO:31 - INFO: conexión creada
-2017-04-27 22:48:13 INFO  DAO:141 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@5506789e: SELECT * FROM Usuario WHERE id=1
-2017-04-27 22:48:17 INFO  DAO:31 - INFO: conexión creada
-2017-04-27 22:48:17 INFO  DAO:141 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@190d965e: SELECT * FROM Usuario WHERE id=2
-2017-04-27 22:49:18 INFO  DAO:31 - INFO: conexión creada
-2017-04-27 22:49:23 INFO  DAO:141 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@1fe94e35: SELECT * FROM Eetakemon WHERE id=2
-2017-04-27 22:53:22 INFO  DAO:31 - INFO: conexión creada
-2017-04-27 22:53:35 INFO  DAO:142 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@1d4605c0: SELECT * FROM Eetakemon WHERE id=2;
-2017-04-27 22:54:01 INFO  DAO:31 - INFO: conexión creada
-2017-04-27 22:54:01 INFO  DAO:142 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@755c69cb: SELECT * FROM Eetakemon WHERE id=2;
-2017-04-27 22:55:22 INFO  DAO:31 - INFO: conexión creada
-2017-04-27 22:55:31 INFO  DAO:142 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@54cb182e: SELECT * FROM Eetakemon WHERE id=2;
-2017-04-27 23:02:30 INFO  DAO:31 - INFO: conexión creada
-2017-04-27 23:02:31 INFO  DAO:142 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@2d8e2dd6: SELECT * FROM Eetakemon WHERE id=2;
-2017-04-27 23:02:36 INFO  DAO:31 - INFO: conexión creada
-2017-04-27 23:02:36 INFO  DAO:142 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@7d594391: SELECT * FROM Eetakemon WHERE id=2;
-2017-04-27 23:06:55 INFO  DAO:31 - INFO: conexión creada
-2017-04-27 23:06:55 INFO  DAO:31 - INFO: Logeado: mikel
-2017-04-27 23:07:13 INFO  DAO:31 - INFO: conexión creada
-2017-04-27 23:07:13 INFO  DAO:226 - INFO: Objeto no existente: picachu
-2017-04-27 23:07:13 INFO  DAO:31 - INFO: conexión creada
-2017-04-27 23:07:13 INFO  DAO:77 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@c0d7c6d: INSERT INTO Eetakemon (nombre,nivel,tipo,foto) VALUES ('picachu',1,'mierda',null);
-2017-04-27 23:07:27 INFO  DAO:31 - INFO: conexión creada
-2017-04-27 23:07:27 INFO  DAO:226 - INFO: Objeto no existente: raicuaza
-2017-04-27 23:07:27 INFO  DAO:31 - INFO: conexión creada
-2017-04-27 23:07:27 INFO  DAO:77 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@34defc89: INSERT INTO Eetakemon (nombre,nivel,tipo,foto) VALUES ('raicuaza',1,'mierda',null);
-2017-04-27 23:07:44 INFO  DAO:31 - INFO: conexión creada
-2017-04-27 23:07:44 INFO  DAO:142 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@49ee2edc: SELECT * FROM Eetakemon WHERE id=4;
-2017-04-27 23:08:11 INFO  DAO:31 - INFO: conexión creada
-2017-04-27 23:08:11 INFO  DAO:142 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@5c15b780: SELECT * FROM Eetakemon WHERE id=4;
-2017-04-27 23:08:51 INFO  DAO:31 - INFO: conexión creada
-2017-04-27 23:08:57 INFO  DAO:142 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@2fae131f: SELECT * FROM Eetakemon WHERE id=4;
-2017-04-27 23:10:53 INFO  DAO:31 - INFO: conexión creada
-2017-04-27 23:10:53 INFO  DAO:226 - INFO: Objeto no existente: raicuaza
-2017-04-27 23:10:53 INFO  DAO:31 - INFO: conexión creada
-2017-04-27 23:10:53 INFO  DAO:77 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@5149c625: INSERT INTO Eetakemon (nombre,nivel,tipo,foto) VALUES ('raicuaza',1,'mierda',null);
-2017-04-27 23:12:24 INFO  DAO:31 - INFO: conexión creada
-2017-04-27 23:12:25 INFO  DAO:226 - INFO: Objeto no existente: raicuaza
-2017-04-27 23:12:25 INFO  DAO:31 - INFO: conexión creada
-2017-04-27 23:12:25 INFO  DAO:77 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@fdf0355: INSERT INTO Eetakemon (nombre,nivel,tipo,foto) VALUES ('raicuaza',1,'mierda','foto');
-2017-04-27 23:12:35 INFO  DAO:31 - INFO: conexión creada
-2017-04-27 23:12:35 INFO  DAO:226 - INFO: Objeto no existente: picachu
-2017-04-27 23:12:35 INFO  DAO:31 - INFO: conexión creada
-2017-04-27 23:12:35 INFO  DAO:77 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@1ccb06ed: INSERT INTO Eetakemon (nombre,nivel,tipo,foto) VALUES ('picachu',1,'mierda','foto');
-2017-04-27 23:12:50 INFO  DAO:31 - INFO: conexión creada
-2017-04-27 23:12:50 INFO  DAO:142 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@6805ed61: SELECT * FROM Eetakemon WHERE id=6;
-2017-04-27 23:13:10 INFO  DAO:31 - INFO: conexión creada
-2017-04-27 23:13:10 INFO  DAO:142 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@34fee536: SELECT * FROM Eetakemon WHERE id=7;
-2017-04-27 23:13:10 INFO  DAO:31 - INFO: conexión creada
-2017-04-27 23:14:08 INFO  DAO:31 - INFO: conexión creada
-2017-04-27 23:14:08 INFO  DAO:142 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@6c6e1e46: SELECT * FROM Eetakemon WHERE id=7;
-2017-04-27 23:14:19 INFO  DAO:31 - INFO: conexión creada
-2017-04-27 23:16:21 INFO  DAO:31 - INFO: conexión creada
-2017-04-27 23:16:21 INFO  DAO:142 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@66f2fd27: SELECT * FROM Eetakemon WHERE id=7;
-2017-04-27 23:16:21 INFO  DAO:31 - INFO: conexión creada
-2017-04-27 23:16:21 INFO  DAO:167 - INFO: Delete statement: com.mysql.jdbc.JDBC4PreparedStatement@4a8eb5bf: DELETE FROM Eetakemon WHERE id=7;
+2017-04-28 10:32:19 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 10:32:19 INFO  DAO:344 - INFO: No logeado: Dhfcg
+2017-04-28 10:32:30 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 10:32:30 INFO  DAO:348 - INFO: Logeado: Aleix
+2017-04-28 10:32:50 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 10:32:50 INFO  DAO:141 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@169c897a: SELECT * FROM Usuario WHERE id=1
+2017-04-28 10:32:53 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 10:32:53 INFO  DAO:141 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@33bfc613: SELECT * FROM Eetakemon WHERE id=1
+2017-04-28 10:33:26 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 10:33:26 INFO  DAO:376 - INFO: Usuario no existente: Pikachu
+2017-04-28 10:33:26 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 10:33:26 INFO  DAO:77 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@5a2e67ca: INSERT INTO Eetakemon (nombre,tipo,nivel) VALUES ('Pikachu','Normal',5);
+2017-04-28 10:33:36 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 10:33:36 INFO  DAO:141 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@5a21fdc6: SELECT * FROM Eetakemon WHERE id=1
+2017-04-28 10:33:55 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 10:33:55 INFO  DAO:141 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@14d71d9f: SELECT * FROM Eetakemon WHERE id=1
+2017-04-28 10:33:56 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 10:33:56 INFO  DAO:141 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@65b932e5: SELECT * FROM Eetakemon WHERE id=1
+2017-04-28 10:33:56 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 10:33:56 INFO  DAO:141 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@af2f146: SELECT * FROM Eetakemon WHERE id=1
+2017-04-28 10:34:45 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 10:34:45 INFO  DAO:370 - INFO: Usuario ya existente: Aleix
+2017-04-28 10:35:05 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 10:35:05 INFO  DAO:376 - INFO: Usuario no existente: Marta
+2017-04-28 10:35:05 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 10:35:05 INFO  DAO:77 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@422f9856: INSERT INTO Usuario (nombre,contrasena,email,admin) VALUES ('Marta','marta','marta@eina.edu',0);
+2017-04-28 10:36:46 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 10:36:46 INFO  DAO:31 - INFO: Logeado: Marta
+2017-04-28 10:36:51 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 10:36:51 INFO  DAO:142 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@4c4bf20f: SELECT * FROM Usuario WHERE id=1;
+2017-04-28 10:36:52 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 10:36:52 INFO  DAO:142 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@636fbc5a: SELECT * FROM Eetakemon WHERE id=1;
+2017-04-28 10:36:53 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 10:36:53 INFO  DAO:142 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@25a1fc1a: SELECT * FROM Eetakemon WHERE id=1;
+2017-04-28 10:36:53 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 10:36:53 INFO  DAO:142 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@fd4f333: SELECT * FROM Eetakemon WHERE id=1;
+2017-04-28 10:39:07 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 10:39:07 INFO  DAO:31 - INFO: Logeado: Aleix
+2017-04-28 10:39:16 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 10:39:16 INFO  DAO:142 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@4f15a878: SELECT * FROM Usuario WHERE id=2;
+2017-04-28 10:39:16 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 10:39:16 INFO  DAO:167 - INFO: Delete statement: com.mysql.jdbc.JDBC4PreparedStatement@19bb6094: DELETE FROM Usuario WHERE id=2;
+2017-04-28 10:39:49 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 10:39:49 INFO  DAO:142 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@2c640d40: SELECT * FROM Eetakemon WHERE id=1;
+2017-04-28 10:39:57 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 10:39:57 INFO  DAO:142 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@266d26f3: SELECT * FROM Eetakemon WHERE id=1;
+2017-04-28 10:39:58 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 10:39:58 INFO  DAO:142 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@4ad67cad: SELECT * FROM Eetakemon WHERE id=1;
+2017-04-28 10:40:42 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 10:40:42 INFO  DAO:142 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@6e9a8d74: SELECT * FROM Eetakemon WHERE id=1;
+2017-04-28 10:41:46 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 10:41:46 INFO  DAO:120 - INFO: Update statement: com.mysql.jdbc.JDBC4PreparedStatement@1fbd7da8: UPDATE Usuario SET nombre='Aleix',contrasena='123',email='aleix@upc.edu',admin=1 WHERE id=1;
+2017-04-28 10:42:03 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 10:42:03 INFO  DAO:120 - INFO: Update statement: com.mysql.jdbc.JDBC4PreparedStatement@368861f3: UPDATE Usuario SET nombre='Aleix',contrasena='aleix',email='aleix@upc.edu',admin=1 WHERE id=1;
+2017-04-28 10:42:27 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 10:42:27 INFO  DAO:120 - INFO: Update statement: com.mysql.jdbc.JDBC4PreparedStatement@900a5fc: UPDATE Usuario SET nombre='Marta',contrasena='marta',email='marta@eina.edu',admin=1 WHERE id=2;
+2017-04-28 10:42:34 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 10:42:34 INFO  DAO:120 - INFO: Update statement: com.mysql.jdbc.JDBC4PreparedStatement@14d78e68: UPDATE Usuario SET nombre='Marta',contrasena='marta',email='marta@eina.edu',admin=1 WHERE id=2;
+2017-04-28 10:42:56 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 10:42:56 INFO  DAO:120 - INFO: Update statement: com.mysql.jdbc.JDBC4PreparedStatement@1ec7341a: UPDATE Usuario SET nombre='Marta1',contrasena='marta',email='marta@eina.edu',admin=1 WHERE id=2;
+2017-04-28 10:43:05 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 10:43:05 INFO  DAO:120 - INFO: Update statement: com.mysql.jdbc.JDBC4PreparedStatement@76bd56a0: UPDATE Usuario SET nombre='Marta123',contrasena='marta',email='marta@eina.edu',admin=1 WHERE id=2;
+2017-04-28 10:43:15 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 10:43:15 INFO  DAO:120 - INFO: Update statement: com.mysql.jdbc.JDBC4PreparedStatement@33b1ee27: UPDATE Usuario SET nombre='Marta',contrasena='marta123',email='marta@eina.edu',admin=1 WHERE id=2;
+2017-04-28 10:43:31 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 10:43:31 INFO  DAO:120 - INFO: Update statement: com.mysql.jdbc.JDBC4PreparedStatement@78339d63: UPDATE Usuario SET nombre='Marta',contrasena='marta123',email='marta@eina.edu',admin=1 WHERE id=2;
+2017-04-28 10:43:48 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 10:43:48 INFO  DAO:120 - INFO: Update statement: com.mysql.jdbc.JDBC4PreparedStatement@d1ce738: UPDATE Usuario SET nombre='Marta',contrasena='marta123',email='marta@eina.edu',admin=1 WHERE id=3;
+2017-04-28 10:44:05 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 10:44:05 INFO  DAO:120 - INFO: Update statement: com.mysql.jdbc.JDBC4PreparedStatement@60ceba3: UPDATE Usuario SET nombre='Marta',contrasena='marta123',email='marta@eina.edu',admin=1 WHERE id=2;
+2017-04-28 10:44:11 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 10:44:11 INFO  DAO:120 - INFO: Update statement: com.mysql.jdbc.JDBC4PreparedStatement@3147ca58: UPDATE Usuario SET nombre='Marta',contrasena='marta123',email='marta@eina.edu',admin=1 WHERE id=5;
+2017-04-28 10:55:23 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 10:55:23 INFO  DAO:31 - INFO: Logeado: Aleix
+2017-04-28 10:55:42 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 10:55:42 INFO  DAO:120 - INFO: Update statement: com.mysql.jdbc.JDBC4PreparedStatement@2af983e2: UPDATE Usuario SET nombre='Marta',contrasena='marta',email='marta@eina.edu',admin=0 WHERE id=3;
+2017-04-28 11:03:59 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 11:03:59 INFO  DAO:223 - INFO: Objeto no existente: aleix@upc.edu
+2017-04-28 11:03:59 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 11:03:59 INFO  DAO:77 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@3e3fc5d: INSERT INTO Usuario (nombre,contrasena,email,admin) VALUES ('Aleix','aleix','aleix@upc.edu',0);
+2017-04-28 11:04:13 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 11:04:13 INFO  DAO:223 - INFO: Objeto no existente: Pikachu
+2017-04-28 11:04:13 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 11:04:13 INFO  DAO:77 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@31a4ca60: INSERT INTO Eetakemon (nombre,nivel,tipo,foto) VALUES ('Pikachu',5,'Normal','foto');
+2017-04-28 11:04:30 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 11:04:30 INFO  DAO:142 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@4d93858f: SELECT * FROM Eetakemon WHERE id=1;
+2017-04-28 11:04:30 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 11:04:30 INFO  DAO:167 - INFO: Delete statement: com.mysql.jdbc.JDBC4PreparedStatement@7042f3c8: DELETE FROM Eetakemon WHERE id=1;
+2017-04-28 11:04:58 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 11:04:58 INFO  DAO:120 - INFO: Update statement: com.mysql.jdbc.JDBC4PreparedStatement@3d8632e7: UPDATE Usuario SET nombre='Aleix',contrasena='aleix',email='aleix@upc.edu',admin=1 WHERE id=1;
+2017-04-28 11:05:10 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 11:05:10 INFO  DAO:142 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@53bccf8e: SELECT * FROM Usuario WHERE id=1;
+2017-04-28 11:05:10 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 11:05:10 INFO  DAO:167 - INFO: Delete statement: com.mysql.jdbc.JDBC4PreparedStatement@572cf092: DELETE FROM Usuario WHERE id=1;
+2017-04-28 11:06:01 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 11:06:01 INFO  DAO:223 - INFO: Objeto no existente: Pikachu
+2017-04-28 11:06:01 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 11:06:01 INFO  DAO:77 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@2fdad8cf: INSERT INTO Eetakemon (nombre,nivel,tipo,foto) VALUES ('Pikachu',5,'Normal','foto');
+2017-04-28 11:06:07 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 11:06:07 INFO  DAO:142 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@7a4186fe: SELECT * FROM Eetakemon WHERE id=1;
+2017-04-28 11:06:10 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 11:06:10 INFO  DAO:142 - INFO: Select  statement: com.mysql.jdbc.JDBC4PreparedStatement@5681b7b8: SELECT * FROM Eetakemon WHERE id=2;
+2017-04-28 11:11:08 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 11:11:08 INFO  DAO:27 - INFO: No logeado: null
+2017-04-28 11:11:15 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 11:11:15 INFO  DAO:27 - INFO: No logeado: null
+2017-04-28 11:11:22 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 11:11:22 INFO  DAO:27 - INFO: No logeado: null
+2017-04-28 11:11:40 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 11:11:40 INFO  DAO:223 - INFO: Objeto no existente: aleix@upc.edu
+2017-04-28 11:11:40 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 11:11:40 INFO  DAO:77 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@31faedd9: INSERT INTO Usuario (nombre,contrasena,email,admin) VALUES ('Aleix','aleix','aleix@upc.edu',0);
+2017-04-28 11:11:46 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 11:11:46 INFO  DAO:27 - INFO: No logeado: null
+2017-04-28 11:11:52 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 11:11:52 INFO  DAO:27 - INFO: No logeado: null
+2017-04-28 11:12:00 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 11:12:00 INFO  DAO:27 - INFO: No logeado: null
+2017-04-28 11:12:04 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 11:12:04 INFO  DAO:27 - INFO: No logeado: null
+2017-04-28 11:12:14 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 11:12:14 INFO  DAO:27 - INFO: No logeado: null
+2017-04-28 11:12:28 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 11:12:28 INFO  DAO:27 - INFO: No logeado: null
+2017-04-28 11:14:30 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 11:14:30 INFO  DAO:31 - INFO: Logeado: aleix@upc.edu
+2017-04-28 11:16:18 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 11:16:18 INFO  DAO:27 - INFO: No logeado: Aleix
+2017-04-28 11:16:26 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 11:16:26 INFO  DAO:31 - INFO: Logeado: aleix@upc.edu
+2017-04-28 11:16:29 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 11:16:29 INFO  DAO:187 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@3d311c01: SELECT * FROM Usuario;
+2017-04-28 11:16:41 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 11:16:41 INFO  DAO:187 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@79e84f4b: SELECT * FROM Usuario;
+2017-04-28 11:17:40 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 11:17:40 INFO  DAO:31 - INFO: Logeado: aleix@upc.edu
+2017-04-28 11:17:52 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 11:17:52 INFO  DAO:187 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@60a3d36a: SELECT * FROM Usuario;
+2017-04-28 11:23:33 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 11:23:33 INFO  DAO:31 - INFO: Logeado: aleix@upc.edu
+2017-04-28 11:24:07 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 11:24:07 INFO  DAO:27 - INFO: No logeado: Aleix
+2017-04-28 11:24:14 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 11:24:14 INFO  DAO:31 - INFO: Logeado: aleix@upc.edu
+2017-04-28 11:24:17 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 11:24:17 INFO  DAO:187 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@2dbc7ac0: SELECT * FROM Usuario;
+2017-04-28 11:25:17 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 11:25:17 INFO  DAO:31 - INFO: Logeado: aleix@upc.edu
+2017-04-28 11:25:19 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 11:25:19 INFO  DAO:187 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@31b150b7: SELECT * FROM Usuario;
+2017-04-28 11:31:06 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 11:31:06 INFO  DAO:31 - INFO: Logeado: aleix@upc.edu
+2017-04-28 11:31:08 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 11:31:08 INFO  DAO:187 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@37bca758: SELECT * FROM Usuario;
+2017-04-28 11:31:29 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 11:31:29 INFO  DAO:187 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@64b5d0f0: SELECT * FROM Usuario;
+2017-04-28 11:34:38 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 11:34:38 INFO  DAO:31 - INFO: Logeado: aleix@upc.edu
+2017-04-28 11:34:40 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 11:34:40 INFO  DAO:187 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@fc59574: SELECT * FROM Usuario;
+2017-04-28 11:35:15 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 11:35:15 INFO  DAO:31 - INFO: Logeado: aleix@upc.edu
+2017-04-28 11:35:18 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 11:35:18 INFO  DAO:187 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@50dcf22d: SELECT * FROM Usuario;
+2017-04-28 11:36:15 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 11:36:15 INFO  DAO:31 - INFO: Logeado: aleix@upc.edu
+2017-04-28 11:36:18 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 11:36:18 INFO  DAO:187 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@6a133926: SELECT * FROM Usuario;
+2017-04-28 11:39:19 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 11:39:19 INFO  DAO:31 - INFO: Logeado: aleix@upc.edu
+2017-04-28 11:39:21 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 11:39:21 INFO  DAO:187 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@5996235d: SELECT * FROM Usuario;
+2017-04-28 11:39:26 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 11:39:26 INFO  DAO:187 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@61c9f05: SELECT * FROM Usuario;
+2017-04-28 12:19:23 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 12:19:23 INFO  DAO:31 - INFO: Logeado: aleix@upc.edu
+2017-04-28 12:19:27 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 12:19:27 INFO  DAO:187 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@3387647a: SELECT * FROM Usuario;
+2017-04-28 12:20:09 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 12:20:09 INFO  DAO:31 - INFO: Logeado: aleix@upc.edu
+2017-04-28 12:20:13 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 12:20:13 INFO  DAO:187 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@5bc5b9a6: SELECT * FROM Usuario;
+2017-04-28 12:20:57 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 12:20:57 INFO  DAO:31 - INFO: Logeado: aleix@upc.edu
+2017-04-28 12:21:01 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 12:21:01 INFO  DAO:187 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@3d311c01: SELECT * FROM Usuario;
+2017-04-28 12:21:52 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 12:21:52 INFO  DAO:31 - INFO: Logeado: aleix@upc.edu
+2017-04-28 12:21:56 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 12:21:56 INFO  DAO:187 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@31153c4b: SELECT * FROM Usuario;
+2017-04-28 12:22:02 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 12:22:02 INFO  DAO:187 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@7685f4ce: SELECT * FROM Usuario;
+2017-04-28 12:25:39 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 12:25:39 INFO  DAO:31 - INFO: Logeado: aleix@upc.edu
+2017-04-28 12:25:41 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 12:25:41 INFO  DAO:187 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@2adf9f55: SELECT * FROM Usuario;
+2017-04-28 12:26:25 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 12:26:25 INFO  DAO:223 - INFO: Objeto no existente: marta
+2017-04-28 12:26:25 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 12:26:25 INFO  DAO:77 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@33dfea87: INSERT INTO Usuario (nombre,contrasena,email,admin) VALUES ('Marta','marta','marta',0);
+2017-04-28 12:26:31 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 12:26:31 INFO  DAO:187 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@35f5b97c: SELECT * FROM Usuario;
+2017-04-28 12:37:12 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 12:37:12 INFO  DAO:31 - INFO: Logeado: aleix@upc.edu
+2017-04-28 12:37:21 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 12:37:21 INFO  DAO:187 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@5d988005: SELECT * FROM Usuario;
+2017-04-28 12:38:03 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 12:38:03 INFO  DAO:27 - INFO: No logeado: Aleix
+2017-04-28 12:38:14 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 12:38:14 INFO  DAO:31 - INFO: Logeado: aleix@upc.edu
+2017-04-28 12:38:40 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 12:38:40 INFO  DAO:187 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@fc59574: SELECT * FROM Usuario;
+2017-04-28 13:11:57 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 13:11:57 INFO  DAO:31 - INFO: Logeado: aleix@upc.edu
+2017-04-28 13:12:05 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 13:12:05 INFO  DAO:187 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@431e11a2: SELECT * FROM Usuario;
+2017-04-28 13:16:23 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 13:16:23 INFO  DAO:31 - INFO: Logeado: aleix@upc.edu
+2017-04-28 13:20:30 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 13:20:30 INFO  DAO:187 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@64b5d0f0: SELECT * FROM Usuario;
+2017-04-28 13:21:05 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 13:21:05 INFO  DAO:31 - INFO: Logeado: aleix@upc.edu
+2017-04-28 13:21:27 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 13:21:27 INFO  DAO:187 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@3fef526d: SELECT * FROM Usuario;
+2017-04-28 13:22:47 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 13:22:47 INFO  DAO:31 - INFO: Logeado: aleix@upc.edu
+2017-04-28 13:22:50 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 13:22:50 INFO  DAO:187 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@a2e80b2: SELECT * FROM Usuario;
+2017-04-28 13:31:02 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 13:31:02 INFO  DAO:31 - INFO: Logeado: aleix@upc.edu
+2017-04-28 13:31:05 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 13:31:05 INFO  DAO:187 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@431e11a2: SELECT * FROM Usuario;
+2017-04-28 14:30:31 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 14:30:31 INFO  DAO:31 - INFO: Logeado: aleix@upc.edu
+2017-04-28 14:30:33 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 14:30:33 INFO  DAO:187 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@431e11a2: SELECT * FROM Usuario;
+2017-04-28 14:32:41 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 14:32:41 INFO  DAO:31 - INFO: Logeado: aleix@upc.edu
+2017-04-28 14:32:44 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 14:32:44 INFO  DAO:187 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@3387647a: SELECT * FROM Usuario;
+2017-04-28 14:46:18 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 14:46:18 INFO  DAO:31 - INFO: Logeado: aleix@upc.edu
+2017-04-28 14:46:24 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 14:46:24 INFO  DAO:187 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@21b75202: SELECT * FROM Usuario;
+2017-04-28 14:47:50 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 14:47:50 INFO  DAO:31 - INFO: Logeado: aleix@upc.edu
+2017-04-28 14:48:01 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 14:48:01 INFO  DAO:187 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@37bca758: SELECT * FROM Usuario;
+2017-04-28 14:52:53 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 14:52:53 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 14:52:53 INFO  DAO:31 - INFO: Logeado: aleix@upc.edu
+2017-04-28 14:52:53 INFO  DAO:31 - INFO: Logeado: aleix@upc.edu
+2017-04-28 14:53:00 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 14:53:00 INFO  DAO:187 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@431e11a2: SELECT * FROM Usuario;
+2017-04-28 14:54:39 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 14:54:39 INFO  DAO:31 - INFO: Logeado: aleix@upc.edu
+2017-04-28 14:54:42 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 14:54:42 INFO  DAO:187 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@3fef526d: SELECT * FROM Usuario;
+2017-04-28 14:57:22 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 14:57:22 INFO  DAO:31 - INFO: Logeado: aleix@upc.edu
+2017-04-28 14:57:26 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 14:57:26 INFO  DAO:187 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@fc59574: SELECT * FROM Usuario;
+2017-04-28 14:57:38 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 14:57:38 INFO  DAO:187 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@23802a0: SELECT * FROM Eetakemon;
+2017-04-28 14:57:41 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 14:57:41 INFO  DAO:187 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@7685f4ce: SELECT * FROM Usuario;
+2017-04-28 15:04:58 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 15:04:58 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 15:04:58 INFO  DAO:31 - INFO: Logeado: aleix@upc.edu
+2017-04-28 15:04:58 INFO  DAO:31 - INFO: Logeado: aleix@upc.edu
+2017-04-28 15:05:02 INFO  DAO:31 - INFO: conexión creada
+2017-04-28 15:05:02 INFO  DAO:187 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@3ceade12: SELECT * FROM Usuario;
+2017-05-01 20:16:21 INFO  DAO:31 - INFO: conexión creada
+2017-05-01 20:16:21 INFO  DAO:223 - INFO: Objeto no existente: ddddddddddddd
+2017-05-01 20:16:22 INFO  DAO:31 - INFO: conexión creada
+2017-05-01 20:16:22 INFO  DAO:77 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@7a168d38: INSERT INTO Usuario (nombre,contrasena,email,admin) VALUES ('ddd','dddddd','ddddddddddddd',0);
+2017-05-01 20:18:18 INFO  DAO:31 - INFO: conexión creada
+2017-05-01 20:18:18 INFO  DAO:223 - INFO: Objeto no existente: dfsgsdfgsdf
+2017-05-01 20:18:18 INFO  DAO:31 - INFO: conexión creada
+2017-05-01 20:18:18 INFO  DAO:77 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@100f504c: INSERT INTO Usuario (nombre,contrasena,email,admin) VALUES ('gfdsgsfdg','fgsdfgsd','dfsgsdfgsdf',0);
+2017-05-01 20:19:12 INFO  DAO:31 - INFO: conexión creada
+2017-05-01 20:19:12 INFO  DAO:24 - INFO: No logeado: ddd
+2017-05-01 20:19:12 INFO  DAO:31 - INFO: conexión creada
+2017-05-01 20:19:12 INFO  DAO:49 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@33ed03a: SELECT * FROM Usuario WHERE email='ddd';
+2017-05-01 20:19:20 INFO  DAO:31 - INFO: conexión creada
+2017-05-01 20:19:20 INFO  DAO:24 - INFO: No logeado: ddd
+2017-05-01 20:19:20 INFO  DAO:31 - INFO: conexión creada
+2017-05-01 20:19:20 INFO  DAO:49 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@5eb1a2c8: SELECT * FROM Usuario WHERE email='ddd';
+2017-05-03 11:32:47 INFO  DAO:31 - INFO: conexión creada
+2017-05-03 11:32:47 INFO  DAO:223 - INFO: Objeto no existente: guillemeetac@gmail.com
+2017-05-03 11:32:47 INFO  DAO:31 - INFO: conexión creada
+2017-05-03 11:32:47 INFO  DAO:77 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@334a0077: INSERT INTO Usuario (nombre,contrasena,email,admin) VALUES ('guillem','guillem123','guillemeetac@gmail.com',0);
+2017-05-03 11:33:10 INFO  DAO:31 - INFO: conexión creada
+2017-05-03 11:33:10 INFO  DAO:28 - INFO: Logeado: guillemeetac@gmail.com
+2017-05-03 11:33:10 INFO  DAO:31 - INFO: conexión creada
+2017-05-03 11:33:10 INFO  DAO:49 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@4a806545: SELECT * FROM Usuario WHERE email='guillemeetac@gmail.com';
+2017-05-03 11:40:18 INFO  DAO:31 - INFO: conexión creada
+2017-05-03 11:40:18 INFO  DAO:24 - INFO: No logeado: guillemeetac@gmail.com
+2017-05-03 11:40:18 INFO  DAO:31 - INFO: conexión creada
+2017-05-03 11:40:18 INFO  DAO:49 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@58d235af: SELECT * FROM Usuario WHERE email='guillemeetac@gmail.com';
+2017-05-03 11:40:31 INFO  DAO:31 - INFO: conexión creada
+2017-05-03 11:40:31 INFO  DAO:28 - INFO: Logeado: guillemeetac@gmail.com
+2017-05-03 11:40:31 INFO  DAO:31 - INFO: conexión creada
+2017-05-03 11:40:31 INFO  DAO:49 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@7131604c: SELECT * FROM Usuario WHERE email='guillemeetac@gmail.com';
+2017-05-03 11:40:38 INFO  DAO:31 - INFO: conexión creada
+2017-05-03 11:40:38 INFO  DAO:187 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@15b36afe: SELECT * FROM Eetakemon;
+2017-05-03 11:41:28 INFO  DAO:31 - INFO: conexión creada
+2017-05-03 11:41:28 INFO  DAO:28 - INFO: Logeado: guillemeetac@gmail.com
+2017-05-03 11:41:28 INFO  DAO:31 - INFO: conexión creada
+2017-05-03 11:41:28 INFO  DAO:49 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@d98e4a7: SELECT * FROM Usuario WHERE email='guillemeetac@gmail.com';
+2017-05-03 11:41:30 INFO  DAO:31 - INFO: conexión creada
+2017-05-03 11:41:30 INFO  DAO:187 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@503cf570: SELECT * FROM Eetakemon;
