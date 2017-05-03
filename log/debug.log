@@ -529,3 +529,27 @@
 2017-05-03 11:46:23 INFO  DAO:28 - INFO: Logeado: guillemeetac@gmail.com
 2017-05-03 11:46:23 INFO  DAO:31 - INFO: conexión creada
 2017-05-03 11:46:23 INFO  DAO:49 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@508676fa: SELECT * FROM Usuario WHERE email='guillemeetac@gmail.com';
+2017-05-03 11:53:17 INFO  DAO:31 - INFO: conexión creada
+2017-05-03 11:53:17 INFO  DAO:28 - INFO: Logeado: guillemeetac@gmail.com
+2017-05-03 11:53:17 INFO  DAO:31 - INFO: conexión creada
+2017-05-03 11:53:17 INFO  DAO:49 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@e19af8d: SELECT * FROM Usuario WHERE email='guillemeetac@gmail.com';
+2017-05-03 11:53:19 INFO  DAO:31 - INFO: conexión creada
+2017-05-03 11:53:19 INFO  DAO:187 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@2aaf9a0a: SELECT * FROM Eetakemon;
+2017-05-03 11:53:21 INFO  DAO:31 - INFO: conexión creada
+2017-05-03 11:53:21 INFO  DAO:187 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@71cfb974: SELECT * FROM Eetakemon;
+2017-05-03 11:53:52 INFO  DAO:31 - INFO: conexión creada
+2017-05-03 11:53:52 INFO  DAO:28 - INFO: Logeado: guillemeetac@gmail.com
+2017-05-03 11:53:52 INFO  DAO:31 - INFO: conexión creada
+2017-05-03 11:53:52 INFO  DAO:49 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@385c4ab8: SELECT * FROM Usuario WHERE email='guillemeetac@gmail.com';
+2017-05-03 11:54:09 INFO  DAO:31 - INFO: conexión creada
+2017-05-03 11:54:09 INFO  DAO:28 - INFO: Logeado: guillemeetac@gmail.com
+2017-05-03 11:54:09 INFO  DAO:31 - INFO: conexión creada
+2017-05-03 11:54:09 INFO  DAO:49 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@50416db: SELECT * FROM Usuario WHERE email='guillemeetac@gmail.com';
+2017-05-03 11:54:10 INFO  DAO:31 - INFO: conexión creada
+2017-05-03 11:54:10 INFO  DAO:187 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@7053e2a0: SELECT * FROM Eetakemon;
+2017-05-03 11:56:27 INFO  DAO:31 - INFO: conexión creada
+2017-05-03 11:56:27 INFO  DAO:28 - INFO: Logeado: guillemeetac@gmail.com
+2017-05-03 11:56:27 INFO  DAO:31 - INFO: conexión creada
+2017-05-03 11:56:27 INFO  DAO:49 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@1e4e4685: SELECT * FROM Usuario WHERE email='guillemeetac@gmail.com';
+2017-05-03 11:56:29 INFO  DAO:31 - INFO: conexión creada
+2017-05-03 11:56:29 INFO  DAO:187 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@6d856663: SELECT * FROM Eetakemon;

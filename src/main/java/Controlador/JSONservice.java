@@ -135,8 +135,8 @@ public class JSONservice {
     @Path("/User/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getUsuarioId(@PathParam("id") int id) {
-       Usuario u = new Usuario();
-       u.select(id);
+        Usuario u = new Usuario();
+        u.select(id);
         System.out.println(u.toString());
         if (u.getNombre()!=null) {
             return Response.status(201).entity(u).build();
