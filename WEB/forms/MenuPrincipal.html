@@ -19,17 +19,20 @@
         {
             alert("User is not logged in. Redirecting to Login form...");
             sessionStorage.clear();
-            window.location.replace("./index.html");
+            window.location.replace("../index.html");
         }
         else
         {
             userIdCurrentlyLoggedIn = sessionStorage.getItem("userIdCurrentlyLoggedIn");
         }
 
+        function saveout() {
+            window.onload=sessionStorage.setItem("ID",null); //Modificar perque quan es surti que també et redireixi
+        }
     </script>
     <style>
         body {
-            background-image: url("./images/fondo.jpeg");
+            background-image: url("../images/fondo.jpeg");
             width: 100% ;
             height: 100% ;
             margin: 0 ;
@@ -63,9 +66,9 @@
 <body>
 <div class="container">
     <h2>
-        <img src="./images/nom.png" style="width:640px;height:146px">
+        <img src="../images/nom.png" style="width:640px;height:146px">
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <img src="./images/fondo1.png" style="width:156px;height:160px">
+        <img src="../images/fondo1.png" style="width:156px;height:160px">
         <br><br>
     </h2>
     <h4>
@@ -86,7 +89,7 @@
                         <div class="modal-title">Seguro que desea salir?</div>
                     </div>
                     <div class="modal-footer">
-                        <a href= "index.html"><button type="button" class="btn btn-default">Salir</button></a>
+                        <a href= "../index.html"><button type="button" class="btn btn-default" onclick="saveout();">Salir</button></a>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                     </div>
                 </div>

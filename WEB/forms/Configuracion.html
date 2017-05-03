@@ -7,9 +7,26 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        var userIdCurrentlyLoggedIn=0;
+
+        console.log("ID inici:" + sessionStorage.getItem("ID"));
+        userIdCurrentlyLoggedIn = sessionStorage.getItem("ID");
+        console.log("ID final:"+userIdCurrentlyLoggedIn);
+        if(userIdCurrentlyLoggedIn==null)
+        {
+            alert("User is not logged in. Redirecting to Login form...");
+            sessionStorage.clear();
+            window.location.replace("../index.html");
+        }
+        else
+        {
+            userIdCurrentlyLoggedIn = sessionStorage.getItem("userIdCurrentlyLoggedIn");
+        }
+    </script>
     <style>
         body {
-            background-image: url("./images/fondo.jpeg");
+            background-image: url("../images/fondo.jpeg");
             width: 100% ;
             height: 100% ;
             margin: 0 ;
@@ -41,7 +58,7 @@
 <body>
 <div class="container">
     <h2>
-        <img src="./images/fondo1.png" style="width:156px;height:160px;position: absolute">
+        <img src="../images/fondo1.png" style="width:156px;height:160px;position: absolute">
     </h2>
 </div>
 <div class = "container" style=" position: absolute;right:35px; bottom:0">
