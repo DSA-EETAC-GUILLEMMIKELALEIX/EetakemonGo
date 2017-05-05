@@ -38,6 +38,7 @@
         };
 
         var admin = getUrlParameter('admin');
+        var idU = getUrlParameter('id');
 
         window.onload =function mostrar()
         {
@@ -45,10 +46,22 @@
             if (admin ==1){
                 buttonconfig.style.visibility = 'visible';
             }
-            else{
+            else if (admin==0){
                 buttonconfig.style.visibility = 'hidden';
                 buttonconfig.style.display = 'none';
             }
+        }
+
+        function webEetac() {
+            window.location.href="TusEetac-emons.html?id=" + idU + "&admin="+ admin;
+        }
+
+        function webEdex() {
+            window.location.href="Eetac-edex.html?id=" + idU + "&admin="+ admin;
+        }
+
+        function webConfig() {
+            window.location.href="Configuracion.html?id=" + idU + "&admin="+ admin;
         }
     </script>
     <style>
@@ -93,11 +106,11 @@
         <br><br>
     </h2>
     <h4>
-        <a href= "TusEetac-emons.html"><button type="button" class="btn btn-success btn-lg">Tus Eetac-emons!</button></a>
+        <button type="button" class="btn btn-success btn-lg" onclick=webEetac()>Tus Eetac-emons!</button></a>
         <br><br><br>
-        <a href= "Eetac-edex.html"><button type="button" class="btn btn-success btn-lg">Eetac-edex!</button></a>
+        <button type="button" class="btn btn-success btn-lg" onclick="webEdex()">Eetac-edex!</button></a>
         <br><br><br>
-        <a href= "Configuracion.html"><button type="button" class="btn btn-success btn-lg" id="config">Configuración!</button></a>
+        <button type="button" class="btn btn-success btn-lg" onclick="webConfig()" id="config">Configuración!</button></a>
         <br><br><br>
         <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">Salir!</button></a>
         <div class="modal fade" id="myModal" role="dialog">

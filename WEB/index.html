@@ -39,7 +39,7 @@
                          }*/ statusCode:{
                             201: function(result){
                                 saveID(result.id);
-                                window.location.href="./forms/MenuPrincipal.html?admin="+ result.admin;
+                                window.location.href="./forms/MenuPrincipal.html?id="+result.id+"&admin="+result.admin;
                             },
                             202: function(){
                                 alert("Error al loguearse"); //alerta

@@ -22,6 +22,8 @@
         {
             userIdCurrentlyLoggedIn = sessionStorage.getItem("userIdCurrentlyLoggedIn");
         }
+
+        var idE;
         window.onload = function () {
             var ctxPath = "http://localhost:8081/myapp/";
             $.ajax({
@@ -32,10 +34,10 @@
                     function (result) {
                         $.each(result, function (i, obj) {
                             console.log(obj.name);
+                            idE=obj.id;
                             $("#eetac-edexdiv").append("<div id=\"eetac-edexdiv\">" +
                                 "<div>" +
-                                "<a href = \"Eetac-edex." + obj.nombre + ".html\">" +
-                                "<img alt=\"\" src = \" /images/" + obj.nombre + ".png\"  style=\"width:157px;height:160px;\">" +
+                                "<img alt=\"\" src = \" /images/" + obj.nombre + ".png\"  style=\"width:157px;height:160px;\" onclick=\'webEetacemon()\'>" +
                                 "</div>" +
                                 "<a class=\"caption\">" +
                                 "<h4 id=\"info\">" + obj.id + ": " + obj.nombre + "</h4>" +
@@ -49,6 +51,22 @@
                     }
                 ]
             });
+        }
+
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        };
+        var idU = getUrlParameter('id');
+        var admin = getUrlParameter('admin');
+
+        function webMenu() {
+            window.location.href="MenuPrincipal.html?id=" + idU + "&admin="+ admin;
+        }
+        function webEetacemon() {
+            window.location.href="CadaEetac-emon.html?id=" + idU + "&admin="+ admin + "&idE="+ idE + "&page=1";
         }
     </script>
     <style>
@@ -121,7 +139,7 @@
 </div>
 <div class = "container" style=" position: absolute;right:35px; bottom:0">
     <h3>
-        <a href="MenuPrincipal.html"><button type="button" class="btn btn-success btn-lg">&nbsp;&nbsp;SALIR&nbsp;&nbsp;&nbsp;</button></a>
+        <button type="button" class="btn btn-success btn-lg" onclick="webMenu()">&nbsp;&nbsp;SALIR&nbsp;&nbsp;&nbsp;</button></a>
     </h3>
 </div>
 <div class="first">

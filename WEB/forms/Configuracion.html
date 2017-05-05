@@ -23,6 +23,19 @@
         {
             userIdCurrentlyLoggedIn = sessionStorage.getItem("userIdCurrentlyLoggedIn");
         }
+
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        };
+        var idU = getUrlParameter('id');
+        var admin = getUrlParameter('admin');
+
+        function webMenu() {
+            window.location.href="MenuPrincipal.html?id=" + idU + "&admin="+ admin;
+        }
     </script>
     <style>
         body {
@@ -63,7 +76,7 @@
 </div>
 <div class = "container" style=" position: absolute;right:35px; bottom:0">
     <h3>
-        <a href="MenuPrincipal.html"><button type="button" class="btn btn-success btn-lg">&nbsp;&nbsp;SALIR&nbsp;&nbsp;&nbsp;</button></a>
+        <button type="button" class="btn btn-success btn-lg" onclick=webMenu()>&nbsp;&nbsp;SALIR&nbsp;&nbsp;&nbsp;</button></a>
     </h3>
 </div>
 <div>
