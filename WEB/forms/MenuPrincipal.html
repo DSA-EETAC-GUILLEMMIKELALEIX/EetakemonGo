@@ -29,6 +29,27 @@
         window.onload = function saveout() {
             sessionStorage.setItem("ID",null); //Modificar perque quan es surti que també et redireixi
         }
+
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        };
+
+        var admin = getUrlParameter('admin');
+
+        window.onload =function mostrar()
+        {
+            var buttonconfig = document.getElementById("config")
+            if (admin ==1){
+                buttonconfig.style.visibility = 'visible';
+            }
+            else{
+                buttonconfig.style.visibility = 'hidden';
+                buttonconfig.style.display = 'none';
+            }
+        }
     </script>
     <style>
         body {
@@ -76,7 +97,7 @@
         <br><br><br>
         <a href= "Eetac-edex.html"><button type="button" class="btn btn-success btn-lg">Eetac-edex!</button></a>
         <br><br><br>
-        <a href= "Configuracion.html"><button type="button" class="btn btn-success btn-lg">Configuración!</button></a>
+        <a href= "Configuracion.html"><button type="button" class="btn btn-success btn-lg" id="config">Configuración!</button></a>
         <br><br><br>
         <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">Salir!</button></a>
         <div class="modal fade" id="myModal" role="dialog">

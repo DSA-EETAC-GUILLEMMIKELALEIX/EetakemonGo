@@ -107,7 +107,7 @@ public class JSONservice {
         u.select(usuario.getEmail());
         if (a) {
             System.out.println(u.getId());
-            return Response.status(201).entity(u.getId()).build();
+            return Response.status(201).entity(u).build();
         }
         else{
             return Response.status(202).entity("Usuario incorrecto: ").build();

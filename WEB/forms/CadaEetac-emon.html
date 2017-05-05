@@ -24,6 +24,17 @@
             userIdCurrentlyLoggedIn = sessionStorage.getItem("userIdCurrentlyLoggedIn");
         }
 
+        var urlParams = new URLSearchParams(window.location.search);
+
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        };
+
+        var IDEetak = getUrlParameter('id');
+
         window.onload = function () {
             var ctxPath = "http://localhost:8081/myapp/";
 
@@ -33,10 +44,9 @@
                 url: ctxPath + "json/Eetakemons",
                 success: [
                     function (result) {
-                        var IDeetak = localStorage.getItem("eetakemonID");
+                        console.log("ID", IDEetak);
                         $.each(result, function (i, obj) {
-                            console.log(obj.name);
-                            if(obj.id == IDeetak) {
+                            if(obj.id == IDEetak) {
                                 $("#eetac-edexdiv").append("<div id=\"eetac-edexdiv\" align='center'>" +
                                     "<div><h3>" +
                                     "<img alt=\"\" src = \" /images/" + obj.nombre + ".png\" style=\"width:314px;height:320px;\">" +

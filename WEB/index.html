@@ -38,8 +38,8 @@
                          console.log(responseJSON)
                          }*/ statusCode:{
                             201: function(result){
-                                saveID(result);
-                                window.location.href="./forms/MenuPrincipal.html";
+                                saveID(result.id);
+                                window.location.href="./forms/MenuPrincipal.html?admin="+ result.admin;
                             },
                             202: function(){
                                 alert("Error al loguearse"); //alerta
