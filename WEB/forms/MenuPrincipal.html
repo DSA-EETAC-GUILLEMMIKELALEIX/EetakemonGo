@@ -26,10 +26,6 @@
             userIdCurrentlyLoggedIn = sessionStorage.getItem("userIdCurrentlyLoggedIn");
         }
 
-        window.onload = function saveout() {
-            sessionStorage.setItem("ID",null); //Modificar perque quan es surti que també et redireixi
-        }
-
         function getUrlParameter(name) {
             name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
             var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
