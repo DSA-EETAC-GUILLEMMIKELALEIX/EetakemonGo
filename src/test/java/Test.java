@@ -34,8 +34,16 @@ public class Test {
     @org.junit.Test
     public void delete() {
         User u = new User();
-        u.select(0);
+        u.select(4);
         u.delete();
+    }
+
+    @org.junit.Test
+    public void admin() {
+        User u = new User();
+        u.select(5);
+        u.setAdmin(1);
+        u.update();
     }
 
     @org.junit.Test

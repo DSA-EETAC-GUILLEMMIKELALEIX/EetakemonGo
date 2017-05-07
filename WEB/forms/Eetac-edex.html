@@ -25,11 +25,11 @@
 
         var idE;
         window.onload = function () {
-            var ctxPath = "http://localhost:8081/myapp/";
+            var ctxPath = "http://localhost:8081/EetakemonGo/";
             $.ajax({
                 type: 'GET',
                 contentType: 'application/json',
-                url: ctxPath + "json/Eetakemons",
+                url: ctxPath + "Eetakemon/all",
                 success: [
                     function (result) {
                         $.each(result, function (i, obj) {

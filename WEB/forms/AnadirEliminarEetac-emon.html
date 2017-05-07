@@ -23,7 +23,7 @@
             userIdCurrentlyLoggedIn = sessionStorage.getItem("userIdCurrentlyLoggedIn");
         }
         $(document).ready(function() {
-            var ctxPath = "http://localhost:8081/myapp/";
+            var ctxPath = "http://localhost:8081/EetakemonGo/";
             $("#btn1").click(function () {
                 var name = $("#Eetacname").val();
                 var tipo = $("#Eetactipo").val();
@@ -35,7 +35,7 @@
                     console.log(o);
                     $.ajax({
                         type: "POST",
-                        url: ctxPath + "json/Eetakemon",
+                        url: ctxPath + "Eetakemon",
                         contentType: "application/json",
                         dataType: "json",
                         data: JSON.stringify(o),
@@ -53,7 +53,7 @@
                                     console.log(o);
                                     $.ajax({
                                         type: "POST",
-                                        url: ctxPath + "json/EetakemonImage",
+                                        url: ctxPath + "Eetakemon/Image",
                                         contentType: "application/json",
                                         data: JSON.stringify(o),
                                         success: [function () {
@@ -80,7 +80,7 @@
                 }else {
                     $.ajax({
                         type: "DELETE",
-                        url: ctxPath + "json/Eetakemon/" + id,
+                        url: ctxPath + "Eetakemon/" + id,
                         contentType: "application/json",
                         dataType: "json",
                         //data: JSON.stringify(o),

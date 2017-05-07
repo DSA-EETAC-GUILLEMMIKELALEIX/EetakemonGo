@@ -9,7 +9,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
-        var ctxPath = "http://localhost:8081/myapp/";
+        var ctxPath = "http://localhost:8081/EetakemonGo/";
         $(document).ready(function(){
             $("#btn1").click(function (){
                 var name= $("#name").val();
@@ -22,7 +22,7 @@
                     console.log(o);
                     $.ajax({
                         type: "POST",
-                        url: ctxPath + "json/User",
+                        url: ctxPath + "User/Register",
                         contentType: "application/json",
                         dataType: "json",
                         data: JSON.stringify(o),
