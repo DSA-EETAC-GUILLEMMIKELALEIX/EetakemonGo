@@ -1,16 +1,9 @@
 /**
  * Created by Mikel on 15/03/2017.
  */
-import Modelo.Eetakemon;
-import Controlador.DAO;
-import Modelo.Usuario;
-import Controlador.JSONservice;
-import java.util.ArrayList;
-import java.util.Collections;
+import Modelo.User;
+
 import java.util.List;
-
-
-import static org.junit.Assert.*;
 
 
 public class Test {
@@ -19,13 +12,13 @@ public class Test {
 
     @org.junit.Test
     public void insert(){
-        Usuario u = new Usuario("Mikel", "1234", "guillem@gmail.com");
+        User u = new User("Mikel", "1234", "guillem@gmail.com");
         u.insert();
     }
 
     @org.junit.Test
     public void update(){
-        Usuario u = new Usuario();
+        User u = new User();
         u.select(3);
         u.setNombre("Jose");
         u.update();
@@ -33,14 +26,14 @@ public class Test {
 
     @org.junit.Test
     public void select(){
-        Usuario u = new Usuario("Guillem","Guillem", "pepe@gmail.com");
+        User u = new User("Guillem","Guillem", "pepe@gmail.com");
         u.select(0);
 
     }
 
     @org.junit.Test
     public void delete() {
-        Usuario u = new Usuario();
+        User u = new User();
         u.select(0);
         u.delete();
     }
@@ -48,7 +41,7 @@ public class Test {
     @org.junit.Test
     public void lista() {
         List<Object> list;
-        //list=new Usuario().findAll();
+        //list=new User().findAll();
         System.out.println();
     }
 }

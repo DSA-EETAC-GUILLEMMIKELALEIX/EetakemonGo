@@ -1,7 +1,7 @@
 package Modelo;
-import Controlador.UsuarioDAO;
+import Controlador.UserDao;
 
-public class Usuario extends UsuarioDAO{
+public class User extends UserDao {
 //
     private int id;
     private String nombre;
@@ -9,9 +9,9 @@ public class Usuario extends UsuarioDAO{
     private String email;
     private int admin=0;
 
-    public Usuario(){}
+    public User(){}
 
-    public Usuario (String nombre, String contrasena, String email){
+    public User(String nombre, String contrasena, String email){
         this.nombre=nombre;
         this.contrasena=contrasena;//
         this.email=email;
@@ -60,6 +60,6 @@ public class Usuario extends UsuarioDAO{
 
     @Override
     public String toString() {
-        return "Usuario [Id ="+id+", Nombre=" + nombre + ", contrasena=" + contrasena + ", email=" + email + ", admin="+admin+"]";
+        return "User [Id ="+id+", Nombre=" + nombre + ", contrasena=" + contrasena + ", email=" + email + ", admin="+admin+"]";
     }
 }

@@ -1,13 +1,9 @@
 package Controlador;
 
-import Modelo.Usuario;
-
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.sql.*;
 
 
-public class UsuarioDAO extends DAO{
+public class UserDao extends DAO{
 
     protected boolean login(String email, String password) {
         boolean logeado=false;
