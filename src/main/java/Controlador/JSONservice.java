@@ -3,6 +3,7 @@ package Controlador;
 import Modelo.Eetakemon;
 import Modelo.Usuario;
 
+
 import javax.inject.Singleton;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -208,6 +209,23 @@ public class JSONservice {
         }
         else{
             return Response.status(202).entity("No se ha podido visualizar el usuario: ").build();
+        }
+    }
+
+    //Recuperar contraseña
+    @POST
+    @Path("/RecuperarUser")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response RecuperarlaContraseña(Usuario usuario){
+        boolean a;
+        System.out.println("AAA:" + usuario);
+        Usuario u = new Usuario();
+        u.select(usuario.getEmail());
+        a=u.Recuperar(u);
+        if (a)
+            return Response.status(201).entity("E-mail enviado").build();
+        else{
+            return Response.status(202).entity("No se ha podido recuperar contraseña").build();
         }
     }
 

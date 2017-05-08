@@ -2,10 +2,17 @@ package Controlador;
 
 import Modelo.Usuario;
 
+import com.sun.mail.smtp.SMTPTransport;
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.sql.*;
-
+import java.util.Properties;
+import javax.mail.Message;
+import javax.mail.Session;
+import javax.mail.Transport;
 
 public class UsuarioDAO extends DAO{
 
@@ -49,6 +56,7 @@ public class UsuarioDAO extends DAO{
             logger.info("INFO: Select by email  statement: "+ps.toString());;
             ResultSet rs = ps.executeQuery();
             ResultSetMetaData rsmd = rs.getMetaData();
+            System.out.println("RES:" + rs);
 
             while (rs.next()) {
                 setClassFields(rs, rsmd, this);
@@ -58,5 +66,49 @@ public class UsuarioDAO extends DAO{
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    //------
+
+    public boolean Recuperar(Usuario u){
+
+        boolean bool;
+        final String username = u.getEmail();
+        final String password = u.getContrasena();
+
+        Properties props = new Properties();
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.put("mail.smtp.port", "587");
+
+        Session session = Session.getInstance(props,
+                new javax.mail.Authenticator() {
+                    protected PasswordAuthentication getPasswordAuthentication() {
+                        return new PasswordAuthentication(username, password);
+                    }
+                });
+
+        try {
+            System.out.println("CONTI:"+u.getEmail());
+            MimeMessage message = new MimeMessage(session);
+            message.setFrom(new InternetAddress("aleix11fcb@gmail.com"));
+            message.setRecipients(Message.RecipientType.TO,
+                    InternetAddress.parse(u.getEmail()));
+            message.setSubject("Recuperar contraseña");
+            message.setText("Hola, " + u.getNombre()
+                    + "\n\n Tu contraseña es: " + u.getContrasena());
+
+            Transport.send(message);
+
+            System.out.println("Done");
+            bool=true;
+
+        } catch (MessagingException e) {
+            bool=false;
+            throw new RuntimeException(e);
+        }
+        return bool;
+
     }
 }
