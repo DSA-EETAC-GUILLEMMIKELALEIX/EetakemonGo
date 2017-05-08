@@ -99,7 +99,7 @@ public class UsuarioDAO extends DAO{
             message.setText("Hola, " + u.getNombre()
                     + "\n\n Tu contraseña es: " + u.getContrasena());
 
-            Transport.send(message); //NO FUNCIONA ESTO!
+            Transport.send(message); //NO FUNCIONA ESTO
 
             System.out.println("Done");
             bool=true;
