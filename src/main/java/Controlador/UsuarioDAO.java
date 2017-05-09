@@ -56,7 +56,6 @@ public class UsuarioDAO extends DAO{
             logger.info("INFO: Select by email  statement: "+ps.toString());;
             ResultSet rs = ps.executeQuery();
             ResultSetMetaData rsmd = rs.getMetaData();
-            System.out.println("RES:" + rs);
 
             while (rs.next()) {
                 setClassFields(rs, rsmd, this);
@@ -91,7 +90,6 @@ public class UsuarioDAO extends DAO{
 
         try {
             InternetAddress fromemail = new InternetAddress("aleix11fcb@gmail.com");
-            System.out.println("CONTI:"+u.getEmail());
             MimeMessage message = new MimeMessage(session);
             message.setFrom(fromemail);
             message.setRecipients(Message.RecipientType.TO,
