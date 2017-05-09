@@ -11,7 +11,7 @@ public class Eetakemon extends EetakemonDAO{
 
     public Eetakemon(){}
 
-    public Eetakemon(String nombre, String tipo, /*Image foto,*/ int level, String ataque)
+    public Eetakemon(String nombre, String tipo, /*Image foto,*/ int level)
     {
         this.nombre = nombre;
         this.tipo = tipo;

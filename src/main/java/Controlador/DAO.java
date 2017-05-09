@@ -200,7 +200,7 @@ public class DAO {
     }
 
     //validar Registro
-    protected boolean checkExistent(String field, String value) {
+    public boolean checkExistent(String field, String value) {
         boolean puedeRegistrarse=false;
         Connection con = getConnection();
         StringBuffer query = new StringBuffer("SELECT * FROM ");
