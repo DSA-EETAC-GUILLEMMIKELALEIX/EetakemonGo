@@ -23,7 +23,7 @@
             userIdCurrentlyLoggedIn = sessionStorage.getItem("userIdCurrentlyLoggedIn");
         }
         $(document).ready(function() {
-            var ctxPath = "http://localhost:8081/myapp/";
+            var ctxPath = "http://localhost:8081/EetakemonGo/";
             $("#btn1").click(function () {
                 var id = $("#id").val();
                 var name = $("#name").val();
@@ -37,7 +37,7 @@
                     console.log(o);
                     $.ajax({
                         type: "POST",
-                        url: ctxPath + "json/User/" + id,
+                        url: ctxPath + "User/" + id,
                         contentType: "application/json",
                         dataType: "json",
                         data: JSON.stringify(o),
@@ -59,7 +59,7 @@
                 }else {
                     $.ajax({
                         type: "DELETE",
-                        url: ctxPath + "json/User/" + id,
+                        url: ctxPath + "User/" + id,
                         contentType: "application/json",
                         dataType: "json",
                         //data: JSON.stringify(o),

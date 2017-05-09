@@ -1,15 +1,10 @@
 package Controlador;
 
-import Modelo.Eetakemon;
-import Modelo.Usuario;
-import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
-
 import java.lang.reflect.*;
-import java.net.ConnectException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.log4j.BasicConfigurator;
+
 import org.apache.log4j.Logger;
 
 public class DAO {

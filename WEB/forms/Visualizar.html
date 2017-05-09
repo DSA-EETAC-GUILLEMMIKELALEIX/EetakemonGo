@@ -8,7 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
-        var ctxPath = "http://localhost:8081/myapp/";
+        var ctxPath = "http://localhost:8081/EetakemonGo/";
         var userIdCurrentlyLoggedIn=0;
         console.log("ID inici:" + sessionStorage.getItem("ID"));
         userIdCurrentlyLoggedIn = sessionStorage.getItem("ID");
@@ -34,7 +34,7 @@
                     $.ajax({
                         type: 'GET',
                         contentType: 'application/json',
-                        url: ctxPath + "json/User/" + id,
+                        url: ctxPath + "User/" + id,
                         statusCode: {
                             201: function (result) {
                                 document.getElementById("texto").value = "Nombre:" + result.nombre + "\nContraseña:" + result.contrasena +
@@ -52,7 +52,7 @@
                 $.ajax({
                     type: 'GET',
                     contentType: 'application/json',
-                    url: ctxPath + "json/Users",
+                    url: ctxPath + "User/all",
                     statusCode: {
                         201: function (result) {
                             console.log(result);
@@ -78,7 +78,7 @@
                     $.ajax({
                         type: 'GET',
                         contentType: 'application/json',
-                        url: ctxPath + "json/Eetakemon/" + id,
+                        url: ctxPath + "Eetakemon/" + id,
                         statusCode: {
                             201: function (result) {
                                 document.getElementById("texto").value = "Nombre: " + result.nombre + "\nTipo: " + result.tipo +
@@ -96,7 +96,7 @@
                 $.ajax({
                     type: 'GET',
                     contentType: 'application/json',
-                    url: ctxPath + "json/Eetakemons",
+                    url: ctxPath + "Eetakemon/all",
                     statusCode: {
                         201: function (result) {
                             for(i=0;i<1000;i++){

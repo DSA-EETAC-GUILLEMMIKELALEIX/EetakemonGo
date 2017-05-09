@@ -1,8 +1,5 @@
 package Vista;
 
-import Modelo.Eetakemon;
-import Modelo.Usuario;
-import javafx.scene.image.Image;
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.grizzly.http.server.StaticHttpHandler;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
@@ -10,14 +7,14 @@ import org.glassfish.jersey.server.ResourceConfig;
 
 import java.io.IOException;
 import java.net.URI;
-import java.util.Scanner;
+
 /**
  * Codigo creado por Mikel, Guillem, Aleix. Se ha escrito el codigo en local y se ha subido
  * directamente al repositorio github de Mikel.
  */
 public class Main {
     // Base URI the Grizzly HTTP server will listen on
-    public static final String BASE_URI = "http://localhost:8081/myapp";
+    public static final String BASE_URI = "http://localhost:8081/EetakemonGo";
 
     /**
      * Starts Grizzly HTTP server exposing JAX-RS resources defined in this application.
