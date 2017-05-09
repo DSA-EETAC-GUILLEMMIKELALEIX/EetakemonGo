@@ -208,7 +208,7 @@ public class JSONservice {
             return Response.status(201).entity(entity).build();
         }
         else{
-            return Response.status(202).entity("No se ha podido visualizar el usuario: ").build(); //aaa
+            return Response.status(202).entity("No se ha podido visualizar el usuario: ").build();
         }
     }
 
