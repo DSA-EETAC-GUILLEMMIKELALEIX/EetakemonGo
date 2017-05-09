@@ -1,6 +1,6 @@
 package Controlador;
 
-import Modelo.Usuario;
+import Modelo.User;
 
 import com.sun.mail.smtp.SMTPTransport;
 import javax.mail.*;
@@ -14,7 +14,7 @@ import javax.mail.Message;
 import javax.mail.Session;
 import javax.mail.Transport;
 
-public class UsuarioDAO extends DAO{
+public class UserDao extends DAO{
 
     protected boolean login(String email, String password) {
         boolean logeado=false;
@@ -69,7 +69,7 @@ public class UsuarioDAO extends DAO{
 
     //------
 
-    public boolean Recuperar(Usuario u){
+    public boolean Recuperar(User u){
 
         boolean bool;
         final String username = u.getEmail();
@@ -89,9 +89,7 @@ public class UsuarioDAO extends DAO{
                 });
 
         try {
-            InternetAddress fromemail = new InternetAddress("aleix11fcb@gmail.com");
             MimeMessage message = new MimeMessage(session);
-            message.setFrom(fromemail);
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(u.getEmail()));
             message.setSubject("Recuperar contraseña");

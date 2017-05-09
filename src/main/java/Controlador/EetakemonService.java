@@ -13,9 +13,6 @@ import java.awt.image.BufferedImage;
 import java.io.*;
 import javax.imageio.ImageIO;
 
-/**
- * Created by Mikel on 07/05/2017.
- */
 
 @Path("/Eetakemon")
 @Singleton

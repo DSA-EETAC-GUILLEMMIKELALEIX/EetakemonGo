@@ -9,11 +9,6 @@ import javax.ws.rs.core.Response;
 import java.util.List;
 import javax.ws.rs.core.GenericEntity;
 
-
-/**
- * Created by Mikel on 07/05/2017.
- */
-
 @Path("/User")
 @Singleton
 public class UserService {
@@ -123,6 +118,23 @@ public class UserService {
         }
         else{
             return Response.status(202).entity("No se ha podido visualizar el usuario: ").build();
+        }
+    }
+
+    //Recuperar contraseña
+    @POST
+    @Path("/RecuperarUser")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response RecuperarlaContraseña(User usuario){
+        boolean a;
+        System.out.println("AAA:" + usuario);
+        User u = new User();
+        u.select(usuario.getEmail());
+        a=u.Recuperar(u);
+        if (a)
+            return Response.status(201).entity("E-mail enviado").build();
+        else{
+            return Response.status(202).entity("No se ha podido recuperar contraseña").build();
         }
     }
 }
