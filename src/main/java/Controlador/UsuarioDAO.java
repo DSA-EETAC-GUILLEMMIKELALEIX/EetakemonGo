@@ -90,16 +90,24 @@ public class UsuarioDAO extends DAO{
                 });
 
         try {
+            InternetAddress fromemail = new InternetAddress("aleix11fcb@gmail.com");
             System.out.println("CONTI:"+u.getEmail());
             MimeMessage message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("aleix11fcb@gmail.com"));
+            message.setFrom(fromemail);
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(u.getEmail()));
             message.setSubject("Recuperar contraseña");
             message.setText("Hola, " + u.getNombre()
                     + "\n\n Tu contraseña es: " + u.getContrasena());
 
-            Transport.send(message); //NO FUNCIONA ESTO
+            Transport transport = session.getTransport("smtp");
+
+            // Enter your correct gmail UserID and Password
+            // if you have 2FA enabled then provide App Specific Password
+
+            transport.connect("smtp.gmail.com", "DSAproyecto@gmail.com", "aleixguillemmikel");
+            transport.sendMessage(message, message.getAllRecipients());
+            transport.close();
 
             System.out.println("Done");
             bool=true;
