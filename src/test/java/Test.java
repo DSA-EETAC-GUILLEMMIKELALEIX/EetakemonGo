@@ -23,7 +23,7 @@ public class Test {
     public void insert1(){
         Eetakemon u = new Eetakemon("Bernorlax","Normal",15);
           Boolean a;
-          a=u.checkExistent("normal", u.getNombre());
+          a=u.checkExistent("nombre", u.getNombre());
           if (a)
           {
               u.insert();
