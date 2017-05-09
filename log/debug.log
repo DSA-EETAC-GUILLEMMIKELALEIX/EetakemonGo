@@ -655,3 +655,55 @@
 2017-05-07 14:24:41 INFO  DAO:49 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@59e10393: SELECT * FROM Usuario WHERE email='guillemeetac@gmail.com';
 2017-05-07 14:24:44 INFO  DAO:31 - INFO: conexión creada
 2017-05-07 14:24:44 INFO  DAO:187 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@7b141d7d: SELECT * FROM Eetakemon;
+2017-05-09 16:48:05 INFO  DAO:26 - INFO: conexión creada
+2017-05-09 16:48:05 INFO  DAO:218 - INFO: Objeto no existente: aleix11fcb@gmail.com
+2017-05-09 16:48:05 INFO  DAO:26 - INFO: conexión creada
+2017-05-09 16:48:05 INFO  DAO:72 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@7b116183: INSERT INTO User (nombre,contrasena,email,admin) VALUES ('Aleix','aleix','aleix11fcb@gmail.com',0);
+2017-05-09 17:06:23 INFO  DAO:26 - INFO: conexión creada
+2017-05-09 17:06:23 INFO  DAO:35 - INFO: Logeado: aleix11fcb@gmail.com
+2017-05-09 17:06:23 INFO  DAO:26 - INFO: conexión creada
+2017-05-09 17:06:23 INFO  DAO:56 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@162e3a32: SELECT * FROM User WHERE email='aleix11fcb@gmail.com';
+2017-05-09 17:06:35 INFO  DAO:26 - INFO: conexión creada
+2017-05-09 17:06:35 INFO  DAO:56 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@69a300f5: SELECT * FROM User WHERE email='aleix11fcb@gmail.com';
+2017-05-09 17:06:57 INFO  DAO:26 - INFO: conexión creada
+2017-05-09 17:06:57 INFO  DAO:31 - INFO: No logeado: aleix11fcb@upc.edu
+2017-05-09 17:06:57 INFO  DAO:26 - INFO: conexión creada
+2017-05-09 17:06:57 INFO  DAO:56 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@30cd5beb: SELECT * FROM User WHERE email='aleix11fcb@upc.edu';
+2017-05-09 17:07:04 INFO  DAO:26 - INFO: conexión creada
+2017-05-09 17:07:04 INFO  DAO:35 - INFO: Logeado: aleix11fcb@gmail.com
+2017-05-09 17:07:04 INFO  DAO:26 - INFO: conexión creada
+2017-05-09 17:07:04 INFO  DAO:56 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@17130a4e: SELECT * FROM User WHERE email='aleix11fcb@gmail.com';
+2017-05-09 17:09:20 INFO  DAO:26 - INFO: conexión creada
+2017-05-09 17:09:20 INFO  DAO:56 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@2c31d39d: SELECT * FROM User WHERE email='aleix11fcb@gmail.com';
+2017-05-09 17:09:44 INFO  DAO:26 - INFO: conexión creada
+2017-05-09 17:09:44 INFO  DAO:35 - INFO: Logeado: aleix11fcb@gmail.com
+2017-05-09 17:09:44 INFO  DAO:26 - INFO: conexión creada
+2017-05-09 17:09:44 INFO  DAO:56 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@19667510: SELECT * FROM User WHERE email='aleix11fcb@gmail.com';
+2017-05-09 17:10:30 INFO  DAO:26 - INFO: conexión creada
+2017-05-09 17:10:30 INFO  DAO:115 - INFO: Update statement: com.mysql.jdbc.JDBC4PreparedStatement@66083eaf: UPDATE User SET nombre='Aleix',contrasena='aleix',email='aleix11fcb@gmail.com',admin=1 WHERE id=1;
+2017-05-09 17:10:37 INFO  DAO:26 - INFO: conexión creada
+2017-05-09 17:10:37 INFO  DAO:137 - INFO: Select  by id statement: com.mysql.jdbc.JDBC4PreparedStatement@1c11c99d: SELECT * FROM User WHERE id=1;
+2017-05-09 17:10:38 INFO  DAO:26 - INFO: conexión creada
+2017-05-09 17:10:38 INFO  DAO:182 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@2609e881: SELECT * FROM User;
+2017-05-09 17:11:06 INFO  DAO:26 - INFO: conexión creada
+2017-05-09 17:11:06 INFO  DAO:218 - INFO: Objeto no existente: Bernorlax
+2017-05-09 17:11:06 INFO  DAO:26 - INFO: conexión creada
+2017-05-09 17:11:06 INFO  DAO:72 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@62761902: INSERT INTO Eetakemon (nombre,nivel,tipo,foto) VALUES ('Bernorlax',15,'Normal','C:\\fakepath\\snorlax berenguer(Bernorlax).png');
+2017-05-09 17:11:11 INFO  DAO:26 - INFO: conexión creada
+2017-05-09 17:11:11 INFO  DAO:137 - INFO: Select  by id statement: com.mysql.jdbc.JDBC4PreparedStatement@5da03476: SELECT * FROM Eetakemon WHERE id=1;
+2017-05-09 17:11:11 INFO  DAO:26 - INFO: conexión creada
+2017-05-09 17:11:11 INFO  DAO:182 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@10876ee1: SELECT * FROM Eetakemon;
+2017-05-09 17:11:16 INFO  DAO:26 - INFO: conexión creada
+2017-05-09 17:11:16 INFO  DAO:182 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@c79942: SELECT * FROM Eetakemon;
+2017-05-09 17:12:13 INFO  DAO:26 - INFO: conexión creada
+2017-05-09 17:12:13 INFO  DAO:35 - INFO: Logeado: aleix11fcb@gmail.com
+2017-05-09 17:12:13 INFO  DAO:26 - INFO: conexión creada
+2017-05-09 17:12:13 INFO  DAO:56 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@75c6c555: SELECT * FROM User WHERE email='aleix11fcb@gmail.com';
+2017-05-09 17:12:32 INFO  DAO:26 - INFO: conexión creada
+2017-05-09 17:12:32 INFO  DAO:182 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@7e53cd1d: SELECT * FROM Eetakemon;
+2017-05-09 17:13:28 INFO  DAO:26 - INFO: conexión creada
+2017-05-09 17:13:28 INFO  DAO:35 - INFO: Logeado: aleix11fcb@gmail.com
+2017-05-09 17:13:28 INFO  DAO:26 - INFO: conexión creada
+2017-05-09 17:13:28 INFO  DAO:56 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@5c477912: SELECT * FROM User WHERE email='aleix11fcb@gmail.com';
+2017-05-09 17:13:33 INFO  DAO:26 - INFO: conexión creada
+2017-05-09 17:13:33 INFO  DAO:182 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@1f9148e7: SELECT * FROM Eetakemon;
