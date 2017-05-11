@@ -40,12 +40,6 @@ public class DAO {
 
         Field[] attributes = this.getClass().getDeclaredFields();
 
-        /*for (Field f : attributes) {
-            query.append(f.getName());
-            query.append(",");
-        }*/
-
-
         for(int i =1; i<attributes.length;i++){
             query.append(attributes[i].getName());
             query.append(",");
@@ -54,9 +48,6 @@ public class DAO {
         query.deleteCharAt(query.length() - 1);
         query.append(") VALUES (");
 
-        /*for (Field f : attributes) {
-            query.append("?,");
-        }*/
         for(int i =1; i<attributes.length;i++){
             query.append("?,");
         }
@@ -92,10 +83,6 @@ public class DAO {
         query.append(" SET ");
         Field[] attributes = this.getClass().getDeclaredFields();
 
-        /*for (Field f : attributes) {
-            query.append(f.getName());
-            query.append("=?,");
-        }*/
         for(int i =1; i<attributes.length;i++){
             query.append(attributes[i].getName());
             query.append("=?,");
@@ -251,7 +238,6 @@ public class DAO {
         Method method;
         try {
             method = object.getClass().getMethod(getSetterName(name), result.getClass());//obtiene el método set
-            //method = object.getClass().getMethod(getSetterName(name));
             method.invoke(object, result);//invoca el método set
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
@@ -269,7 +255,6 @@ public class DAO {
             Class[] arguments = new Class[1];
             arguments[0] = int.class;
             method = object.getClass().getMethod(getSetterName(name), arguments);
-            //method = object.getClass().getMethod(getSetterName(name));
             method.invoke(object, result);
         } catch (NoSuchMethodException e) {
             e.printStackTrace();

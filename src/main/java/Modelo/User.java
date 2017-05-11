@@ -1,6 +1,9 @@
 package Modelo;
 import Controlador.UserDao;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 public class User extends UserDao {
 //
     private int id;
@@ -54,6 +57,26 @@ public class User extends UserDao {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public void hashPassword() {
+        String password=getContrasena();
+        String generatedPassword;
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            md.update(password.getBytes());
+            byte[] bytes = md.digest();
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < bytes.length; i++) {
+                sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+            }
+            generatedPassword = sb.toString();
+            setContrasena(generatedPassword);
+        }
+        catch (NoSuchAlgorithmException e)
+        {
+            e.printStackTrace();
+        }
     }
 
 

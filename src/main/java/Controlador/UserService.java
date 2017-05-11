@@ -8,6 +8,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 import javax.ws.rs.core.GenericEntity;
+import javax.c
 
 @Path("/User")
 @Singleton
@@ -23,6 +24,7 @@ public class UserService {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response register(User user) {
         Boolean a;
+        user.hashPassword();
         a = user.checkExistent("email", user.getEmail());
         if (a) {
             user.insert();
@@ -41,9 +43,9 @@ public class UserService {
         Boolean a;
         System.out.println(usuario);
         String e,c;
-        int theid;
         e=usuario.getEmail();
         c=usuario.getContrasena();
+        usuario.hashPassword();
         a=usuario.login(e,c);
         User u = new User();
         u.select(usuario.getEmail());
