@@ -8,15 +8,22 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 import javax.ws.rs.core.GenericEntity;
-import javax.c
 
 @Path("/User")
 @Singleton
 public class UserService {
     protected DAO dao;
+    private TrippleDes td;
     public UserService() {
         dao=DAO.getEetakemonManagerClass();
+        try{
+            td=new TrippleDes();
+        }
+        catch (Exception e){
+
+        }
     }
+
 
     //registrar user
     @POST
@@ -24,9 +31,13 @@ public class UserService {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response register(User user) {
         Boolean a;
-        user.hashPassword();
         a = user.checkExistent("email", user.getEmail());
+
+
+
         if (a) {
+            String encriptedpass=td.encrypt(user.getContrasena());
+            user.setContrasena(encriptedpass);
             user.insert();
             return Response.status(201).entity("Usuario añadido: ").build();
         } else {
@@ -41,12 +52,11 @@ public class UserService {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response Login(User usuario) {
         Boolean a;
-        System.out.println(usuario);
         String e,c;
         e=usuario.getEmail();
         c=usuario.getContrasena();
-        usuario.hashPassword();
-        a=usuario.login(e,c);
+        String encriptedpass=td.encrypt(c);
+        a=usuario.login(e,encriptedpass);
         User u = new User();
         u.select(usuario.getEmail());
         if (a) {
