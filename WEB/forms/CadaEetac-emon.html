@@ -56,9 +56,7 @@
                 url: ctxPath + "Eetakemon/all",
                 success: [
                     function (result) {
-                        console.log("ID", idE);
                         $.each(result, function (i, obj) {
-                            if(idE == obj.id) {
                                 $("#eetac-edexdiv").append("<div id=\"eetac-edexdiv\" align='center'>" +
                                     "<div><h3>" +
                                     "<img alt=\"\" src = \" /images/" + obj.nombre + ".png\" style=\"width:314px;height:320px;\" onclick='webEetacemon("+obj.id+")'>" +
@@ -69,7 +67,6 @@
                                     "<p>" + "Tipo: " +obj.tipo + "</p>" +
                                     "</h4>" +
                                     "</h3></div></div>");
-                            }
                         });
                     }
                 ],
