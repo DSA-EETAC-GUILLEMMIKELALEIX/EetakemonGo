@@ -78,10 +78,13 @@ public class UserDao extends DAO {
     //------
 
     public boolean Recuperar(User u) {
-
+        TrippleDes td=null;
+        try {
+            td = new TrippleDes();
+        }catch (Exception e){}
         boolean bool;
         final String username = u.getEmail();
-        final String password = u.getContrasena();
+        final String password = td.decrypt(u.getContrasena());
 
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
@@ -102,7 +105,7 @@ public class UserDao extends DAO {
                     InternetAddress.parse(u.getEmail()));
             message.setSubject("Recuperar contraseña");
             message.setText("Hola, " + u.getNombre()
-                    + "\n\n Tu contraseña es: " + u.getContrasena());
+                    + "\n\n Tu contraseña es: " + password);
 
             Transport transport = session.getTransport("smtp");
 

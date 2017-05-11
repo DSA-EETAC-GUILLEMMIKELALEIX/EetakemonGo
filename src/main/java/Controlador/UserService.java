@@ -140,6 +140,7 @@ public class UserService {
     public Response RecuperarlaContraseña(User usuario){
         boolean a;
         System.out.println("AAA:" + usuario);
+        String decryptedpass;
         User u = new User();
         u.select(usuario.getEmail());
         a=u.Recuperar(u);
