@@ -75,6 +75,8 @@ public class UserService {
         Boolean a=false;
         user.setId(id);
         System.out.println(id);
+        String encriptedpass=td.encrypt(user.getContrasena());
+        user.setContrasena(encriptedpass);
         a = user.update();
         System.out.println(a);
         if (a) {
