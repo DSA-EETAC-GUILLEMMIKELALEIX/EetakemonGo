@@ -858,3 +858,35 @@
 2017-05-11 18:08:43 INFO  DAO:31 - INFO: No logeado: b
 2017-05-11 18:08:43 INFO  DAO:26 - INFO: conexión creada
 2017-05-11 18:08:43 INFO  DAO:56 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@58ab046c: SELECT * FROM User WHERE email='b';
+2017-05-11 18:34:53 INFO  DAO:26 - INFO: conexión creada
+2017-05-11 18:34:53 INFO  DAO:205 - INFO: Objeto no existente: jose@gmail.com
+2017-05-11 18:34:53 INFO  DAO:26 - INFO: conexión creada
+2017-05-11 18:34:53 INFO  DAO:63 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@23972849: INSERT INTO User (nombre,contrasena,email,admin) VALUES ('joseausente','IVE1+zf13bg=','jose@gmail.com',0);
+2017-05-11 18:40:42 INFO  DAO:26 - INFO: conexión creada
+2017-05-11 18:40:42 INFO  DAO:41 - INFO: Logeado: jose@gmail.com
+2017-05-11 18:40:42 INFO  DAO:26 - INFO: conexión creada
+2017-05-11 18:40:42 INFO  DAO:63 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@2a9d80d6: SELECT * FROM User WHERE email='jose@gmail.com';
+2017-05-11 18:43:10 INFO  DAO:26 - INFO: conexión creada
+2017-05-11 18:43:10 INFO  DAO:205 - INFO: Objeto no existente: ilprogramador@gmail.com
+2017-05-11 18:43:10 INFO  DAO:26 - INFO: conexión creada
+2017-05-11 18:43:10 INFO  DAO:63 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@59b5387f: INSERT INTO User (nombre,contrasena,email,admin) VALUES ('ilprogramador','DQ4KS5eKHNg=','ilprogramador@gmail.com',0);
+2017-05-11 18:51:20 INFO  DAO:26 - INFO: conexión creada
+2017-05-11 18:51:20 INFO  DAO:37 - INFO: No logeado: guillemeetac@gmail.com
+2017-05-11 18:51:20 INFO  DAO:26 - INFO: conexión creada
+2017-05-11 18:51:20 INFO  DAO:63 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@435c88d4: SELECT * FROM User WHERE email='guillemeetac@gmail.com';
+2017-05-11 18:52:40 INFO  DAO:26 - INFO: conexión creada
+2017-05-11 18:52:40 INFO  DAO:205 - INFO: Objeto no existente: guillemeetac@gmail.com
+2017-05-11 18:52:40 INFO  DAO:26 - INFO: conexión creada
+2017-05-11 18:52:40 INFO  DAO:63 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@34cf691: INSERT INTO User (nombre,contrasena,email,admin) VALUES ('Guillem','AT0D6sMGdKM=','guillemeetac@gmail.com',0);
+2017-05-11 18:52:53 INFO  DAO:26 - INFO: conexión creada
+2017-05-11 18:52:53 INFO  DAO:41 - INFO: Logeado: guillemeetac@gmail.com
+2017-05-11 18:52:53 INFO  DAO:26 - INFO: conexión creada
+2017-05-11 18:52:53 INFO  DAO:63 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@3820d59a: SELECT * FROM User WHERE email='guillemeetac@gmail.com';
+2017-05-11 18:52:59 INFO  DAO:26 - INFO: conexión creada
+2017-05-11 18:52:59 INFO  DAO:37 - INFO: No logeado: guillemeetac@gmail.com
+2017-05-11 18:52:59 INFO  DAO:26 - INFO: conexión creada
+2017-05-11 18:52:59 INFO  DAO:63 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@369f4d6a: SELECT * FROM User WHERE email='guillemeetac@gmail.com';
+2017-05-11 18:53:08 INFO  DAO:26 - INFO: conexión creada
+2017-05-11 18:53:08 INFO  DAO:63 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@15d4a833: SELECT * FROM User WHERE email='guillemeetac@gmail.com';
+2017-05-11 18:56:33 INFO  DAO:26 - INFO: conexión creada
+2017-05-11 18:56:33 INFO  DAO:63 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@69185325: SELECT * FROM User WHERE email='guillemeetac@gmail.com';
