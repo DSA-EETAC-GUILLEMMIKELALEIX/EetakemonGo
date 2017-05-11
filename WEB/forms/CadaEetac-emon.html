@@ -56,12 +56,10 @@
                 url: ctxPath + "Eetakemon/all",
                 success: [
                     function (result) {
-                        console.log("ID", idE);
                         $.each(result, function (i, obj) {
-                            if(idE == obj.id) {
                                 $("#eetac-edexdiv").append("<div id=\"eetac-edexdiv\" align='center'>" +
                                     "<div><h3>" +
-                                    "<img alt=\"\" src = \" /images/" + obj.nombre + ".png\" style=\"width:314px;height:320px;\">" +
+                                    "<img alt=\"\" src = \" /images/" + obj.nombre + ".png\" style=\"width:314px;height:320px;\" onclick='webEetacemon("+obj.id+")'>" +
                                     "</div>" +
                                     "<div class=\"caption\">" +
                                     "<h4 id=\"info\"><p>" + obj.id + ": " + obj.nombre + "</p>" +
@@ -69,7 +67,6 @@
                                     "<p>" + "Tipo: " +obj.tipo + "</p>" +
                                     "</h4>" +
                                     "</h3></div></div>");
-                            }
                         });
                     }
                 ],
@@ -79,6 +76,9 @@
                     }
                 ]
             });
+            function webEetacemon(idE) {
+                window.location.href="CadaEetac-emon.html?id=" + idU + "&admin="+ admin + "&idE="+ idE + "&page=2";
+            }
 
         }
     </script>
