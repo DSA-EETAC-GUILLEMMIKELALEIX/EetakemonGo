@@ -22,6 +22,7 @@ public class EetakemonManager {
     public Eetakemon getEetakemonById(int id){
         Eetakemon e= new Eetakemon();
         e.selectEetakemonById(id);
+
         return e;
     }
 
