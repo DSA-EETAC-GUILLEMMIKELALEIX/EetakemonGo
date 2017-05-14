@@ -1,4 +1,4 @@
-package Controlador;
+package Modelo.DAO;
 
 import java.lang.reflect.*;
 import java.sql.*;
@@ -11,7 +11,7 @@ public class DAO {
     protected final static Logger logger = Logger.getLogger(DAO.class);//
     private static DAO dao;
 
-    public static DAO getEetakemonManagerClass() {
+    protected static DAO getDao() {
         if (dao == null) {dao = new DAO();}
         return dao;
     }
@@ -21,7 +21,6 @@ public class DAO {
         Connection conn = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            //conn = DriverManager.getConnection("jdbc:mysql://sql8.freemysqlhosting.net/sql8171317", "sql8171317", "5P4v94eLJY");
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Proyecto", "root", "mysql");
             logger.info("INFO: conexión creada");
         } catch (Exception e) {
@@ -32,7 +31,7 @@ public class DAO {
     }
 
     //insertar en la base de datos
-    public void insert() {
+    protected void insert() {
         Connection con = getConnection();
         StringBuffer query = new StringBuffer("INSERT INTO ");
         query.append(this.getClass().getSimpleName());
@@ -75,7 +74,7 @@ public class DAO {
 
 
     //actualizar base de datos
-    public Boolean update() {
+    protected Boolean update() {
         Boolean a = false;
         Connection con = getConnection();
         StringBuffer query = new StringBuffer("UPDATE ");
@@ -112,7 +111,7 @@ public class DAO {
     }
 
     //buscar por id en la base de datos
-    public void select(int id) {
+    protected void select(int id) {
         Connection con = getConnection();
         StringBuffer query = new StringBuffer("SELECT * FROM ");
         query.append(this.getClass().getSimpleName());
@@ -136,7 +135,7 @@ public class DAO {
     }
 
     //eliminar de la base de datos
-    public void delete() {
+    protected void delete() {
         Connection con = getConnection();
         StringBuffer query = new StringBuffer("DELETE FROM ");
         query.append(this.getClass().getSimpleName());
@@ -157,7 +156,7 @@ public class DAO {
     }
 
     //seleccionar la tabla de una clase de la base de datos
-    public List findAll() {//a medias
+    protected List findAll() {//a medias
         Connection con = getConnection();
         List<Object> list= new ArrayList<>();
         StringBuffer query = new StringBuffer("SELECT * FROM ");
@@ -187,8 +186,8 @@ public class DAO {
     }
 
     //validar Registro
-    public boolean checkExistent(String field, String value) {
-        boolean puedeRegistrarse=false;
+    protected boolean checkExistent(String field, String value) {
+        boolean existent=false;
         Connection con = getConnection();
         StringBuffer query = new StringBuffer("SELECT * FROM ");
         query.append(this.getClass().getSimpleName());
@@ -199,18 +198,18 @@ public class DAO {
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
                 logger.info("INFO: Objeto ya existente: "+value);
-                puedeRegistrarse=false;
+                existent=true;
             }
             else{
                 logger.info("INFO: Objeto no existente: "+value);
-                puedeRegistrarse=true;
+                existent=false;
             }
             ps.close();
             con.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return puedeRegistrarse;
+        return existent;
     }
 
     //asigna los valores obtenidos de la consulta SELECT a los atributos de la clase
