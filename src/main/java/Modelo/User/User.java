@@ -1,11 +1,7 @@
-package Modelo;
-import Controlador.UserDao;
-
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+package Modelo.User;
 
 public class User extends UserDao {
-//
+
     private int id;
     private String nombre;
     private String contrasena;
@@ -58,8 +54,6 @@ public class User extends UserDao {
     public void setEmail(String email) {
         this.email = email;
     }
-
-
 
 
     @Override

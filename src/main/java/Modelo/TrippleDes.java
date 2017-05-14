@@ -1,4 +1,4 @@
-package Controlador;
+package Modelo;
 import java.security.spec.KeySpec;
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;

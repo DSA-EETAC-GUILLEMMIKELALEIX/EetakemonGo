@@ -1,6 +1,7 @@
 package Controlador;
 
-import Modelo.Eetakemon;
+import Modelo.Eetakemon.Eetakemon;
+import Modelo.Eetakemon.EetakemonManager;
 
 import javax.inject.Singleton;
 import javax.ws.rs.*;
@@ -17,9 +18,10 @@ import javax.imageio.ImageIO;
 @Path("/Eetakemon")
 @Singleton
 public class EetakemonService {
-    protected DAO dao;
+    private EetakemonManager manager;
+
     public EetakemonService() {
-        dao=DAO.getEetakemonManagerClass();
+        manager= new EetakemonManager();
     }
 
     //Obtener eetakemon por id
@@ -27,9 +29,8 @@ public class EetakemonService {
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getEetakemonId(@PathParam("id") int id) {
-        System.out.println("Id eetac-emon: " + id);
         Eetakemon e = new Eetakemon();
-        e.select(id);
+        e=manager.getEetakemonById(id);
         if (e.getNombre()!=null) {
             return Response.status(201).entity(e).build();
         }
@@ -43,9 +44,8 @@ public class EetakemonService {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response newEetakemon(Eetakemon eetakemon) {
         Boolean a;
-        a=eetakemon.checkExistent("nombre", eetakemon.getNombre());
-        if (a) {
-            eetakemon.insert();
+        a=manager.addEetakemon(eetakemon);
+        if (!a) {
             return Response.status(201).entity("Eetakemon añadido: ").build();
         }
         else{
@@ -61,8 +61,6 @@ public class EetakemonService {
         String base64Image = eetakemon.getFoto().split(",")[1];
         byte[] imageBytes = javax.xml.bind.DatatypeConverter.parseBase64Binary(base64Image);
         File imageFile = new File("WEB\\images\\" + eetakemon.getNombre() + ".png");
-
-        System.out.println(imageFile);
         try {
             BufferedImage bufferedImage = ImageIO.read(new ByteArrayInputStream(imageBytes));
             ImageIO.write(bufferedImage, "png", imageFile);
@@ -79,8 +77,7 @@ public class EetakemonService {
     @Produces(MediaType.APPLICATION_JSON)
     public Response delEetakemon(@PathParam("id") int id) {
         Eetakemon e = new Eetakemon();
-        e.select(id);
-        e.delete();
+        e=manager.deleteEetakemon(id);
         if (e.getNombre()!= null)
             return Response.status(201).entity("Eetakemon eliminado").build();
         else{
@@ -93,11 +90,11 @@ public class EetakemonService {
     @Path("/all")
     @Produces(MediaType.APPLICATION_JSON)
     public Response ListarEetakemons() {
-        List<Eetakemon> list = new ArrayList<>();
-        list =new Eetakemon().findAll();
-        GenericEntity< List <Eetakemon> > entity;
-        entity  = new GenericEntity< List< Eetakemon > >( list ) { };
+        List<Eetakemon> list;
+        list=manager.listAllEetakemon();
         if (!list.isEmpty()) {
+            GenericEntity< List <Eetakemon> > entity;
+            entity  = new GenericEntity< List< Eetakemon > >( list ) { };
             return Response.status(201).entity(entity).build();
         }
         else{

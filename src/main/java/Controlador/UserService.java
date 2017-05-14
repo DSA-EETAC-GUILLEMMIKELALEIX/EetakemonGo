@@ -1,6 +1,8 @@
 package Controlador;
 
-import Modelo.User;
+import Modelo.TrippleDes;
+import Modelo.User.User;
+import Modelo.User.UserManager;
 
 import javax.inject.Singleton;
 import javax.ws.rs.*;
@@ -12,16 +14,11 @@ import javax.ws.rs.core.GenericEntity;
 @Path("/User")
 @Singleton
 public class UserService {
-    protected DAO dao;
     private TrippleDes td;
-    public UserService() {
-        dao=DAO.getEetakemonManagerClass();
-        try{
-            td=new TrippleDes();
-        }
-        catch (Exception e){
+    private UserManager manager;
 
-        }
+    public UserService() {
+        manager=new UserManager();
     }
 
 
@@ -31,14 +28,8 @@ public class UserService {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response register(User user) {
         Boolean a;
-        a = user.checkExistent("email", user.getEmail());
-
-
-
-        if (a) {
-            String encriptedpass=td.encrypt(user.getContrasena());
-            user.setContrasena(encriptedpass);
-            user.insert();
+        a = manager.register(user);
+        if (!a) {
             return Response.status(201).entity("Usuario añadido: ").build();
         } else {
             return Response.status(202).entity("Usuario ya utilizado: ").build();
@@ -51,17 +42,10 @@ public class UserService {
     @Path("/Login")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response Login(User usuario) {
-        Boolean a;
-        String e,c;
-        e=usuario.getEmail();
-        c=usuario.getContrasena();
-        String encriptedpass=td.encrypt(c);
-        a=usuario.login(e,encriptedpass);
-        User u = new User();
-        u.select(usuario.getEmail());
-        if (a) {
-            System.out.println(u.getId());
-            return Response.status(201).entity(u).build();
+        usuario=manager.login(usuario);
+        if (usuario!=null) {
+            System.out.println(usuario.getId());
+            return Response.status(201).entity(usuario).build();
         }
         else{
             return Response.status(202).entity("Usuario incorrecto: ").build();
@@ -73,12 +57,7 @@ public class UserService {
     @Path("/{id}")
     public Response modifyUser(@PathParam("id") int id, User user) {
         Boolean a=false;
-        user.setId(id);
-        System.out.println(id);
-        String encriptedpass=td.encrypt(user.getContrasena());
-        user.setContrasena(encriptedpass);
-        a = user.update();
-        System.out.println(a);
+        a=manager.updateUser(id,user);
         if (a) {
             return Response.status(201).entity("Usuario modificado: ").build();
         } else {
@@ -91,9 +70,8 @@ public class UserService {
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getUserId(@PathParam("id") int id) {
-        User u = new User();
-        u.select(id);
-        System.out.println(u.toString());
+        User u;
+        u=manager.getUserById(id);
         if (u.getNombre()!=null) {
             return Response.status(201).entity(u).build();
         }
@@ -107,9 +85,8 @@ public class UserService {
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response deleteUser(@PathParam("id") int id) {
-        User u = new User();
-        u.select(id);
-        u.delete();
+        User u;
+        u=manager.deleteUser(id);
         if (u.getNombre()!= null)
             return Response.status(201).entity("Usuario eliminado").build();
         else{
@@ -123,11 +100,11 @@ public class UserService {
     @Produces(MediaType.APPLICATION_JSON)
     public Response ListUsers() {
         List<User> list;
-        list = new User().findAll();
-        GenericEntity< List <User> > entity;
-        entity  = new GenericEntity< List<User> >( list ) { };
+        list = manager.listAllUsers();
+
         if (!list.isEmpty()) {
-            System.out.println("Lista a enviar" + entity);
+            GenericEntity< List <User> > entity;
+            entity  = new GenericEntity< List<User> >( list ) { };
             return Response.status(201).entity(entity).build();
         }
         else{
@@ -137,15 +114,11 @@ public class UserService {
 
     //Recuperar contraseña
     @POST
-    @Path("/RecuperarUser")
+    @Path("/Password")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response RecuperarlaContraseña(User usuario){
+    public Response restorePassword(User usuario){
         boolean a;
-        System.out.println("AAA:" + usuario);
-        String decryptedpass;
-        User u = new User();
-        u.select(usuario.getEmail());
-        a=u.Recuperar(u);
+        a=manager.resetPassword(usuario);
         if (a)
             return Response.status(201).entity("E-mail enviado").build();
         else{

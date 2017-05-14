@@ -1,13 +1,13 @@
-package Modelo;
+package Modelo.Location;
 
-public class Localizacion {
+public class Location {
 
     private int id;
     private String nombre;
     private double latitud;
     private double longitud;
 
-    public Localizacion(String nombre, double latitud, double longitud)
+    public Location(String nombre, double latitud, double longitud)
     {
         this.nombre = nombre;
         this.latitud = latitud;
@@ -48,6 +48,6 @@ public class Localizacion {
 
     @Override
     public String toString() {
-        return "Localizacion [Id=" + id + ", nombre=" + nombre + ", latitud=" + latitud + ", longitud=" + longitud + "]";
+        return "Location [Id=" + id + ", nombre=" + nombre + ", latitud=" + latitud + ", longitud=" + longitud + "]";
     }
 }

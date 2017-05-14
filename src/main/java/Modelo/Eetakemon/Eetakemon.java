@@ -1,5 +1,4 @@
-package Modelo;
-import Controlador.EetakemonDAO;
+package Modelo.Eetakemon;
 
 // Clase que define y permite crear objetos Eetakemon
 public class Eetakemon extends EetakemonDAO{
