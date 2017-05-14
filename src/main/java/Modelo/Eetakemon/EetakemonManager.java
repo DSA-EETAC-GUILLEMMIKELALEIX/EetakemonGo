@@ -32,6 +32,7 @@ public class EetakemonManager {
         if(!exist){
             e.insertEetakemon();
         }
+
         return exist;
     }
 
