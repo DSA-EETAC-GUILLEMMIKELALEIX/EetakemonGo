@@ -1,23 +1,13 @@
 package Modelo.Eetakemon;
 
-import Modelo.TrippleDes;
 import org.apache.log4j.Logger;
 
 import java.util.List;
 
 
 public class EetakemonManager {
-    private TrippleDes td;
     private final static Logger logger = Logger.getLogger(EetakemonManager.class);//
 
-    public EetakemonManager(){
-        try{
-            td=new TrippleDes();
-        }
-        catch (Exception e){
-
-        }
-    }
 
     public Eetakemon getEetakemonById(int id){
         Eetakemon e= new Eetakemon();
