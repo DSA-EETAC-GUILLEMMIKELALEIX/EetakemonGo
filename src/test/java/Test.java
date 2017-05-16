@@ -69,4 +69,22 @@ public class Test {
         Eetakemon u = new Eetakemon("Mewdecerio","Inferior",30);
         em.addEetakemon(u);
     }
+    @org.junit.Test
+    public void insertall(){
+        Eetakemon a = new Eetakemon("Mewdecerio","Inferior",30);
+        em.addEetakemon(a);
+        Eetakemon b = new Eetakemon("Lluiskarp","Inferior",30);
+        em.addEetakemon(b);
+        Eetakemon c = new Eetakemon("Jordinine","Normal",1);
+        em.addEetakemon(c);
+        Eetakemon d = new Eetakemon("Davyphno","Normal",1);
+        em.addEetakemon(d);
+        Eetakemon e = new Eetakemon("Francerpie","Inferior",1);
+        em.addEetakemon(e);
+        Eetakemon f = new Eetakemon("Jesuskou","Inferior",1);
+        em.addEetakemon(f);
+        Eetakemon g = new Eetakemon("Bernorlax","Normal",15);
+        em.addEetakemon(g);
+
+    }
 }
