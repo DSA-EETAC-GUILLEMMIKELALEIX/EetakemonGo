@@ -1,9 +1,6 @@
 package Controlador;
-import Modelo.Eetakemon.Eetakemon;
-import Modelo.Eetakemon.EetakemonManager;
+
 import Modelo.Relation.Relation;
-import Modelo.User.User;
-import Modelo.User.UserManager;
 
 import javax.inject.Singleton;
 import javax.ws.rs.*;
@@ -32,7 +29,7 @@ public class RelationService {
         Boolean a;
         a=manager.addRelation(relation);
         if (!a) {
-            return Response.status(201).entity("Eetakemon añadido: ").build();
+            return Response.status(201).entity("Relación añadida: ").build();
         }
         else{
             return Response.status(202).entity("Nivel aumentado: ").build();
@@ -45,7 +42,7 @@ public class RelationService {
     public Response getEetakemonId(@PathParam("id") int id) {
         Relation r = new Relation();
         r=manager.getRelationById(id);
-        if (r.getIdUser()==-1) {
+        if (r.getIdUser()!=-1) {
             return Response.status(201).entity(r).build();
         }
         else{
@@ -60,8 +57,8 @@ public class RelationService {
     public Response delEetakemon(@PathParam("id") int id) {
         Relation r = new Relation();
         r=manager.deleteRelation(id);
-        if (r.getIdUser()==-1)
-            return Response.status(201).entity("Eetakemon eliminado").build();
+        if (r.getIdUser()!=-1)
+            return Response.status(201).entity("Relación eliminada").build();
         else{
             return Response.status(202).entity("No se ha podido eliminar").build();
         }
@@ -80,7 +77,7 @@ public class RelationService {
             return Response.status(201).entity(entity).build();
         }
         else{
-            return Response.status(202).entity("No se ha podido visualizar el usuario: ").build();
+            return Response.status(202).entity("No se ha podido visualizar la relación: ").build();
         }
     }
 }
