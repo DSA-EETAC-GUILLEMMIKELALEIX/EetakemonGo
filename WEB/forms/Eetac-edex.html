@@ -8,7 +8,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
-        var userIdCurrentlyLoggedIn=0;
+        var userIdCurrentlyLoggedIn=0;  //S'ha de fer atacant a la base de dades relació
+
         console.log("ID inici:" + sessionStorage.getItem("ID"));
         userIdCurrentlyLoggedIn = sessionStorage.getItem("ID");
         console.log("ID final:"+userIdCurrentlyLoggedIn);
@@ -23,9 +24,11 @@
             userIdCurrentlyLoggedIn = sessionStorage.getItem("userIdCurrentlyLoggedIn");
         }
 
+
         var idE;
         window.onload = function () {
             var ctxPath = "http://localhost:8081/EetakemonGo/";
+
             $.ajax({
                 type: 'GET',
                 contentType: 'application/json',
@@ -33,15 +36,12 @@
                 success: [
                     function (result) {
                         $.each(result, function (i, obj) {
-                            console.log(obj.name);
-                            idE=obj.id;
                             $("#eetac-edexdiv").append("<div id=\"eetac-edexdiv\">" +
                                 "<div>" +
-                                "<img alt=\"\" src = \" /images/" + obj.nombre + ".png\"  style=\"width:157px;height:160px;\" onclick=\'webEetacemon()\'>" +
-                                "</div>" +
-                                "<a class=\"caption\">" +
+                                "<img src = \" /images/" + obj.nombre + ".png\" style=\"width:157px;height:160px;\" onclick='webEetacemon("+obj.id+")' >" +
+                                "<div class=\"caption\">" +
                                 "<h4 id=\"info\">" + obj.id + ": " + obj.nombre + "</h4>" +
-                                "</a></div></div>");
+                                "</div></div>");
                         });
                     }
                 ],
@@ -51,6 +51,11 @@
                     }
                 ]
             });
+
+        };
+
+        function webEetacemon(idE) {
+            window.location.href="CadaEetac-emon.html?id=" + idU + "&admin="+ admin + "&idE="+ idE + "&page=1";
         }
 
         function getUrlParameter(name) {
@@ -58,15 +63,12 @@
             var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
             var results = regex.exec(location.search);
             return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
-        };
+        }
         var idU = getUrlParameter('id');
         var admin = getUrlParameter('admin');
 
         function webMenu() {
             window.location.href="MenuPrincipal.html?id=" + idU + "&admin="+ admin;
-        }
-        function webEetacemon() {
-            window.location.href="CadaEetac-emon.html?id=" + idU + "&admin="+ admin + "&idE="+ idE + "&page=1";
         }
     </script>
     <style>
@@ -149,5 +151,6 @@
         </div>
     </div>
 </div>
+
 </body>
 </html>
