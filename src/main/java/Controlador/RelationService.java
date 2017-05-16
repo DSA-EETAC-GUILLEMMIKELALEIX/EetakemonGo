@@ -28,14 +28,14 @@ public class RelationService {
     //añadir relacion
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response newEetakemon(Eetakemon eetakemon) {
+    public Response newEetakemon(Relation relation) {
         Boolean a;
-        a=manager.addEetakemon(eetakemon);
+        a=manager.addRelation(relation);
         if (!a) {
             return Response.status(201).entity("Eetakemon añadido: ").build();
         }
         else{
-            return Response.status(202).entity("Eetakemon ya existente: ").build();
+            return Response.status(202).entity("Nivel aumentado: ").build();
         }
     }
     //Obtener relacion por id
@@ -43,10 +43,41 @@ public class RelationService {
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getEetakemonId(@PathParam("id") int id) {
-        Eetakemon e = new Eetakemon();
-        e=manager.getEetakemonById(id);
-        if (e.getNombre()!=null) {
-            return Response.status(201).entity(e).build();
+        Relation r = new Relation();
+        r=manager.getRelationById(id);
+        if (r.getIdUser()==-1) {
+            return Response.status(201).entity(r).build();
+        }
+        else{
+            return Response.status(202).entity("Error al obtener relación: ").build();
+        }
+    }
+
+    //borrar eetakemon
+    @DELETE
+    @Path("/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response delEetakemon(@PathParam("id") int id) {
+        Relation r = new Relation();
+        r=manager.deleteRelation(id);
+        if (r.getIdUser()==-1)
+            return Response.status(201).entity("Eetakemon eliminado").build();
+        else{
+            return Response.status(202).entity("No se ha podido eliminar").build();
+        }
+    }
+
+    //Lista de relaciones
+    @GET
+    @Path("/all")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response ListarRelation() {
+        List<Relation> list;
+        list=manager.listAllRelation();
+        if (!list.isEmpty()) {
+            GenericEntity< List <Relation> > entity;
+            entity  = new GenericEntity< List< Relation > >( list ) { };
+            return Response.status(201).entity(entity).build();
         }
         else{
             return Response.status(202).entity("No se ha podido visualizar el usuario: ").build();
