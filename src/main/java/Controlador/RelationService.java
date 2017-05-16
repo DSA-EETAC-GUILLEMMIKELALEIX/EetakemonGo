@@ -14,9 +14,6 @@ import javax.ws.rs.core.GenericEntity;
 import Modelo.Relation.RelationManager;
 import Modelo.Relation.Relation;
 
-/**
- * Created by usuario on 16/05/2017.
- */
 @Path("/Relation")
 @Singleton
 public class RelationService {
