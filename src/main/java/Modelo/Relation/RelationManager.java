@@ -20,6 +20,11 @@ public class RelationManager {
         exist=e.checkRelationExistent(e.getIdUser(),e.getIdEetakemon());
         if(!exist){
             e.insertRelation();
+        }else{
+            Relation temp= new Relation();
+            temp.selectRelation(e.getIdUser(),e.getIdEetakemon());
+            temp.setLevel(temp.getLevel()+e.getLevel());
+            temp.updateRelation();
         }
         return exist;
     }

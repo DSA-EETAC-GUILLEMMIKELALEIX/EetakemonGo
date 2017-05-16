@@ -2,10 +2,7 @@ package Modelo.Relation;
 
 import Modelo.DAO.DAO;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.List;
 
 public class RelationDAO extends DAO {
@@ -51,7 +48,28 @@ public class RelationDAO extends DAO {
         return existent;
     }
 
+    protected void selectRelation(int idUser, int idEetakemon){
+        Connection con = getConnection();
+        StringBuffer query = new StringBuffer("SELECT * FROM ");
+        query.append(this.getClass().getSimpleName());
+        query.append(" WHERE idUser='" + idUser + "' AND idEetakemon='" + idEetakemon + "';");
 
+        try {
+            PreparedStatement ps = con.prepareStatement(query.toString());
+            logger.info("INFO: Select relation: " + ps.toString());
+            ;
+            ResultSet rs = ps.executeQuery();
+            ResultSetMetaData rsmd = rs.getMetaData();
+
+            while (rs.next()) {
+                setClassFields(rs, rsmd, this);
+            }
+            ps.close();
+            con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
 }
 
