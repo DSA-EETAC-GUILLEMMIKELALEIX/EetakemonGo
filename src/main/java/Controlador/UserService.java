@@ -3,7 +3,6 @@ package Controlador;
 import Modelo.TrippleDes;
 import Modelo.User.User;
 import Modelo.User.UserManager;
-
 import javax.inject.Singleton;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;

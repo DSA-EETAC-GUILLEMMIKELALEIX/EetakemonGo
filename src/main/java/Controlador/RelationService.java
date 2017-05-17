@@ -3,7 +3,7 @@ package Controlador;
 import Modelo.Relation.Relation;
 import Modelo.Relation.RelationManager;
 import Modelo.User.UserManager;
-
+import Modelo.Relation.Captured;
 import javax.inject.Singleton;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;

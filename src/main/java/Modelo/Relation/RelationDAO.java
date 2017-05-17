@@ -47,6 +47,30 @@ public class RelationDAO extends DAO {
         }
         return existent;
     }
+    protected void selectEetakemonfromUser(int idUser)
+    {
+        Connection con = getConnection();
+        StringBuffer query = new StringBuffer("SELECT eetakemon.id, eetakemon.nombre, relation.level FROM ");
+        query.append("Eetakemon, Relation WHERE relation.idEetakemon=Eetakemon.id AND relation.user=");
+        query.append(idUser);
+        query.append(";");
+
+        try {
+            PreparedStatement ps = con.prepareStatement(query.toString());
+            logger.info("INFO: Select relation: " + ps.toString());
+            ;
+            ResultSet rs = ps.executeQuery();
+            ResultSetMetaData rsmd = rs.getMetaData();
+
+            while (rs.next()) {
+                setClassFields(rs, rsmd, this);
+            }
+            ps.close();
+            con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     protected void selectRelation(int idUser, int idEetakemon){
         Connection con = getConnection();
