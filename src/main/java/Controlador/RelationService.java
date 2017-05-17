@@ -16,24 +16,6 @@ import javax.ws.rs.core.GenericEntity;
 public class RelationService {
     private RelationManager manager;
 
-    //Lista de Tus eetac-emons
-    @GET
-    @Path("/all")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response ListarRelacion() {
-        List<Relation> list;
-        list=manager.listAllRelation();
-        if (!list.isEmpty()) {
-            GenericEntity< List <Relation> > entity;
-            entity  = new GenericEntity< List< Relation > >( list ) { };
-            return Response.status(201).entity(entity).build();
-        }
-        else{
-            return Response.status(202).entity("No se ha podido visualizar el usuario: ").build();
-        }
-    }
-    private RelationManager manager;
-
     public RelationService() {
         manager=new RelationManager();
     }
@@ -79,6 +61,23 @@ public class RelationService {
             return Response.status(201).entity("Relación eliminada").build();
         else{
             return Response.status(202).entity("No se ha podido eliminar").build();
+        }
+    }
+
+    //Lista de Tus eetac-emons
+    @GET
+    @Path("/all")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response ListarRelacion() {
+        List<Relation> list;
+        list=manager.listAllRelation();
+        if (!list.isEmpty()) {
+            GenericEntity< List <Relation> > entity;
+            entity  = new GenericEntity< List< Relation > >( list ) { };
+            return Response.status(201).entity(entity).build();
+        }
+        else{
+            return Response.status(202).entity("No se ha podido visualizar el usuario: ").build();
         }
     }
 }
