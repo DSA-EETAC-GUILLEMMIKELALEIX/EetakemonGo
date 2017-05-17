@@ -101,4 +101,10 @@ public class Test {
         Relation r = new Relation(2,3,10);
         rm.addRelation(r);
     }
+    @org.junit.Test
+    public void relation2(){
+        RelationManager rm=new RelationManager();
+        Relation r = new Relation(1,2,10);
+        rm.addRelation(r);
+    }
 }
