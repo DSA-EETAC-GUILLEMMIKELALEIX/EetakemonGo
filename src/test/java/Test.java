@@ -3,6 +3,8 @@
  */
 import Modelo.Eetakemon.Eetakemon;
 import Modelo.Eetakemon.EetakemonManager;
+import Modelo.Relation.Relation;
+import Modelo.Relation.RelationManager;
 import Modelo.User.User;
 import Modelo.User.UserManager;
 
@@ -27,12 +29,17 @@ public class Test {
     }
 
     @org.junit.Test
-    public void insert(){
+    public void insertuser1(){
         User u = new User("a", "a", "a");
         u.setAdmin(1);
         new UserManager().register(u);
     }
-
+    @org.junit.Test
+    public void insertuser2(){
+        User u = new User("guillem", "guillem", "guillem@gmail.com");
+        u.setAdmin(1);
+        new UserManager().register(u);
+    }
       @org.junit.Test
     public void insert1(){
         Eetakemon u = new Eetakemon("Bernorlax","Normal",15);
@@ -86,5 +93,12 @@ public class Test {
         Eetakemon g = new Eetakemon("Bernorlax","Normal",15);
         em.addEetakemon(g);
 
+    }
+
+    @org.junit.Test
+    public void relation(){
+        RelationManager rm=new RelationManager();
+        Relation r = new Relation(2,3,10);
+        rm.addRelation(r);
     }
 }

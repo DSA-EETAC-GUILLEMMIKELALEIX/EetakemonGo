@@ -6,6 +6,14 @@ public class Relation extends RelationDAO{
     private int idEetakemon;
     private int level;
 
+    public Relation(){}
+
+    public Relation(int idUser, int idEetakemon, int level){
+        this.idUser=idUser;
+        this.idEetakemon=idEetakemon;
+        this.level=level;
+    }
+
     public int getId() {
         return id;
     }
