@@ -17,7 +17,7 @@ public class RelationDAO extends DAO {
     protected void deleteEetakemon(){
         delete();
     }
-    protected List findAllEetakemons(){
+    protected List findAllRelation(){
         return findAll();
     }
     protected boolean checkEetakemonExistent(String nombre){

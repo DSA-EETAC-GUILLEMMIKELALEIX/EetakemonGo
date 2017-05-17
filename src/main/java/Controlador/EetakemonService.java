@@ -101,5 +101,4 @@ public class EetakemonService {
             return Response.status(202).entity("No se ha podido visualizar el usuario: ").build();
         }
     }
-
 }
