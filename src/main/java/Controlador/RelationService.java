@@ -58,7 +58,7 @@ public class RelationService {
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getEetakemonId(@PathParam("id") int id) {
-        Relation r = new Relation();
+        Relation r = new Relation(); //aaaa
         r=manager.getRelationById(id);
         if (r.getIdUser()!=-1) {
             return Response.status(201).entity(r).build();
