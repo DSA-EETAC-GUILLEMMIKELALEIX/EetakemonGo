@@ -43,4 +43,9 @@ public class RelationManager {
 
         return e;
     }
+
+    public List getCaptured(int idUser){
+        List<Captured> list=new Relation().getCaptured(idUser);
+        return list;
+    }
 }

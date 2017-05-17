@@ -1,14 +1,14 @@
 package Controlador;
 
+import Modelo.Relation.Captured;
 import Modelo.Relation.Relation;
 import Modelo.Relation.RelationManager;
-import Modelo.User.UserManager;
-import Modelo.Relation.Captured;
 import javax.inject.Singleton;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
+import java.util.ArrayList;
 import javax.ws.rs.core.GenericEntity;
 
 @Path("/Relation")
@@ -25,7 +25,7 @@ public class RelationService {
     //añadir relacion
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response newEetakemon(Relation relation) {
+    public Response newRelarion(Relation relation) {
         Boolean a;
         a=manager.addRelation(relation);
         if (!a) {
@@ -39,7 +39,7 @@ public class RelationService {
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getEetakemonId(@PathParam("id") int id) {
+    public Response getRelationId(@PathParam("id") int id) {
         Relation r = new Relation(); //aaaa
         r=manager.getRelationById(id);
         if (r.getIdUser()!=-1) {
@@ -54,13 +54,30 @@ public class RelationService {
     @DELETE
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response delEetakemon(@PathParam("id") int id) {
+    public Response delRelation(@PathParam("id") int id) {
         Relation r = new Relation();
         r=manager.deleteRelation(id);
         if (r.getIdUser()!=-1)
             return Response.status(201).entity("Relación eliminada").build();
         else{
             return Response.status(202).entity("No se ha podido eliminar").build();
+        }
+    }
+
+    //Lista de Tus eetac-emons
+    @GET
+    @Path("/Captured/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response ListarCapturados(@PathParam("id") int id) {
+        List<Captured> list;
+        list=manager.getCaptured(id);
+        if (!list.isEmpty()) {
+            GenericEntity< List <Captured> > entity;
+            entity  = new GenericEntity< List< Captured > >( list ) { };
+            return Response.status(201).entity(entity).build();
+        }
+        else{
+            return Response.status(202).entity("No hay eetakemons capturados ").build();
         }
     }
 

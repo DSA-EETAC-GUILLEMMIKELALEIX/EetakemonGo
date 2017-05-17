@@ -3,6 +3,7 @@ package Modelo.Relation;
 import Modelo.DAO.DAO;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class RelationDAO extends DAO {
@@ -47,29 +48,37 @@ public class RelationDAO extends DAO {
         }
         return existent;
     }
-    protected void selectEetakemonfromUser(int idUser)
+
+    protected List getCaptured(int idUser)
     {
+        List <Captured> list= new ArrayList<>();
         Connection con = getConnection();
         StringBuffer query = new StringBuffer("SELECT eetakemon.id, eetakemon.nombre, relation.level FROM ");
-        query.append("Eetakemon, Relation WHERE relation.idEetakemon=Eetakemon.id AND relation.user=");
+        query.append("Eetakemon, Relation WHERE relation.idEetakemon=Eetakemon.id AND relation.idUser=");
         query.append(idUser);
         query.append(";");
 
         try {
             PreparedStatement ps = con.prepareStatement(query.toString());
-            logger.info("INFO: Select relation: " + ps.toString());
+
+            logger.info("INFO: Select captured: " + ps.toString());
             ;
             ResultSet rs = ps.executeQuery();
             ResultSetMetaData rsmd = rs.getMetaData();
 
+
+
             while (rs.next()) {
-                setClassFields(rs, rsmd, this);
+                list.add(new Captured(rs.getInt(1),rs.getString(2),
+                        rs.getInt(3)));
             }
             ps.close();
             con.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        return list;
     }
 
     protected void selectRelation(int idUser, int idEetakemon){
