@@ -35,16 +35,31 @@ public class UserManager {
         return user;
     }
 
-    public boolean register(User user){
-        boolean a;
-        a = user.checkUserExistent(user.getEmail());
-        if(!a){
-            String encriptedpass=td.encrypt(user.getContrasena());
-            user.setContrasena(encriptedpass);
-            user.insertUser();
+    /*
+    Funcion registrarse
+    code 0 = registrado
+    code 1 = eusuario ya utilizado
+    code 2 = error al registrarse
+     */
+    public int register(User user){
+        boolean a=false,b=true;
+        int code=2;
+        a=checkNullFields(user);
+        if(!a) {
+            b = user.checkUserExistent(user.getEmail());
+            if (!b) {
+                user.setAdmin(0);
+                String encriptedpass = td.encrypt(user.getContrasena());
+                user.setContrasena(encriptedpass);
+                user.insertUser();
+                code=0;
+            }
+            else{
+                code=1;
+            }
         }
 
-        return a;
+        return code;
     }
 
     public boolean updateUser(int id, User user){
@@ -139,25 +154,11 @@ public class UserManager {
 
     }
 
+    private boolean checkNullFields(User u){
+        if(u.getNombre().equals("")||u.getContrasena().equals("")||u.getEmail().equals(""))
+            return true;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        return false;
+    }
 
 }

@@ -22,14 +22,14 @@ public class RelationService {
 
 
 
-    //añadir relacion
+    //añadir eetakemon capturado
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public Response newRelarion(Relation relation) {
         Boolean a;
         a=manager.addRelation(relation);
         if (!a) {
-            return Response.status(201).entity("Relación añadida: ").build();
+            return Response.status(201).entity("Nuevo Eetakemon capturado: ").build();
         }
         else{
             return Response.status(202).entity("Nivel aumentado: ").build();
@@ -50,7 +50,7 @@ public class RelationService {
         }
     }
 
-    //borrar eetakemon
+    //borrar eetakemon de un usuario
     @DELETE
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -81,7 +81,7 @@ public class RelationService {
         }
     }
 
-    //Lista de Tus eetac-emons
+    //Lista todos los capturados de todos los usuarios
     @GET
     @Path("/all")
     @Produces(MediaType.APPLICATION_JSON)

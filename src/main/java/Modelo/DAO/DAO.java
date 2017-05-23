@@ -232,6 +232,9 @@ public class DAO {
         }
     }
 
+
+    /*-------PRIVATE  METHODS---------*/
+
     //inserta el valor del resultset en el atributo correspondiente String
     private void setStringField(String result, String name, Object object) {
         Method method;

@@ -26,13 +26,14 @@ public class UserService {
     @Path("/Register")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response register(User user) {
-        Boolean a;
-        a = manager.register(user);
-        if (!a) {
+        int code;
+        code = manager.register(user);
+        if (code==0) {
             return Response.status(201).entity("Usuario añadido: ").build();
-        } else {
+        } else if (code==1){
             return Response.status(202).entity("Usuario ya utilizado: ").build();
-
+        }else{
+            return Response.status(203).entity("Error al registrarse: ").build();
         }
     }
 
