@@ -101,4 +101,20 @@ public class EetakemonService {
             return Response.status(202).entity("No se ha podido visualizar el usuario: ").build();
         }
     }
+
+
+    //Eetakemon nivel normal
+    @GET
+    @Path("/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getEetakemonTipo(String Tipo) {
+        Eetakemon e = new Eetakemon();
+        e=manager.getEetakemonByType(Tipo);
+        if (e.getNombre()!=null) {
+            return Response.status(201).entity(e).build();
+        }
+        else{
+            return Response.status(202).entity("No se ha podido visualizar el usuario: ").build();
+        }
+    }
 }
