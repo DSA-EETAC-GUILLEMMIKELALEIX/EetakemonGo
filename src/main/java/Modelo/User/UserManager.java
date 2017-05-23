@@ -1,6 +1,6 @@
 package Modelo.User;
 
-import Modelo.TrippleDes;
+import Modelo.Security.TrippleDes;
 import org.apache.log4j.Logger;
 
 import javax.mail.*;
@@ -22,8 +22,15 @@ public class UserManager {
 
         }
     }
-    public User login(User user){
-        Boolean a;
+
+    /*
+    Login
+    code 0 = logged
+    code 1 = not logged
+     */
+    public int login(User user){
+        int code=1;
+        boolean a;
         String e,c;
         e=user.getEmail();
         c=user.getContrasena();
@@ -31,8 +38,10 @@ public class UserManager {
         a=user.login(e,encriptedpass);
         if(a) {
             user.selectUserByMail(user.getEmail());
+            code=0;
         }else{user=null;}
-        return user;
+
+        return code;
     }
 
     /*
@@ -52,6 +61,7 @@ public class UserManager {
                 String encriptedpass = td.encrypt(user.getContrasena());
                 user.setContrasena(encriptedpass);
                 user.insertUser();
+                user.selectUserByMail(user.getEmail());
                 code=0;
             }
             else{
@@ -152,6 +162,11 @@ public class UserManager {
         }
         return bool;
 
+    }
+
+    public String generateToken(User u){
+
+        return null;
     }
 
     private boolean checkNullFields(User u){

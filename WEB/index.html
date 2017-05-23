@@ -23,8 +23,8 @@
             $("#btn1").click(function (){
                 var email= $("#email").val();
                 var password= $("#password").val();
-                if(email==="" || password===""){alert("Rellena todos los campos");}
-                else {
+                /*if(email==="" || password===""){alert("Rellena todos los campos");}
+                else {*/
                     var o = {"email": email, "contrasena": password};
                     console.log(o);
                     $.ajax({
@@ -46,7 +46,7 @@
                             }
                         }
                     })
-                }
+                //}
             });
         });
 
