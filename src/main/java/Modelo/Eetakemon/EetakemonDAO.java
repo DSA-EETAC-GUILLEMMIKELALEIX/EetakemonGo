@@ -24,5 +24,8 @@ public class EetakemonDAO extends DAO {
     protected boolean checkEetakemonExistent(String nombre){
         return checkExistent("nombre",nombre);
     }
+    protected List typeEetakemons(){
+     return typeof();
+    }
 
 }
