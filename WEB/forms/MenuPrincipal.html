@@ -15,7 +15,7 @@
         console.log("ID inici:" + sessionStorage.getItem("ID"));
         userIdCurrentlyLoggedIn = sessionStorage.getItem("ID");
         console.log("ID final:"+userIdCurrentlyLoggedIn);
-        if(userIdCurrentlyLoggedIn==null)
+       /* if(userIdCurrentlyLoggedIn==null)
         {
             alert("User is not logged in. Redirecting to Login form...");
             sessionStorage.clear();
@@ -24,7 +24,7 @@
         else
         {
             userIdCurrentlyLoggedIn = sessionStorage.getItem("userIdCurrentlyLoggedIn");
-        }
+        }*/
 
         function getUrlParameter(name) {
             name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');

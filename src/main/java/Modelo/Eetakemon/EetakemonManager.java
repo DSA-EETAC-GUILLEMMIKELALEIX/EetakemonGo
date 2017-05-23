@@ -44,7 +44,7 @@ public class EetakemonManager {
     public Eetakemon getEetakemonByType(String tipo){
         List<Eetakemon> list;
         Eetakemon e = new Eetakemon();
-        list = new Eetakemon().typeEetakemons();
+        list = new Eetakemon().getByType(tipo);
 
 
         return e;

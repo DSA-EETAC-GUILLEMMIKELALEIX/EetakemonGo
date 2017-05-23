@@ -15,9 +15,9 @@
                 var name= $("#name").val();
                 var password= $("#password").val();
                 var email= $("#email").val();
-                if (name==="" || password==="" || email===""){
+               /* if (name==="" || password==="" || email===""){
                     alert("Rellena todos los campos");
-                }else {
+                }else {*/
                     var o = {"nombre": name, "contrasena": password, "email": email};
                     console.log(o);
                     $.ajax({
@@ -31,14 +31,18 @@
                     }*/
                         statusCode:{
                             201: function(){
-                                window.location.href= "MenuPrincipal.html";
+                                console.log(data);
+                                //window.location.href= "MenuPrincipal.html";
                             },
                             202: function(){
                                 alert("Usuario ya utilizado");//alerta
                             },
+                            203: function(){
+                                alert("No registrado");//alerta
+                            },
                         }
                     })
-                }
+                //}
             });
         });
     </script>

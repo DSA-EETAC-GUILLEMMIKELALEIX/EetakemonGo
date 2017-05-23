@@ -1,4 +1,4 @@
-package Modelo;
+package Modelo.Security;
 import java.security.spec.KeySpec;
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
@@ -59,21 +59,6 @@ public class TrippleDes {
             e.printStackTrace();
         }
         return decryptedText;
-    }
-
-
-    public static void main(String args []) throws Exception
-    {
-        TrippleDes td= new TrippleDes();
-
-        String target="imparator";
-        String encrypted=td.encrypt(target);
-        String decrypted=td.decrypt(encrypted);
-
-        System.out.println("String To Encrypt: "+ target);
-        System.out.println("Encrypted String:" + encrypted);
-        System.out.println("Decrypted String:" + decrypted);
-
     }
 
 }

@@ -1,6 +1,5 @@
 package Controlador;
 
-import Modelo.TrippleDes;
 import Modelo.User.User;
 import Modelo.User.UserManager;
 import javax.inject.Singleton;
@@ -11,7 +10,6 @@ import java.util.List;
 @Path("/User")
 @Singleton
 public class UserService {
-    private TrippleDes td;
     private UserManager manager;
 
     public UserService() {
@@ -42,8 +40,9 @@ public class UserService {
     public Response Login(@Context HttpHeaders headers, User usuario) {
         String userAgent = headers.getRequestHeader("Auth").toString();
         System.out.println(userAgent);
-        usuario=manager.login(usuario);
-        if (usuario!=null) {
+        int code;
+        code=manager.login(usuario);
+        if (code==0) {
             System.out.println(usuario.getId());
             return Response.status(201).entity(usuario).build();
         }
