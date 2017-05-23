@@ -134,5 +134,5 @@
         <jersey.version>2.24</jersey.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-    
+
 </project>

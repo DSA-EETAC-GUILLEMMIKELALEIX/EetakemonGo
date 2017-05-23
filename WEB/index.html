@@ -19,7 +19,6 @@
             console.log(ID);
         }
 
-
         $(document).ready(function(){
             $("#btn1").click(function (){
                 var email= $("#email").val();
@@ -34,9 +33,10 @@
                         contentType: "application/json",
                         dataType: "json",
                         data: JSON.stringify(o),
-                        /*success: function(responseJSON) {
-                         console.log(responseJSON)
-                         }*/ statusCode:{
+                        headers: {
+                            "Auth": btoa(email + ":" + password)
+                        },
+                        statusCode:{
                             201: function(result){
                                 saveID(result.id);
                                 window.location.href="./forms/MenuPrincipal.html?id="+result.id+"&admin="+result.admin;
