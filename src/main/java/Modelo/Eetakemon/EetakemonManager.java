@@ -3,6 +3,7 @@ package Modelo.Eetakemon;
 import org.apache.log4j.Logger;
 
 import java.util.List;
+import java.util.Random;
 
 
 public class EetakemonManager {
@@ -45,7 +46,9 @@ public class EetakemonManager {
         List<Eetakemon> list;
         Eetakemon e = new Eetakemon();
         list = new Eetakemon().getByType(tipo);
-
+        Random rand = new Random();
+        int n = rand.nextInt(list.size());
+        e=list.get(n);
 
         return e;
     }
