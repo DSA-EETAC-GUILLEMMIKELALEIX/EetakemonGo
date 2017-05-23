@@ -114,4 +114,11 @@ public class Test {
         Relation r = new Relation(1,2,10);
         rm.getCaptured(1);
     }
+
+    @org.junit.Test
+    public void eetaktipo(){
+        EetakemonManager em= new EetakemonManager();
+        String tipo = "Normal";
+        System.out.println(em.getEetakemonByType(tipo));
+    }
 }
