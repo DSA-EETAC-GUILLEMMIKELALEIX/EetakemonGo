@@ -5,10 +5,8 @@ import Modelo.User.User;
 import Modelo.User.UserManager;
 import javax.inject.Singleton;
 import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
+import javax.ws.rs.core.*;
 import java.util.List;
-import javax.ws.rs.core.GenericEntity;
 
 @Path("/User")
 @Singleton
@@ -41,7 +39,9 @@ public class UserService {
     @POST
     @Path("/Login")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response Login(User usuario) {
+    public Response Login(@Context HttpHeaders headers, User usuario) {
+        String userAgent = headers.getRequestHeader("Auth").toString();
+        System.out.println(userAgent);
         usuario=manager.login(usuario);
         if (usuario!=null) {
             System.out.println(usuario.getId());
