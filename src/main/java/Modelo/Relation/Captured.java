@@ -9,15 +9,14 @@ public class Captured {
     String name;
     int level;
 
-    public Captured(){
-
-    }
-
     public Captured(int idEetakemon, String name, int level) {
         this.idEetakemon=idEetakemon;
         this.name=name;
         this.level=level;
     }
+
+
+
 
     public int getIdEetakemon() {
         return idEetakemon;
@@ -41,10 +40,5 @@ public class Captured {
 
     public void setLevel(int level) {
         this.level = level;
-    }
-
-    @Override
-    public String toString() {
-        return "Captured [idEetakemon="+idEetakemon+", name="+name+", level="+level+"]";
     }
 }
