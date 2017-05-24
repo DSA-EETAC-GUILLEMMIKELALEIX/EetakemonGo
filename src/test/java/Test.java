@@ -107,7 +107,6 @@ public class Test {
         Relation r = new Relation(1,2,10);
         rm.addRelation(r);
     }
-<<<<<<< Updated upstream
 
     @org.junit.Test
     public void relation3(){
@@ -122,6 +121,5 @@ public class Test {
         String tipo = "Normal";
         System.out.println(em.getEetakemonByType(tipo));
     }
-=======
->>>>>>> Stashed changes
+
 }
