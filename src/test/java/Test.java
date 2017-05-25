@@ -119,7 +119,6 @@ public class Test {
     public void eetaktipo(){
         EetakemonManager em= new EetakemonManager();
         String tipo = "Normal";
-        System.out.println(em.getEetakemonByType(tipo));
     }
 
 }

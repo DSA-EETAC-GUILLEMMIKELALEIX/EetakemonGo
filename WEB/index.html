@@ -48,9 +48,7 @@
                         contentType: "application/json",
                         dataType: "json",
                         data: JSON.stringify(o),
-                        headers: {
-                            "Auth": btoa(email + ":" + password)
-                        },
+                        headers: {"Authorization": "Bearer " + sessionStorage.getItem("Token")},
                         statusCode:{
                             200: function(result){
                                 saveToken(result.responseText);

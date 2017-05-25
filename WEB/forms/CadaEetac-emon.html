@@ -46,7 +46,7 @@
                 url: ctxPath + "Eetakemon/"+idE,
                 headers: {"Authorization": "Bearer " + sessionStorage.getItem("Token")},
                 statusCode:{
-                    200: function (result) {//corregir que centre el eetakemon
+                    200: function (result) {
                         $("#eetac-edexdiv").append("<div id=\"eetac-edexdiv\" align='center'>" +
                             "<div><h3>" +
                             "<img alt=\"\" src = \" /images/" + result.nombre + ".png\" style=\"width:314px;height:320px;\">" +
