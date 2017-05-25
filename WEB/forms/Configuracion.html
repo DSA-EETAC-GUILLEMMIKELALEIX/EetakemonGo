@@ -8,33 +8,27 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
-        var userIdCurrentlyLoggedIn=0;
 
-        console.log("ID inici:" + sessionStorage.getItem("ID"));
-        userIdCurrentlyLoggedIn = sessionStorage.getItem("ID");
-        console.log("ID final:"+userIdCurrentlyLoggedIn);
-        if(userIdCurrentlyLoggedIn==null)
+        if(sessionStorage.getItem("ID")==null)
         {
-            alert("User is not logged in. Redirecting to Login form...");
             sessionStorage.clear();
             window.location.replace("../index.html");
-        }
-        else
-        {
-            userIdCurrentlyLoggedIn = sessionStorage.getItem("userIdCurrentlyLoggedIn");
+        }else if (sessionStorage.getItem("Admin")!=1){
+            alert("No tiene suficientes permisos para entrar aqui");
+            window.location.replace("MenuPrincipal.html");
         }
 
-        function getUrlParameter(name) {
+        /*function getUrlParameter(name) {
             name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
             var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
             var results = regex.exec(location.search);
             return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
         };
         var idU = getUrlParameter('id');
-        var admin = getUrlParameter('admin');
+        var admin = getUrlParameter('admin');*/
 
         function webMenu() {
-            window.location.href="MenuPrincipal.html?id=" + idU + "&admin="+ admin;
+            window.location.href="MenuPrincipal.html";
         }
     </script>
     <style>

@@ -16,9 +16,7 @@ public class UserDao extends DAO {
     protected void selectUserById(int id){
         select(id);
     }
-    protected void deleteUser(){
-        delete();
-    }
+    protected void deleteUser(){delete();}
     protected List findAllUsers(){
         return findAll();
     }

@@ -8,20 +8,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
-        var userIdCurrentlyLoggedIn=0;  //S'ha de fer atacant a la base de dades relació
-
-        console.log("ID inici:" + sessionStorage.getItem("ID"));
-        userIdCurrentlyLoggedIn = sessionStorage.getItem("ID");
-        console.log("ID final:"+userIdCurrentlyLoggedIn);
-        if(userIdCurrentlyLoggedIn==null)
+        if(sessionStorage.getItem("ID")==null)
         {
-            alert("User is not logged in. Redirecting to Login form...");
             sessionStorage.clear();
             window.location.replace("../index.html");
-        }
-        else
-        {
-            userIdCurrentlyLoggedIn = sessionStorage.getItem("userIdCurrentlyLoggedIn");
         }
 
         var urlParams = new URLSearchParams(window.location.search);
@@ -32,51 +22,51 @@
             var results = regex.exec(location.search);
             return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
         };
-        var idU = getUrlParameter('id');
-        var admin = getUrlParameter('admin');
-        var idE = getUrlParameter('idE');
+
+
         var page = getUrlParameter('page');
 
         function webatras() {
             if (page==1){
-                window.location.href="Eetac-edex.html?id=" + idU + "&admin="+ admin;
+                window.location.href="Eetac-edex.html";
             }
             else if (page==2) {
-                window.location.href="TusEetac-emons.html?id=" + idU + "&admin="+ admin;
+                window.location.href="TusEetac-emons.html";
             }
 
         }
 
         window.onload = function () {
             var ctxPath = "http://localhost:8081/EetakemonGo/";
+            var idE = getUrlParameter('idE');
 
             $.ajax({
                 type: 'GET',
                 contentType: 'application/json',
-                url: ctxPath + "Eetakemon/all",
-                success: [
-                    function (result) {
-                        $.each(result, function (i, obj) {
-                            if(idE == obj.id) {
-                                $("#eetac-edexdiv").append("<div id=\"eetac-edexdiv\" align='center'>" +
-                                    "<div><h3>" +
-                                    "<img alt=\"\" src = \" /images/" + obj.nombre + ".png\" style=\"width:314px;height:320px;\">" +
-                                    "</div>" +
-                                    "<div class=\"caption\">" +
-                                    "<h4 id=\"info\"><p>" + obj.id + ": " + obj.nombre + "</p>" +
-                                    "<p>" + "Nivel: " + obj.nivel + "</p>" +
-                                    "<p>" + "Tipo: " + obj.tipo + "</p>" +
-                                    "</h4>" +
-                                    "</h3></div></div>");
-                            }
-                        });
+                url: ctxPath + "Eetakemon/"+idE,
+                headers: {"Authorization": "Bearer " + sessionStorage.getItem("Token")},
+                statusCode:{
+                    200: function (result) {//corregir que centre el eetakemon
+                        $("#eetac-edexdiv").append("<div id=\"eetac-edexdiv\" align='center'>" +
+                            "<div><h3>" +
+                            "<img alt=\"\" src = \" /images/" + result.nombre + ".png\" style=\"width:314px;height:320px;\">" +
+                            "</div>" +
+                            "<div class=\"caption\">" +
+                            "<h4 id=\"info\"><p>" + result.id + ": " + result.nombre + "</p>" +
+                            "<p>" + "Nivel: " + result.nivel + "</p>" +
+                            "<p>" + "Tipo: " + result.tipo + "</p>" +
+                            "</h4>" +
+                            "</h3></div></div>");
+                    },
+                    204: function () {
+                        alert("No se han encontrado eetakemons");
+                    },
+                    401: function () {
+                        alert("No autorizado");
+                        sessionStorage.clear();
+                        window.location.replace("../index.html");
                     }
-                ],
-                error: [
-                    function (request, status) {
-                        alert(status);
-                    }
-                ]
+                }
             });
         }
     </script>
@@ -95,6 +85,7 @@
             -o-background-size: cover;
             background-attachment: fixed
         }
+
         h1{
             text-shadow: -1.5px 0 black, 0 1.5px black, 1.5px 0 black, 0 -1.5px black;
             text-align: left;

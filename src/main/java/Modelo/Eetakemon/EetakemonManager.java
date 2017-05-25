@@ -1,51 +1,104 @@
 package Modelo.Eetakemon;
 
+import Modelo.Exceptions.NotSuchPrivilegeException;
+import Modelo.Exceptions.UnauthorizedException;
+import Modelo.Security.AuthenticationManager;
+import Modelo.Security.Verification;
 import org.apache.log4j.Logger;
 
+import javax.ws.rs.core.HttpHeaders;
 import java.util.List;
 
 
 public class EetakemonManager {
     private final static Logger logger = Logger.getLogger(EetakemonManager.class);//
+    private AuthenticationManager authManager;
+
+    public EetakemonManager(){
+        authManager=new AuthenticationManager();
+    }
 
 
-    public Eetakemon getEetakemonById(int id){
+    public Eetakemon getEetakemonById(HttpHeaders header, int id) throws UnauthorizedException{
         Eetakemon e= new Eetakemon();
-        e.selectEetakemonById(id);
+        Verification v = new Verification();
+        try {
+            authManager.verify(header,v);
+            e.selectEetakemonById(id);
+        }catch (UnauthorizedException ex) {
+            throw new UnauthorizedException("Unauthorized: user is not authorized");
+        }
 
         return e;
     }
 
-    public boolean addEetakemon(Eetakemon e){
+    public boolean addEetakemon(HttpHeaders header, Eetakemon e) throws UnauthorizedException, NotSuchPrivilegeException{
         Boolean exist=false;
-        exist=e.checkEetakemonExistent(e.getNombre());
-        if(!exist){
-            e.insertEetakemon();
-        }
+        Verification v = new Verification();
+        try {
+            authManager.verify(header,v);
+            authManager.verifyAdmin(v);
+            exist = e.checkEetakemonExistent(e.getNombre());
+            if (!exist) {
+                e.insertEetakemon();
+            }
+        }catch (UnauthorizedException ex) {
+            throw new UnauthorizedException("Unauthorized: user is not authorized");
 
+        }catch (NotSuchPrivilegeException ex){
+            throw new NotSuchPrivilegeException("Forbidden: User has not privileges");
+
+        }
         return exist;
     }
 
-    public Eetakemon deleteEetakemon(int id){
+    public Eetakemon deleteEetakemon(HttpHeaders header, int id) throws UnauthorizedException, NotSuchPrivilegeException{
         Eetakemon e = new Eetakemon();
-        e.selectEetakemonById(id);
-        e.deleteEetakemon();
+        Verification v = new Verification();
+
+        try {
+            authManager.verify(header,v);
+            authManager.verifyAdmin(v);
+            e.selectEetakemonById(id);
+            e.deleteEetakemon();
+        }catch (UnauthorizedException ex) {
+            throw new UnauthorizedException("Unauthorized: user is not authorized");
+
+        }catch (NotSuchPrivilegeException ex){
+            throw new NotSuchPrivilegeException("Forbidden: User has not privileges");
+
+        }
 
         return e;
     }
 
-    public List listAllEetakemon(){
+    public List listAllEetakemon(HttpHeaders header) throws UnauthorizedException{
         List<Eetakemon> list;
-        list = new Eetakemon().findAllEetakemons();
+        Verification v = new Verification();
+
+        try {
+            authManager.verify(header, v);
+            list = new Eetakemon().findAllEetakemons();
+        }catch (UnauthorizedException ex) {
+            throw new UnauthorizedException("Unauthorized: user is not authorized");
+
+        }
 
         return list;
     }
 
-    public Eetakemon getEetakemonByType(String tipo){
+    //falta acabar
+    public Eetakemon getEetakemonByType(HttpHeaders header,String tipo) throws UnauthorizedException{
         List<Eetakemon> list;
         Eetakemon e = new Eetakemon();
-        list = new Eetakemon().getByType(tipo);
+        Verification v = new Verification();
+        try {
+            authManager.verify(header, v);
+            list = new Eetakemon().getByType(tipo);
+        }catch (UnauthorizedException ex) {
+            throw new UnauthorizedException("Unauthorized: user is not authorized");
 
+        }
 
         return e;
     }

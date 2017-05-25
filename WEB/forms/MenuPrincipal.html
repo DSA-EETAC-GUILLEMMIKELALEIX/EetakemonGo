@@ -10,55 +10,37 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
-        var userIdCurrentlyLoggedIn=0;
 
-        console.log("ID inici:" + sessionStorage.getItem("ID"));
-        userIdCurrentlyLoggedIn = sessionStorage.getItem("ID");
-        console.log("ID final:"+userIdCurrentlyLoggedIn);
-       /* if(userIdCurrentlyLoggedIn==null)
+       if(sessionStorage.getItem("ID")==null)
         {
-            alert("User is not logged in. Redirecting to Login form...");
             sessionStorage.clear();
             window.location.replace("../index.html");
         }
-        else
-        {
-            userIdCurrentlyLoggedIn = sessionStorage.getItem("userIdCurrentlyLoggedIn");
-        }*/
 
-        function getUrlParameter(name) {
-            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-            var results = regex.exec(location.search);
-            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
-        };
-
-        var admin = getUrlParameter('admin');
-        var idU = getUrlParameter('id');
-
-        window.onload =function mostrar()  //  Botón configurar visible o no visible
-        {
-            var buttonconfig = document.getElementById("config")
-            if (admin ==1){
-                buttonconfig.style.visibility = 'visible';
-            }
-            else if (admin==0){
-                buttonconfig.style.visibility = 'hidden';
-                buttonconfig.style.display = 'none';
-            }
-        }
+       window.onload=function adminConfig(){
+           var buttonconfig = document.getElementById("config");
+           console.log(buttonconfig);
+           if(sessionStorage.getItem("Admin")==1){
+               buttonconfig.style.visibility = 'visible';
+           }
+           else{
+               buttonconfig.style.visibility = 'hidden';
+               buttonconfig.style.display = 'none';
+           }
+       };
 
         function webEetac() {
-            window.location.href="TusEetac-emons.html?id=" + idU + "&admin="+ admin;
+            window.location.href="TusEetac-emons.html";
         }
 
         function webEdex() {
-            window.location.href="Eetac-edex.html?id=" + idU + "&admin="+ admin;
+            window.location.href="Eetac-edex.html";
         }
 
         function webConfig() {
-            window.location.href="Configuracion.html?id=" + idU + "&admin="+ admin;
+            window.location.href="Configuracion.html";
         }
+
     </script>
     <style>
         body {

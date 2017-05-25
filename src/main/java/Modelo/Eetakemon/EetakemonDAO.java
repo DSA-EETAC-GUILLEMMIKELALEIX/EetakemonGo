@@ -32,7 +32,7 @@ public class EetakemonDAO extends DAO {
         List<Eetakemon> list= new ArrayList<>();
         StringBuffer query = new StringBuffer("SELECT * FROM ");
         query.append(this.getClass().getSimpleName());
-        query.append("WHERE tipo='");
+        query.append(" WHERE tipo='");
         query.append(tipo);
         query.append("';");
 

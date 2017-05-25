@@ -1,9 +1,6 @@
 package Modelo.Relation;
 
 
-/**
- * Created by usuario on 17/05/2017.
- */
 public class Captured {
     int idEetakemon;
     String name;
