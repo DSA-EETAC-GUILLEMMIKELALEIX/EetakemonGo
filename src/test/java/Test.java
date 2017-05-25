@@ -30,7 +30,7 @@ public class Test {
 
     @org.junit.Test
     public void insertuser1(){
-        User u = new User("a", "b", "b");
+        User u = new User("a", "a", "a");
         u.setAdmin(1);
         new UserManager().register(u);
     }
@@ -98,7 +98,7 @@ public class Test {
     @org.junit.Test
     public void relation(){
         RelationManager rm=new RelationManager();
-        Relation r = new Relation(1,4,10);
+        Relation r = new Relation(2,3,10);
         rm.addRelation(r);
     }
     @org.junit.Test
@@ -114,4 +114,12 @@ public class Test {
         Relation r = new Relation(1,2,10);
         rm.getCaptured(1);
     }
+
+    @org.junit.Test
+    public void eetaktipo(){
+        EetakemonManager em= new EetakemonManager();
+        String tipo = "Normal";
+        System.out.println(em.getEetakemonByType(tipo));
+    }
+
 }
