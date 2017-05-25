@@ -9,6 +9,7 @@ import Modelo.Security.AuthenticationManager;
 import javax.inject.Singleton;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.awt.image.BufferedImage;
 import java.io.*;
