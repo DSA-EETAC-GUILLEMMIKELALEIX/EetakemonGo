@@ -68,7 +68,6 @@ public class AuthenticationManager {
 
 
     /*PRIVATE METHODS*/
-
     public void verifyToken(String token, Verification v){
         try {
             int admin;
