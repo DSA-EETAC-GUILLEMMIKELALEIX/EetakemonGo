@@ -88,6 +88,7 @@ public class UserManager {
     //falta arreglar si no se quieren cambiar todos los campos
     public boolean updateUser(HttpHeaders header, int id, User user) throws UnauthorizedException, NotSuchPrivilegeException{
         Boolean a=false;
+        //prueba
         String encriptedpass;
         Verification v = new Verification();
         try {
