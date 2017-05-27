@@ -29,15 +29,15 @@ public class UserService {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response register(User user) {
         int code;
-        code = manager.register(user);
+        /*code = manager.register(user);
         if (code==0) {
-            //String token = tokenGenerator.createJWT(user);
             return Response.status(Response.Status.CREATED).entity("User registered").build();//201
         } else if (code==1){
             return Response.status(Response.Status.ACCEPTED).entity("User already exists").build();///202
         }else{
             return Response.status(Response.Status.BAD_REQUEST).entity("Bad request").build();//400
-        }
+        }*/
+        return Response.status(Response.Status.CREATED).entity("User registered").build();//201
     }
 
     //logearse

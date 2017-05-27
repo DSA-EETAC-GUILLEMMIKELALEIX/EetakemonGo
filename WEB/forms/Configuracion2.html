@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<title>Configuración</title>
+		<link rel="stylesheet" media="screen" type="text/css" href="../css/general.css">
+		<link rel="stylesheet" media="screen" type="text/css" href="../css/configuracion.css">
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		
+		<style>
+			#configuracion{
+				background-color:#06ADED;
+				color:yellow;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<div class="fixed">
+			<!--header--------------------------------------------- -->
+			<header class="cabecera">
+						<a href="./inicio.html"><img class="logo" src="../images/logo.png" width="30%" height="30%" alt="logo"></a>
+			</header>
+			<!--menu--------------------------------------------- -->
+			<nav class="menu">
+				<ul class="opciones-menu">
+					<li><a href="" class="opcion" id ="inicio" >INICIO</a></li>
+					<li><a href="" class="opcion"  id="eetakemons" onclick="webEetac()">Tus Eetakemon</a></li>
+					<li><a href="" class="opcion"  id="eetakedex" onclick="webEdex()">Eetakedex</a></li>
+					<li><a href="" class="opcion" id="configuracion" onclick="webConfig()">Configuración</a></li>
+					<li><a href="" class="opcion" id="avanzado">Avanzado</a></li>
+					<li><a href="" class="opcion" id="logout">LogOut</a></li>
+				</ul>
+			</nav>
+		</div>
+		
+		<!--Modificar usuario-------------------------------------------->
+		<div class="container">
+			<div class="page">				
+				<div class="form">
+				<p class="title">Configuración</p>
+					<div class="update-form">
+						<div class="change-name">
+						<p class="element"  class="message">Cambiar nombre</p>
+						<input type="text" class="element" />
+						</div>
+						<div class="change-pass">
+						<p class="element"  class="message">Cambiar contraseña</p>
+						<input type="password" class="element"/>
+						</div>
+						<button id="btn">Guardar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</body>
+</html>
