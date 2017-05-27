@@ -1,13 +1,18 @@
 package Controlador;
 
+import Modelo.Exceptions.NotSuchPrivilegeException;
+import Modelo.Exceptions.UnauthorizedException;
 import Modelo.Relation.Captured;
 import Modelo.Relation.Relation;
 import Modelo.Relation.RelationManager;
 import javax.inject.Singleton;
 import javax.ws.rs.*;
+import javax.ws.rs.core.*;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
+import javax.ws.rs.core.HttpHeaders;
 import java.util.ArrayList;
 import javax.ws.rs.core.GenericEntity;
 
@@ -25,28 +30,37 @@ public class RelationService {
     //añadir eetakemon capturado
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response newRelarion(Relation relation) {
+    public Response newRelation(Relation relation, @Context HttpHeaders header) {
         Boolean a;
-        a=manager.addRelation(relation);
-        if (!a) {
-            return Response.status(201).entity("Nuevo Eetakemon capturado: ").build();
-        }
-        else{
-            return Response.status(202).entity("Nivel aumentado: ").build();
+        try {
+            a = manager.addRelation(relation, header);
+
+            if (!a) {
+                return Response.status(Response.Status.CREATED).entity("Nuevo Eetakemon capturado: ").build();
+            } else {
+                return Response.status(Response.Status.OK).entity("Nivel aumentado: ").build();
+            }
+        } catch (UnauthorizedException ex) {
+            return Response.status(Response.Status.UNAUTHORIZED).entity("Unauthorized").build();//401
+
         }
     }
     //Obtener relacion por id
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getRelationId(@PathParam("id") int id) {
-        Relation r = new Relation(); //aaaa
-        r=manager.getRelationById(id);
-        if (r.getIdUser()!=-1) {
-            return Response.status(201).entity(r).build();
-        }
-        else{
-            return Response.status(202).entity("Error al obtener relación: ").build();
+    public Response getRelationId(@PathParam("id") int id, @Context HttpHeaders header) {
+        Relation r = new Relation();
+        try {
+            r = manager.getRelationById(id, header);
+            if (r.getIdUser() != -1) {
+                return Response.status(Response.Status.OK).entity(r).build();
+            } else {
+                return Response.status(Response.Status.NO_CONTENT).entity("Error al obtener relación: ").build();
+            }
+        }catch (UnauthorizedException ex) {
+            return Response.status(Response.Status.UNAUTHORIZED).entity("Unauthorized").build();//401
+
         }
     }
 
@@ -54,47 +68,65 @@ public class RelationService {
     @DELETE
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response delRelation(@PathParam("id") int id) {
+    public Response delRelation(@PathParam("id") int id, @Context HttpHeaders header) {
         Relation r = new Relation();
-        r=manager.deleteRelation(id);
-        if (r.getIdUser()!=-1)
-            return Response.status(201).entity("Relación eliminada").build();
-        else{
-            return Response.status(202).entity("No se ha podido eliminar").build();
+        try {
+            r = manager.deleteRelation(id, header);
+            if (r.getIdUser() != -1)
+                return Response.status(Response.Status.OK).entity("Relación eliminada").build();
+            else {
+                return Response.status(Response.Status.ACCEPTED).entity("No se ha podido eliminar").build();
+            }
+        }catch (UnauthorizedException ex) {
+            return Response.status(Response.Status.UNAUTHORIZED).entity("Unauthorized").build();//401
+
         }
+
     }
 
     //Lista de Tus eetac-emons //ARREGLAR
     @GET
     @Path("/Captured/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response ListarCapturados(@PathParam("id") int id) {
+    public Response ListarCapturados(@PathParam("id") int id, @Context HttpHeaders header) {
         List<Captured> list;
-        list=manager.getCaptured(id);
-        if (!list.isEmpty()) {
-            GenericEntity< List <Captured> > entity;
-            entity  = new GenericEntity< List< Captured > >( list ) { };
-            return Response.status(Response.Status.OK).entity(entity).build();
-        }
-        else{
-            return Response.status(Response.Status.NO_CONTENT).entity("No hay eetakemons capturados ").build();
-        }
+        try {
+            list = manager.getCaptured(id, header);
+            if (!list.isEmpty()) {
+                GenericEntity<List<Captured>> entity;
+                entity = new GenericEntity<List<Captured>>(list) {
+                };
+                return Response.status(Response.Status.OK).entity(entity).build();
+            } else {
+                return Response.status(Response.Status.NO_CONTENT).entity("No hay eetakemons capturados ").build();
+            }
+        }catch (UnauthorizedException ex) {
+                return Response.status(Response.Status.UNAUTHORIZED).entity("Unauthorized").build();//401
+
+            }
+
     }
 
     //Lista todos los capturados de todos los usuarios
     @GET
     @Path("/all")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response ListarRelacion() {
+    public Response ListarRelacion(@Context HttpHeaders header) {
         List<Relation> list;
-        list=manager.listAllRelation();
-        if (!list.isEmpty()) {
-            GenericEntity< List <Relation> > entity;
-            entity  = new GenericEntity< List< Relation > >( list ) { };
-            return Response.status(201).entity(entity).build();
-        }
-        else{
-            return Response.status(202).entity("No se ha podido visualizar el usuario: ").build();
+        try {
+            list = manager.listAllRelation(header);
+            if (!list.isEmpty()) {
+                GenericEntity<List<Relation>> entity;
+                entity = new GenericEntity<List<Relation>>(list){};
+                return Response.status(201).entity(entity).build();
+            } else {
+                return Response.status(202).entity("No se ha podido visualizar el usuario: ").build();
+            }
+        }catch(UnauthorizedException ex){
+            return Response.status(Response.Status.UNAUTHORIZED).entity("Unauthorized").build();//401
+
+        }catch(NotSuchPrivilegeException ex){
+            return Response.status(Response.Status.FORBIDDEN).entity("Forbidden").build();//403
         }
     }
 }

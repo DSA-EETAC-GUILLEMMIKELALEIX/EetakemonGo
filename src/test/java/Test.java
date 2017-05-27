@@ -95,8 +95,8 @@ public class Test {
 
     }
 
-    @org.junit.Test
-    public void relation(){
+   /* @org.junit.Test
+    //public void relation(){
         RelationManager rm=new RelationManager();
         Relation r = new Relation(2,3,10);
         rm.addRelation(r);
@@ -119,6 +119,6 @@ public class Test {
     public void eetaktipo(){
         EetakemonManager em= new EetakemonManager();
         String tipo = "Normal";
-    }
+    }*/
 
 }
