@@ -12,7 +12,7 @@ body {
 
 .fixed{
 	margin: 0 auto;
-	width: 1700px;
+	width: 70%;
 	top:0;
 	z-index:9999;
 	position:fixed;
@@ -44,7 +44,7 @@ body {
 /*MENU*/
 .menu{
 	margin: 0 auto;
-	width: 1700px;
+	width: 70%;
 	/*background-color: yellow;*/
 	text-align:center;
 	position:fixed;
@@ -100,7 +100,7 @@ a.opcion{
 
 .container{
 	margin:0 auto;
-	width:1700px;
+	width:70%;
 	margin-top:230px;
 	background-color:rgba(206, 206, 206, 0.9);
 	height:730px;
