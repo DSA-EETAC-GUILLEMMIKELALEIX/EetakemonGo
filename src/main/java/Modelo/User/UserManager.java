@@ -98,6 +98,7 @@ public class UserManager {
             encriptedpass = td.encrypt(user.getContrasena());
             user.setId(id);
             user.setContrasena(encriptedpass);
+            checkUpdateFields(user);
             a = user.updatetUser();
         }catch (UnauthorizedException ex) {
             throw new UnauthorizedException("Unauthorized: user is not authorized");
@@ -230,6 +231,23 @@ public class UserManager {
             return true;
 
         return false;
+    }
+
+    private void checkUpdateFields(User u){
+        User temp = new User();
+        temp.selectUserById(u.getId());
+
+        u.setAdmin(temp.getAdmin());
+        if(u.getNombre()==null){
+            u.setNombre(temp.getNombre());
+        }
+        if(u.getContrasena()==null){
+            u.setContrasena(temp.getContrasena());
+        }
+        if (u.getEmail()==null){
+            u.setEmail(temp.getEmail());
+        }
+
     }
 
 }

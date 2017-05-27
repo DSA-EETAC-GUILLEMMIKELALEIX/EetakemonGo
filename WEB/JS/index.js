@@ -51,7 +51,7 @@ $(document).ready(function(){
                         saveToken(result.responseText);
                         var decoded=decodeToken(result.responseText);
                         saveAdminID(decoded);
-                        window.location.replace("./forms/MenuPrincipal.html");
+                        window.location.replace("./forms/Inicio.html");
                     },
                     401: function(){
                         alert("Error al loguearse"); //alerta
