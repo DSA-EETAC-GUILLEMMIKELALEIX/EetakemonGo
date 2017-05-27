@@ -14,7 +14,7 @@ body {
 /*logo*/
 .logo {
     text-align: center;
-    padding: 100px 50px 0px 50px;
+    padding: 4% 2% 0px 2%;
 }
 
 /*form*/
@@ -25,9 +25,9 @@ body {
 .form {
     position: relative;
     z-index: 1;
-    max-width: 500px;
-    margin: 0 auto 100px;
-    padding: 45px;
+    max-width: 30%;
+    margin: 0 auto;
+    padding: 2%;
     text-align: center;
     font-size: 1.5em;
     background: rgba(226, 228, 225, 0.65);
@@ -89,12 +89,3 @@ body {
     display: none;
 }
 
-
-/*footer*/
-footer{
-    text-shadow: -1.5px 0 black, 0 1.5px black, 1.5px 0 black, 0 -1.5px black;
-    color:white;
-    position: absolute;
-    bottom:0;
-    right: 1%;
-}
