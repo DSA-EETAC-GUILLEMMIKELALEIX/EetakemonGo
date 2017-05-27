@@ -8,20 +8,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
-        var userIdCurrentlyLoggedIn=0;
-        console.log("ID inici:" + sessionStorage.getItem("ID"));
-        userIdCurrentlyLoggedIn = sessionStorage.getItem("ID");
-        console.log("ID final:"+userIdCurrentlyLoggedIn);
-        if(userIdCurrentlyLoggedIn==null)
+
+        if(sessionStorage.getItem("ID")==null)
         {
-            alert("User is not logged in. Redirecting to Login form...");
             sessionStorage.clear();
             window.location.replace("../index.html");
         }
-        else
-        {
-            userIdCurrentlyLoggedIn = sessionStorage.getItem("userIdCurrentlyLoggedIn");
-        }
+
         $(document).ready(function() {
             var ctxPath = "http://localhost:8081/EetakemonGo/";
             $("#btn1").click(function () {
@@ -41,12 +34,22 @@
                         contentType: "application/json",
                         dataType: "json",
                         data: JSON.stringify(o),
+                        headers: {"Authorization": "Bearer " + sessionStorage.getItem("Token")},
                         statusCode: {
-                            201: function () {
+                            200: function () {
                                 alert("Usuario modificado"); //alerta
                             },
-                            202: function () {
-                                alert("No se ha podido modificar"); //alerta
+                            401: function () {
+                                alert("No autorizado");
+                                sessionStorage.clear();
+                                window.location.replace("../index.html");
+                            }
+                            ,
+                            403: function () {
+                                alert("No tiene permisos suficientes"); //alerta
+                            },
+                            500: function () {
+                                alert("No modificado: error en el servidor"); //alerta
                             }
                         }
                     })
@@ -63,12 +66,18 @@
                         contentType: "application/json",
                         dataType: "json",
                         //data: JSON.stringify(o),
+                        headers: {"Authorization": "Bearer " + sessionStorage.getItem("Token")},
                         statusCode: {
-                            201: function () {
+                            200: function () {
                                 alert("Usuario eliminado"); //alerta
                             },
-                            202: function () {
-                                alert("No se ha podido eliminar el Usuario");  //alerta
+                            401: function () {
+                                alert("No autorizado");
+                                sessionStorage.clear();
+                                window.location.replace("../index.html");
+                            },
+                            403: function () {
+                                alert("No tiene permisos suficientes"); //alerta
                             }
                         }
                     })

@@ -9,20 +9,13 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
         var ctxPath = "http://localhost:8081/EetakemonGo/";
-        var userIdCurrentlyLoggedIn=0;
-        console.log("ID inici:" + sessionStorage.getItem("ID"));
-        userIdCurrentlyLoggedIn = sessionStorage.getItem("ID");
-        console.log("ID final:"+userIdCurrentlyLoggedIn);
-        if(userIdCurrentlyLoggedIn==null)
+
+        if(sessionStorage.getItem("ID")==null)
         {
-            alert("User is not logged in. Redirecting to Login form...");
             sessionStorage.clear();
             window.location.replace("../index.html");
         }
-        else
-        {
-            userIdCurrentlyLoggedIn = sessionStorage.getItem("userIdCurrentlyLoggedIn");
-        }
+
         $(document).ready(function() {
             $("#btn1").click(function () {
                 document.getElementById("texto").value = "";
@@ -35,13 +28,22 @@
                         type: 'GET',
                         contentType: 'application/json',
                         url: ctxPath + "User/" + id,
+                        headers: {"Authorization": "Bearer " + sessionStorage.getItem("Token")},
                         statusCode: {
-                            201: function (result) {
+                            200: function (result) {
                                 document.getElementById("texto").value = "Nombre:" + result.nombre + "\nContraseña:" + result.contrasena +
                                     "\nEmail:" + result.email;
                             },
-                            202: function () {
+                            204: function () {
                                 alert("No se ha podido visualizar");
+                            },
+                            401: function () {
+                                alert("No autorizado");
+                                sessionStorage.clear();
+                                window.location.replace("../index.html");
+                            },
+                            403: function () {
+                                alert("No tiene suficientes permisos");
                             }
                         }
                     })
@@ -53,16 +55,25 @@
                     type: 'GET',
                     contentType: 'application/json',
                     url: ctxPath + "User/all",
+                    headers: {"Authorization": "Bearer " + sessionStorage.getItem("Token")},
                     statusCode: {
-                        201: function (result) {
+                        200: function (result) {
                             console.log(result);
                             for(i=0;i<1000;i++){
                                 document.getElementById("texto").value += "\nID: " + result[i].id + "\nNombre:" + result[i].nombre +
                                     "\nEmail:" + result[i].email;
                             }
                         },
-                        202: function () {
+                        204: function () {
                             alert("No se ha podido visualizar");
+                        },
+                        401: function () {
+                            alert("No autorizado");
+                            sessionStorage.clear();
+                            window.location.replace("../index.html");
+                        },
+                        403: function () {
+                            alert("No tiene suficientes permisos");
                         }
                     }
                 })
@@ -79,13 +90,18 @@
                         type: 'GET',
                         contentType: 'application/json',
                         url: ctxPath + "Eetakemon/" + id,
+                        headers: {"Authorization": "Bearer " + sessionStorage.getItem("Token")},
                         statusCode: {
-                            201: function (result) {
+                            200: function (result) {
                                 document.getElementById("texto").value = "Nombre: " + result.nombre + "\nTipo: " + result.tipo +
                                     "\nNivel: " + result.nivel;
                             },
-                            202: function () {
+                            204: function () {
                                 alert("No se ha podido visualizar");
+                            },
+                            401: function () {
+                                alert("No autorizado");
+                                window.location.replace("../index.html");
                             }
                         }
                     })
@@ -97,15 +113,20 @@
                     type: 'GET',
                     contentType: 'application/json',
                     url: ctxPath + "Eetakemon/all",
+                    headers: {"Authorization": "Bearer " + sessionStorage.getItem("Token")},
                     statusCode: {
-                        201: function (result) {
+                        200: function (result) {
                             for(i=0;i<1000;i++){
                                 document.getElementById("texto").value += "\nID: " + result[i].id + "\nNombre:" + result[i].nombre + "\nTipo:" + result[i].tipo +
                                     "\nNivel:" + result[i].nivel;
                             }
                         },
-                        202: function () {
+                        204: function () {
                             alert("No se ha podido visualizar");
+                        },
+                        401: function () {
+                            alert("No autorizado");
+                            window.location.replace("../index.html");
                         }
                     }
                 })

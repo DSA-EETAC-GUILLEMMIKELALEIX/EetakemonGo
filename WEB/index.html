@@ -8,23 +8,38 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+    <script src="js/jwt-decode.min.js"></script>
     <!-- <script src="jquery-3.2.0.min.js"></script>-->
     <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.cookie/1.3.1/jquery.cookie.js"></script>
     <script>
         var ctxPath = "http://localhost:8081/EetakemonGo/";
 
-        function saveID(theID) {
-            ID=theID;
-            window.onload=sessionStorage.setItem("ID",ID);
-            console.log(ID);
+        function saveToken(t) {
+            var TOKEN=t;
+            sessionStorage.setItem("Token",TOKEN);
+            console.log(sessionStorage.getItem("Token"));
+        }
+
+        function decodeToken(t){
+            var token = t // jwt token';
+            var decoded = jwt_decode(token);
+            return decoded;
+        }
+
+        function saveAdminID(decoded){
+            var admin=decoded.Admin;
+            var id=decoded.sub;
+            sessionStorage.setItem("ID",id);
+            sessionStorage.setItem("Admin",admin);
+            console.log(sessionStorage);
         }
 
         $(document).ready(function(){
             $("#btn1").click(function (){
                 var email= $("#email").val();
                 var password= $("#password").val();
-                /*if(email==="" || password===""){alert("Rellena todos los campos");}
-                else {*/
+                if(email==="" || password===""){alert("Rellena todos los campos");}
+                else {
                     var o = {"email": email, "contrasena": password};
                     console.log(o);
                     $.ajax({
@@ -33,25 +48,24 @@
                         contentType: "application/json",
                         dataType: "json",
                         data: JSON.stringify(o),
-                        headers: {
-                            "Auth": btoa(email + ":" + password)
-                        },
+                        headers: {"Authorization": "Bearer " + sessionStorage.getItem("Token")},
                         statusCode:{
-                            201: function(result){
-                                saveID(result.id);
-                                window.location.href="./forms/MenuPrincipal.html?id="+result.id+"&admin="+result.admin;
+                            200: function(result){
+                                saveToken(result.responseText);
+                                var decoded=decodeToken(result.responseText);
+                                saveAdminID(decoded);
+                                window.location.replace("./forms/MenuPrincipal.html");
                             },
-                            202: function(){
+                            401: function(){
                                 alert("Error al loguearse"); //alerta
                             }
                         }
                     })
-                //}
+                }
             });
         });
-
-
     </script>
+
     <style>
         body {
             background-image: url("./images/fondo.jpeg");

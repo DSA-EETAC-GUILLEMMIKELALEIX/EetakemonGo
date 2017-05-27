@@ -64,7 +64,7 @@ public class RelationService {
         }
     }
 
-    //Lista de Tus eetac-emons
+    //Lista de Tus eetac-emons //ARREGLAR
     @GET
     @Path("/Captured/{id}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -74,10 +74,10 @@ public class RelationService {
         if (!list.isEmpty()) {
             GenericEntity< List <Captured> > entity;
             entity  = new GenericEntity< List< Captured > >( list ) { };
-            return Response.status(201).entity(entity).build();
+            return Response.status(Response.Status.OK).entity(entity).build();
         }
         else{
-            return Response.status(202).entity("No hay eetakemons capturados ").build();
+            return Response.status(Response.Status.NO_CONTENT).entity("No hay eetakemons capturados ").build();
         }
     }
 

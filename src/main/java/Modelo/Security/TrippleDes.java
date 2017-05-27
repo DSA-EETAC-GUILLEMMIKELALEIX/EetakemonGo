@@ -1,4 +1,5 @@
 package Modelo.Security;
+
 import java.security.spec.KeySpec;
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
@@ -7,9 +8,6 @@ import javax.crypto.spec.DESedeKeySpec;
 import org.apache.commons.codec.binary.Base64;
 
 
-/**
- * Created by Guillem on 11/05/2017.
- */
 
 public class TrippleDes {
 

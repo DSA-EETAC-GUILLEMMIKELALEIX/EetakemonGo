@@ -2,14 +2,15 @@ package Controlador;
 
 import Modelo.Eetakemon.Eetakemon;
 import Modelo.Eetakemon.EetakemonManager;
+import Modelo.Exceptions.NotSuchPrivilegeException;
+import Modelo.Exceptions.UnauthorizedException;
+import Modelo.Security.AuthenticationManager;
 
 import javax.inject.Singleton;
 import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
+import javax.ws.rs.core.*;
 import java.util.ArrayList;
 import java.util.List;
-import javax.ws.rs.core.GenericEntity;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import javax.imageio.ImageIO;
@@ -19,37 +20,50 @@ import javax.imageio.ImageIO;
 @Singleton
 public class EetakemonService {
     private EetakemonManager manager;
+    private AuthenticationManager authManager;
 
     public EetakemonService() {
         manager= new EetakemonManager();
+        authManager= new AuthenticationManager();
     }
 
     //Obtener eetakemon por id
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getEetakemonId(@PathParam("id") int id) {
+    public Response getEetakemonId(@Context HttpHeaders header, @PathParam("id") int id) {
         Eetakemon e = new Eetakemon();
-        e=manager.getEetakemonById(id);
-        if (e.getNombre()!=null) {
-            return Response.status(201).entity(e).build();
-        }
-        else{
-            return Response.status(202).entity("No se ha podido visualizar el usuario: ").build();
+        try {
+            e = manager.getEetakemonById(header, id);
+            if (e.getNombre() != null) {
+                return Response.status(Response.Status.OK).entity(e).build();//200
+            } else {
+                return Response.status(Response.Status.NO_CONTENT).entity("No eetakemon found").build();//204
+            }
+        }catch(UnauthorizedException ex){
+            return Response.status(Response.Status.UNAUTHORIZED).entity("Unauthorized").build();//401
+
         }
     }
 
     //añadir eetakemon
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response newEetakemon(Eetakemon eetakemon) {
+    public Response newEetakemon(@Context HttpHeaders header,Eetakemon eetakemon) {
         Boolean a;
-        a=manager.addEetakemon(eetakemon);
-        if (!a) {
-            return Response.status(201).entity("Eetakemon añadido: ").build();
-        }
-        else{
-            return Response.status(202).entity("Eetakemon ya existente: ").build();
+
+        try {
+            a = manager.addEetakemon(header, eetakemon);
+            if (!a) {
+                return Response.status(Response.Status.CREATED).entity("Eetakemon added").build();//201
+            } else {
+                return Response.status(Response.Status.ACCEPTED).entity("Eetakemon already exists").build();//202
+            }
+        }catch(UnauthorizedException ex){
+            return Response.status(Response.Status.UNAUTHORIZED).entity("Unauthorized").build();//401
+
+        }catch(NotSuchPrivilegeException ex){
+            return Response.status(Response.Status.FORBIDDEN).entity("Forbidden").build();//403
         }
     }
 
@@ -57,7 +71,7 @@ public class EetakemonService {
     @POST
     @Path("/Image")
     @Consumes(MediaType.APPLICATION_JSON)
-    public void Image(Eetakemon eetakemon) {
+    public void Image(@Context HttpHeaders header, Eetakemon eetakemon) {
         String base64Image = eetakemon.getFoto().split(",")[1];
         byte[] imageBytes = javax.xml.bind.DatatypeConverter.parseBase64Binary(base64Image);
         File imageFile = new File("WEB\\images\\" + eetakemon.getNombre() + ".png");
@@ -75,13 +89,20 @@ public class EetakemonService {
     @DELETE
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response delEetakemon(@PathParam("id") int id) {
+    public Response delEetakemon(@Context HttpHeaders header, @PathParam("id") int id) {
         Eetakemon e = new Eetakemon();
-        e=manager.deleteEetakemon(id);
-        if (e.getNombre()!= null)
-            return Response.status(201).entity("Eetakemon eliminado").build();
-        else{
-            return Response.status(202).entity("No se ha podido eliminar").build();
+        try {
+            e = manager.deleteEetakemon(header, id);
+            if (e.getNombre() != null)
+                return Response.status(Response.Status.OK).entity("Eetakemon deleted").build();//200
+            else {
+                return Response.status(Response.Status.ACCEPTED).entity("Not deleted").build();//202
+            }
+        }catch(UnauthorizedException ex){
+            return Response.status(Response.Status.UNAUTHORIZED).entity("Unauthorized").build();//401
+
+        }catch(NotSuchPrivilegeException ex){
+            return Response.status(Response.Status.FORBIDDEN).entity("Forbidden").build();//403
         }
     }
 
@@ -89,16 +110,20 @@ public class EetakemonService {
     @GET
     @Path("/all")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response ListarEetakemons() {
+    public Response ListarEetakemons(@Context HttpHeaders header) {
         List<Eetakemon> list;
-        list=manager.listAllEetakemon();
-        if (!list.isEmpty()) {
-            GenericEntity< List <Eetakemon> > entity;
-            entity  = new GenericEntity< List< Eetakemon > >( list ) { };
-            return Response.status(201).entity(entity).build();
-        }
-        else{
-            return Response.status(202).entity("No se ha podido visualizar el usuario: ").build();
+        try {
+            list = manager.listAllEetakemon(header);
+            if (!list.isEmpty()) {
+                GenericEntity<List<Eetakemon>> entity;
+                entity = new GenericEntity<List<Eetakemon>>(list) {
+                };
+                return Response.status(Response.Status.OK).entity(entity).build();//200
+            } else {
+                return Response.status(Response.Status.NO_CONTENT).entity("No content").build();//204
+            }
+        }catch(UnauthorizedException ex){
+            return Response.status(Response.Status.UNAUTHORIZED).entity("Unauthorized").build();//401
         }
     }
 
@@ -107,14 +132,17 @@ public class EetakemonService {
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getEetakemonTipo(String Tipo) {
+    public Response getEetakemonTipo(@Context HttpHeaders header, String tipo) {
         Eetakemon e = new Eetakemon();
-        e=manager.getEetakemonByType(Tipo);
-        if (e.getNombre()!=null) {
-            return Response.status(201).entity(e).build();
-        }
-        else{
-            return Response.status(202).entity("No se ha podido visualizar el usuario: ").build();
+        try {
+            e = manager.getEetakemonByType(header, tipo);
+            if (e.getNombre() != null) {
+                return Response.status(Response.Status.OK).entity(e).build();//200
+            } else {
+                return Response.status(Response.Status.NO_CONTENT).entity("No eetakemon found").build();//204
+            }
+        }catch(UnauthorizedException ex){
+            return Response.status(Response.Status.UNAUTHORIZED).entity("Unauthorized").build();//401
         }
     }
 }

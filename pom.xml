@@ -22,6 +22,7 @@
     </dependencyManagement>
 
     <dependencies>
+
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt</artifactId>
@@ -45,7 +46,7 @@
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt</artifactId>
-            <version>0.7.0</version>
+            <version>0.6.0</version>
         </dependency>
         <dependency>
             <groupId>javax.mail</groupId>

@@ -27,12 +27,12 @@
                         dataType: "json",
                         data: JSON.stringify(o),
                         statusCode:{
-                            201: function(){
+                            200: function(){
                                 alert("Abre el correo para obtener su contraseña!"); //alerta
                                 window.location.href="../index.html";
                             },
-                            202: function(){
-                                alert("Error al recuperar contraseña"); //alerta
+                            500: function(){
+                                alert("Error al recuperar contraseña: error en el servidor"); //alerta
                             }
                         }
                     })
