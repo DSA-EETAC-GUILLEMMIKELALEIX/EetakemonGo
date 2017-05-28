@@ -73,6 +73,7 @@ public class EetakemonManager {
         return e;
     }
 
+    //listar eetakemons
     public List listAllEetakemon(HttpHeaders header) throws UnauthorizedException{
         List<Eetakemon> list;
         Verification v = new Verification();
