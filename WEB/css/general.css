@@ -2,6 +2,7 @@
 body {
 	margin: 0 auto;
 	background-color:rgba(206, 206, 206,1);
+	font-family: Arial;
 }
 
 .fixed{

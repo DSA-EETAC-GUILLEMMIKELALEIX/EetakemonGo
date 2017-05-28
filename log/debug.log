@@ -2492,3 +2492,179 @@
 2017-05-28 10:04:23 INFO  DAO:25 - INFO: conexión creada
 2017-05-28 10:04:23 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@263bca5c: SELECT * FROM User;
 2017-05-28 10:04:23 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@2079ed3a: SELECT * FROM Eetakemon;
+2017-05-28 10:08:34 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:08:34 INFO  DAO:42 - INFO: Logeado: b
+2017-05-28 10:08:34 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:08:34 INFO  DAO:64 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@1bdf5189: SELECT * FROM User WHERE email='b';
+2017-05-28 10:08:37 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:08:37 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:08:37 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@4c2f45e1: SELECT * FROM User;
+2017-05-28 10:08:37 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@4cd2762b: SELECT * FROM Eetakemon;
+2017-05-28 10:09:09 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:09:09 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:09:09 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@7482f6b1: SELECT * FROM User;
+2017-05-28 10:09:09 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@1628d570: SELECT * FROM Eetakemon;
+2017-05-28 10:09:11 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:09:11 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@5eb6efe6: SELECT * FROM Eetakemon;
+2017-05-28 10:09:12 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:09:12 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@26991df4: SELECT * FROM User;
+2017-05-28 10:09:12 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:09:12 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@6d5bbfd2: SELECT * FROM Eetakemon;
+2017-05-28 10:09:49 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:09:49 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:09:49 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:09:49 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:09:49 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@7f7978dd: SELECT * FROM Eetakemon;
+2017-05-28 10:09:49 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@6c37e503: SELECT * FROM User;
+2017-05-28 10:09:49 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@6ecf1800: SELECT * FROM User;
+2017-05-28 10:09:49 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@97b2186: SELECT * FROM Eetakemon;
+2017-05-28 10:09:49 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:09:49 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@325159f8: SELECT * FROM Eetakemon;
+2017-05-28 10:47:04 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:47:04 INFO  DAO:42 - INFO: Logeado: b
+2017-05-28 10:47:04 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:47:04 INFO  DAO:64 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@4293e260: SELECT * FROM User WHERE email='b';
+2017-05-28 10:47:06 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:47:06 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:47:06 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@2e2dca55: SELECT * FROM User;
+2017-05-28 10:47:06 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@2181f259: SELECT * FROM Eetakemon;
+2017-05-28 10:48:03 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:48:03 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@34f2d759: SELECT * FROM Eetakemon;
+2017-05-28 10:48:03 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:48:03 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@6ac46bb5: SELECT * FROM Eetakemon;
+2017-05-28 10:48:03 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:48:03 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@2397c760: SELECT * FROM User;
+2017-05-28 10:51:30 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:51:30 INFO  DAO:42 - INFO: Logeado: b
+2017-05-28 10:51:30 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:51:30 INFO  DAO:64 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@22ecfded: SELECT * FROM User WHERE email='b';
+2017-05-28 10:51:33 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:51:33 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@e6bdeb: SELECT * FROM Eetakemon;
+2017-05-28 10:51:48 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:51:48 INFO  DAO:123 - INFO: Select  by id statement: com.mysql.jdbc.JDBC4PreparedStatement@f96de90: SELECT * FROM Eetakemon WHERE id=2;
+2017-05-28 10:51:49 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:51:49 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@7bb96389: SELECT * FROM Eetakemon;
+2017-05-28 10:53:12 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:53:12 INFO  DAO:42 - INFO: Logeado: b
+2017-05-28 10:53:12 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:53:12 INFO  DAO:64 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@1bdf5189: SELECT * FROM User WHERE email='b';
+2017-05-28 10:53:16 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:53:16 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@402baea6: SELECT * FROM Eetakemon;
+2017-05-28 10:54:30 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:54:30 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:54:30 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:54:30 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@48a3f6ae: SELECT * FROM Eetakemon;
+2017-05-28 10:54:30 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@1f01b88e: SELECT * FROM Eetakemon;
+2017-05-28 10:54:30 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@a581ad8: SELECT * FROM User;
+2017-05-28 10:54:32 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:54:32 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@748c5f7c: SELECT * FROM Eetakemon;
+2017-05-28 10:55:20 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:55:21 INFO  DAO:42 - INFO: Logeado: b
+2017-05-28 10:55:21 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:55:21 INFO  DAO:64 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@5ba3ca4f: SELECT * FROM User WHERE email='b';
+2017-05-28 10:55:23 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:55:23 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@17fdf22e: SELECT * FROM Eetakemon;
+2017-05-28 10:55:27 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:55:27 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@7bb96389: SELECT * FROM Eetakemon;
+2017-05-28 10:55:27 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:55:27 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@4c1066e4: SELECT * FROM User;
+2017-05-28 10:55:42 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:55:42 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@639b8743: SELECT * FROM Eetakemon;
+2017-05-28 10:57:14 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:57:14 INFO  DAO:42 - INFO: Logeado: b
+2017-05-28 10:57:14 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:57:14 INFO  DAO:64 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@22ecfded: SELECT * FROM User WHERE email='b';
+2017-05-28 10:57:18 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:57:18 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@58ab5285: SELECT * FROM Eetakemon;
+2017-05-28 10:57:22 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:57:22 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:57:22 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@138aa8d9: SELECT * FROM User;
+2017-05-28 10:57:22 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@26991df4: SELECT * FROM Eetakemon;
+2017-05-28 10:57:31 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:57:31 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@28593c1d: SELECT * FROM Eetakemon;
+2017-05-28 10:58:09 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:58:09 INFO  DAO:42 - INFO: Logeado: b
+2017-05-28 10:58:09 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:58:09 INFO  DAO:64 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@15eb53e1: SELECT * FROM User WHERE email='b';
+2017-05-28 10:58:12 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:58:12 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@17fdf22e: SELECT * FROM Eetakemon;
+2017-05-28 10:58:39 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:58:39 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:58:39 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@3e4b9968: SELECT * FROM User;
+2017-05-28 10:58:39 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@185fdab9: SELECT * FROM Eetakemon;
+2017-05-28 10:58:43 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:58:43 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@2fc6f889: SELECT * FROM Eetakemon;
+2017-05-28 10:59:19 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:59:19 INFO  DAO:42 - INFO: Logeado: b
+2017-05-28 10:59:19 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:59:19 INFO  DAO:64 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@7f5e0e23: SELECT * FROM User WHERE email='b';
+2017-05-28 10:59:23 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:59:23 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@146e2b2c: SELECT * FROM Eetakemon;
+2017-05-28 10:59:27 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:59:27 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:59:27 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@6974a427: SELECT * FROM User;
+2017-05-28 10:59:27 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@33e7c1b0: SELECT * FROM Eetakemon;
+2017-05-28 10:59:44 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 10:59:44 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@1e85690: SELECT * FROM Eetakemon;
+2017-05-28 11:00:00 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 11:00:00 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@184a615e: SELECT * FROM Eetakemon;
+2017-05-28 11:00:02 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 11:00:02 INFO  DAO:64 - INFO: Select captured: com.mysql.jdbc.JDBC4PreparedStatement@1ff57c04: SELECT eetakemon.id, eetakemon.nombre, relation.level FROM Eetakemon, Relation WHERE relation.idEetakemon=Eetakemon.id AND relation.idUser=2;
+2017-05-28 11:00:03 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 11:00:03 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@132ebde: SELECT * FROM Eetakemon;
+2017-05-28 11:02:30 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 11:02:30 INFO  DAO:42 - INFO: Logeado: b
+2017-05-28 11:02:30 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 11:02:30 INFO  DAO:64 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@34d3fd32: SELECT * FROM User WHERE email='b';
+2017-05-28 11:02:33 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 11:02:33 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 11:02:33 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@5a3f697a: SELECT * FROM User;
+2017-05-28 11:02:33 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@ffc38cd: SELECT * FROM Eetakemon;
+2017-05-28 11:02:35 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 11:02:35 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@48a3f6ae: SELECT * FROM User;
+2017-05-28 11:02:35 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 11:02:35 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@28593c1d: SELECT * FROM Eetakemon;
+2017-05-28 11:02:55 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 11:02:55 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@748c5f7c: SELECT * FROM Eetakemon;
+2017-05-28 11:02:55 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 11:02:55 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@446918e2: SELECT * FROM User;
+2017-05-28 11:04:44 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 11:04:44 INFO  DAO:42 - INFO: Logeado: b
+2017-05-28 11:04:44 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 11:04:44 INFO  DAO:64 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@58b3ca92: SELECT * FROM User WHERE email='b';
+2017-05-28 11:04:47 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 11:04:47 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@4b8bff3d: SELECT * FROM User;
+2017-05-28 11:04:47 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 11:04:47 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@19ab5e5e: SELECT * FROM Eetakemon;
+2017-05-28 11:05:44 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 11:05:44 INFO  DAO:42 - INFO: Logeado: b
+2017-05-28 11:05:44 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 11:05:44 INFO  DAO:64 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@15eb53e1: SELECT * FROM User WHERE email='b';
+2017-05-28 11:05:48 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 11:05:48 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 11:05:48 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@45a2a100: SELECT * FROM User;
+2017-05-28 11:05:48 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@73ef9616: SELECT * FROM Eetakemon;
+2017-05-28 11:06:18 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 11:06:18 INFO  DAO:42 - INFO: Logeado: b
+2017-05-28 11:06:18 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 11:06:18 INFO  DAO:64 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@2a4d915: SELECT * FROM User WHERE email='b';
+2017-05-28 11:06:21 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 11:06:21 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 11:06:21 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@6a2252c8: SELECT * FROM User;
+2017-05-28 11:06:21 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@59cf03f2: SELECT * FROM Eetakemon;
+2017-05-28 11:09:14 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 11:09:14 INFO  DAO:42 - INFO: Logeado: b
+2017-05-28 11:09:14 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 11:09:14 INFO  DAO:64 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@60f42bf6: SELECT * FROM User WHERE email='b';
+2017-05-28 11:09:17 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 11:09:17 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@125e0f6d: SELECT * FROM User;
+2017-05-28 11:09:17 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 11:09:17 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@11deeee: SELECT * FROM Eetakemon;
+2017-05-28 11:10:48 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 11:10:48 INFO  DAO:42 - INFO: Logeado: b
+2017-05-28 11:10:48 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 11:10:48 INFO  DAO:64 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@2fe28aa5: SELECT * FROM User WHERE email='b';
+2017-05-28 11:10:50 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 11:10:50 INFO  DAO:25 - INFO: conexión creada
+2017-05-28 11:10:50 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@79bdd6b: SELECT * FROM Eetakemon;
+2017-05-28 11:10:50 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@25ccc91f: SELECT * FROM User;
