@@ -32,6 +32,7 @@ public class EetakemonManager {
         return e;
     }
 
+    //añadir eetakemon
     public boolean addEetakemon(HttpHeaders header, Eetakemon e) throws UnauthorizedException, NotSuchPrivilegeException{
         Boolean exist=false;
         Verification v = new Verification();
