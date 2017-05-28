@@ -130,7 +130,7 @@ public class EetakemonService {
 
     //Eetakemon nivel normal
     @GET
-    @Path("/{id}")
+    @Path("/tipo")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getEetakemonTipo(@Context HttpHeaders header, String tipo) {
         Eetakemon e = new Eetakemon();

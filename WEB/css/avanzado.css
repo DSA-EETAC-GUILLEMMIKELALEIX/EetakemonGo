@@ -11,7 +11,7 @@
 .opciones-avanzadas {
 	margin: 0 auto;
 	width:100%;
-	height: 65px;
+	height: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center; 
@@ -22,12 +22,12 @@
 .opciones-avanzadas li{	
 	display:inline;
 	height:100%;
-	width: 150px;
+	width: 7%;
 	text-align:center;
 	display: flex;
 	justify-content: center;
 	align-items: center; 
-	padding: 0 35px 0 35px;	
+	padding: 1% 4% 1% 4%;
 }
 
 .opcion avanzada{	
@@ -50,22 +50,24 @@
 .tabla{
     text-align:center;
     font-size:20px;
+	width:55%;
+	margin:0 auto;
 }
 .tabla tr{
-    margin: 15px;
+    margin: 15px 0 15px 0;
 }
 
 /*opciones usuario*/
 .opciones-usuario{
     margin: 0 auto;
-    margin-top:50px;
+    margin-top:2%;
 }
 #tabla-usuarios{
-    margin:0 auto;
+
 }
 
 /*opciones eetakemon*/
 .opciones-eetakemon{
 	display:none;
-
+    margin-top:2%;
 }

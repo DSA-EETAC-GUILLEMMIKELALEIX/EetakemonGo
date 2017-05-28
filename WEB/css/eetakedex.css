@@ -1,0 +1,10 @@
+.tabla-eetakemon{
+    margin:0 auto;
+    width: 70%;
+    padding: 2%;
+    text-align: center;
+}
+
+.tabla-eetakemon .eetakemon:hover{
+    cursor:pointer;
+}

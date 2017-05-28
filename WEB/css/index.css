@@ -17,6 +17,11 @@ body {
     padding: 4% 2% 0px 2%;
 }
 
+.logo #logo-image{
+    width: 40%;
+    height: 20%;
+}
+
 /*form*/
 .login-page {
     padding: 5% 0 0;
@@ -37,8 +42,8 @@ body {
     outline: 0;
     width: 100%;
     border: 0;
-    margin: 15px 0 0 0;
-    padding: 15px;
+    margin: 2% 0 0 0;
+    padding: 2%;
     box-sizing: border-box;
     border-radius:5px;
     text-align: center;
@@ -50,8 +55,8 @@ body {
     background: #FEFB5C;
     width: 100%;
     border: 0;
-    padding: 15px;
-    margin: 15px 0 0 0;
+    padding: 2%;
+    margin: 2% 0 0 0;
     color: black;
     cursor: pointer;
     border-radius:5px;

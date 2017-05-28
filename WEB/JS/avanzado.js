@@ -1,5 +1,20 @@
 var ctxPath = "http://localhost:8081/EetakemonGo/";
 
+function admin (admin){
+    var a;
+    if(admin===1){
+        a="Si";
+    }else{
+        a="No";
+    }
+    return a;
+}
+
+if (sessionStorage.getItem("Admin")!=1){
+    alert("No tiene suficientes permisos para entrar aqui");
+    window.location.replace("inicio.html");
+}
+
 $(document).ready(function(){
     $("#opcion-usuario").css({"background-color": "#636363","color":"white"});
 
@@ -18,14 +33,9 @@ $(document).ready(function(){
                         "<td>" + obj.id + "</td>" +
                         "<td>" + obj.nombre + "</td>" +
                         "<td>" + obj.email + "</td>" +
-                        "<td>" + obj.contrasena + "</td>" +
-                        "<td>" + obj.admin + "</td>" +
+                        "<td>" + admin(obj.admin) + "</td>" +
                         "</tr>");
                 });
-                for(i=0;i<1000;i++){
-                    document.getElementById("texto").value += "\nID: " + result[i].id + "\nNombre:" + result[i].nombre +
-                        "\nEmail:" + result[i].email;
-                }
             },
             204: function () {
                 alert("No se ha podido visualizar");
@@ -39,13 +49,54 @@ $(document).ready(function(){
                 alert("No tiene suficientes permisos");
             }
         }
-    })
+    });
+
+    //load eetakemon table
+    $.ajax({
+        type: 'GET',
+        contentType: 'application/json',
+        url: ctxPath + "Eetakemon/all",
+        headers: {"Authorization": "Bearer " + sessionStorage.getItem("Token")},
+        statusCode:{
+            200: function (result) {
+                console.log(result);
+                $.each(result, function (i, obj) {
+                    console.log((obj));
+                    $("#tabla-eetakemon").append("<tr class=\"eetakemon\" onclick='webEetacemon("+obj.id+")'>" +
+                        "<td>" +
+                        "<img src = \" /images/" + obj.nombre + ".png\" style=\"width:50px;height:50px;\" ' >" +
+                        "<td>" +obj.id+ "</td>"+
+                        "<td>" +obj.nombre+ "</td>"+
+                        "<td>" +obj.tipo+ "</td>"+
+                        "<td>" +obj.nivel+ "</td>"+
+                        "</tr>");
+                });
+            },
+            204: function () {
+                alert("No se han encontrado eetakemons");
+            },
+            401: function () {
+                alert("No autorizado");
+                sessionStorage.clear();
+                window.location.replace("../index.html");
+            }
+        }
+    });
 
     //change user-eetakemon options
-    $('#opcion-usuario, #opcion-eetakemon').click(function(){
-        $('#opcion-usuario, #opcion-eetakemon').removeAttr('style');
+    $('#opcion-usuario').click(function(){
+        $('#opcion-eetakemon').removeAttr('style');
         $(this).css({"background-color": "#636363","color":"white"});
 
-        $('.opciones-usuario, .opciones-eetakemon').toggle();
+        $('.opciones-eetakemon').hide();
+        $('.opciones-usuario').show();
+    });
+
+    $("#opcion-eetakemon").click(function(){
+        $('#opcion-usuario').removeAttr('style');
+        $(this).css({"background-color": "#636363","color":"white"});
+
+        $('.opciones-usuario').hide();
+        $('.opciones-eetakemon').show();
     });
 });
