@@ -20,7 +20,7 @@ $(document).ready(function () {
                     $(".tabla-eetakemon").append("<tr class=\"eetakemon\" onclick='webEetacemon("+obj.id+")'>" +
                         "<td>" +
                         "<img src = \" /images/" + obj.nombre + ".png\" style=\"width:50px;height:50px;\" ' >" +
-                            "</td>"+
+                        "</td>"+
                         "<td>" +obj.nombre+ "</td>"+
                         "<td>" +obj.tipo+ "</td>"+
                         "<td>" +obj.nivel+ "</td>"+

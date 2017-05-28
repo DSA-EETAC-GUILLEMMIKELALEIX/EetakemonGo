@@ -1,3 +1,6 @@
+#tabla{
+    padding: 2% 0 2% 0;
+}
 
 .tabla-eetakemon{
     text-align:center;
@@ -6,6 +9,7 @@
     margin:0 auto;
     border-collapse:collapse;
     border: 1px solid black;
+    padding: 2% 0 2% 0;
 }
 .tabla-eetakemon td{
     padding: 15px 0 15px 0;

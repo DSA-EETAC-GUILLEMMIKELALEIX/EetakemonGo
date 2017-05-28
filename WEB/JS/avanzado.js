@@ -10,6 +10,63 @@ function admin (admin){
     return a;
 }
 
+function addEetakemon (){
+    window.location.href="./Add-Eetakemon.html";
+}
+
+function deleteUser (id){
+    $.ajax({
+        type: "DELETE",
+        url: ctxPath + "User/" + id,
+        contentType: "application/json",
+        dataType: "json",
+        //data: JSON.stringify(o),
+        headers: {"Authorization": "Bearer " + sessionStorage.getItem("Token")},
+        statusCode: {
+            200: function () {
+                alert("Usuario eliminado"); //alerta
+                location.reload();
+            },
+            401: function () {
+                alert("No autorizado");
+                sessionStorage.clear();
+                window.location.replace("../index.html");
+            },
+            403: function () {
+                alert("No tiene permisos suficientes"); //alerta
+            }
+        }
+    })
+}
+
+function deleteEetakemon (id){
+    $.ajax({
+        type: "DELETE",
+        url: ctxPath + "Eetakemon/" + id,
+        contentType: "application/json",
+        dataType: "json",
+        //data: JSON.stringify(o),
+        headers: {"Authorization": "Bearer " + sessionStorage.getItem("Token")},
+        statusCode: {
+            200: function () {
+                alert("Eetakemon eliminado"); //alerta
+                location.reload();
+            },
+            202: function () {
+                alert("No se ha podido eliminar el Eetakemon"); //alerta
+            },
+            401: function () {
+                alert("No autorizado");
+                sessionStorage.clear();
+                window.location.replace("../index.html");
+            },
+            403: function () {
+                alert("No tiene permisos suficientes"); //alerta
+            }
+        }
+    })
+}
+
 if (sessionStorage.getItem("Admin")!=1){
     alert("No tiene suficientes permisos para entrar aqui");
     window.location.replace("inicio.html");
@@ -34,6 +91,8 @@ $(document).ready(function(){
                         "<td>" + obj.nombre + "</td>" +
                         "<td>" + obj.email + "</td>" +
                         "<td>" + admin(obj.admin) + "</td>" +
+                        "<td class=\"edit\">" +"Editar"+ "</td>"+
+                        "<td class=\"delete\" onclick='deleteUser("+obj.id+")'>" +"Borrar"+ "</td>"+
                         "</tr>");
                 });
             },
@@ -65,12 +124,13 @@ $(document).ready(function(){
                     $("#tabla-eetakemon").append("<tr class=\"eetakemon\">" +
                         "<td>" +
                         "<img src = \" /images/" + obj.nombre + ".png\" style=\"width:50px;height:50px;\" ' >" +
+                            "</td>"+
                         "<td>" +obj.id+ "</td>"+
                         "<td>" +obj.nombre+ "</td>"+
                         "<td>" +obj.tipo+ "</td>"+
                         "<td>" +obj.nivel+ "</td>"+
                         "<td class=\"edit\">" +"Editar"+ "</td>"+
-                        "<td class=\"delete\">" +"Borrar"+ "</td>"+
+                        "<td class=\"delete\" onclick='deleteEetakemon("+obj.id+")'>" +"Borrar"+ "</td>"+
                         "</tr>");
                 });
             },

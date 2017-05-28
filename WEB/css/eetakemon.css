@@ -1,0 +1,33 @@
+.info{
+    margin: 0 auto;
+    padding: 2% 0 2% 0;
+}
+
+#image-div{
+    margin: 0 auto;
+    padding-bottom: 2%;
+
+}
+
+#imagen{
+    margin: 0 auto;
+    text-align: center;
+}
+
+/*tabla*/
+#tabla-info{
+    margin: 0 auto;
+    text-align: center;
+    width: 30%;
+    font-size:20px;
+    border-collapse: collapse;
+}
+
+#tabla-info td{
+    padding: 15px 0 15px 0;
+}
+#tabla-info th{
+    padding: 15px 0 15px 0;
+    background: #777777;
+    color:white;
+}

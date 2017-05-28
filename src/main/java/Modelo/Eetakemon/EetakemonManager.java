@@ -52,6 +52,7 @@ public class EetakemonManager {
         return exist;
     }
 
+    //corregir da error al borrar
     public Eetakemon deleteEetakemon(HttpHeaders header, int id) throws UnauthorizedException, NotSuchPrivilegeException{
         Eetakemon e = new Eetakemon();
         Verification v = new Verification();
