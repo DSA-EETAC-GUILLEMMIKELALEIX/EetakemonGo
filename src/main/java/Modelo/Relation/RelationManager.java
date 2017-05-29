@@ -1,5 +1,7 @@
 package Modelo.Relation;
 
+import Modelo.Eetakemon.Eetakemon;
+import Modelo.Eetakemon.EetakemonManager;
 import Modelo.Exceptions.NotSuchPrivilegeException;
 import Modelo.Exceptions.UnauthorizedException;
 import Modelo.Security.AuthenticationManager;
@@ -38,17 +40,22 @@ public class RelationManager {
     private final static Logger logger = Logger.getLogger(Modelo.Relation.RelationManager.class);//
 
 
-    public Relation getRelationById(int id, HttpHeaders header)throws UnauthorizedException{
+    public Captured getRelationById(int id, HttpHeaders header)throws UnauthorizedException{
         Verification v = new Verification();
-        Relation e= new Relation();
+        Eetakemon e= new Eetakemon();
+        EetakemonManager em = new EetakemonManager();
+        Relation r= new Relation();
+        Captured c;
         try {
             authManager.verify(header, v);
-            e.selectRelationById(id);
+            r.selectRelationById(id);
+           e=em.getEetakemonById(header, id);
+           c= new Captured(r.getIdEetakemon(),e.getNombre(),r.getLevel());
         }
     catch (UnauthorizedException ex) {
         throw new UnauthorizedException("Unauthorized: user is not authorized");
     }
-        return e;
+        return c;
     }
 
     public boolean addRelation(Relation e, HttpHeaders header) throws UnauthorizedException{

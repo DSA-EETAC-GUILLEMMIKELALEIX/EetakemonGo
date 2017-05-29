@@ -50,11 +50,11 @@ public class RelationService {
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getRelationId(@Context HttpHeaders header, @PathParam("id") int id) {
-        Relation r = new Relation();
+        Captured c = new Captured();
         try {
-            r = manager.getRelationById(id, header);
-            if (r.getIdUser() != -1) {
-                return Response.status(Response.Status.OK).entity(r).build();
+            c = manager.getRelationById(id, header);
+            if (c.getIdEetakemon() != -1) {
+                return Response.status(Response.Status.OK).entity(c).build();
             } else {
                 return Response.status(Response.Status.NO_CONTENT).entity("Error al obtener relación: ").build();
             }
