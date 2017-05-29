@@ -25,7 +25,7 @@ public class RelationService {
         manager=new RelationManager();
     }
 
-
+//aa
 
     //añadir eetakemon capturado
     @POST
