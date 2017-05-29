@@ -95,30 +95,29 @@ public class Test {
 
     }
 
-   /* @org.junit.Test
+  // @org.junit.Test
     //public void relation(){
-        RelationManager rm=new RelationManager();
-        Relation r = new Relation(2,3,10);
-        rm.addRelation(r);
-    }
-    @org.junit.Test
-    public void relation2(){
-        RelationManager rm=new RelationManager();
-        Relation r = new Relation(1,2,10);
-        rm.addRelation(r);
-    }
+  //    RelationManager rm=new RelationManager();
+    //     Relation r = new Relation(2,3,10);
+    //     rm.addRelation(r);
+  //  }
+  //  @org.junit.Test
+  // public void relation2(){
+  //     RelationManager rm=new RelationManager();
+    //     Relation r = new Relation(1,2,10);
+    //     rm.addRelation(r);
+    // }
 
-    @org.junit.Test
-    public void relation3(){
-        RelationManager rm=new RelationManager();
-        Relation r = new Relation(1,2,10);
-        rm.getCaptured(1);
-    }
-
-    @org.junit.Test
-    public void eetaktipo(){
-        EetakemonManager em= new EetakemonManager();
-        String tipo = "Normal";
-    }*/
+    //  @org.junit.Test
+    // public void relation3(){
+    //     RelationManager rm=new RelationManager();
+    //     Relation r = new Relation(1,2,10);
+    //     rm.getCaptured(1);
+//
+    // @org.junit.Test
+    // public void eetaktipo(){
+    //    EetakemonManager em= new EetakemonManager();
+    //     String tipo = "Normal";
+    //  }*/
 
 }

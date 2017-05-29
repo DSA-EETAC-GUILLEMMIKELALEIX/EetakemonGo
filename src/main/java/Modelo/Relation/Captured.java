@@ -6,6 +6,9 @@ public class Captured {
     String name;
     int level;
 
+        public Captured(){}
+
+
     public Captured(int idEetakemon, String name, int level) {
         this.idEetakemon=idEetakemon;
         this.name=name;

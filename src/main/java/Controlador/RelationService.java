@@ -30,7 +30,7 @@ public class RelationService {
     //añadir eetakemon capturado
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response newRelation(Relation relation, @Context HttpHeaders header) {
+    public Response newRelation(@Context HttpHeaders header, Relation relation) {
         Boolean a;
         try {
             a = manager.addRelation(relation, header);
@@ -49,7 +49,7 @@ public class RelationService {
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getRelationId(@PathParam("id") int id, @Context HttpHeaders header) {
+    public Response getRelationId(@Context HttpHeaders header, @PathParam("id") int id) {
         Relation r = new Relation();
         try {
             r = manager.getRelationById(id, header);
@@ -68,7 +68,7 @@ public class RelationService {
     @DELETE
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response delRelation(@PathParam("id") int id, @Context HttpHeaders header) {
+    public Response delRelation(@Context HttpHeaders header, @PathParam("id") int id) {
         Relation r = new Relation();
         try {
             r = manager.deleteRelation(id, header);
@@ -88,7 +88,7 @@ public class RelationService {
     @GET
     @Path("/Captured/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response ListarCapturados(@PathParam("id") int id, @Context HttpHeaders header) {
+    public Response ListarCapturados(@Context HttpHeaders header, @PathParam("id") int id) {
         List<Captured> list;
         try {
             list = manager.getCaptured(id, header);
