@@ -2,18 +2,17 @@
 <html lang="es">
 	<head>
 		<meta charset="UTF-8">
-		<title>Configuración</title>
+		<title>Eetakedex</title>
 		<link rel="stylesheet" media="screen" type="text/css" href="../css/general.css">
-		<link rel="stylesheet" media="screen" type="text/css" href="../css/configuracion.css">
-		
+		<link rel="stylesheet" media="screen" type="text/css" href="../css/eetakedex.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<script src="../js/configuracion.js"></script>
+		<script src="../js/eetakedex.js"></script>
 		<script src="../js/general.js"></script>
-		
+
 		<style>
-			#configuracion{
+			#eetakedex{
 				background-color:#06ADED;
 				color:yellow;
 			}
@@ -30,32 +29,27 @@
 			<nav class="menu">
 				<ul class="opciones-menu">
 					<li><a href="Inicio.html" class="opcion" id ="inicio" >INICIO</a></li>
-					<li><a href="Capturados.html" class="opcion" id="eetakemons" onclick="webEetac()">Tus Eetakemon</a></li>
-					<li><a href="Eetakedex.html" class="opcion"  id="eetakedex" onclick="webEdex()">Eetakedex</a></li>
-					<li><a href="#" class="opcion" id="configuracion" onclick="webConfig()">Configuración</a></li>
+					<li><a href="Capturados.html" class="opcion"  id="eetakemons">Tus Eetakemon</a></li>
+					<li><a href="#" class="opcion"  id="eetakedex" onclick="webEdex()">Eetakedex</a></li>
+					<li><a href="Configuracion.html" class="opcion" id="configuracion">Configuración</a></li>
 					<li><a href="Avanzado.html" class="opcion" id="avanzado">Avanzado</a></li>
 					<li><a href="#" class="opcion" id="logout">LogOut</a></li>
 				</ul>
 			</nav>
 		</div>
 		
-		<!--Modificar usuario-------------------------------------------->
 		<div class="container">
-			<div class="page">				
-				<div class="form">
-				<p class="title">Configuración</p>
-					<div class="update-form">
-						<div class="change-name">
-						<p  class="message">Cambiar nombre</p>
-						<input id="name" type="text" class="element" />
-						</div>
-						<div class="change-pass">
-						<p   class="message">Cambiar contraseña</p>
-						<input id="password" type="password" class="element"/>
-						</div>
-						<button id="btn1">Guardar</button>
-					</div>
-				</div>
+			<div id="tabla">
+				<table class="tabla-eetakemon">
+					<thead class="cabezera-tabla">
+						<tr>
+							<th>Imagen</th>
+							<th>Nombre</th>
+							<th>Tipo</th>
+							<th>Nivel</th>
+						<tr>
+					</thead>
+				</table>
 			</div>
 		</div>
 		

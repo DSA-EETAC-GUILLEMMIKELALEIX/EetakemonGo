@@ -32,6 +32,7 @@ public class EetakemonManager {
         return e;
     }
 
+    //añadir eetakemon
     public boolean addEetakemon(HttpHeaders header, Eetakemon e) throws UnauthorizedException, NotSuchPrivilegeException{
         Boolean exist=false;
         Verification v = new Verification();
@@ -52,6 +53,7 @@ public class EetakemonManager {
         return exist;
     }
 
+    //corregir da error al borrar
     public Eetakemon deleteEetakemon(HttpHeaders header, int id) throws UnauthorizedException, NotSuchPrivilegeException{
         Eetakemon e = new Eetakemon();
         Verification v = new Verification();
@@ -72,6 +74,7 @@ public class EetakemonManager {
         return e;
     }
 
+    //listar eetakemons
     public List listAllEetakemon(HttpHeaders header) throws UnauthorizedException{
         List<Eetakemon> list;
         Verification v = new Verification();

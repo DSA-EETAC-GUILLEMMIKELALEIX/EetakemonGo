@@ -1,0 +1,65 @@
+/*form*/
+.page {
+  padding: 0;
+  margin: 0;
+}
+
+.form {
+  position: relative;
+  z-index: 1;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 1% 2% 2% 2%;
+  text-align: center;
+  font-size: 1.5em;
+  font-family:Arial;
+}
+
+.title {
+	padding-bottom:4%;
+	font-weight:bold;
+	font-size: 40px;	
+}
+
+.change-name{
+	padding-bottom:3%;
+}
+.change-pass{
+	padding-bottom:4%;
+}
+
+.form input {
+  outline: 0;
+  width: 100%;
+  border: 0;
+  padding: 2%;
+  box-sizing: border-box;
+  font-size: 20px;
+  border-radius:5px;
+  text-align:center;
+  
+}
+.form button {
+  text-transform: uppercase;
+  outline: 0;
+  background: #FBFF14;
+  width: 35%;
+  border: 0;
+  padding: 2%;
+  margin: 2% 0 0 0;
+  color: black;
+  cursor: pointer;
+  font-size:20px;
+  font-weight:bold;
+  border-radius:5px;
+}
+
+.form button:hover,.form button:active {
+  background: #FFE500;
+}
+
+#message{
+  margin: 18px ;
+  color: black;
+  font-weight:bold;
+}

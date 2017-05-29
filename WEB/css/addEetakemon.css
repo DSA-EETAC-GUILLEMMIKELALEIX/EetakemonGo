@@ -1,0 +1,64 @@
+/*form*/
+.page {
+    padding: 0;
+    margin: 0 auto;
+}
+
+.form {
+    position: relative;
+    z-index: 1;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 0.5% 0 0 0;
+    text-align: center;
+    font-family:Arial;
+}
+
+.title {
+    padding-bottom:0%;
+    font-weight:bold;
+    font-size: 25px;
+}
+
+.form input {
+    outline: 0;
+    width: 80%;
+    border: 0;
+    padding: 2%;
+    box-sizing: border-box;
+    font-size: 15px;
+    border-radius:5px;
+    text-align:center;
+
+}
+.form button {
+    text-transform: uppercase;
+    outline: 0;
+    background: #FBFF14;
+    width: 35%;
+    border: 0;
+    padding: 2%;
+    margin: 2% 0 0 0;
+    color: black;
+    cursor: pointer;
+    font-size:20px;
+    font-weight:bold;
+    border-radius:5px;
+}
+
+.form button:hover,.form button:active {
+    background: #FFE500;
+}
+
+.form .message{
+    margin: 2% ;
+    color: black;
+    font-size:20px;
+}
+
+.preview{
+    margin: 0 auto;
+    text-align: center;
+    max-width:20%;
+    max-height:20%;
+}

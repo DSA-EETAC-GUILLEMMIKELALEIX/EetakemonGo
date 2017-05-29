@@ -1885,9 +1885,3 @@
 2017-05-25 13:54:37 INFO  DAO:42 - INFO: Logeado: a
 2017-05-25 13:54:37 INFO  DAO:25 - INFO: conexión creada
 2017-05-25 13:54:37 INFO  DAO:64 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@4a67cb4b: SELECT * FROM User WHERE email='a';
-2017-05-27 20:06:33 INFO  DAO:25 - INFO: conexión creada
-2017-05-27 20:06:33 INFO  DAO:42 - INFO: Logeado: a
-2017-05-27 20:06:33 INFO  DAO:25 - INFO: conexión creada
-2017-05-27 20:06:33 INFO  DAO:64 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@10f6ae7: SELECT * FROM User WHERE email='a';
-2017-05-27 20:06:37 INFO  DAO:25 - INFO: conexión creada
-2017-05-27 20:06:37 INFO  DAO:64 - INFO: Select captured: com.mysql.jdbc.JDBC4PreparedStatement@2f84dbd: SELECT eetakemon.id, eetakemon.nombre, relation.level FROM Eetakemon, Relation WHERE relation.idEetakemon=Eetakemon.id AND relation.idUser=1;

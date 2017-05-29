@@ -1,0 +1,96 @@
+/*body*/
+body {
+    margin: 0 auto;
+    background-image: url("../images/fondo.jpeg");
+    background-color: midnightblue;
+    background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-attachment: fixed
+}
+
+
+/*logo*/
+.logo {
+    text-align: center;
+    padding: 4% 2% 0px 2%;
+}
+
+.logo #logo-image{
+    width: 40%;
+    height: 20%;
+}
+
+/*form*/
+.login-page {
+    padding: 5% 0 0;
+    margin: auto;
+}
+.form {
+    position: relative;
+    z-index: 1;
+    max-width: 30%;
+    margin: 0 auto;
+    padding: 2%;
+    text-align: center;
+    font-size: 1.5em;
+    background: rgba(226, 228, 225, 0.65);
+    border-radius:10px;
+}
+.form input {
+    outline: 0;
+    width: 100%;
+    border: 0;
+    margin: 2% 0 0 0;
+    padding: 2%;
+    box-sizing: border-box;
+    border-radius:5px;
+    text-align: center;
+
+}
+.form button {
+    text-transform: uppercase;
+    outline: 0;
+    background: #FEFB5C;
+    width: 100%;
+    border: 0;
+    padding: 2%;
+    margin: 2% 0 0 0;
+    color: black;
+    cursor: pointer;
+    border-radius:5px;
+}
+.form button:hover,.form button:active{
+    background: #FFE500;
+}
+.form .message {
+    margin: 18px 0 0;
+}
+.form .message a {
+    color: black;
+    font-weight:bold;
+    font-size:22px;
+    text-decoration: none;
+}
+
+.form .message a:hover{
+    color:#7A7A7A;
+}
+
+.form .forget{
+
+    font-size: 15px;
+    color:#0431E5;
+    text-decoration: none;
+}
+
+.form .forget:hover{
+    color:#3A6EFD;
+}
+
+/*register*/
+.form .register-form {
+    display: none;
+}
+
