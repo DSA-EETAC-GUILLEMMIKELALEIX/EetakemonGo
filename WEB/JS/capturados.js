@@ -1,7 +1,7 @@
 var ctxPath = "http://localhost:8081/EetakemonGo/";
 
 function webEetacemon(idE) {
-    window.location.href="Eetakemon.html?idE="+ idE + "&page=1";
+    window.location.href="Eetakemon.html?idE="+ idE + "&page=2";
 }
 
 $(document).ready(function () {
@@ -17,7 +17,7 @@ $(document).ready(function () {
                 console.log(result);
                 $.each(result, function (i, obj) {
                     console.log((obj));
-                    $(".tabla-eetakemon").append("<tr class=\"eetakemon\" onclick='webEetacemon("+obj.id+")'>" +
+                    $(".tabla-eetakemon").append("<tr class=\"eetakemon\" onclick='webEetacemon("+obj.idEetakemon+")'>" +
                         "<td>" +
                         "<img src = \" /images/" + obj.name + ".png\" style=\"width:50px;height:50px;\" ' >" +
                         "</td>"+
