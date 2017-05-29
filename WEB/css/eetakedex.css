@@ -1,0 +1,30 @@
+#tabla{
+    padding: 2% 0 2% 0;
+}
+
+.tabla-eetakemon{
+    text-align:center;
+    font-size:20px;
+    width:55%;
+    margin:0 auto;
+    border-collapse:collapse;
+    border: 1px solid black;
+    padding: 2% 0 2% 0;
+}
+.tabla-eetakemon td{
+    padding: 15px 0 15px 0;
+}
+.tabla-eetakemon th{
+    padding: 15px 0 15px 0;
+    background: #777777;
+    color:white;
+}
+
+.tabla-eetakemon tr:nth-child(odd) {
+    background-color: #AFAFAF;
+}
+
+.tabla-eetakemon tr:hover{
+    cursor:pointer;
+    background-color: #F2F2F2;
+}

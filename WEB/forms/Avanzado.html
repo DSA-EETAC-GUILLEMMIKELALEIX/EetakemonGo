@@ -10,6 +10,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="../JS/avanzado.js"></script>
+		<script type="text/javascript" src="../js/general.js"></script>
 		
 		<style>
 			#avanzado{
@@ -28,12 +29,12 @@
 			<!--menu--------------------------------------------- -->
 			<nav class="menu">
 				<ul class="opciones-menu">
-					<li><a href="" class="opcion" id ="inicio" >INICIO</a></li>
-					<li><a href="" class="opcion"  id="eetakemons" onclick="webEetac()">Tus Eetakemon</a></li>
-					<li><a href="" class="opcion"  id="eetakedex" onclick="webEdex()">Eetakedex</a></li>
-					<li><a href="" class="opcion" id="configuracion" onclick="webConfig()">Configuración</a></li>
-					<li><a href="" class="opcion" id="avanzado">Avanzado</a></li>
-					<li><a href="" class="opcion" id="logout">LogOut</a></li>
+					<li><a href="Inicio.html" class="opcion" id ="inicio" >INICIO</a></li>
+					<li><a href="Capturados.html" class="opcion"  id="eetakemons" onclick="webEetac()">Tus Eetakemon</a></li>
+					<li><a href="Eetakedex.html" class="opcion"  id="eetakedex" onclick="webEdex()">Eetakedex</a></li>
+					<li><a href="Configuracion2.html" class="opcion" id="configuracion" onclick="webConfig()">Configuración</a></li>
+					<li><a href="#" class="opcion" id="avanzado">Avanzado</a></li>
+					<li><a href="#" class="opcion" id="logout">LogOut</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -43,23 +44,45 @@
 			<div class="menu-avanzado">
 				<ul class="opciones-avanzadas">
 					<li class="opcion-avanzada" id ="opcion-usuario">Usuario</li>
-					<li class="opcion-avanzada"  id="opcion-eetakemon" onclick="">Eetakemon</li>
+					<li class="opcion-avanzada"  id="opcion-eetakemon" >Eetakemon</li>
 				</ul>
 			</div>
 			<div class="opciones-usuario">
+				<div class="btn"><button type="button" class="button" id="add-usuario">Añadir Usuario</button></div>
 				<table class="tabla "id="tabla-usuarios">
-					<tr>
-						<th>ID</th>
-						<th>Nombre</th>
-						<th>Email</th>
-						<th>Contraseña</th>
-						<th>Admin</th>
-					</tr>
+					<thead class="cabezera-tabla">
+						<tr>
+							<th>ID</th>
+							<th>Nombre</th>
+							<th>Email</th>
+							<th>Admin</th>
+							<th>Editar</th>
+							<th>Borrar</th>
+						</tr>
+					</thead>
+
 				</table>
 			</div>
 			
 			<div class="opciones-eetakemon">
-				dgfgsdfgdsfgsdf
+				<div class="btn">
+					<button type="button" class="button" id="add-eetakemon" onclick="addEetakemon()">
+					Añadir Eetakemon
+					</button>
+				</div>
+				<table class="tabla" id="tabla-eetakemon">
+					<thead class="cabezera-tabla">
+					<tr>
+						<th>Imagen</th>
+						<th>ID</th>
+						<th>Nombre</th>
+						<th>Tipo</th>
+						<th>Nivel</th>
+						<th>Editar</th>
+						<th>Borrar</th>
+					<tr>
+					</thead>
+				</table>
 			</div>
 		</div>
 		
