@@ -1,7 +1,8 @@
 /*body*/
 body {
 	margin: 0 auto;
-	background-color:rgba(206, 206, 206,1);
+	/*background-color:rgba(206, 206, 206,1);*/
+	background-color: whitesmoke;
 	font-family: Arial;
 	overflow-y: scroll;
 }
@@ -21,7 +22,7 @@ body {
 .cabecera{
 	margin: 0 auto;
 	text-align: center;
-	background-color:rgba(206, 206, 206,1);
+	background-color: whitesmoke;
 	/*background:#C7C2C2;*/
 }
 
@@ -88,10 +89,12 @@ a.opcion{
 	text-decoration:none;
 }
 
+
+/*container*/
 .container{
 	width:100%;
 	margin-top:12%;
-	background-color:rgba(206, 206, 206, 0.9);
+	background-color:inherit;
 	text-align: center;
 }
 

@@ -50,7 +50,7 @@
 
 }
 
-.button-advanced{
+.button-add{
 	text-transform: uppercase;
 	outline: 0;
 	background: #FEFB5C;
@@ -63,7 +63,7 @@
 	border-radius:5px;
 }
 
-.button:hover{
+.button-add:hover{
 	background: #FFE500;
 }
 
@@ -74,7 +74,6 @@
 	margin:0 auto;
     width: 55%;
     border-collapse:collapse;
-    border: 1px solid black;
 }
 .tabla td{
     padding: 15px 0 15px 0;
