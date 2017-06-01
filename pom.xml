@@ -125,7 +125,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>Vista.Main</mainClass>
+                    <mainClass>View.Main</mainClass>
                 </configuration>
             </plugin>
         </plugins>

@@ -2452,17 +2452,3 @@
 2017-06-01 18:57:44 INFO  DAO:204 - INFO: Objeto no existente: dsad
 2017-06-01 18:57:44 INFO  DAO:25 - INFO: conexión creada
 2017-06-01 18:57:44 INFO  DAO:62 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@5adc76b: INSERT INTO Eetakemon (nombre,nivel,tipo,foto) VALUES ('dsad',32,'asd','C:\\fakepath\\Captura.JPG');
-2017-06-01 19:06:25 INFO  DAO:25 - INFO: conexión creada
-2017-06-01 19:06:25 INFO  DAO:42 - INFO: Logeado: b
-2017-06-01 19:06:25 INFO  DAO:25 - INFO: conexión creada
-2017-06-01 19:06:25 INFO  DAO:64 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@7f1ac6ed: SELECT * FROM User WHERE email='b';
-2017-06-01 19:06:28 INFO  DAO:25 - INFO: conexión creada
-2017-06-01 19:06:28 INFO  DAO:25 - INFO: conexión creada
-2017-06-01 19:06:28 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@78c712fd: SELECT * FROM Eetakemon;
-2017-06-01 19:06:28 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@19ecc270: SELECT * FROM User;
-2017-06-01 19:06:35 INFO  DAO:25 - INFO: conexión creada
-2017-06-01 19:06:35 INFO  DAO:123 - INFO: Select  by id statement: com.mysql.jdbc.JDBC4PreparedStatement@7a191b8: SELECT * FROM Eetakemon WHERE id=11;
-2017-06-01 19:06:35 INFO  DAO:25 - INFO: conexión creada
-2017-06-01 19:06:35 INFO  DAO:148 - INFO: Delete statement: com.mysql.jdbc.JDBC4PreparedStatement@71cf5fe3: DELETE FROM Eetakemon WHERE id=11;
-2017-06-01 19:06:36 INFO  DAO:25 - INFO: conexión creada
-2017-06-01 19:06:36 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@6339585f: SELECT * FROM Eetakemon;
