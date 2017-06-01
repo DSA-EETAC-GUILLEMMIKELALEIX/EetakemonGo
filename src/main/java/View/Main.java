@@ -1,4 +1,4 @@
-package Vista;
+package View;
 
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.grizzly.http.server.StaticHttpHandler;
