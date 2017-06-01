@@ -1,4 +1,4 @@
-package Modelo.Security;
+package Model.Security;
 
 import java.security.spec.KeySpec;
 import javax.crypto.Cipher;

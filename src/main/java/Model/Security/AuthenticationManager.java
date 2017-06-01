@@ -1,8 +1,8 @@
-package Modelo.Security;
+package Model.Security;
 
-import Modelo.Exceptions.UnauthorizedException;
-import Modelo.Exceptions.NotSuchPrivilegeException;
-import Modelo.User.User;
+import Model.Exceptions.UnauthorizedException;
+import Model.Exceptions.NotSuchPrivilegeException;
+import Model.User.User;
 import io.jsonwebtoken.*;
 
 import javax.ws.rs.core.HttpHeaders;

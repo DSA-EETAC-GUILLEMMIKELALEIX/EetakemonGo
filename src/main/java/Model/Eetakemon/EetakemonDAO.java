@@ -1,7 +1,7 @@
-package Modelo.Eetakemon;
+package Model.Eetakemon;
 
 
-import Modelo.DAO.DAO;
+import Model.DAO.DAO;
 
 import java.sql.*;
 import java.util.ArrayList;

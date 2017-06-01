@@ -1,4 +1,4 @@
-package Modelo.Relation;
+package Model.Relation;
 
 public class Relation extends RelationDAO{
     private int id;

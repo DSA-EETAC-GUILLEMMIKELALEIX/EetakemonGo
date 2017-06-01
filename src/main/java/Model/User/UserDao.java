@@ -1,6 +1,6 @@
-package Modelo.User;
+package Model.User;
 
-import Modelo.DAO.DAO;
+import Model.DAO.DAO;
 
 import java.sql.*;
 import java.util.List;

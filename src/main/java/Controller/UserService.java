@@ -1,11 +1,11 @@
-package Controlador;
+package Controller;
 
-import Modelo.Exceptions.NotSuchPrivilegeException;
-import Modelo.Exceptions.UnauthorizedException;
-import Modelo.Security.AuthenticationManager;
-import Modelo.Security.Verification;
-import Modelo.User.User;
-import Modelo.User.UserManager;
+import Model.Exceptions.NotSuchPrivilegeException;
+import Model.Exceptions.UnauthorizedException;
+import Model.Security.AuthenticationManager;
+import Model.Security.Verification;
+import Model.User.User;
+import Model.User.UserManager;
 
 import javax.inject.Singleton;
 import javax.ws.rs.*;

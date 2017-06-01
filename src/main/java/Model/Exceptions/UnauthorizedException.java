@@ -1,4 +1,4 @@
-package Modelo.Exceptions;
+package Model.Exceptions;
 
 
 public class UnauthorizedException extends Exception {

@@ -1,4 +1,4 @@
-package Modelo.DAO;
+package Model.DAO;
 
 import java.lang.reflect.*;
 import java.sql.*;

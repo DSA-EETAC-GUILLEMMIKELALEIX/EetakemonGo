@@ -1,6 +1,6 @@
-package Modelo.Relation;
+package Model.Relation;
 
-import Modelo.DAO.DAO;
+import Model.DAO.DAO;
 
 import java.sql.*;
 import java.util.ArrayList;

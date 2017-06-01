@@ -1,4 +1,4 @@
-package Modelo.User;
+package Model.User;
 
 public class User extends UserDao {
 

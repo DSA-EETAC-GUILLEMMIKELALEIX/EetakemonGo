@@ -1,18 +1,13 @@
 /**
  * Created by Mikel on 15/03/2017.
  */
-import Modelo.Eetakemon.Eetakemon;
-import Modelo.Eetakemon.EetakemonManager;
-import Modelo.Relation.Relation;
-import Modelo.Relation.RelationManager;
-import Modelo.User.User;
-import Modelo.User.UserManager;
+import Model.Eetakemon.Eetakemon;
+import Model.Eetakemon.EetakemonManager;
+import Model.User.User;
+import Model.User.UserManager;
 
 import org.junit.Before;
 import org.junit.After;
-import static org.junit.Assert.*;
-
-import java.util.List;
 
 
 public class Test {

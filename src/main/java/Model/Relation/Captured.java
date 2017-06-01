@@ -1,4 +1,4 @@
-package Modelo.Relation;
+package Model.Relation;
 
 
 public class Captured {

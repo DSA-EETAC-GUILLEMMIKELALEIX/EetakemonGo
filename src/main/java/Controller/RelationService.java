@@ -1,19 +1,17 @@
-package Controlador;
+package Controller;
 
-import Modelo.Exceptions.NotSuchPrivilegeException;
-import Modelo.Exceptions.UnauthorizedException;
-import Modelo.Relation.Captured;
-import Modelo.Relation.Relation;
-import Modelo.Relation.RelationManager;
+import Model.Exceptions.NotSuchPrivilegeException;
+import Model.Exceptions.UnauthorizedException;
+import Model.Relation.Captured;
+import Model.Relation.Relation;
+import Model.Relation.RelationManager;
 import javax.inject.Singleton;
 import javax.ws.rs.*;
-import javax.ws.rs.core.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 import javax.ws.rs.core.HttpHeaders;
-import java.util.ArrayList;
 import javax.ws.rs.core.GenericEntity;
 
 @Path("/Relation")

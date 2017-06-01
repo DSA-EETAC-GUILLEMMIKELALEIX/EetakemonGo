@@ -1,15 +1,14 @@
-package Controlador;
+package Controller;
 
-import Modelo.Eetakemon.Eetakemon;
-import Modelo.Eetakemon.EetakemonManager;
-import Modelo.Exceptions.NotSuchPrivilegeException;
-import Modelo.Exceptions.UnauthorizedException;
-import Modelo.Security.AuthenticationManager;
+import Model.Eetakemon.Eetakemon;
+import Model.Eetakemon.EetakemonManager;
+import Model.Exceptions.NotSuchPrivilegeException;
+import Model.Exceptions.UnauthorizedException;
+import Model.Security.AuthenticationManager;
 
 import javax.inject.Singleton;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
-import java.util.ArrayList;
 import java.util.List;
 import java.awt.image.BufferedImage;
 import java.io.*;

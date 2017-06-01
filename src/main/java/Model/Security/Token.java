@@ -1,11 +1,6 @@
-package Modelo.Security;
+package Model.Security;
 
-import Modelo.User.User;
-import javax.crypto.spec.SecretKeySpec;
-import javax.xml.bind.DatatypeConverter;
-import java.security.Key;
-import io.jsonwebtoken.*;
-import java.util.Date;
+import Model.User.User;
 
 public class Token {
 

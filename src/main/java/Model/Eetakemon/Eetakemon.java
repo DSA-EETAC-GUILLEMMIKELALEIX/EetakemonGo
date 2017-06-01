@@ -1,4 +1,4 @@
-package Modelo.Eetakemon;
+package Model.Eetakemon;
 
 // Clase que define y permite crear objetos Eetakemon
 public class Eetakemon extends EetakemonDAO{

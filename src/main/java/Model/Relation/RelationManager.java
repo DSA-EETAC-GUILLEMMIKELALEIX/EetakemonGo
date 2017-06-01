@@ -1,12 +1,11 @@
-package Modelo.Relation;
+package Model.Relation;
 
-import Modelo.Eetakemon.Eetakemon;
-import Modelo.Eetakemon.EetakemonManager;
-import Modelo.Exceptions.NotSuchPrivilegeException;
-import Modelo.Exceptions.UnauthorizedException;
-import Modelo.Security.AuthenticationManager;
-import Modelo.Security.Verification;
-import Modelo.Security.TrippleDes;
+import Model.Eetakemon.Eetakemon;
+import Model.Eetakemon.EetakemonManager;
+import Model.Exceptions.NotSuchPrivilegeException;
+import Model.Exceptions.UnauthorizedException;
+import Model.Security.AuthenticationManager;
+import Model.Security.Verification;
 import org.apache.log4j.Logger;
 
 import javax.ws.rs.core.HttpHeaders;
@@ -37,7 +36,7 @@ public class RelationManager {
         }
         return list;
     }
-    private final static Logger logger = Logger.getLogger(Modelo.Relation.RelationManager.class);//
+    private final static Logger logger = Logger.getLogger(Model.Relation.RelationManager.class);//
 
 
     public Captured getRelationById(int id, HttpHeaders header)throws UnauthorizedException{

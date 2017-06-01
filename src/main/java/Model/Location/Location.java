@@ -1,4 +1,4 @@
-package Modelo.Location;
+package Model.Location;
 
 public class Location {
 

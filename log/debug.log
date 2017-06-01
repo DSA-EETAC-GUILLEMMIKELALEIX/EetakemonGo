@@ -2494,3 +2494,21 @@
 2017-06-01 19:48:22 INFO  DAO:42 - INFO: Logeado: sx
 2017-06-01 19:48:22 INFO  DAO:25 - INFO: conexión creada
 2017-06-01 19:48:22 INFO  DAO:64 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@4790e5a: SELECT * FROM User WHERE email='sx';
+2017-06-01 20:25:17 INFO  DAO:25 - INFO: conexión creada
+2017-06-01 20:25:17 INFO  DAO:204 - INFO: Objeto no existente: pepe
+2017-06-01 20:25:17 INFO  DAO:25 - INFO: conexión creada
+2017-06-01 20:25:17 INFO  DAO:62 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@2156c82d: INSERT INTO User (nombre,contrasena,email,admin) VALUES ('pepe','/NkFWNcMxbc=','pepe',0);
+2017-06-01 20:25:18 INFO  DAO:25 - INFO: conexión creada
+2017-06-01 20:25:18 INFO  DAO:64 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@386a0e80: SELECT * FROM User WHERE email='pepe';
+2017-06-01 20:25:30 INFO  DAO:25 - INFO: conexión creada
+2017-06-01 20:25:30 INFO  DAO:42 - INFO: Logeado: pepe
+2017-06-01 20:25:30 INFO  DAO:25 - INFO: conexión creada
+2017-06-01 20:25:30 INFO  DAO:64 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@358c745f: SELECT * FROM User WHERE email='pepe';
+2017-06-01 20:25:33 INFO  DAO:25 - INFO: conexión creada
+2017-06-01 20:25:33 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@46ea1748: SELECT * FROM Eetakemon;
+2017-06-01 20:25:34 INFO  DAO:25 - INFO: conexión creada
+2017-06-01 20:25:34 INFO  DAO:64 - INFO: Select captured: com.mysql.jdbc.JDBC4PreparedStatement@55e96f7b: SELECT eetakemon.id, eetakemon.nombre, relation.level FROM Eetakemon, Relation WHERE relation.idEetakemon=Eetakemon.id AND relation.idUser=11;
+2017-06-01 20:26:06 INFO  DAO:25 - INFO: conexión creada
+2017-06-01 20:26:06 INFO  DAO:123 - INFO: Select  by id statement: com.mysql.jdbc.JDBC4PreparedStatement@4672106e: SELECT * FROM User WHERE id=11;
+2017-06-01 20:26:06 INFO  DAO:25 - INFO: conexión creada
+2017-06-01 20:26:06 INFO  DAO:101 - INFO: Update statement: com.mysql.jdbc.JDBC4PreparedStatement@2af1a6b0: UPDATE User SET nombre='pep',contrasena='/NkFWNcMxbc=',email='pepe',admin=0 WHERE id=11;

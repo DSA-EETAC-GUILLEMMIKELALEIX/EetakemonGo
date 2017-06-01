@@ -1,10 +1,10 @@
-package Modelo.User;
+package Model.User;
 
-import Modelo.Exceptions.NotSuchPrivilegeException;
-import Modelo.Exceptions.UnauthorizedException;
-import Modelo.Security.AuthenticationManager;
-import Modelo.Security.TrippleDes;
-import Modelo.Security.Verification;
+import Model.Exceptions.NotSuchPrivilegeException;
+import Model.Exceptions.UnauthorizedException;
+import Model.Security.AuthenticationManager;
+import Model.Security.TrippleDes;
+import Model.Security.Verification;
 import org.apache.log4j.Logger;
 
 import javax.mail.*;
