@@ -2127,3 +2127,9 @@
 2017-05-29 12:09:44 INFO  DAO:123 - INFO: Select  by id statement: com.mysql.jdbc.JDBC4PreparedStatement@61e10e83: SELECT * FROM Relation WHERE id=3;
 2017-05-29 12:09:44 INFO  DAO:25 - INFO: conexión creada
 2017-05-29 12:09:44 INFO  DAO:123 - INFO: Select  by id statement: com.mysql.jdbc.JDBC4PreparedStatement@46a9d8af: SELECT * FROM Eetakemon WHERE id=3;
+2017-05-29 12:36:45 INFO  DAO:25 - INFO: conexión creada
+2017-05-29 12:36:45 INFO  DAO:42 - INFO: Logeado: guillem@gmail.com
+2017-05-29 12:36:45 INFO  DAO:25 - INFO: conexión creada
+2017-05-29 12:36:45 INFO  DAO:64 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@7dbd4a75: SELECT * FROM User WHERE email='guillem@gmail.com';
+2017-06-01 19:26:40 INFO  DAO:25 - INFO: conexión creada
+2017-06-01 19:26:40 INFO  DAO:38 - INFO: No logeado: a
