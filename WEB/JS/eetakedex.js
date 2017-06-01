@@ -7,10 +7,6 @@ function webEetacemon(idE) {
 $(document).ready(function () {
 
 
-    <script>
-    showNavbar()
-
-    </script>
     $.ajax({
         type: 'GET',
         contentType: 'application/json',

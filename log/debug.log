@@ -2452,3 +2452,45 @@
 2017-06-01 18:57:44 INFO  DAO:204 - INFO: Objeto no existente: dsad
 2017-06-01 18:57:44 INFO  DAO:25 - INFO: conexión creada
 2017-06-01 18:57:44 INFO  DAO:62 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@5adc76b: INSERT INTO Eetakemon (nombre,nivel,tipo,foto) VALUES ('dsad',32,'asd','C:\\fakepath\\Captura.JPG');
+2017-06-01 19:36:17 INFO  DAO:25 - INFO: conexión creada
+2017-06-01 19:36:17 INFO  DAO:204 - INFO: Objeto no existente: sx
+2017-06-01 19:36:17 INFO  DAO:25 - INFO: conexión creada
+2017-06-01 19:36:17 INFO  DAO:62 - INFO: Insert statement: com.mysql.jdbc.JDBC4PreparedStatement@4f4e2632: INSERT INTO User (nombre,contrasena,email,admin) VALUES ('sx','gRucvRO8ASs=','sx',0);
+2017-06-01 19:36:18 INFO  DAO:25 - INFO: conexión creada
+2017-06-01 19:36:18 INFO  DAO:64 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@325fe78c: SELECT * FROM User WHERE email='sx';
+2017-06-01 19:36:25 INFO  DAO:25 - INFO: conexión creada
+2017-06-01 19:36:25 INFO  DAO:42 - INFO: Logeado: sx
+2017-06-01 19:36:25 INFO  DAO:25 - INFO: conexión creada
+2017-06-01 19:36:25 INFO  DAO:64 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@717098c4: SELECT * FROM User WHERE email='sx';
+2017-06-01 19:39:50 INFO  DAO:25 - INFO: conexión creada
+2017-06-01 19:39:50 INFO  DAO:42 - INFO: Logeado: sx
+2017-06-01 19:39:51 INFO  DAO:25 - INFO: conexión creada
+2017-06-01 19:39:51 INFO  DAO:64 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@7b4e6671: SELECT * FROM User WHERE email='sx';
+2017-06-01 19:39:59 INFO  DAO:25 - INFO: conexión creada
+2017-06-01 19:39:59 INFO  DAO:64 - INFO: Select captured: com.mysql.jdbc.JDBC4PreparedStatement@665a59fe: SELECT eetakemon.id, eetakemon.nombre, relation.level FROM Eetakemon, Relation WHERE relation.idEetakemon=Eetakemon.id AND relation.idUser=10;
+2017-06-01 19:40:01 INFO  DAO:25 - INFO: conexión creada
+2017-06-01 19:40:01 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@e0b2e0e: SELECT * FROM Eetakemon;
+2017-06-01 19:40:10 INFO  DAO:25 - INFO: conexión creada
+2017-06-01 19:40:10 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@7f67c037: SELECT * FROM Eetakemon;
+2017-06-01 19:43:10 INFO  DAO:25 - INFO: conexión creada
+2017-06-01 19:43:10 INFO  DAO:42 - INFO: Logeado: sx
+2017-06-01 19:43:10 INFO  DAO:25 - INFO: conexión creada
+2017-06-01 19:43:10 INFO  DAO:64 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@2156c82d: SELECT * FROM User WHERE email='sx';
+2017-06-01 19:43:14 INFO  DAO:25 - INFO: conexión creada
+2017-06-01 19:43:14 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@67157bff: SELECT * FROM Eetakemon;
+2017-06-01 19:44:28 INFO  DAO:25 - INFO: conexión creada
+2017-06-01 19:44:28 INFO  DAO:42 - INFO: Logeado: sx
+2017-06-01 19:44:28 INFO  DAO:25 - INFO: conexión creada
+2017-06-01 19:44:28 INFO  DAO:64 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@7b4e6671: SELECT * FROM User WHERE email='sx';
+2017-06-01 19:44:34 INFO  DAO:25 - INFO: conexión creada
+2017-06-01 19:44:34 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@1a791501: SELECT * FROM Eetakemon;
+2017-06-01 19:47:48 INFO  DAO:25 - INFO: conexión creada
+2017-06-01 19:47:48 INFO  DAO:42 - INFO: Logeado: sx
+2017-06-01 19:47:48 INFO  DAO:25 - INFO: conexión creada
+2017-06-01 19:47:48 INFO  DAO:64 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@651417f0: SELECT * FROM User WHERE email='sx';
+2017-06-01 19:47:54 INFO  DAO:25 - INFO: conexión creada
+2017-06-01 19:47:54 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@180b2df2: SELECT * FROM Eetakemon;
+2017-06-01 19:48:22 INFO  DAO:25 - INFO: conexión creada
+2017-06-01 19:48:22 INFO  DAO:42 - INFO: Logeado: sx
+2017-06-01 19:48:22 INFO  DAO:25 - INFO: conexión creada
+2017-06-01 19:48:22 INFO  DAO:64 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@4790e5a: SELECT * FROM User WHERE email='sx';
