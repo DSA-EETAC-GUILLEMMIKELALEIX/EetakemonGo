@@ -2546,3 +2546,5 @@
 2017-06-01 22:58:30 INFO  DAO:25 - INFO: conexión creada
 2017-06-01 22:58:30 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@43b47251: SELECT * FROM Eetakemon;
 2017-06-01 22:58:30 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@5b1e96bb: SELECT * FROM User;
+2017-06-01 23:00:08 INFO  DAO:25 - INFO: conexión creada
+2017-06-01 23:00:08 INFO  DAO:38 - INFO: No logeado: trrt
