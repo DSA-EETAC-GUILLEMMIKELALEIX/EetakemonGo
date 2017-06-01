@@ -25,7 +25,9 @@ function deleteUser (id){
         statusCode: {
             200: function () {
                 alert("Usuario eliminado"); //alerta
-                location.reload();
+                //location.reload();
+                $(".usuario").remove();
+                loadUserTable();
             },
             401: function () {
                 alert("No autorizado");
@@ -50,7 +52,10 @@ function deleteEetakemon (id){
         statusCode: {
             200: function () {
                 alert("Eetakemon eliminado"); //alerta
-                location.reload();
+                //location.reload();
+                $(".eetakemon").remove();
+                loadEetakemonTable();
+
             },
             202: function () {
                 alert("No se ha podido eliminar el Eetakemon"); //alerta
@@ -72,9 +77,7 @@ if (sessionStorage.getItem("Admin")!=1){
     window.location.replace("inicio.html");
 }
 
-$(document).ready(function(){
-    $("#opcion-usuario").css({"background-color": "#636363","color":"white"});
-
+function loadUserTable() {
     //load users table
     $.ajax({
         type: 'GET',
@@ -109,7 +112,9 @@ $(document).ready(function(){
             }
         }
     });
+}
 
+function loadEetakemonTable(){
     //load eetakemon table
     $.ajax({
         type: 'GET',
@@ -124,7 +129,7 @@ $(document).ready(function(){
                     $("#tabla-eetakemon").append("<tr class=\"eetakemon\">" +
                         "<td>" +
                         "<img src = \" /images/" + obj.nombre + ".png\" style=\"width:50px;height:50px;\" ' >" +
-                            "</td>"+
+                        "</td>"+
                         "<td>" +obj.id+ "</td>"+
                         "<td>" +obj.nombre+ "</td>"+
                         "<td>" +obj.tipo+ "</td>"+
@@ -144,6 +149,14 @@ $(document).ready(function(){
             }
         }
     });
+
+}
+
+$(document).ready(function(){
+    $("#opcion-usuario").css({"background-color": "#636363","color":"white"});
+
+    loadUserTable();
+    loadEetakemonTable();
 
     //change user-eetakemon options
     $('#opcion-usuario').click(function(){
