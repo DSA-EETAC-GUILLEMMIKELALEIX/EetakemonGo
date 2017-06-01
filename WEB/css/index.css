@@ -94,3 +94,8 @@ body {
     display: none;
 }
 
+/*alert*/
+.alert{
+    display:none;
+}
+

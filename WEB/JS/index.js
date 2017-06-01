@@ -22,10 +22,13 @@ function saveAdminID(decoded){
 
 $(document).ready(function(){
     $('.registrarse, .entrar').click(function(){;
-        $('.login-form, .register-form').toggle();
+        $('.login-form, .register-form').slideToggle();//animate({height: "toggle", opacity: "toggle"});
+        //$('.login-form, .register-form').toggle();
     });
 
+
     $("#login-btn").click(function (){
+        $(this).prop('disabled', true);
         var email= $("#email1").val();
         var password= $("#pass1").val();
         if(email==="" || password===""){
@@ -35,10 +38,10 @@ $(document).ready(function(){
                else
                    $(this).css({"border":"none"});
             });
+            $(this).prop('disabled', false);
         }
         else {
             var o = {"email": email, "contrasena": password};
-            console.log(o);
             $.ajax({
                 type: "POST",
                 url: ctxPath + "User/Login",
@@ -55,13 +58,19 @@ $(document).ready(function(){
                     },
                     401: function(){
                         alert("Error al loguearse"); //alerta
+
                     }
+                },
+                complete: function (result) {
+                    $("#login-btn").prop('disabled', false);
                 }
             })
         }
+
     });
 
     $("#register-btn").click(function (){
+        $("#register-btn").prop('disabled', true);
         var name= $("#name").val();
         var password= $("#pass2").val();
         var email= $("#email2").val();
@@ -72,6 +81,7 @@ $(document).ready(function(){
                 else
                     $(this).css({"border":"none"});
             });
+            $(this).prop('disabled', false);
         }else {
             var o = {"nombre": name, "contrasena": password, "email": email};
             console.log(o);
@@ -86,7 +96,7 @@ $(document).ready(function(){
                         //window.location.href= "../index.html";
                         $(".register-form input").val("")
                         $('.login-form, .register-form').toggle();
-                        alert("Registrado");
+                        $('.alert').slideToggle();
                     },
                     202: function(){
                         alert("Usuario ya utilizado");//alerta
@@ -94,8 +104,12 @@ $(document).ready(function(){
                     400: function(){
                         alert("Error al registrarse: petición errónea");//alerta
                     },
+                },
+                complete: function (result) {
+                    $("#register-btn").prop('disabled', false);
                 }
             })
         }
+
     });
 });
