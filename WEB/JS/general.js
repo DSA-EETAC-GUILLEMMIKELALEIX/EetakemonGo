@@ -1,11 +1,19 @@
 function hideAlert() {
     setTimeout(function() {
         $(".alert").slideToggle();
-    },3000);
+    },2200);
 }
 
 function setAlertMessage(message, type){
     $(".alert-message").append("<p class=\""+type+"\" id=\"writed-message\" \" >"+message+"</p>");
+}
+
+function loadMenu(){
+    $(".menu").load("../forms/Menu.html")
+}
+
+function loadAdminMenu(){
+    $(".menu").load("../forms/AdminMenu.html")
 }
 
 window.onload=function adminConfig(){
@@ -16,9 +24,10 @@ window.onload=function adminConfig(){
     }
     if(sessionStorage.getItem("Admin")!=1){
         /*$("#avanzado#).css({"display":"none"});*/
-        $("#avanzado").hide();
+        loadMenu();
     }
     else{
+        loadAdminMenu();
     }
 
     $("#logout").click(function(){
