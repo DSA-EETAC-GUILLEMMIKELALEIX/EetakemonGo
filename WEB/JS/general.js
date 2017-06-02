@@ -1,3 +1,13 @@
+function hideAlert() {
+    setTimeout(function() {
+        $(".alert").slideToggle();
+    },3000);
+}
+
+function setAlertMessage(message, type){
+    $(".alert-message").append("<p class=\""+type+"\" id=\"writed-message\" \" >"+message+"</p>");
+}
+
 window.onload=function adminConfig(){
     if(sessionStorage.getItem("ID")==null)
     {

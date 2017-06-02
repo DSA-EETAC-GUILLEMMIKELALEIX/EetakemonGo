@@ -11,7 +11,7 @@ body {
 	margin: 0 auto;
 	width: 100%;
 	top:0;
-	z-index:9999;
+	z-index:99;
 	position:fixed;
 	left: 0;
 	right: 0;
@@ -100,4 +100,34 @@ a.opcion{
 
 .container table tr{
 	border-radius:5px;
+}
+
+.alert{
+	position:fixed;
+	top:1%;
+	z-index: 100;
+	width: 100%;
+	display:none;
+
+
+}
+.alert p{
+	margin: 0 auto;
+	border-radius: 5px;
+	padding: 1% 0 1% 0;
+	width: 25%;
+	font-size:20px;
+
+}
+
+.alert-success {
+	color: #3c763d;
+	background-color: #dff0d8;
+	border-color: #d6e9c6;
+}
+
+.alert-error{
+	color: black;
+	background-color: firebrick;
+	border-color: red;
 }

@@ -62,7 +62,7 @@ $(document).ready(function() {
                             });
                         }
                         alert("Eetakemon creado"); //alerta
-                        window.location.replace("./Add-Eetakemon.html");
+                        //window.location.replace("./Add-Eetakemon.html");
                     },
                     202: function () {
                         alert("Eetakemon ya existente"); //alerta

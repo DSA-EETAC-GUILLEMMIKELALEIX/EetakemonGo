@@ -24,7 +24,11 @@ function deleteUser (id){
         headers: {"Authorization": "Bearer " + sessionStorage.getItem("Token")},
         statusCode: {
             200: function () {
-                alert("Usuario eliminado"); //alerta
+                //alert("Usuario eliminado"); //alerta
+                $("#writed-message").remove();
+                setAlertMessage("Usuario eliminado","alert-success");
+                $(".alert").slideToggle();
+                hideAlert();
                 //location.reload();
                 $(".usuario").remove();
                 loadUserTable();
@@ -51,7 +55,10 @@ function deleteEetakemon (id){
         headers: {"Authorization": "Bearer " + sessionStorage.getItem("Token")},
         statusCode: {
             200: function () {
-                alert("Eetakemon eliminado"); //alerta
+                $("#writed-message").remove();
+                setAlertMessage("Eetakemon eliminado","alert-success");
+                $(".alert").slideToggle();
+                hideAlert();
                 //location.reload();
                 $(".eetakemon").remove();
                 loadEetakemonTable();
