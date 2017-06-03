@@ -1,8 +1,12 @@
 /*body*/
 body {
 	margin: 0 auto;
-	/*background-color:rgba(206, 206, 206,1);*/
-	background-color: whitesmoke;
+	background-image: url("../images/fondo.jpeg");
+	background-size: cover;
+	-moz-background-size: cover;
+	-webkit-background-size: cover;
+	-o-background-size: cover;
+	background-attachment: fixed
 	font-family: Arial;
 	overflow-y: scroll;
 }
