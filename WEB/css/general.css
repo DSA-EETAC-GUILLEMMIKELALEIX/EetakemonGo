@@ -1,9 +1,35 @@
-/*body*/
+
+@import url(http://fonts.googleapis.com/css?family=Pacifico);
+@import url(http://fonts.googleapis.com/css?family=Damion);
+
+.pacifico, .damion {
+	margin-bottom: 20px;
+}
+
+.pacifico {
+	font-family: "Pacifico";
+	font-size: 30px;
+	font-weight:200;
+}
+
+.padding {
+	padding-left: 10px;
+}
+
+.damion {
+	font-family: "Damion";
+	font-size: 30px;
+	font-weight:200;
+}
+
 body {
 	margin: 0 auto;
-	/*background-color:rgba(206, 206, 206,1);*/
-	background-color: whitesmoke;
-	font-family: Arial;
+	background-image: url("../images/Background.jpg");
+	background-size: cover;
+	-moz-background-size: cover;
+	-webkit-background-size: cover;
+	-o-background-size: cover;
+	background-attachment: fixed
 	overflow-y: scroll;
 }
 
