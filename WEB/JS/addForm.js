@@ -68,7 +68,7 @@ $(document).ready(function() {
                             });
                         }
                         alert("Eetakemon creado"); //alerta
-                        //window.location.replace("./Avanzado.html");
+                        //window.location.replace("./Advanced.html");
                     },
                     202: function () {
                         alert("Eetakemon ya existente"); //alerta
@@ -111,7 +111,7 @@ $(document).ready(function() {
                 statusCode: {
                     201: function () {
                         alert("Usuario creado"); //alerta
-                        //window.location.replace("./Avanzado.html");
+                        //window.location.replace("./Advanced.html");
                     },
                     202: function () {
                         alert("Usuario ya existente"); //alerta
