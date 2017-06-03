@@ -1,13 +1,33 @@
-/*body*/
+
+@import url(http://fonts.googleapis.com/css?family=Pacifico);
+@import url(http://fonts.googleapis.com/css?family=Damion);
+
+.pacifico, .damion {
+	margin-bottom: 20px;
+}
+
+.pacifico {
+	font-family: "Pacifico";
+	font-size: 30px;
+}
+
+.padding {
+	padding-left: 10px;
+}
+
+.damion {
+	font-family: "Damion";
+	font-size: 30px;
+}
+
 body {
 	margin: 0 auto;
-	background-image: url("../images/fondo.jpeg");
+	background-image: url("../images/Background.jpg");
 	background-size: cover;
 	-moz-background-size: cover;
 	-webkit-background-size: cover;
 	-o-background-size: cover;
 	background-attachment: fixed
-	font-family: Arial;
 	overflow-y: scroll;
 }
 
