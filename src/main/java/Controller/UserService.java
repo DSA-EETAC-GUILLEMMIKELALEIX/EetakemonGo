@@ -55,6 +55,28 @@ public class UserService {
         }
     }
 
+    @POST
+    @Path("/new")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response addUser(@Context HttpHeaders header, User user) {
+        int code;
+        try {
+            code = manager.addUser(header, user);
+            if (code == 0) {
+                return Response.status(Response.Status.CREATED).entity("User added").build();//201
+            } else if (code == 1) {
+                return Response.status(Response.Status.ACCEPTED).entity("User already exists").build();///202
+            } else {
+                return Response.status(Response.Status.BAD_REQUEST).entity("Bad request").build();//400
+            }
+        }catch(UnauthorizedException ex){
+            return Response.status(Response.Status.UNAUTHORIZED).entity("Unauthorized").build();//401
+
+        }catch(NotSuchPrivilegeException ex){
+            return Response.status(Response.Status.FORBIDDEN).entity("Forbidden").build();//403
+        }
+    }
+
     //modificar user
     @POST
     @Path("/{id}")

@@ -12,8 +12,14 @@ function imagePreview() {
 }
 
 $(document).ready(function() {
+
+    if (sessionStorage.getItem("Admin")!=1){
+        alert("No tiene suficientes permisos para entrar aqui");
+        window.location.replace("inicio.html");
+    }
+
     var ctxPath = "http://localhost:8081/EetakemonGo/";
-    $("#btn1").click(function () {
+    $("#add-eetakemon").click(function () {
         var name = $("#nombre").val();
         var tipo = $("#tipo").val();
         var nivel = $("#nivel").val();
@@ -62,10 +68,53 @@ $(document).ready(function() {
                             });
                         }
                         alert("Eetakemon creado"); //alerta
-                        //window.location.replace("./Add-Eetakemon.html");
+                        //window.location.replace("./Avanzado.html");
                     },
                     202: function () {
                         alert("Eetakemon ya existente"); //alerta
+                    },
+                    401: function () {
+                        alert("No autorizado");
+                        sessionStorage.clear();
+                        window.location.replace("../index.html");
+                    },
+                    403: function () {
+                        alert("No tiene permisos suficientes"); //alerta
+                    }
+                }
+            });
+        }
+    });
+    $("#add-user").click(function () {
+        var name = $("#nombre").val();
+        var email = $("#email").val();
+        var password = $("#password").val();
+        var admin = $('#admin').val();
+        if(name==="" || email==="" || password===""){
+            $(".add-form input").each(function () {
+                if($(this).val()==="")
+                    $(this).css({"border":"1.2px solid red"});
+                else
+                    $(this).css({"border":"none"});
+            });
+        }
+        else {
+            var o = {"nombre": name, "email": email, "contrasena": password, "admin": admin};
+            console.log(o);
+            $.ajax({
+                type: "POST",
+                url: ctxPath + "User/new",
+                contentType: "application/json",
+                dataType: "json",
+                data: JSON.stringify(o),
+                headers: {"Authorization": "Bearer " + sessionStorage.getItem("Token")},
+                statusCode: {
+                    201: function () {
+                        alert("Usuario creado"); //alerta
+                        //window.location.replace("./Avanzado.html");
+                    },
+                    202: function () {
+                        alert("Usuario ya existente"); //alerta
                     },
                     401: function () {
                         alert("No autorizado");

@@ -60,21 +60,63 @@ public class UserManager {
     public int register(User user){
         boolean a=false,b=true;
         int code;
-        a=checkNullFields(user);
-        if(!a) {
-            b = user.checkUserExistent(user.getEmail());
-            if (!b) {
-                user.setAdmin(0);
-                String encriptedpass = td.encrypt(user.getContrasena());
-                user.setContrasena(encriptedpass);
-                user.insertUser();
-                user.selectUserByMail(user.getEmail());
-                code=0;
+            a = checkNullFields(user);
+            if (!a) {
+                b = user.checkUserExistent(user.getEmail());
+                if (!b) {
+                    user.setAdmin(0);
+                    String encriptedpass = td.encrypt(user.getContrasena());
+                    user.setContrasena(encriptedpass);
+                    user.insertUser();
+                    user.selectUserByMail(user.getEmail());
+                    code = 0;
+                } else {
+                    code = 1;
+                }
+            } else {
+                code = 2;
             }
-            else{
-                code=1;
+        return code;
+    }
+
+    /*
+    Funcion registrarse
+    code 0 = registrado
+    code 1 = usuario ya utilizado
+    code 2 = bad request
+     */
+    public int addUser(HttpHeaders header, User user)throws UnauthorizedException, NotSuchPrivilegeException{
+        boolean a=false,b=true;
+        int code=2;
+        Verification v = new Verification();
+        try {
+            authManager.verify(header,v);
+            authManager.verifyAdmin(v);
+            a = checkNullFields(user);
+            if (!a) {
+                b = user.checkUserExistent(user.getEmail());
+                if (!b) {
+                    String encriptedpass = td.encrypt(user.getContrasena());
+                    user.setContrasena(encriptedpass);
+                    user.insertUser();
+                    user.selectUserByMail(user.getEmail());
+                    code = 0;
+                } else {
+                    code = 1;
+                }
+            } else {
+                code = 2;
             }
-        }else{code=2;}
+        }catch (UnauthorizedException ex) {
+            throw new UnauthorizedException("Unauthorized: user is not authorized");
+
+        }catch (NotSuchPrivilegeException ex){
+            throw new NotSuchPrivilegeException("Forbidden: User has not privileges");
+
+        }catch(Exception e){
+            logger.info("INFO: error al modificar usuario");
+            a=false;
+        }
 
         return code;
     }

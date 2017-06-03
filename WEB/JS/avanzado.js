@@ -13,6 +13,9 @@ function admin (admin){
 function addEetakemon (){
     window.location.href="./Add-Eetakemon.html";
 }
+function addUser (){
+    window.location.href="./Add-User.html";
+}
 
 function deleteUser (id){
     $.ajax({
@@ -77,11 +80,6 @@ function deleteEetakemon (id){
             }
         }
     })
-}
-
-if (sessionStorage.getItem("Admin")!=1){
-    alert("No tiene suficientes permisos para entrar aqui");
-    window.location.replace("inicio.html");
 }
 
 function loadUserTable() {
@@ -160,6 +158,11 @@ function loadEetakemonTable(){
 }
 
 $(document).ready(function(){
+    if (sessionStorage.getItem("Admin")!=1){
+        alert("No tiene suficientes permisos para entrar aqui");
+        window.location.replace("inicio.html");
+    }
+
     $("#opcion-usuario").css({"background-color": "#636363","color":"white"});
 
     loadUserTable();

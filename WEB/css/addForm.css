@@ -26,7 +26,7 @@
     border: 0;
     padding: 2%;
     box-sizing: border-box;
-    font-size: 15px;
+    font-size: 20px;
     border-radius:5px;
     text-align:center;
 
@@ -50,7 +50,7 @@
     background: #FFE500;
 }
 
-.form .message{
+.message{
     margin: 2% ;
     color: black;
     font-size:20px;
@@ -61,4 +61,11 @@
     text-align: center;
     max-width:20%;
     max-height:20%;
+}
+
+#admin{
+    font-size:20px;
+    margin: 0 auto;
+    border-radius: 5px;
+    margin: 0 30% 0 30%;
 }

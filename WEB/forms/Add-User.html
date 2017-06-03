@@ -27,18 +27,20 @@
     <div class="container">
         <div class="page">
             <div class="form">
-                <p class="title">Añadir Eetakemon</p>
+                <p class="title">Añadir Usuario</p>
                 <div class="add-form">
                     <p   class="message">Nombre</p>
                     <input id="nombre" type="text" class="element" />
-                    <p   class="message">Tipo</p>
-                    <input id="tipo" type="text" class="element" />
-                    <p   class="message">Nivel</p>
-                    <input id="nivel" type="number" class="element" />
-                    <p   class="message">Imagen</p>
-                    <input id="imagen" type="file" name="imageInput" accept="image/*" onchange="imagePreview()">
-                    <div id=image-preview"><img  id="preview" src="" width="100px" height="100px" alt="Image preview..."></div>
-                    <button id="add-eetakemon">Añadir</button>
+                    <p   class="message">Correo</p>
+                    <input id="email" type="text" class="element" />
+                    <p   class="message">Conrtaseña</p>
+                    <input id="password" type="text" class="element" />
+                    <p   class="message">Admin</p>
+                    <select id="admin">
+                        <option value="0">NO</option>
+                        <option value="1">SI</option>
+                    </select>
+                    <button id="add-user">Añadir</button>
                 </div>
             </div>
         </div>

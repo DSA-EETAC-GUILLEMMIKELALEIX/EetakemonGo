@@ -16,7 +16,12 @@ function loadAdminMenu(){
     $(".menu").load("../forms/AdminMenu.html")
 }
 
-window.onload=function adminConfig(){
+function logout() {
+    sessionStorage.clear();
+    window.location.replace("../index.html");
+}
+
+window.onload=function (){
     if(sessionStorage.getItem("ID")==null)
     {
         sessionStorage.clear();

@@ -19,6 +19,30 @@
 				color:yellow;
 			}
 		</style>
+		<!--<script>
+            function loadAdminMenu(){
+                $(".menu").load("../forms/AdminMenu.html")
+            }
+            function hideAlert() {
+                setTimeout(function() {
+                    $(".alert").slideToggle();
+                },2000);
+            }
+
+            function setAlertMessage(message, type){
+                $(".alert-message").append("<p class=\""+type+"\" id=\"writed-message\" \" >"+message+"</p>");
+            }
+			$(document).ready(function () {
+				loadAdminMenu();
+
+				$(".opcion-avanzada").click(function () {
+                    $("#writed-message").remove();
+                    setAlertMessage("Usuario eliminado","alert-success");
+                    $(".alert").slideToggle();
+                    hideAlert();
+                });
+            });
+		</script>-->
 	</head>
 	
 	<body>
@@ -38,7 +62,10 @@
 				</ul>
 			</div>
 			<div class="opciones-usuario">
-				<div class="btn"><button type="button" class="button-add" id="add-usuario">Añadir Usuario</button></div>
+				<div class="btn"><button type="button" class="button-add" id="add-usuario" onclick="addUser()">
+					Añadir Usuario
+					</button>
+				</div>
 				<table class="tabla "id="tabla-usuarios">
 					<thead class="cabezera-tabla">
 						<tr>
