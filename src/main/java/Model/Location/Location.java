@@ -7,9 +7,10 @@ public class Location {
     private double latitud;
     private double longitud;
 
-    public Location(String nombre, double latitud, double longitud)
+    public Location(){}
+
+    public Location(double latitud, double longitud)
     {
-        this.nombre = nombre;
         this.latitud = latitud;
         this.longitud = longitud;
     }

@@ -8,6 +8,7 @@ import org.apache.log4j.Logger;
 
 import javax.ws.rs.core.HttpHeaders;
 import java.util.List;
+import java.util.Random;
 
 
 public class EetakemonManager {
@@ -91,7 +92,7 @@ public class EetakemonManager {
     }
 
     //falta acabar
-    public Eetakemon getEetakemonByType(HttpHeaders header,String tipo) throws UnauthorizedException{
+    public Eetakemon getEetakemonByTypeeee(HttpHeaders header,String tipo) throws UnauthorizedException{
         List<Eetakemon> list;
         Eetakemon e = new Eetakemon();
         Verification v = new Verification();
@@ -106,4 +107,27 @@ public class EetakemonManager {
         return e;
     }
 
+    //falta acabar
+    public Eetakemon getEetakemonByType(String tipo){
+        List<Eetakemon> list;
+        Eetakemon e = new Eetakemon();
+        System.out.println("tipo: "+tipo);
+
+        list = new Eetakemon().getByType(tipo);
+
+
+        Random rand = new Random();
+        int a = list.size();
+        System.out.println("AAAAA: "+a);
+        int n = rand.nextInt(a);
+        e=list.get(n);
+        System.out.println("ddddd:" + e);
+        return e;
+    }
+
+    public List listAllEetakemon(){
+        List<Eetakemon> list;
+        list = new Eetakemon().findAllEetakemons();
+        return list;
+    }
 }
