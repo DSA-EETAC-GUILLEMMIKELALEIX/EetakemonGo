@@ -23,6 +23,7 @@ import javax.imageio.ImageIO;
 public class EetakemonService {
     private EetakemonManager manager;
     private AuthenticationManager authManager;
+    private LocationManager locManager;
 
     public EetakemonService() {
         manager= new EetakemonManager();
@@ -182,7 +183,7 @@ public class EetakemonService {
             e = manager.getEetakemonByType("Inferior");
             capt.setNombre(e.getNombre());
             capt.setTipo(e.getTipo());
-            //loc = locat();  Locat es una funcio del LocationManager
+            loc = locManager.locat();
             capt.setLatLong(loc);
             System.out.println(e);
             liste.add(i, capt);
@@ -190,7 +191,7 @@ public class EetakemonService {
         e = manager.getEetakemonByType("Normal");
         capt.setNombre(e.getNombre());
         capt.setTipo(e.getTipo());
-        //loc = locat();  Locat es una funcio del LocationManager
+        loc = locManager.locat();
         capt.setLatLong(loc);
         System.out.println(e);
         liste.add(capt);
@@ -198,7 +199,7 @@ public class EetakemonService {
         e = manager.getEetakemonByType("Legendario");
         capt.setNombre(e.getNombre());
         capt.setTipo(e.getTipo());
-        //loc = locat();   Locat es una funcio del LocationManager
+        loc = locManager.locat();
         capt.setLatLong(loc);
         System.out.println(e);
         liste.add(capt);
