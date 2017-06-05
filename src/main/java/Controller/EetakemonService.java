@@ -6,8 +6,9 @@ import Model.Eetakemon.EetakemonManager;
 import Model.Exceptions.NotSuchPrivilegeException;
 import Model.Exceptions.UnauthorizedException;
 import Model.Location.Location;
-import Model.Security.AuthenticationManager;
 import Model.Location.LocationManager;
+import Model.Security.AuthenticationManager;
+
 import javax.inject.Singleton;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
@@ -22,7 +23,6 @@ import javax.imageio.ImageIO;
 public class EetakemonService {
     private EetakemonManager manager;
     private AuthenticationManager authManager;
-    private LocationManager locManager;
 
     public EetakemonService() {
         manager= new EetakemonManager();
@@ -182,7 +182,6 @@ public class EetakemonService {
             e = manager.getEetakemonByType("Inferior");
             capt.setNombre(e.getNombre());
             capt.setTipo(e.getTipo());
-            loc = locManager.locat();
             //loc = locat();  Locat es una funcio del LocationManager
             capt.setLatLong(loc);
             System.out.println(e);
@@ -191,7 +190,6 @@ public class EetakemonService {
         e = manager.getEetakemonByType("Normal");
         capt.setNombre(e.getNombre());
         capt.setTipo(e.getTipo());
-        loc = locManager.locat();
         //loc = locat();  Locat es una funcio del LocationManager
         capt.setLatLong(loc);
         System.out.println(e);
@@ -200,7 +198,6 @@ public class EetakemonService {
         e = manager.getEetakemonByType("Legendario");
         capt.setNombre(e.getNombre());
         capt.setTipo(e.getTipo());
-        loc = locManager.locat();
         //loc = locat();   Locat es una funcio del LocationManager
         capt.setLatLong(loc);
         System.out.println(e);
