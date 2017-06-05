@@ -2,26 +2,7 @@
 @import url(http://fonts.googleapis.com/css?family=Pacifico);
 @import url(http://fonts.googleapis.com/css?family=Damion);
 
-.pacifico, .damion {
-	margin-bottom: 20px;
-}
-
-.pacifico {
-	font-family: "Pacifico";
-	font-size: 30px;
-	font-weight:200;
-}
-
-.padding {
-	padding-left: 10px;
-}
-
-.damion {
-	font-family: "Damion";
-	font-size: 30px;
-	font-weight:200;
-}
-
+/*body*/
 body {
 	margin: 0 auto;
 	background-image: url("../images/Background.jpg");
@@ -29,24 +10,19 @@ body {
 	-moz-background-size: cover;
 	-webkit-background-size: cover;
 	-o-background-size: cover;
-	background-attachment: fixed
+	background-attachment: fixed;
 	overflow-y: scroll;
 }
 
+/*MENU*/
 .logo{
-	width: 18%;
-	height: 9%;
-	padding:2%;
-}
-
-.logoo{
 	margin:0;
 	padding: 0;
 	heigh:68px;
 	width: 80px;
 }
 
-/*MENU*/
+
 .menu{
 	position:fixed;
 	margin: 0 auto;
@@ -110,7 +86,6 @@ a.opcion{
 .container{
 	width:100%;
 	margin-top:90px;
-	background-color:inherit;
 	text-align: center;
 }
 
@@ -148,4 +123,26 @@ a.opcion{
 	color: #a94442;
 	background-color: #FCB4B4;
 	border-color: #ebccd1;
+}
+
+/*fonts*/
+
+.pacifico, .damion {
+	margin-bottom: 20px;
+}
+
+.pacifico {
+	font-family: "Pacifico";
+	font-size: 30px;
+	font-weight:200;
+}
+
+.padding {
+	padding-left: 10px;
+}
+
+.damion {
+	font-family: "Damion";
+	font-size: 30px;
+	font-weight:200;
 }
