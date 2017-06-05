@@ -198,7 +198,7 @@ public class EetakemonService {
         e = manager.getEetakemonByType("Legendario");
         capt.setNombre(e.getNombre());
         capt.setTipo(e.getTipo());
-        //loc = locat();  Locat es una funcio del LocationManager
+        //loc = locat();   Locat es una funcio del LocationManager
         capt.setLatLong(loc);
         System.out.println(e);
         liste.add(capt);
