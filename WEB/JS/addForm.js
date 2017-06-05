@@ -13,6 +13,8 @@ function imagePreview() {
 
 $(document).ready(function() {
 
+    checkLoged();
+
     if (sessionStorage.getItem("Admin")!=1){
         alert("No tiene suficientes permisos para entrar aqui");
         window.location.replace("inicio.html");

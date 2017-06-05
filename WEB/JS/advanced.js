@@ -158,10 +158,8 @@ function loadEetakemonTable(){
 }
 
 $(document).ready(function(){
-    if (sessionStorage.getItem("Admin")!=1){
-        alert("No tiene suficientes permisos para entrar aqui");
-        window.location.replace("inicio.html");
-    }
+    checkLoged();
+    checkAdmin();
 
     $("#opcion-usuario").css({"background-color": "#636363","color":"white"});
 
