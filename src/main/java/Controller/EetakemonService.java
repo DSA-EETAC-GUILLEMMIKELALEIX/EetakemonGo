@@ -167,7 +167,7 @@ public class EetakemonService {
 
     }
 
-    //Lista de eetac-emons
+    //Lista de eetac-emons mapa
     @GET
     @Path("/ListMapa")
     @Produces(MediaType.APPLICATION_JSON)
