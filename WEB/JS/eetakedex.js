@@ -5,6 +5,7 @@ function webEetacemon(idE) {
 }
 
 $(document).ready(function () {
+    checkLoged();
 
     $.ajax({
         type: 'GET',

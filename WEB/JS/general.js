@@ -21,7 +21,7 @@ function logout() {
     window.location.replace("../index.html");
 }
 
-window.onload=function (){
+function checkLoged(){
     if(sessionStorage.getItem("ID")==null)
     {
         sessionStorage.clear();
@@ -39,4 +39,11 @@ window.onload=function (){
         sessionStorage.clear();
         window.location.replace("../index.html");
     });
-};
+}
+
+function checkAdmin(){
+    if (sessionStorage.getItem("Admin")!=1){
+        alert("No tiene suficientes permisos para entrar aqui");
+        window.location.replace("inicio.html");
+    }
+}

@@ -7,14 +7,15 @@ function getUrlParameter(name) {
 
 
 
-window.onload = function () {
+$(document).ready( function () {
+    checkLoged();
+
     var ctxPath = "http://localhost:8081/EetakemonGo/";
     var urlParams = new URLSearchParams(window.location.search);
     var page = getUrlParameter('page');
     var idE = getUrlParameter('idE');
+    console.log(page);
     if (page == "1") {
-
-
         $.ajax({
             type: 'GET',
             contentType: 'application/json',
@@ -72,4 +73,4 @@ window.onload = function () {
             }
         });
     }
-}
+});

@@ -1,5 +1,7 @@
 var ctxPath = "http://localhost:8081/EetakemonGo/";
 $(document).ready(function(){
+    checkLoged();
+
     $("#btn1").click(function () {
         var name = $("#name").val();
         var password = $("#password").val();
