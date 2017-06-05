@@ -1,8 +1,6 @@
-package Model.Questions;
+package Model.Question;
 
-/**
- * Created by usuario on 05/06/2017.
- */
+
 public class Question {
     private int id;
     private String level;
