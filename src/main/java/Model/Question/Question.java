@@ -1,7 +1,7 @@
 package Model.Question;
 
 
-public class Question {
+public class Question extends QuestionDao{
     private int id;
     private String level;
     private String question;
