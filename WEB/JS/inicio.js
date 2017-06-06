@@ -1,6 +1,6 @@
 var ctxPath = "http://localhost:8081/EetakemonGo/";
 
-function loadUserTable() {
+function loadUser() {
     //load users table
     $.ajax({
         type: 'GET',
@@ -9,7 +9,7 @@ function loadUserTable() {
         headers: {"Authorization": "Bearer " + sessionStorage.getItem("Token")},
         statusCode: {
             200: function (result) {
-            console.log(result);
+                $("#num-users").append(result.length);
             },
             204: function () {
                 alert("No se ha podido visualizar");
@@ -26,7 +26,29 @@ function loadUserTable() {
     });
 }
 
-function loadEetakemonTable(){
+function loadCaptured(){
+    $.ajax({
+        type: 'GET',
+        contentType: 'application/json',
+        url: ctxPath + "Relation/Captured/"+sessionStorage.getItem("ID"),
+        headers: {"Authorization": "Bearer " + sessionStorage.getItem("Token")},
+        statusCode:{
+            200: function (result) {
+                $("#num-captured").append(result.length);
+            },
+            204: function () {
+                alert("No se han encontrado eetakemons");
+            },
+            401: function () {
+                alert("No autorizado");
+                sessionStorage.clear();
+                window.location.replace("../index.html");
+            }
+        }
+    });
+}
+
+function loadEetakemon(){
     //load eetakemon table
     $.ajax({
         type: 'GET',
@@ -35,8 +57,7 @@ function loadEetakemonTable(){
         headers: {"Authorization": "Bearer " + sessionStorage.getItem("Token")},
         statusCode:{
             200: function (result) {
-                console.log(result);
-               console.log(result.length);
+               $("#num-eetakemons").append(result.length);
             },
             204: function () {
                 alert("No se han encontrado eetakemons");
@@ -53,7 +74,9 @@ function loadEetakemonTable(){
 
 $(document).ready(function(){
     checkLoged();
-    loadEetakemonTable();
+    loadUser();
+    loadCaptured();
+    loadEetakemon();
 
     //change user-eetakemon options
     $('#opcion-usuario').click(function(){

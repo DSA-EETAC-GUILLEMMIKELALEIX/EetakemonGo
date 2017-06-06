@@ -1,0 +1,41 @@
+#welcome{
+    width: 60%;
+    height: 400px;
+    float:left;
+    font-size:20px;
+}
+
+#carousel{
+    width: 40%;
+    height: 400px;
+    float:left;
+    font-size:25px;
+}
+
+#myCarousel{
+    margin: 0 auto;
+    height: 400px;
+    width: 400px;
+}
+
+#myCarousel img
+{
+    margin: 0 auto;
+    height: 400px;
+    width: 400px;
+}
+#footer{
+    width: 100%;
+    float:left;
+}
+
+#welcome-message{
+    max-width: 90%;
+}
+
+.number{
+    background: white;
+    border-radius: 50px;
+    padding: 10px 25px 10px 25px;
+
+}
