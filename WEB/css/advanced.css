@@ -21,8 +21,8 @@
 .opciones-avanzadas li{
 	display:inline;
 	height:100%;
-	min-width: 100px;
-	text-align:center;
+	min-width: 127px;
+	max-width:127px;
 	padding: 1% 4% 1% 4%;
 	border-radius: 5px;
 

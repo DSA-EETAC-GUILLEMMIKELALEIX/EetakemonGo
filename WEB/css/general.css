@@ -15,7 +15,16 @@ body {
 
 }
 
+#carousel {
+	width: 100%;
+	height: 150px;
+	overflow: visible;
+	white-space:nowrap;
+}
 
+#carousel .slide {
+	display: inline-block;
+}
 /*MENU*/
 .logo{
 	margin:0;
@@ -138,9 +147,6 @@ a.opcion{
 
 /*fonts*/
 
-.pacifico, .damion {
-	margin-bottom: 10px;
-}
 
 .pacifico {
 	font-family: "Pacifico";
@@ -148,9 +154,6 @@ a.opcion{
 	font-weight:200;
 }
 
-.padding {
-	padding-left: 10px;
-}
 
 .damion {
 	font-family: "Damion";
