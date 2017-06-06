@@ -175,37 +175,4 @@ public class UserService {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error reseting password").build();//500
         }
     }
-
-    ///////////////////////////////////////////////////////////////////
-
-    //logearse
-    @POST
-    @Path("/LoginApp")
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response LoginApp(User usuario) {
-        int code;
-        code=manager.login(usuario);
-        if (code==0) {
-            System.out.println(usuario.getId());
-            return Response.status(201).entity(usuario).build();
-        }
-        else{
-            return Response.status(202).entity("Usuario incorrecto: ").build();
-        }
-    }
-    @POST
-    @Path("/RegisterApp")
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response registerApp(User user) {
-        int code;
-        code = manager.register(user);
-        if (code==0) {
-            return Response.status(201).entity(user).build();
-        } else if (code==1){
-            return Response.status(202).entity("Usuario ya utilizado: ").build();
-        }else{
-            return Response.status(203).entity("Error al registrarse: ").build();
-        }
-    }
-
 }

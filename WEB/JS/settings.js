@@ -5,9 +5,9 @@ $(document).ready(function(){
     $("#btn1").click(function () {
         var name = $("#name").val();
         var password = $("#password").val();
-        if (name==="" || password===""){
+        /*if (name==="" || password===""){
             alert("Rellena todos los campos");
-        }else {
+        }else {*/
             var o = {"nombre": name, "contrasena": password};
             console.log(o);
             $.ajax({
@@ -35,6 +35,6 @@ $(document).ready(function(){
                     }
                 }
             })
-        }
+        //}
     });
 });

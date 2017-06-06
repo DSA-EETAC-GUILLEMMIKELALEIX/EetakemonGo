@@ -32,7 +32,7 @@ public class LocationManager {
     private Location jj = new Location(41.275731035685105, 1.989977538569292);
 
 
-    public Location locat() {
+    public Location getLocations() {
         Location locat = new Location();
         Random rand = new Random();
         int n = rand.nextInt(9);
