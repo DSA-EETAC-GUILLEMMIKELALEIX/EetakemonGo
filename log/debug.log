@@ -3662,3 +3662,9 @@
 2017-06-06 11:36:08 INFO  DAO:64 - INFO: Select captured: com.mysql.jdbc.JDBC4PreparedStatement@30448a78: SELECT eetakemon.id, eetakemon.nombre, relation.level FROM Eetakemon, Relation WHERE relation.idEetakemon=Eetakemon.id AND relation.idUser=2;
 2017-06-06 11:36:10 INFO  DAO:25 - INFO: conexión creada
 2017-06-06 11:36:10 INFO  DAO:64 - INFO: Select captured: com.mysql.jdbc.JDBC4PreparedStatement@44f43688: SELECT eetakemon.id, eetakemon.nombre, relation.level FROM Eetakemon, Relation WHERE relation.idEetakemon=Eetakemon.id AND relation.idUser=2;
+2017-06-06 11:50:10 INFO  DAO:25 - INFO: conexión creada
+2017-06-06 11:50:10 INFO  DAO:42 - INFO: Logeado: guillem@gmail.com
+2017-06-06 11:50:10 INFO  DAO:25 - INFO: conexión creada
+2017-06-06 11:50:10 INFO  DAO:64 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@350584ee: SELECT * FROM User WHERE email='guillem@gmail.com';
+2017-06-06 11:50:59 INFO  DAO:25 - INFO: conexión creada
+2017-06-06 11:50:59 INFO  DAO:168 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@2944a6ca: SELECT * FROM Eetakemon;
