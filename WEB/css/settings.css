@@ -8,8 +8,7 @@
   position: relative;
   z-index: 1;
   max-width: 500px;
-  margin: 0 auto;
-  padding: 1% 2% 2% 2%;
+  margin: auto;
   text-align: center;
   font-size: 1.5em;
   font-family:Arial;
@@ -18,7 +17,7 @@
 .title {
 	padding-bottom:4%;
 	font-weight:bold;
-	font-size: 40px;	
+	font-size: 40px;
 }
 
 .change-name{
@@ -59,7 +58,7 @@
 }
 
 #message{
-  margin: 18px ;
+  margin: 10px ;
   color: black;
   font-weight:bold;
 }
