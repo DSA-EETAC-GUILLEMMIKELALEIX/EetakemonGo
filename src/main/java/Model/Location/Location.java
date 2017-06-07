@@ -2,8 +2,6 @@ package Model.Location;
 
 public class Location {
 
-    private int id;
-    private String nombre;
     private double latitud;
     private double longitud;
 
@@ -13,22 +11,6 @@ public class Location {
     {
         this.latitud = latitud;
         this.longitud = longitud;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
     }
 
     public double getLatitud() {
@@ -49,6 +31,6 @@ public class Location {
 
     @Override
     public String toString() {
-        return "Location [Id=" + id + ", nombre=" + nombre + ", latitud=" + latitud + ", longitud=" + longitud + "]";
+        return "Location [latitud=" + latitud + ", longitud=" + longitud + "]";
     }
 }

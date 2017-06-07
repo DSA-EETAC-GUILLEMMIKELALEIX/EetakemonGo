@@ -127,4 +127,21 @@ public class RelationService {
             return Response.status(Response.Status.FORBIDDEN).entity("Forbidden").build();//403
         }
     }
+
+    //Lista todos los capturados de todos los usuarios
+    @GET
+    @Path("/AllApp")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response ListarRelacionApp() {
+        List<Relation> list;
+        list = manager.listAllRelation();
+        if (!list.isEmpty()) {
+            GenericEntity<List<Relation>> entity;
+            entity = new GenericEntity<List<Relation>>(list){};
+            return Response.status(201).entity(entity).build();
+        } else {
+            return Response.status(202).entity("No se ha podido visualizar el usuario: ").build();
+        }
+
+    }
 }

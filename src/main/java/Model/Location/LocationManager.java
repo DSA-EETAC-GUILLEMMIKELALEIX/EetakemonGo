@@ -2,6 +2,8 @@ package Model.Location;
 
 import Model.Location.Location;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Random;
 
 /**
@@ -32,41 +34,46 @@ public class LocationManager {
     private Location jj = new Location(41.275731035685105, 1.989977538569292);
 
 
-    public Location getLocations() {
+    private Integer[] arr= new Integer[9];
+    private Random rand = new Random();
+
+    public Location locat() {
         Location locat = new Location();
-        Random rand = new Random();
+
+
         int n = rand.nextInt(9);
 
-        if(n==0){
-            locat=aa;
+        if (n == 0) {
+            locat = aa;
         }
-        if(n==1){
-            locat=bb;
+        if (n == 1) {
+            locat = bb;
         }
-        if(n==2){
-            locat=cc;
+        if (n == 2) {
+            locat = cc;
         }
-        if(n==3){
-            locat=dd;
+        if (n == 3) {
+            locat = dd;
         }
-        if(n==4){
-            locat=ee;
+        if (n == 4) {
+            locat = ee;
         }
-        if(n==5){
-            locat=ff;
+        if (n == 5) {
+            locat = ff;
         }
-        if(n==6){
-            locat=gg;
+        if (n == 6) {
+            locat = gg;
         }
-        if(n==7){
-            locat=hh;
+        if (n == 7) {
+            locat = hh;
         }
-        if(n==8){
-            locat=ii;
+        if (n == 8) {
+            locat = ii;
         }
-        if(n==9){
-            locat=jj;
+        if (n == 9) {
+            locat = jj;
         }
+
 
         return locat;
     }

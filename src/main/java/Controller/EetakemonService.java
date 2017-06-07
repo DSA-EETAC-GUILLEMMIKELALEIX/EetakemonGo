@@ -23,10 +23,12 @@ import javax.imageio.ImageIO;
 public class EetakemonService {
     private EetakemonManager manager;
     private AuthenticationManager authManager;
+    private LocationManager locManager;
 
     public EetakemonService() {
         manager= new EetakemonManager();
         authManager= new AuthenticationManager();
+        locManager= new LocationManager();
     }
 
     //Obtener eetakemon por id
@@ -135,7 +137,6 @@ public class EetakemonService {
     @Path("/Tipo")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getEetakemonTipo(Eetakemon eetak) {
-        System.out.println("holalalalalalala");
         Eetakemon e = new Eetakemon();
         e=manager.getEetakemonByType(eetak.getTipo());
         System.out.println(e);
@@ -167,7 +168,7 @@ public class EetakemonService {
 
     }
 
-    //Lista de eetac-emons mapa
+    //Lista de eetac-emons
     @GET
     @Path("/ListMapa")
     @Produces(MediaType.APPLICATION_JSON)
@@ -175,35 +176,42 @@ public class EetakemonService {
         List<Capturar> liste = new ArrayList<Capturar>();
 
         Eetakemon e = new Eetakemon();
-        Capturar capt = new Capturar();
+
         Location loc= new Location();
-        
-        for (int i=0;i<3;i++) {
+        int i;
+
+        for (i=0;i<3;i++) {
+            Capturar capt = new Capturar();
             e = manager.getEetakemonByType("Inferior");
             capt.setNombre(e.getNombre());
             capt.setTipo(e.getTipo());
-            //loc = locat();  Locat es una funcio del LocationManager
-            capt.setLatLong(loc);
-            System.out.println(e);
+            capt.setLatLong(locManager.locat());
             liste.add(i, capt);
+            System.out.println(capt.getNombre()+"llista:"+liste.get(i).getNombre());
         }
+
+        System.out.println("list:"+liste.size()+"-"+liste.get(0).getNombre()+"-"+liste.get(1).getNombre()+"-"+liste.get(2).getNombre());
+
+        Capturar capt = new Capturar();
         e = manager.getEetakemonByType("Normal");
         capt.setNombre(e.getNombre());
         capt.setTipo(e.getTipo());
-        //loc = locat();  Locat es una funcio del LocationManager
-        capt.setLatLong(loc);
-        System.out.println(e);
+        capt.setLatLong(locManager.locat());
+        System.out.println(capt.getNombre());
         liste.add(capt);
 
+        System.out.println("list:"+liste.size()+"-"+liste.get(0).getNombre()+"-"+liste.get(1).getNombre()+"-"+liste.get(2).getNombre()+"-"+liste.get(3).getNombre());
+
+        Capturar capt1 = new Capturar();
         e = manager.getEetakemonByType("Legendario");
-        capt.setNombre(e.getNombre());
-        capt.setTipo(e.getTipo());
-        //loc = locat();   Locat es una funcio del LocationManager
-        capt.setLatLong(loc);
-        System.out.println(e);
-        liste.add(capt);
+        capt1.setNombre(e.getNombre());
+        capt1.setTipo(e.getTipo());
+        capt1.setLatLong(locManager.locat());
+        System.out.println(capt1.getNombre());
+        liste.add(capt1);
 
-        System.out.println("list:"+liste.size());
+        //Error tots els eetakemons son l'ultim afegit
+        System.out.println("list:"+liste.size()+"-"+liste.get(0).getNombre()+"-"+liste.get(1).getNombre()+"-"+liste.get(2).getNombre()+"-"+liste.get(3).getNombre()+"-"+liste.get(4).getNombre());
 
         if (!liste.isEmpty()) {
             GenericEntity<List<Capturar>> entity;

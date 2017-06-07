@@ -109,4 +109,11 @@ public class RelationManager {
         }
         return list;
     }
+
+    public List listAllRelation(){
+
+        List<Relation> list = new Relation().findAllRelation();
+
+        return list;
+    }
 }
