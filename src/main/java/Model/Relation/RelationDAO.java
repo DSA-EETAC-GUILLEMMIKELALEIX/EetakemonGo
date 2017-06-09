@@ -62,7 +62,7 @@ public class RelationDAO extends DAO {
             PreparedStatement ps = con.prepareStatement(query.toString());
 
             logger.info("INFO: Select captured: " + ps.toString());
-            ;
+
             ResultSet rs = ps.executeQuery();
             ResultSetMetaData rsmd = rs.getMetaData();
 
@@ -100,6 +100,40 @@ public class RelationDAO extends DAO {
             ps.close();
             con.close();
         } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    protected void deletetRelationByUser(int idUser){
+        Connection con = getConnection();
+        StringBuffer query = new StringBuffer("DELETE FROM ");
+        query.append(this.getClass().getSimpleName());
+        query.append(" WHERE idUser='" + idUser +"';");
+
+        try {
+            PreparedStatement ps = con.prepareStatement(query.toString());
+            logger.info("INFO: Delete relations by user id: " + ps.toString());
+            ps.executeUpdate();
+            ps.close();
+            con.close();
+        } catch (SQLException | NullPointerException e) {
+            e.printStackTrace();
+        }
+    }
+
+    protected void deleteRelationByEetakemon(int idEetakemon){
+        Connection con = getConnection();
+        StringBuffer query = new StringBuffer("DELETE FROM ");
+        query.append(this.getClass().getSimpleName());
+        query.append(" WHERE idEetakemon='" + idEetakemon +"';");
+
+        try {
+            PreparedStatement ps = con.prepareStatement(query.toString());
+            logger.info("INFO: Delete relations by eetakemon id: " + ps.toString());
+            ps.executeUpdate();
+            ps.close();
+            con.close();
+        } catch (SQLException | NullPointerException e) {
             e.printStackTrace();
         }
     }

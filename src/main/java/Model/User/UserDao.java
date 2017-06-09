@@ -75,4 +75,29 @@ public class UserDao extends DAO {
             e.printStackTrace();
         }
     }
+
+    protected void changeAdmin(int id, int admin){
+        Connection con = getConnection();
+        StringBuffer query = new StringBuffer("UPDATE ");
+        query.append(this.getClass().getSimpleName());
+        query.append(" SET Admin=");
+        query.append(admin);
+
+        query.deleteCharAt(query.length() - 1);
+        query.append(" WHERE id=");
+        query.append(id);
+        query.append(";");
+
+        try {
+            PreparedStatement ps = con.prepareStatement(query.toString());
+            ps.executeUpdate();
+            logger.info("INFO: Change admin statement: "+ps.toString());
+            ps.close();
+            con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+    }
 }

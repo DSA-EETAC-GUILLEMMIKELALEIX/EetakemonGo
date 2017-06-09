@@ -54,8 +54,6 @@ public class DAO {
         query.deleteCharAt(query.length() - 1);
         query.append(");");
 
-        System.out.println(query.toString());
-
         try {
             PreparedStatement ps = con.prepareStatement(query.toString());
             addFieldsToQuery(ps);
@@ -91,8 +89,6 @@ public class DAO {
         query.append(" WHERE id=");
         query.append(getPrimaryKey());
         query.append(";");
-
-        System.out.println(query.toString());
 
         try {
             PreparedStatement ps = con.prepareStatement(query.toString());

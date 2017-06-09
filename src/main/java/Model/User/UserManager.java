@@ -2,6 +2,8 @@ package Model.User;
 
 import Model.Exceptions.NotSuchPrivilegeException;
 import Model.Exceptions.UnauthorizedException;
+import Model.Relation.Relation;
+import Model.Relation.RelationManager;
 import Model.Security.AuthenticationManager;
 import Model.Security.TrippleDes;
 import Model.Security.Verification;
@@ -130,18 +132,36 @@ public class UserManager {
     //falta arreglar si no se quieren cambiar todos los campos
     public boolean updateUser(HttpHeaders header, int id, User user) throws UnauthorizedException, NotSuchPrivilegeException{
         Boolean a=false;
-        //pruebaa
         String encriptedpass;
         Verification v = new Verification();
         try {
             authManager.verify(header,v);
             authManager.verifyCorrectUser(v, id);
-            if (user.getNombre() == null)
-                throw new NullPointerException();
-            encriptedpass = td.encrypt(user.getContrasena());
             user.setId(id);
-            user.setContrasena(encriptedpass);
             checkUpdateFields(user);
+            a = user.updatetUser();
+        }catch (UnauthorizedException ex) {
+            throw new UnauthorizedException("Unauthorized: user is not authorized");
+
+        }catch (NotSuchPrivilegeException ex){
+            throw new NotSuchPrivilegeException("Forbidden: User has not privileges");
+
+        }catch(Exception e){
+            logger.info("INFO: error al modificar usuario");
+            a=false;
+        }
+        return a;
+    }
+
+    public boolean changeAdmin(HttpHeaders header, int id, User user)throws UnauthorizedException, NotSuchPrivilegeException{
+        Boolean a=false;
+        String encriptedpass;
+        Verification v = new Verification();
+        try {
+            authManager.verify(header,v);
+            authManager.verifyAdmin(v);
+            user.setId(id);
+            changeAdmin(user);
             a = user.updatetUser();
         }catch (UnauthorizedException ex) {
             throw new UnauthorizedException("Unauthorized: user is not authorized");
@@ -183,10 +203,12 @@ public class UserManager {
 
     public void deleteUser(HttpHeaders header, int id) throws UnauthorizedException, NotSuchPrivilegeException{
         Verification v = new Verification();
+        RelationManager rm = new RelationManager();
 
         try {
             authManager.verify(header, v);
             authManager.verifyAdmin(v);
+            rm.deleteRelationByUser(id, header);
             User u = new User();
             u.selectUserById(id);
             u.deleteUser();
@@ -269,6 +291,16 @@ public class UserManager {
         return null;
     }
 
+
+    /*private methods*/
+
+    private void changeAdmin(User u){
+        User temp = new User();
+        temp.selectUserById(u.getId());
+        temp.setAdmin(u.getAdmin());
+        temp.changeAdmin(u.getId(), u.getAdmin());
+    }
+
     private boolean checkNullFields(User u){
         if(u.getNombre().equals("")||u.getContrasena().equals("")||u.getEmail().equals(""))
             return true;
@@ -281,13 +313,17 @@ public class UserManager {
         temp.selectUserById(u.getId());
 
         u.setAdmin(temp.getAdmin());
-        if(u.getNombre()==null){
+
+        if(u.getNombre()==null || u.getNombre().equals("")){
             u.setNombre(temp.getNombre());
         }
-        if(u.getContrasena()==null){
+        if(u.getContrasena()==null || u.getContrasena().equals("")){
             u.setContrasena(temp.getContrasena());
+        }else{
+            String encryptedPass=td.encrypt(u.getContrasena());
+            u.setContrasena(encryptedPass);
         }
-        if (u.getEmail()==null){
+        if (u.getEmail()==null || u.getEmail().equals("")){
             u.setEmail(temp.getEmail());
         }
 

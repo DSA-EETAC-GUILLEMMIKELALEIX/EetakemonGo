@@ -110,6 +110,34 @@ public class RelationManager {
         return list;
     }
 
+    public void deleteRelationByUser(int idUser,HttpHeaders header) throws UnauthorizedException{
+        Verification v = new Verification();
+        List<Relation> e;
+
+        try {
+            authManager.verify(header, v);
+
+            new Relation().deletetRelationByUser(idUser);
+        }
+        catch (UnauthorizedException ex) {
+            throw new UnauthorizedException("Unauthorized: user is not authorized");
+        }
+    }
+
+    public void deleteRelationByEetakemon(int idEetakemon,HttpHeaders header) throws UnauthorizedException{
+        Verification v = new Verification();
+        List<Relation> e;
+
+        try {
+            authManager.verify(header, v);
+
+            new Relation().deleteRelationByEetakemon(idEetakemon);
+        }
+        catch (UnauthorizedException ex) {
+            throw new UnauthorizedException("Unauthorized: user is not authorized");
+        }
+    }
+
     public List listAllRelation(){
 
         List<Relation> list = new Relation().findAllRelation();

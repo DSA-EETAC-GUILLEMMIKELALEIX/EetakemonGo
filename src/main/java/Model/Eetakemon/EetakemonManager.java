@@ -2,6 +2,8 @@ package Model.Eetakemon;
 
 import Model.Exceptions.NotSuchPrivilegeException;
 import Model.Exceptions.UnauthorizedException;
+import Model.Relation.Relation;
+import Model.Relation.RelationManager;
 import Model.Security.AuthenticationManager;
 import Model.Security.Verification;
 import org.apache.log4j.Logger;
@@ -58,10 +60,12 @@ public class EetakemonManager {
     public Eetakemon deleteEetakemon(HttpHeaders header, int id) throws UnauthorizedException, NotSuchPrivilegeException{
         Eetakemon e = new Eetakemon();
         Verification v = new Verification();
+        RelationManager rm = new RelationManager();
 
         try {
             authManager.verify(header,v);
             authManager.verifyAdmin(v);
+            rm.deleteRelationByEetakemon(id, header);
             e.selectEetakemonById(id);
             e.deleteEetakemon();
         }catch (UnauthorizedException ex) {

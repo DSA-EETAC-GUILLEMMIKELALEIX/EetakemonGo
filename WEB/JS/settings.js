@@ -9,7 +9,6 @@ $(document).ready(function(){
             alert("Rellena todos los campos");
         }else {*/
             var o = {"nombre": name, "contrasena": password};
-            console.log(o);
             $.ajax({
                 type: "POST",
                 url: ctxPath + "User/" + sessionStorage.getItem("ID"),
