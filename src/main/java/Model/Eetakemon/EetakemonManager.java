@@ -8,7 +8,11 @@ import Model.Security.AuthenticationManager;
 import Model.Security.Verification;
 import org.apache.log4j.Logger;
 
+import javax.imageio.ImageIO;
 import javax.ws.rs.core.HttpHeaders;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.util.List;
 import java.util.Random;
 
@@ -44,6 +48,7 @@ public class EetakemonManager {
             authManager.verifyAdmin(v);
             exist = e.checkEetakemonExistent(e.getNombre());
             if (!exist) {
+                saveImage(e);
                 e.insertEetakemon();
             }
         }catch (UnauthorizedException ex) {
@@ -133,5 +138,22 @@ public class EetakemonManager {
         List<Eetakemon> list;
         list = new Eetakemon().findAllEetakemons();
         return list;
+    }
+
+
+
+    private void saveImage(Eetakemon e){
+        String base64Image = e.getFoto().split(",")[1];
+        byte[] imageBytes = javax.xml.bind.DatatypeConverter.parseBase64Binary(base64Image);
+        File imageFile = new File("WEB\\images\\" + e.getNombre() + ".png");
+        try {
+            BufferedImage bufferedImage = ImageIO.read(new ByteArrayInputStream(imageBytes));
+            ImageIO.write(bufferedImage, "png", imageFile);
+            e.setFoto("http://localhost:8081/images/"+e.getNombre()+".png");
+        }
+        catch(Exception ex){
+            ex.printStackTrace();
+        }
+
     }
 }

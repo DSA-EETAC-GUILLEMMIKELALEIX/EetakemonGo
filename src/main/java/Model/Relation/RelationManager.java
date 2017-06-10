@@ -138,6 +138,13 @@ public class RelationManager {
         }
     }
 
+
+
+
+
+
+
+
     public List listAllRelation(){
 
         List<Relation> list = new Relation().findAllRelation();

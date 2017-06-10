@@ -2,7 +2,6 @@ package Controller;
 
 import Model.Exceptions.NotSuchPrivilegeException;
 import Model.Exceptions.UnauthorizedException;
-import Model.Security.AuthenticationManager;
 import Model.Security.Verification;
 import Model.User.User;
 import Model.User.UserManager;
@@ -47,7 +46,7 @@ public class UserService {
         int code;
         code=manager.login(usuario);
         if (code==0) {
-            String token = new AuthenticationManager().getToken(usuario);
+            String token = manager.generateToken(usuario);
             return Response.status(Response.Status.OK).entity(token).build();//200
         }
         else{
@@ -173,6 +172,27 @@ public class UserService {
             return Response.status(Response.Status.OK).entity("E-mail sended").build(); //200
         else{
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error reseting password").build();//500
+        }
+    }
+
+    //RCambia el estado de admin de un usuario
+    @POST
+    @Path("/Admin/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response changeAdmin(@Context HttpHeaders header, @PathParam("id") int id,  User user){
+        boolean a;
+        try{
+            a=manager.changeAdmin(header,id,user);
+            if (a)
+                return Response.status(Response.Status.OK).entity("E-mail sended").build(); //200
+            else{
+                return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error reseting password").build();//500
+            }
+        }catch(UnauthorizedException ex){
+            return Response.status(Response.Status.UNAUTHORIZED).entity("Unauthorized").build();//401
+
+        }catch(NotSuchPrivilegeException ex){
+            return Response.status(Response.Status.FORBIDDEN).entity("Forbidden").build();//403
         }
     }
 }

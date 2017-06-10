@@ -161,8 +161,9 @@ public class UserManager {
             authManager.verify(header,v);
             authManager.verifyAdmin(v);
             user.setId(id);
-            changeAdmin(user);
-            a = user.updatetUser();
+            user.changeAdmin(user.getAdmin());
+            a=true;
+            //a = user.updatetUser();
         }catch (UnauthorizedException ex) {
             throw new UnauthorizedException("Unauthorized: user is not authorized");
 
@@ -287,19 +288,11 @@ public class UserManager {
     }
 
     public String generateToken(User u){
-
-        return null;
+        String token = new AuthenticationManager().getToken(u);
+        return token;
     }
-
 
     /*private methods*/
-
-    private void changeAdmin(User u){
-        User temp = new User();
-        temp.selectUserById(u.getId());
-        temp.setAdmin(u.getAdmin());
-        temp.changeAdmin(u.getId(), u.getAdmin());
-    }
 
     private boolean checkNullFields(User u){
         if(u.getNombre().equals("")||u.getContrasena().equals("")||u.getEmail().equals(""))

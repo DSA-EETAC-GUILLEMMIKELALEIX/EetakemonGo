@@ -35,56 +35,66 @@ $(document).ready(function() {
             });
         }
         else {
-            var o = {"nombre": name, "tipo": tipo, "nivel": nivel, "foto": foto};
-            console.log(o);
-            $.ajax({
-                type: "POST",
-                url: ctxPath + "Eetakemon",
-                contentType: "application/json",
-                dataType: "json",
-                data: JSON.stringify(o),
-                headers: {"Authorization": "Bearer " + sessionStorage.getItem("Token")},
-                statusCode: {
-                    201: function () {
-                        var file = document.querySelector('input[type="file"]').files[0];
-                        console.log(file);
-                        var reader = new FileReader();
-                        reader.readAsDataURL(file);
-                        console.log(reader);
-                        reader.onload = function() {
-                            var encodedImage = reader.result;
-                            var o = {"nombre": name, "tipo": tipo, "nivel": nivel, "foto": encodedImage};
-                            console.log(o);
-                            $.ajax({
-                                type: "POST",
-                                url: ctxPath + "Eetakemon/Image",
-                                contentType: "application/json",
-                                data: JSON.stringify(o),
-                                success: [function () {
-                                }],
-                                error: [
-                                    function (request, status) {
-                                        alert(status);
-                                    }
-                                ]
-                            });
+            var file = document.querySelector('input[type="file"]').files[0];
+            console.log(file);
+            var reader = new FileReader();
+            reader.readAsDataURL(file);
+            console.log(reader);
+
+            reader.onload = function() {
+                var encodedImage = reader.result;
+                var o = {"nombre": name, "tipo": tipo, "nivel": nivel, "foto": encodedImage};
+
+                console.log(o);
+                $.ajax({
+                    type: "POST",
+                    url: ctxPath + "Eetakemon",
+                    contentType: "application/json",
+                    dataType: "json",
+                    data: JSON.stringify(o),
+                    headers: {"Authorization": "Bearer " + sessionStorage.getItem("Token")},
+                    statusCode: {
+                        201: function () {
+                            /*var file = document.querySelector('input[type="file"]').files[0];
+                             console.log(file);
+                             var reader = new FileReader();
+                             reader.readAsDataURL(file);
+                             console.log(reader);
+                             reader.onload = function() {
+                             var encodedImage = reader.result;
+                             var o = {"nombre": name, "tipo": tipo, "nivel": nivel, "foto": encodedImage};
+                             console.log(o);
+                             $.ajax({
+                             type: "POST",
+                             url: ctxPath + "Eetakemon/Image",
+                             contentType: "application/json",
+                             data: JSON.stringify(o),
+                             success: [function () {
+                             }],
+                             error: [
+                             function (request, status) {
+                             alert(status);
+                             }
+                             ]
+                             });
+                             }*/
+                            alert("Eetakemon creado"); //alerta
+                            window.location.replace("./Advanced.html");
+                        },
+                        202: function () {
+                            alert("Eetakemon ya existente"); //alerta
+                        },
+                        401: function () {
+                            alert("No autorizado");
+                            sessionStorage.clear();
+                            window.location.replace("../index.html");
+                        },
+                        403: function () {
+                            alert("No tiene permisos suficientes"); //alerta
                         }
-                        alert("Eetakemon creado"); //alerta
-                        //window.location.replace("./Advanced.html");
-                    },
-                    202: function () {
-                        alert("Eetakemon ya existente"); //alerta
-                    },
-                    401: function () {
-                        alert("No autorizado");
-                        sessionStorage.clear();
-                        window.location.replace("../index.html");
-                    },
-                    403: function () {
-                        alert("No tiene permisos suficientes"); //alerta
                     }
-                }
-            });
+                });
+            }
         }
     });
     $("#add-user").click(function () {

@@ -228,6 +228,27 @@ public class DAO {
         }
     }
 
+    protected int getPrimaryKey() {
+        int pk = -1;
+        //Field[] attributes = this.getClass().getDeclaredFields();
+        Field f = this.getClass().getDeclaredFields()[0];
+        Method method;
+
+        try {
+            method = this.getClass().getMethod(getGetterName(f.getName()));
+            Object object = method.invoke(this);
+            pk = Integer.parseInt(object.toString());
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+
+        return pk;
+    }
+
 
     /*-------PRIVATE  METHODS---------*/
 
@@ -282,28 +303,6 @@ public class DAO {
         String capitalizedFieldName;
         capitalizedFieldName = word.substring(0, 1).toUpperCase() + word.substring(1);
         return capitalizedFieldName;
-    }
-
-    //obtiene el valor de la clave primaria de un objeto
-    private int getPrimaryKey() {
-        int pk = -1;
-        //Field[] attributes = this.getClass().getDeclaredFields();
-        Field f = this.getClass().getDeclaredFields()[0];
-        Method method;
-
-        try {
-            method = this.getClass().getMethod(getGetterName(f.getName()));
-            Object object = method.invoke(this);
-            pk = Integer.parseInt(object.toString());
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }
-
-        return pk;
     }
 
     //sustituir interrogates por valores de los campos de la clasel

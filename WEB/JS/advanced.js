@@ -3,9 +3,9 @@ var ctxPath = "http://localhost:8081/EetakemonGo/";
 function admin (admin){
     var a;
     if(admin===1){
-        a="Si";
+        a="&#10004";
     }else{
-        a="No";
+        a="&#10008";
     }
     return a;
 }
@@ -82,6 +82,46 @@ function deleteEetakemon (id){
     })
 }
 
+function changeAdmin(id, admin){
+    if(admin==0){
+        admin=1;
+    }else if(admin==1){
+        admin=0;
+    }
+    var o = {"admin": admin};
+    $.ajax({
+        type: "POST",
+        url: ctxPath + "User/Admin/" + id,
+        contentType: "application/json",
+        dataType: "json",
+        data: JSON.stringify(o),
+        headers: {"Authorization": "Bearer " + sessionStorage.getItem("Token")},
+        statusCode: {
+            200: function () {
+                $("#writed-message").remove();
+                setAlertMessage("Admin cambiado","alert-success");
+                $(".alert").slideToggle();
+                hideAlert();
+                //location.reload();
+                $(".usuario").remove();
+                loadUserTable();
+
+            },
+            202: function () {
+                alert("Error cambiando admin"); //alerta
+            },
+            401: function () {
+                alert("No autorizado");
+                sessionStorage.clear();
+                window.location.replace("../index.html");
+            },
+            403: function () {
+                alert("No tiene permisos suficientes"); //alerta
+            }
+        }
+    })
+}
+
 function loadUserTable() {
     //load users table
     $.ajax({
@@ -98,8 +138,8 @@ function loadUserTable() {
                         "<td>" + obj.id + "</td>" +
                         "<td>" + obj.nombre + "</td>" +
                         "<td>" + obj.email + "</td>" +
-                        "<td>" + admin(obj.admin) + "</td>" +
-                        "<td class=\"edit\">" +"Editar"+ "</td>"+
+                        "<td class=\"admin\" onclick='changeAdmin("+obj.id+","+obj.admin+")'>" + admin(obj.admin) + "</td>" +
+                        "<td class=\"edit\" >" +"Editar"+ "</td>"+
                         "<td class=\"delete\" onclick='deleteUser("+obj.id+")'>" +"Borrar"+ "</td>"+
                         "</tr>");
                 });

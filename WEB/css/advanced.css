@@ -84,7 +84,7 @@
     background-color: white;
 }*/
 
-.edit{
+.edit, .admin{
     color:blue;
     text-decoration: underline;
 }
@@ -94,7 +94,7 @@
     text-decoration: underline;
 }
 
-.edit:hover, .delete:hover{
+.edit:hover, .delete:hover, .admin:hover{
     cursor:pointer;
 }
 
