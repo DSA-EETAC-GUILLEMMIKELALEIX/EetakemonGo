@@ -1,3 +1,5 @@
+var ctxPath = "http://localhost:8081/EetakemonGo/";
+
 function hideAlert() {
     setTimeout(function() {
         $(".alert").slideToggle();

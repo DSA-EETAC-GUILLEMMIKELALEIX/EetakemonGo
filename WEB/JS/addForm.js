@@ -19,8 +19,6 @@ $(document).ready(function() {
         alert("No tiene suficientes permisos para entrar aqui");
         window.location.replace("inicio.html");
     }
-
-    var ctxPath = "http://localhost:8081/EetakemonGo/";
     $("#add-eetakemon").click(function () {
         var name = $("#nombre").val();
         var tipo = $("#tipo").val();

@@ -13,6 +13,9 @@ import javax.ws.rs.core.HttpHeaders;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Random;
 
@@ -61,7 +64,7 @@ public class EetakemonManager {
         return exist;
     }
 
-    //corregir da error al borrar
+    //borrar eetakemon
     public Eetakemon deleteEetakemon(HttpHeaders header, int id) throws UnauthorizedException, NotSuchPrivilegeException{
         Eetakemon e = new Eetakemon();
         Verification v = new Verification();
@@ -73,6 +76,7 @@ public class EetakemonManager {
             rm.deleteRelationByEetakemon(id, header);
             e.selectEetakemonById(id);
             e.deleteEetakemon();
+            //deleteImage(e);
         }catch (UnauthorizedException ex) {
             throw new UnauthorizedException("Unauthorized: user is not authorized");
 
@@ -155,5 +159,13 @@ public class EetakemonManager {
             ex.printStackTrace();
         }
 
+    }
+
+    private void deleteImage(Eetakemon e){
+        try {
+            Files.deleteIfExists(Paths.get("WEB\\images\\" + e.getNombre() + ".png"));
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
     }
 }

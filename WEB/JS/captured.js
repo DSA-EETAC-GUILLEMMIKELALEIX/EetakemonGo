@@ -1,5 +1,3 @@
-var ctxPath = "http://localhost:8081/EetakemonGo/";
-
 function webEetacemon(idE) {
     window.location.href="Eetakemon.html?idE="+ idE + "&page=2";
 }

@@ -1,5 +1,3 @@
-var ctxPath = "http://localhost:8081/EetakemonGo/";
-
 function loadUser() {
     //load users table
     $.ajax({

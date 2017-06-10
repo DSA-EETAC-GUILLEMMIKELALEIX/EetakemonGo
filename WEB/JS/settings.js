@@ -1,4 +1,3 @@
-var ctxPath = "http://localhost:8081/EetakemonGo/";
 $(document).ready(function(){
     checkLoged();
 

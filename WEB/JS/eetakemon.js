@@ -10,7 +10,6 @@ function getUrlParameter(name) {
 $(document).ready( function () {
     checkLoged();
 
-    var ctxPath = "http://localhost:8081/EetakemonGo/";
     var urlParams = new URLSearchParams(window.location.search);
     var page = getUrlParameter('page');
     var idE = getUrlParameter('idE');
