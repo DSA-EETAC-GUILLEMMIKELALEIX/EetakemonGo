@@ -56,6 +56,7 @@ $(document).ready( function () {
                         "<img id=\"imagen\" src = \" /images/" + result.name + ".png\" style=\"width:20%;height:20%;\" '>"
                     );
 
+                    $("#type").remove();
                     $("#tabla-info").append("<tr class=\"eetakemon\">" +
                         "<td>" + result.name + "</td>" +
                         "<td>" + result.level + "</td>" +

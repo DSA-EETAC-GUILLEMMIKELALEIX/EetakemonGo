@@ -29,7 +29,7 @@ function deleteUser (id){
                 $("#writed-message").remove();
                 setAlertMessage("Usuario eliminado","alert-success");
                 $(".alert").slideToggle();
-                hideAlert();
+                hideAlert(".alert");
                 //location.reload();
                 $(".usuario").remove();
                 loadUserTable();
@@ -59,7 +59,7 @@ function deleteEetakemon (id){
                 $("#writed-message").remove();
                 setAlertMessage("Eetakemon eliminado","alert-success");
                 $(".alert").slideToggle();
-                hideAlert();
+                hideAlert(".alert");
                 //location.reload();
                 $(".eetakemon").remove();
                 loadEetakemonTable();
@@ -99,7 +99,7 @@ function changeAdmin(id, admin){
                 $("#writed-message").remove();
                 setAlertMessage("Admin cambiado","alert-success");
                 $(".alert").slideToggle();
-                hideAlert();
+                hideAlert(".alert");
                 //location.reload();
                 $(".usuario").remove();
                 loadUserTable();

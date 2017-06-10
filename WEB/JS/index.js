@@ -1,4 +1,3 @@
-
 function saveToken(t) {
     var TOKEN=t;
     sessionStorage.setItem("Token",TOKEN);
@@ -21,13 +20,24 @@ function saveAdminID(decoded){
 
 $(document).ready(function(){
 
-    $('.registrarse, .entrar').click(function(){;
+    $('.registrarse, .entrar').click(function(){
         $('.login-form, .register-form').slideToggle();//animate({height: "toggle", opacity: "toggle"});
+        $('input').each(function () {
+            $(this).val("");
+            $(this).css({"border":"none"});
+        });
+        $(".alert").hide();
         //$('.login-form, .register-form').toggle();
+
+    });
+
+    $(".close").click(function () {
+       $(".alert").hide();
     });
 
 
     $("#login-btn").click(function (){
+        $(".alert").hide();
         $(this).prop('disabled', true);
         var email= $("#email1").val();
         var password= $("#pass1").val();
@@ -57,7 +67,9 @@ $(document).ready(function(){
                         window.location.replace("./forms/Inicio.html");
                     },
                     401: function(){
-                        alert("Error al loguearse"); //alerta
+                        $('.alert-danger strong').remove();
+                        $('.alert-danger').append("<strong >Nombre o contraseña incorrectos</strong>");
+                        $('.alert-danger').show();
 
                     }
                 },
@@ -70,6 +82,7 @@ $(document).ready(function(){
     });
 
     $("#register-btn").click(function (){
+        $(".alert").hide();
         $("#register-btn").prop('disabled', true);
         var name= $("#name").val();
         var password= $("#pass2").val();
@@ -94,15 +107,21 @@ $(document).ready(function(){
                 statusCode:{
                     201: function(result){
                         //window.location.href= "../index.html";
-                        $(".register-form input").val("")
+                        $(".register-form input").val("");
                         $('.login-form, .register-form').toggle();
-                        $('.alert').slideToggle();
+                        $('.alert-success').show();
                     },
                     202: function(){
-                        alert("Usuario ya utilizado");//alerta
+                        //alert("Usuario ya utilizado");//alerta
+                        $('.alert-danger strong').remove();
+                        $('.alert-danger').append("<strong >Email ya utilizado</strong>");
+                        $('.alert-danger').show();
+                        //hideAlert(".alert-danger");
                     },
                     400: function(){
-                        alert("Error al registrarse: petición errónea");//alerta
+                        $('.alert-danger strong').remove();
+                        $('.alert-danger').append("<strong >Error al registrarse</strong>");
+                        $('.alert-danger').show();
                     },
                 },
                 complete: function (result) {
