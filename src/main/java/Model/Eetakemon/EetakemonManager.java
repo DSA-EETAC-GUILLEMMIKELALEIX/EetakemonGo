@@ -153,7 +153,7 @@ public class EetakemonManager {
         try {
             BufferedImage bufferedImage = ImageIO.read(new ByteArrayInputStream(imageBytes));
             ImageIO.write(bufferedImage, "png", imageFile);
-            e.setFoto("http://localhost:8081/images/"+e.getNombre()+".png");
+            e.setFoto("http://localhost:8081/images/"+e.getNombre().toLowerCase()+".png");
         }
         catch(Exception ex){
             ex.printStackTrace();
