@@ -39,7 +39,7 @@ Insert INTO User (nombre, contrasena, email, admin) VALUES ('mikel', 'mikel', 'm
 Insert INTO User (nombre, contrasena, email, admin) VALUES ('aleix', 'aleix', 'aleix@gmail.com', 1);
 Insert INTO User (nombre, contrasena, email, admin) VALUES ('guillem', 'guillem', 'guillem@gmail.com', 1);
 
-Insert INTO Eetakemon (nombre, tipo, nivel, foto) VALUES '(Bernorlax', 'Normal', 15, 'http://localhost:8081/images/bernorlax.png');
+Insert INTO Eetakemon (nombre, tipo, nivel, foto) VALUES ('Bernorlax', 'Normal', 15, 'http://localhost:8081/images/bernorlax.png');
 Insert INTO Eetakemon (nombre, tipo, nivel, foto) VALUES ('Davyphno', 'Normal', 15, 'http://localhost:8081/images/davyphno.png');
 Insert INTO Eetakemon (nombre, tipo, nivel, foto) VALUES ('Francerpie', 'Inferior', 1, 'http://localhost:8081/images/francerpie.png');
 Insert INTO Eetakemon (nombre, tipo, nivel, foto) VALUES ('Jesuskou', 'Inferior', 1, 'http://localhost:8081/images/jesuscou.png');
