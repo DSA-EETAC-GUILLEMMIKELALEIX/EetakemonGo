@@ -1,7 +1,7 @@
 USE proyecto;
 
 SET FOREIGN_KEY_CHECKS = 0;
-TRUNCATE realtion;
+TRUNCATE relation;
 TRUNCATE eetakemon;
 SET FOREIGN_KEY_CHECKS = 1;
 
