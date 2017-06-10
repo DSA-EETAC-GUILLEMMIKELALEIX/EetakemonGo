@@ -1,7 +1,9 @@
 package Controller;
 
+import Model.Eetakemon.EetakemonManager;
 import Model.Exceptions.NotSuchPrivilegeException;
 import Model.Exceptions.UnauthorizedException;
+import Model.Relation.RelationManager;
 import Model.Security.Verification;
 import Model.User.User;
 import Model.User.UserManager;
@@ -140,7 +142,6 @@ public class UserService {
     @Path("/all")
     @Produces(MediaType.APPLICATION_JSON)
     public Response ListUsers(@Context HttpHeaders header) {
-        Verification v= new Verification();
         try {
             List<User> list;
             list = manager.listAllUsers(header);
@@ -158,6 +159,20 @@ public class UserService {
 
         }catch(NotSuchPrivilegeException ex){
             return Response.status(Response.Status.FORBIDDEN).entity("Forbidden").build();//403
+        }
+    }
+
+    //información inicial
+    @GET
+    @Path("/info")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getInitialInfo(@Context HttpHeaders header) {
+        try {
+            String info=getInfo(header);
+            return Response.status(Response.Status.OK).entity(info).build();//200
+        }catch(UnauthorizedException ex){
+            return Response.status(Response.Status.UNAUTHORIZED).entity("Unauthorized").build();//401
+
         }
     }
 
@@ -193,6 +208,19 @@ public class UserService {
 
         }catch(NotSuchPrivilegeException ex){
             return Response.status(Response.Status.FORBIDDEN).entity("Forbidden").build();//403
+        }
+    }
+
+
+    private String getInfo(HttpHeaders header) throws UnauthorizedException{
+        try {
+            String numU = manager.getNumUsers(header);
+            String numE = new EetakemonManager().getNumEetakemons(header);
+            String numR = new RelationManager().getNumCaptured(header);
+            String info=numU+"/"+numE+"/"+numR;
+            return info;
+        }catch(UnauthorizedException ex){
+            throw  new UnauthorizedException("Unauthorized: user is not authorized");
         }
     }
 }
