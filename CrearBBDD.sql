@@ -35,9 +35,9 @@ CREATE TABLE Relation (
 )ENGINE = InnoDB;
 
 
-Insert INTO User (nombre, contrasena, email, admin) VALUES ('mikel', 'TAv5pbyzSuw=', 'mikel@gmail.com', 1);//contraseña: mikel
-Insert INTO User (nombre, contrasena, email, admin) VALUES ('aleix', '7ZOZ9CzlKJs=', 'aleix@gmail.com', 1);//contraseña:aleix
-Insert INTO User (nombre, contrasena, email, admin) VALUES ('guillem', 'AT0D6sMGdKM=', 'guillem@gmail.com', 1);//contraseña:guillem
+Insert INTO User (nombre, contrasena, email, admin) VALUES ('mikel', 'TAv5pbyzSuw=', 'mikel@gmail.com', 1);
+Insert INTO User (nombre, contrasena, email, admin) VALUES ('aleix', '7ZOZ9CzlKJs=', 'aleix@gmail.com', 1);
+Insert INTO User (nombre, contrasena, email, admin) VALUES ('guillem', 'AT0D6sMGdKM=', 'guillem@gmail.com', 1);
 
 Insert INTO Eetakemon (nombre, tipo, nivel, foto) VALUES ('Bernorlax', 'Normal', 15, 'http://localhost:8081/images/bernorlax.png');
 Insert INTO Eetakemon (nombre, tipo, nivel, foto) VALUES ('Davyphno', 'Normal', 15, 'http://localhost:8081/images/davyphno.png');
