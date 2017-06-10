@@ -104,6 +104,17 @@ public class EetakemonManager {
         return list;
     }
 
+    public String getNumEetakemons(HttpHeaders header)throws UnauthorizedException{
+        Verification v = new Verification();
+        try {
+            authManager.verify(header, v);
+            return new Eetakemon().getNumEetakemons();
+        }catch (UnauthorizedException ex) {
+            throw new UnauthorizedException("Unauthorized: user is not authorized");
+
+        }
+    }
+
     //falta acabar
     public Eetakemon getEetakemonByTypeeee(HttpHeaders header,String tipo) throws UnauthorizedException{
         List<Eetakemon> list;
@@ -168,4 +179,6 @@ public class EetakemonManager {
             ex.printStackTrace();
         }
     }
+
+
 }

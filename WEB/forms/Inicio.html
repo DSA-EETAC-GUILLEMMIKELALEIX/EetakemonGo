@@ -13,7 +13,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<script src="../js/general.js"></script>
-		<script src="../js/inicio.js"></script>
+		<script src="../js/inicio.js"></script>-->
 		<!--<script>
             function loadAdminMenu() {
                 $(".menu").load("../forms/Menu.html")
@@ -38,9 +38,20 @@
 					<p>¡Hazte con todos los Eetakemos y aumenta sus niveles!</p>
 				</div>
 				<div id="info-user">
-					<p><span class="number" id="num-users"></span> Usuarios jugando</p>
-					<p><span class="number" id="num-captured"></span> Eetakemons capturados</p>
-					<p><span class="number" id="num-eetakemons"></span> Eetakemons disponibles</p>
+					<table id="info-table">
+						<tr>
+							<td><div class="number" id="num-users"></div></td>
+                            <td>Usuarios jugando</td>
+						</tr>
+                        <tr>
+                            <td><div class="number" id="num-captured"></div></td>
+                            <td>Eetakemons capturados</td>
+                        </tr>
+                        <tr>
+                            <td><div class="number" id="num-eetakemons"></div></td>
+                            <td> Eetakemons disponibles</td>
+                        </tr>
+					</table>
 				</div>
 
 			</div>

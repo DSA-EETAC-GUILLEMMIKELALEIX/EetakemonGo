@@ -139,7 +139,16 @@ public class RelationManager {
     }
 
 
+    public String getNumCaptured(HttpHeaders header)throws UnauthorizedException{
+        Verification v = new Verification();
+        try {
+            authManager.verify(header, v);
+            return new Relation().getNumCaptured();
+        }catch (UnauthorizedException ex) {
+            throw new UnauthorizedException("Unauthorized: user is not authorized");
 
+        }
+    }
 
 
 

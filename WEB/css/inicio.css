@@ -1,41 +1,72 @@
+/*welcome*/
 #welcome{
     width: 60%;
-    height: 400px;
+    height: 450px;
+    min-height: 400px;
+    min-width: 400px;
     float:left;
     font-size:20px;
+    overflow:auto;
 }
 
+#welcome-message{
+    margin: 0 auto;
+    text-align: center;
+}
+
+#info-user{
+
+}
+
+#info-table{
+    margin: 0 auto;
+    margin-top: 20px;
+    text-align: left;
+}
+
+#info-table td{
+    padding: 15px 0 15px 0;
+    min-width: 100px;
+}
+
+.number{
+    background: white;
+    border-radius: 50%;
+    text-align: center;
+    height: 60px;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/*carousel*/
 #carousel{
     width: 40%;
-    height: 400px;
+    min-width: 400px;
+    height: 450px;
     float:left;
-    font-size:25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #myCarousel{
     margin: 0 auto;
     height: 400px;
-    width: 400px;
+    width: 600px;
 }
 
 #myCarousel img
 {
     margin: 0 auto;
     height: 400px;
-    width: 400px;
+    max-width: 400px;
 }
+
+/*footer*/
 #footer{
     width: 100%;
     float:left;
-}
-
-#welcome-message{
-    max-width: 90%;
-}
-
-.number{
-    background: white;
-    border-radius: 50px;
-    padding: 10px 25px 10px 25px;
-
 }
