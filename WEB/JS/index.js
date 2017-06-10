@@ -21,7 +21,7 @@ function saveAdminID(decoded){
 $(document).ready(function(){
 
     $('.registrarse, .entrar').click(function(){
-        $('.login-form, .register-form').slideToggle();//animate({height: "toggle", opacity: "toggle"});
+        $('.login-form, .register-form').slideToggle();
         $('input').each(function () {
             $(this).val("");
             $(this).css({"border":"none"});
