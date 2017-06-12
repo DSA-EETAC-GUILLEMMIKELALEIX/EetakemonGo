@@ -48,7 +48,8 @@ public class UserManager {
         if(a) {
             user.selectUserByMail(user.getEmail());
             code=0;
-        }else{user=null;}
+        }
+        else{user=null;}
 
         return code;
     }

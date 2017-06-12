@@ -1,6 +1,7 @@
 package Model.Location;
 
 import Model.Location.Location;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -34,46 +35,60 @@ public class LocationManager {
     private Location jj = new Location(41.275731035685105, 1.989977538569292);
 
 
-    private Integer[] arr= new Integer[9];
+    private Integer[] arr = new Integer[9];
     private Random rand = new Random();
+    private Boolean bool = false;
 
     public Location locat() {
         Location locat = new Location();
 
-
         int n = rand.nextInt(9);
 
-        if (n == 0) {
+        System.out.println("Randm: "+n);
+
+        /*for(int i=0;i<arr.length;i++){
+            if((arr[i]!=n || arr[0]==111 ) && !bool){
+                System.out.println("BBBBB");
+                arr[i]=n;
+                System.out.println("CCCCC");
+                bool=true;
+            }
+        }
+        System.out.println("bool: "+bool);*/
+
+        //BORRAR CUANDO EL FOR DE ANTES VAYA
+        bool =true;
+
+        if (n == 0 && bool) {
             locat = aa;
         }
-        if (n == 1) {
+        if (n == 1 && bool) {
             locat = bb;
         }
-        if (n == 2) {
+        if (n == 2 && bool) {
             locat = cc;
         }
-        if (n == 3) {
+        if (n == 3 && bool) {
             locat = dd;
         }
-        if (n == 4) {
+        if (n == 4 && bool) {
             locat = ee;
         }
-        if (n == 5) {
+        if (n == 5 && bool) {
             locat = ff;
         }
-        if (n == 6) {
+        if (n == 6 && bool) {
             locat = gg;
         }
-        if (n == 7) {
+        if (n == 7 && bool) {
             locat = hh;
         }
-        if (n == 8) {
+        if (n == 8 && bool) {
             locat = ii;
         }
-        if (n == 9) {
+        if (n == 9 && bool) {
             locat = jj;
         }
-
 
         return locat;
     }

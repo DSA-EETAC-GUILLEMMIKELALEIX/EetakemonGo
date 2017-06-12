@@ -77,11 +77,11 @@ public class QuestionManager {
     }
 
     //falta acabar
-    public Question getQuestionByLevel(HttpHeaders header,String level) throws UnauthorizedException{
+    public Question getQuestionByTipo(String Tipo){
         List<Question> list;
         Question q = new Question();
-        Verification v = new Verification();
-        /*
+        /*Verification v = new Verification();
+
         try {
             authManager.verify(header, v);
             list = new Question().getByType(tipo);
@@ -89,7 +89,7 @@ public class QuestionManager {
             throw new UnauthorizedException("Unauthorized: user is not authorized");
 
         }*/
-        list = new Question().getByLevel(level);
+        list = new Question().getByLevel(Tipo);
 
         Random rand = new Random();
         int a = list.size();

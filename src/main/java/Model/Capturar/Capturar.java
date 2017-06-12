@@ -1,38 +1,29 @@
 package Model.Capturar;
 
+import Model.Eetakemon.Eetakemon;
 import Model.Location.Location;
 
 /**
  * Created by aleix on 05/06/2017.
  */
 public class Capturar {
-    private String nombre;
-    private String tipo;
+    private Eetakemon eetakemon;
     public Location LatLong;
 
     public Capturar(){}
 
-    public Capturar(String nombre, String tipo, Location location)
+    public Capturar(Eetakemon eetakemon, Location location)
     {
-        this.nombre = nombre;
-        this.tipo = tipo;
+        this.eetakemon  = eetakemon;
         this.LatLong= location;
     }
 
-    public String getNombre() {
-        return nombre;
+    public Eetakemon getEetakemon() {
+        return eetakemon;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setEetakemon(Eetakemon eetakemon) {
+        this.eetakemon = eetakemon;
     }
 
     public Location getLatLong() {
