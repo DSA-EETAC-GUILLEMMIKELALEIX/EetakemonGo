@@ -67,6 +67,8 @@
     width: 55%;
     border-collapse:collapse;
 }
+
+
 .tabla td{
     padding: 15px 0 15px 0;
 }
@@ -74,6 +76,7 @@
     padding: 15px 3% 15px 3%;
     background: #777777;
     color:white;
+
 }
 
 .tabla tr:nth-child(odd) {
