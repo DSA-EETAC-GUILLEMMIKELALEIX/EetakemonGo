@@ -138,5 +138,31 @@ public class RelationDAO extends DAO {
         }
     }
 
+    protected String getNumCaptured(){
+        String num="0";
+        Connection con = getConnection();
+        StringBuffer query = new StringBuffer("SELECT COUNT(*) FROM ");
+        query.append(this.getClass().getSimpleName());
+        query.append(";");
+
+        try {
+            PreparedStatement ps = con.prepareStatement(query.toString());
+            logger.info("INFO: Get number of eetakemons captured: " + ps.toString());
+
+            ResultSet rs = ps.executeQuery();
+            ResultSetMetaData rsmd = rs.getMetaData();
+
+            while (rs.next()) {
+                num=rs.getString(1);
+            }
+            ps.close();
+            con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return num;
+    }
+
 }
 

@@ -15,7 +15,7 @@ $(document).ready(function () {
                 console.log(result);
                 $.each(result, function (i, obj) {
                     console.log((obj));
-                    $(".tabla-eetakemon").append("<tr class=\"eetakemon\" onclick='webEetacemon("+obj.id+")'>" +
+                    $("#tbody").append("<tr class=\"eetakemon\" onclick='webEetacemon("+obj.id+")'>" +
                         "<td>" +
                         "<img src = \" /images/" + obj.nombre + ".png\" style=\"width:50px;height:50px;\" ' >" +
                             "</td>"+

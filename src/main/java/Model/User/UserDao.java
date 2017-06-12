@@ -62,7 +62,7 @@ public class UserDao extends DAO {
         try {
             PreparedStatement ps = con.prepareStatement(query.toString());
             logger.info("INFO: Select by email  statement: " + ps.toString());
-            ;
+
             ResultSet rs = ps.executeQuery();
             ResultSetMetaData rsmd = rs.getMetaData();
 
@@ -85,8 +85,6 @@ public class UserDao extends DAO {
 
         query.append(" WHERE id=");
         query.append(this.getPrimaryKey());
-        query.append(";");
-        System.out.println(query.toString());
         try {
             PreparedStatement ps = con.prepareStatement(query.toString());
             ps.executeUpdate();
@@ -98,5 +96,31 @@ public class UserDao extends DAO {
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
+    }
+
+    protected String getNumUsers(){
+        String num="0";
+        Connection con = getConnection();
+        StringBuffer query = new StringBuffer("SELECT COUNT(*) FROM ");
+        query.append(this.getClass().getSimpleName());
+        query.append(";");
+
+        try {
+            PreparedStatement ps = con.prepareStatement(query.toString());
+            logger.info("INFO: Get number of users: " + ps.toString());
+
+            ResultSet rs = ps.executeQuery();
+            ResultSetMetaData rsmd = rs.getMetaData();
+
+            while (rs.next()) {
+                num=rs.getString(1);
+            }
+            ps.close();
+            con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return num;
     }
 }

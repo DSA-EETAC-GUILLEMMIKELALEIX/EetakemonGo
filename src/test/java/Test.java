@@ -1,6 +1,4 @@
-/**
- * Created by Mikel on 15/03/2017.
- */
+
 import Model.Eetakemon.Eetakemon;
 import Model.Eetakemon.EetakemonManager;
 import Model.User.User;

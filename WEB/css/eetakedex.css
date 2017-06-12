@@ -23,11 +23,16 @@
     color:white;
 }
 
-.tabla-eetakemon tr:nth-child(odd) {
-    background-color: #AFAFAF;
-}
-
-.tabla-eetakemon tr:hover{
+.tabla-eetakemon tbody tr:hover{
     cursor:pointer;
     background-color: deepskyblue;
 }
+
+.tabla-eetakemon tbody tr:nth-child(even) {
+    background-color: #AFAFAF;
+}
+.tabla-eetakemon .empty:hover{
+    cursor: inherit;
+    background: inherit;
+}
+

@@ -15,7 +15,7 @@ $(document).ready(function () {
                 console.log(result);
                 $.each(result, function (i, obj) {
                     console.log((obj));
-                    $(".tabla-eetakemon").append("<tr class=\"eetakemon\" onclick='webEetacemon("+obj.idEetakemon+")'>" +
+                    $("#tbody").append("<tr class=\"eetakemon\" onclick='webEetacemon("+obj.idEetakemon+")'>" +
                         "<td>" +
                         "<img src = \" /images/" + obj.name + ".png\" style=\"width:50px;height:50px;\" ' >" +
                         "</td>"+
@@ -25,7 +25,10 @@ $(document).ready(function () {
                 });
             },
             204: function () {
-                alert("No se han encontrado eetakemons");
+                //alert("No se han encontrado eetakemons");
+                $("#tbody").append("<tr class=\"empty\">" +
+                    "<td colspan=\"3\">Aún no has capturado ningún Eetakemon</td>"+
+                    "</tr>");
             },
             401: function () {
                 alert("No autorizado");

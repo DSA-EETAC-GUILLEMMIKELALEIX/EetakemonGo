@@ -23,7 +23,6 @@ public class RelationService {
         manager=new RelationManager();
     }
 
-
     //añadir eetakemon capturado
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
@@ -77,6 +76,8 @@ public class RelationService {
         }catch (UnauthorizedException ex) {
             return Response.status(Response.Status.UNAUTHORIZED).entity("Unauthorized").build();//401
 
+        }catch(NotSuchPrivilegeException ex){
+            return Response.status(Response.Status.FORBIDDEN).entity("Forbidden").build();//403
         }
 
     }

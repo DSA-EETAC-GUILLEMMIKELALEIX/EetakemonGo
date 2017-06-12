@@ -104,6 +104,17 @@ public class EetakemonManager {
         return list;
     }
 
+    public String getNumEetakemons(HttpHeaders header)throws UnauthorizedException{
+        Verification v = new Verification();
+        try {
+            authManager.verify(header, v);
+            return new Eetakemon().getNumEetakemons();
+        }catch (UnauthorizedException ex) {
+            throw new UnauthorizedException("Unauthorized: user is not authorized");
+
+        }
+    }
+
     //falta acabar
     public Eetakemon getEetakemonByTypeeee(HttpHeaders header,String tipo) throws UnauthorizedException{
         List<Eetakemon> list;
@@ -153,7 +164,7 @@ public class EetakemonManager {
         try {
             BufferedImage bufferedImage = ImageIO.read(new ByteArrayInputStream(imageBytes));
             ImageIO.write(bufferedImage, "png", imageFile);
-            e.setFoto("http://localhost:8081/images/"+e.getNombre()+".png");
+            e.setFoto("http://localhost:8081/images/"+e.getNombre().toLowerCase()+".png");
         }
         catch(Exception ex){
             ex.printStackTrace();
@@ -168,4 +179,6 @@ public class EetakemonManager {
             ex.printStackTrace();
         }
     }
+
+
 }

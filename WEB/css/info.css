@@ -1,0 +1,11 @@
+/*form*/
+.page {
+    padding: 0;
+    margin: 0;
+}
+#welcome{
+    width: 60%;
+    height: 400px;
+    float:left;
+    font-size:20px;
+}

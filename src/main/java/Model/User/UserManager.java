@@ -1,5 +1,6 @@
 package Model.User;
 
+import Model.Eetakemon.EetakemonManager;
 import Model.Exceptions.NotSuchPrivilegeException;
 import Model.Exceptions.UnauthorizedException;
 import Model.Relation.Relation;
@@ -238,6 +239,17 @@ public class UserManager {
         }
 
         return list;
+    }
+
+    public String getNumUsers(HttpHeaders header)throws UnauthorizedException{
+        Verification v = new Verification();
+        try {
+            authManager.verify(header, v);
+            return new User().getNumUsers();
+        }catch (UnauthorizedException ex) {
+            throw new UnauthorizedException("Unauthorized: user is not authorized");
+
+        }
     }
 
     public boolean resetPassword(User u) {

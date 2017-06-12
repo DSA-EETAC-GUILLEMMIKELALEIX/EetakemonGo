@@ -1,41 +1,16 @@
-function loadUser() {
-    //load users table
+function loadInfo() {
     $.ajax({
         type: 'GET',
         contentType: 'application/json',
-        url: ctxPath + "User/all",
+        url: ctxPath + "User/info",
         headers: {"Authorization": "Bearer " + sessionStorage.getItem("Token")},
         statusCode: {
             200: function (result) {
-                $("#num-users").append(result.length);
-            },
-            204: function () {
-                alert("No se ha podido visualizar");
-            },
-            401: function () {
-                alert("No autorizado");
-                sessionStorage.clear();
-                window.location.replace("../index.html");
-            },
-            403: function () {
-                alert("No tiene suficientes permisos");
-            }
-        }
-    });
-}
-
-function loadCaptured(){
-    $.ajax({
-        type: 'GET',
-        contentType: 'application/json',
-        url: ctxPath + "Relation/Captured/"+sessionStorage.getItem("ID"),
-        headers: {"Authorization": "Bearer " + sessionStorage.getItem("Token")},
-        statusCode:{
-            200: function (result) {
-                $("#num-captured").append(result.length);
-            },
-            204: function () {
-                alert("No se han encontrado eetakemons");
+                var info=result.responseText.split("/");
+                console.log(info);
+                $("#num-users").append(info[0]);
+                $("#num-eetakemons").append(info[1]);
+                $("#num-captured").append(info[2]);
             },
             401: function () {
                 alert("No autorizado");
@@ -44,37 +19,11 @@ function loadCaptured(){
             }
         }
     });
-}
-
-function loadEetakemon(){
-    //load eetakemon table
-    $.ajax({
-        type: 'GET',
-        contentType: 'application/json',
-        url: ctxPath + "Eetakemon/all",
-        headers: {"Authorization": "Bearer " + sessionStorage.getItem("Token")},
-        statusCode:{
-            200: function (result) {
-               $("#num-eetakemons").append(result.length);
-            },
-            204: function () {
-                alert("No se han encontrado eetakemons");
-            },
-            401: function () {
-                alert("No autorizado");
-                sessionStorage.clear();
-                window.location.replace("../index.html");
-            }
-        }
-    });
-
 }
 
 $(document).ready(function(){
     checkLoged();
-    loadUser();
-    loadCaptured();
-    loadEetakemon();
+    loadInfo();
 
     //change user-eetakemon options
     $('#opcion-usuario').click(function(){
