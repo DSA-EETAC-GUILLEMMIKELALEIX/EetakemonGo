@@ -191,7 +191,7 @@ public class UserService {
         }
     }
 
-    //RCambia el estado de admin de un usuario
+    //Cambia el estado de admin de un usuario
     @POST
     @Path("/Admin/{id}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -224,7 +224,6 @@ public class UserService {
             throw  new UnauthorizedException("Unauthorized: user is not authorized");
         }
     }
-}
 
     //logearse
     @POST
