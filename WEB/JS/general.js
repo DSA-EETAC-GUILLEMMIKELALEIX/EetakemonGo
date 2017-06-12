@@ -15,7 +15,7 @@ function loadMenu(){
 }
 
 function loadAdminMenu(){
-    $(".menu").load("../forms/AdminMenu.html")
+    $(".menu").load("../forms/NewMenuAdmin.html")
 }
 
 function logout() {
