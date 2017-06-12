@@ -28,13 +28,14 @@ function checkLoged(){
     {
         sessionStorage.clear();
         window.location.replace("../index.html");
-    }
-    if(sessionStorage.getItem("Admin")!=1){
-        /*$("#avanzado#).css({"display":"none"});*/
-        loadMenu();
-    }
-    else{
-        loadAdminMenu();
+    }else {
+        if (sessionStorage.getItem("Admin") != 1) {
+            /*$("#avanzado#).css({"display":"none"});*/
+            loadMenu();
+        }
+        else {
+            loadAdminMenu();
+        }
     }
 
     $("#logout").click(function(){

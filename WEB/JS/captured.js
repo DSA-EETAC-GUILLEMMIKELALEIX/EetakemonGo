@@ -3,8 +3,9 @@ function webEetacemon(idE) {
 }
 
 $(document).ready(function () {
-    checkLoged();
 
+
+    checkLoged();
     $.ajax({
         type: 'GET',
         contentType: 'application/json',
@@ -37,5 +38,6 @@ $(document).ready(function () {
             }
         }
     });
+
 
 });
