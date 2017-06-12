@@ -11,11 +11,11 @@ function setAlertMessage(message, type){
 }
 
 function loadMenu(){
-    $(".menu").load("../forms/Menu.html")
+    $(".menu").load("../forms/ProvisionalMenu.html")
 }
 
 function loadAdminMenu(){
-    $(".menu").load("../forms/NewMenuAdmin.html")
+    $(".menu").load("../forms/ProvisionalMenuAdmin.html")
 }
 
 function logout() {
