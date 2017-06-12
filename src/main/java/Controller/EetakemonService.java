@@ -171,7 +171,7 @@ public class EetakemonService {
         }
     }
 
-  /*  //Lista de eetac-emons
+  /* //Lista de eetac-emons
     @GET
     @Path("/ListApp")
     @Produces(MediaType.APPLICATION_JSON)

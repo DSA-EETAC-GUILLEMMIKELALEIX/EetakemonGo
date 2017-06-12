@@ -1,5 +1,4 @@
-
-
+@import url('https://fonts.googleapis.com/css?family=Lato');
 /*body*/
 body {
 
@@ -14,9 +13,12 @@ body {
 	overflow-y: scroll;
 	min-width: 1000px;
 	overflow-y: auto;
+	font-family: 'Lato', sans-serif;
+	font-weight: 400;
 
 }
 /*MENU*/
+/*
 .logo{
 	margin:0;
 	padding: 0;
@@ -29,11 +31,12 @@ body {
 	margin: 0 auto;
 	width: 100%;
 	min-width: 1000px;
-	/*background-color: yellow;*/
+	background-color: yellow;
 	text-align:center;
 	top:0;
 	height: 90px;
 	z-index: 99;
+
 
 }
 
@@ -41,12 +44,13 @@ body {
 	margin: 0 auto;
 	max-width:100%;
 	height: 100%;
-	/*padding:20px;*/
+	padding:20px;
 	background-color: #F0F638;
 	display: flex;
 	justify-content: center;
 	align-items: center; 
 	padding:0;
+
 	
 }
 
@@ -64,7 +68,8 @@ body {
 
 .opcion{	
 	color:black;
-	font: bold 1.5em Arial;
+	font-family: 'Lato', sans-serif;
+	font-size:20px;
 	height:100%;
 	padding: 0 10px 0 10px;
 	display: flex;
@@ -73,8 +78,8 @@ body {
 }
 
 .opcion:hover, .opcion:focus{
-	/*background-color:#06ADED;
-	color:yellow;*/
+	background-color:#06ADED;
+	color:yellow;
 	color:#06ADED;
 	cursor:pointer;
 }
@@ -82,8 +87,7 @@ body {
 a.opcion{
 	text-decoration:none;
 }
-
-
+*/
 /*container*/
 .container{
 	width:100%;

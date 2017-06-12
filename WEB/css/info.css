@@ -1,11 +1,17 @@
-/*form*/
-.page {
-    padding: 0;
-    margin: 0;
+
+.video-responsive {
+    padding-bottom: 56.25%; /* 16/9 ratio */
+    padding-top: 80px; /* IE6 workaround*/
+    height: 0;
+    overflow: hidden;
 }
-#welcome{
-    width: 60%;
-    height: 400px;
-    float:left;
-    font-size:20px;
+
+.video-responsive iframe,
+.video-responsive object,
+.video-responsive embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
