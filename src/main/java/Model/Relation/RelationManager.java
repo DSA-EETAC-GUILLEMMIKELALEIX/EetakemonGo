@@ -150,7 +150,7 @@ public class RelationManager {
         Verification v = new Verification();
         try {
             authManager.verify(header, v);
-            return new Relation().getNumCaptured();
+            return new Relation().getNumCaptured(v.getIdUser());
         }catch (UnauthorizedException ex) {
             throw new UnauthorizedException("Unauthorized: user is not authorized");
 

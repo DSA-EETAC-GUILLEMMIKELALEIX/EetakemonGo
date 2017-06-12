@@ -138,11 +138,13 @@ public class RelationDAO extends DAO {
         }
     }
 
-    protected String getNumCaptured(){
+    protected String getNumCaptured(int idUser){
         String num="0";
         Connection con = getConnection();
         StringBuffer query = new StringBuffer("SELECT COUNT(*) FROM ");
         query.append(this.getClass().getSimpleName());
+        query.append(" WHERE idUser=");
+        query.append(idUser);
         query.append(";");
 
         try {
