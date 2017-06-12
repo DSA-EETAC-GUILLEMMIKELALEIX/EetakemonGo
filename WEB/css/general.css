@@ -1,5 +1,4 @@
-
-
+@import url('https://fonts.googleapis.com/css?family=Lato');
 /*body*/
 body {
 
@@ -14,6 +13,8 @@ body {
 	overflow-y: scroll;
 	min-width: 1000px;
 	overflow-y: auto;
+	font-family: 'Lato', sans-serif;
+	font-weight: 400;
 
 }
 /*MENU*/
@@ -35,6 +36,7 @@ body {
 	height: 90px;
 	z-index: 99;
 
+
 }
 
 .opciones-menu {
@@ -47,6 +49,7 @@ body {
 	justify-content: center;
 	align-items: center; 
 	padding:0;
+
 	
 }
 
@@ -64,7 +67,8 @@ body {
 
 .opcion{	
 	color:black;
-	font: bold 1.5em Arial;
+	font-family: 'Lato', sans-serif;
+	font-size:20px;
 	height:100%;
 	padding: 0 10px 0 10px;
 	display: flex;
