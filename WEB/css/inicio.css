@@ -1,5 +1,5 @@
 body{
-    background-image: url("../images/bcbl.jpg");
+    background-image: url("../images/fonsblau.png");
     background-size: cover;
     -moz-background-size: cover;
     -webkit-background-size: cover;
@@ -136,8 +136,8 @@ body{
 }
 
 /*footer*/
-#footer{
-    width: 100%;
+#infor{
+    /*width: 100%;
     float:left;
     height: 1000px;
     background: rgba(2,0,128,1);
@@ -147,5 +147,7 @@ body{
     background: -o-linear-gradient(top, rgba(2,0,128,1) 0%, rgba(2,0,128,1) 20%, rgba(32,124,229,1) 100%);
     background: -ms-linear-gradient(top, rgba(2,0,128,1) 0%, rgba(2,0,128,1) 20%, rgba(32,124,229,1) 100%);
     background: linear-gradient(to bottom, rgba(2,0,128,1) 0%, rgba(2,0,128,1) 20%, rgba(32,124,229,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#020080', endColorstr='#207ce5', GradientType=0 );
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#020080', endColorstr='#207ce5', GradientType=0 );*/
+    background-image: url("../images/fonsbuit.png");
+    height:70%;
 }

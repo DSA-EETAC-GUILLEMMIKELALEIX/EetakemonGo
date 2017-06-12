@@ -147,3 +147,7 @@ a.opcion{
 	font-size: 30px;
 	font-weight:200;
 }*/
+#footer{
+	float:left;
+	position: absolute;
+}
