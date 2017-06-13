@@ -162,3 +162,15 @@ body{
     background-image: url("../images/fonsbuit.png");
     height:70%;
 }
+#eetac{
+    width: 60%;
+    height: auto;
+}
+#pokemon{
+    width: 30%;
+    height: auto;
+}
+#stack{
+    width: 30%;
+    height: auto;
+}

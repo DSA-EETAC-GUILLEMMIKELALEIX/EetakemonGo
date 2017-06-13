@@ -17,7 +17,9 @@ body {
 	font-weight: 400;
 
 }
+#agradecimientos{
 
+}
 /*MENU*/
 .menu{
 	position: fixed;
@@ -188,4 +190,16 @@ a.opcion{
 #footer{
 	float:left;
 	position: absolute;
+}
+#eetac{
+	width: 60%;
+	height: auto;
+}
+#pokemon{
+	width: 30%;
+	height: auto;
+}
+#stack{
+	width: 30%;
+	height: auto;
 }
