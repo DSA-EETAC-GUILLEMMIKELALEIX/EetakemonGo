@@ -101,6 +101,12 @@ body{
     min-width: 100px;
 }
 
+#trailer{
+    margin-top: 20px;
+    width: 50%;
+    height: auto;
+}
+
 .number{
     background: white;
     border-radius: 50%;
