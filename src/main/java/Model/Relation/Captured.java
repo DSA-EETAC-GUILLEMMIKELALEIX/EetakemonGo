@@ -5,14 +5,16 @@ public class Captured {
     int idEetakemon;
     String name;
     int level;
+    String foto;
 
         public Captured(){}
 
 
-    public Captured(int idEetakemon, String name, int level) {
+    public Captured(int idEetakemon, String name, int level, String foto) {
         this.idEetakemon=idEetakemon;
         this.name=name;
         this.level=level;
+        this.foto=foto;
     }
 
 
@@ -40,5 +42,13 @@ public class Captured {
 
     public void setLevel(int level) {
         this.level = level;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 }

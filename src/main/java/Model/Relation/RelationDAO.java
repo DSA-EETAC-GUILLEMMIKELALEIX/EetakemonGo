@@ -53,7 +53,8 @@ public class RelationDAO extends DAO {
     {
         List <Captured> list= new ArrayList<>();
         Connection con = getConnection();
-        StringBuffer query = new StringBuffer("SELECT eetakemon.id, eetakemon.nombre, relation.level FROM ");
+        StringBuffer query = new StringBuffer("SELECT eetakemon.id, eetakemon.nombre, relation.level, " +
+                "eetakemon.foto FROM ");
         query.append("Eetakemon, Relation WHERE relation.idEetakemon=Eetakemon.id AND relation.idUser=");
         query.append(idUser);
         query.append(";");
@@ -70,7 +71,7 @@ public class RelationDAO extends DAO {
 
             while (rs.next()) {
                 list.add(new Captured(rs.getInt(1),rs.getString(2),
-                        rs.getInt(3)));
+                        rs.getInt(3),rs.getString(4)));
             }
             ps.close();
             con.close();
