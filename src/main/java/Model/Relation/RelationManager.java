@@ -49,7 +49,7 @@ public class RelationManager {
             authManager.verify(header, v);
             r.selectRelationById(id);
            e=em.getEetakemonById(header, id);
-           c= new Captured(r.getIdEetakemon(),e.getNombre(),r.getLevel());
+           c= new Captured(r.getIdEetakemon(),e.getNombre(),r.getLevel(),e.getFoto());
         }
     catch (UnauthorizedException ex) {
         throw new UnauthorizedException("Unauthorized: user is not authorized");
