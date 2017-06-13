@@ -50,3 +50,9 @@ Insert INTO Eetakemon (nombre, tipo, nivel, foto) VALUES ('Mewdecerio', 'Legenda
 Insert INTO Relation (idUser, idEetakemon, level) VALUES (1, 1, 30);
 Insert INTO Relation (idUser, idEetakemon, level) VALUES (2, 1, 30);
 Insert INTO Relation (idUser, idEetakemon, level) VALUES (3, 1, 30);
+Insert INTO Relation (idUser, idEetakemon, level) VALUES (1, 2, 30);
+Insert INTO Relation (idUser, idEetakemon, level) VALUES (2, 2, 30);
+Insert INTO Relation (idUser, idEetakemon, level) VALUES (3, 2, 30);
+Insert INTO Relation (idUser, idEetakemon, level) VALUES (1, 3, 30);
+Insert INTO Relation (idUser, idEetakemon, level) VALUES (2, 3, 30);
+Insert INTO Relation (idUser, idEetakemon, level) VALUES (3, 3, 30);

@@ -19,12 +19,13 @@
     margin: 0 auto;
     text-align: center;
     width: 30%;
-    font-size: 30px;
+    font-size:20px;
     border-collapse: collapse;
 }
 
 #tabla-info td{
     padding: 15px 0 15px 0;
+    background-color: #AFAFAF;
 }
 #tabla-info th{
     padding: 15px 0 15px 0;
