@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
 /*body*/
 body {
     margin: 0 auto;
@@ -7,7 +8,8 @@ body {
     -moz-background-size: cover;
     -webkit-background-size: cover;
     -o-background-size: cover;
-    background-attachment: fixed
+    background-attachment: fixed;
+    font-family: 'Lato', sans-serif;
 }
 
 
