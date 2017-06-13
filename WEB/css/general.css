@@ -17,7 +17,44 @@ body {
 	font-weight: 400;
 
 }
+
 /*MENU*/
+.menu{
+	position: fixed;
+    top:0;
+    width: 100%;
+    margin: 0 auto;
+}
+
+#menu-image{
+    width: 100%;
+    margin: 0 auto;
+    min-height: 20%;
+}
+
+.menu-options{
+    margin: 0;
+    width: 100%;
+    position: absolute;
+    top:70%;
+}
+
+.menu-options a:link{
+    color:#FFFFFF;
+}
+.menu-options a:hover{
+    color: #FFE500;
+}
+.menu-options a:visited{
+    color: #FFFFFF;
+}
+.menu-options a:visited:hover{
+    color: #FFE500;
+}
+
+.menu-options li{
+    display:inline-block;
+}
 /*
 .logo{
 	margin:0;
@@ -36,7 +73,6 @@ body {
 	top:0;
 	height: 90px;
 	z-index: 99;
-
 
 }
 
