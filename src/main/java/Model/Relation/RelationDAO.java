@@ -53,9 +53,9 @@ public class RelationDAO extends DAO {
     {
         List <Captured> list= new ArrayList<>();
         Connection con = getConnection();
-        StringBuffer query = new StringBuffer("SELECT eetakemon.id, eetakemon.nombre, relation.level, " +
-                "eetakemon.foto FROM ");
-        query.append("Eetakemon, Relation WHERE relation.idEetakemon=Eetakemon.id AND relation.idUser=");
+        StringBuffer query = new StringBuffer("SELECT Eetakemon.id, Eetakemon.nombre, Relation.level, " +
+                "Eetakemon.foto FROM ");
+        query.append("Eetakemon, Relation WHERE Relation.idEetakemon=Eetakemon.id AND Relation.idUser=");
         query.append(idUser);
         query.append(";");
 

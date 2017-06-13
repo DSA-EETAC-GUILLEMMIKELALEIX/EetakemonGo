@@ -18,7 +18,7 @@ $(document).ready(function () {
                     console.log((obj));
                     $("#tbody").append("<tr class=\"eetakemon\" onclick='webEetacemon("+obj.idEetakemon+")'>" +
                         "<td>" +
-                        "<img src = \" /images/" + obj.name + ".png\" style=\"width:50px;height:50px;\" ' >" +
+                        "<img src = \" /images/" + obj.name.toLowerCase() + ".png\" style=\"width:50px;height:50px;\" ' >" +
                         "</td>"+
                         "<td>" +obj.name+ "</td>"+
                         "<td>" +obj.level+ "</td>"+

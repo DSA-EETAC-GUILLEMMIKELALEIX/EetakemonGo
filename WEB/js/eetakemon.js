@@ -53,7 +53,7 @@ $(document).ready( function () {
             statusCode: {
                 200: function (result) {
                     $("#image-div").append(
-                        "<img id=\"imagen\" src = \" /images/" + result.name + ".png\" style=\"width:20%;height:20%;\" '>"
+                        "<img id=\"imagen\" src = \" /images/" + result.name.toLowerCase() + ".png\" style=\"width:20%;height:20%;\" '>"
                     );
                     $("#type").remove();
                     $("#tabla-info").append("<tr class=\"eetakemon\">" +

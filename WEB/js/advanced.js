@@ -171,7 +171,7 @@ function loadEetakemonTable(){
                     console.log((obj));
                     $("#tabla-eetakemon").append("<tr class=\"eetakemon\">" +
                         "<td>" +
-                        "<img src = \" /images/" + obj.nombre + ".png\" style=\"width:50px;height:50px;\" ' >" +
+                        "<img src = \" /images/" + obj.nombre.toLowerCase() + ".png\" style=\"width:50px;height:50px;\" ' >" +
                         "</td>"+
                         "<td>" +obj.id+ "</td>"+
                         "<td>" +obj.nombre+ "</td>"+
