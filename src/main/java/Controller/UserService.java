@@ -46,9 +46,12 @@ public class UserService {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response Login(User usuario) {
         int code;
+        System.out.println(usuario.toString());
         code=manager.login(usuario);
+        System.out.println("Code: "+code);
         if (code==0) {
             String token = manager.generateToken(usuario);
+            System.out.println(token);
             return Response.status(Response.Status.OK).entity(token).build();//200
         }
         else{
