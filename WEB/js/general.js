@@ -1,4 +1,4 @@
-var ctxPath = "http://147.83.7.158:8080/EetakemonGo/";
+var ctxPath = "http://localhost:8080/EetakemonGo/";
 
 function hideAlert(alert) {
     setTimeout(function() {
