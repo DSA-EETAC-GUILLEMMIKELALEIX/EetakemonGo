@@ -119,6 +119,10 @@ body{
 
 }
 
+#middle{
+    background: midnightblue;
+}
+
 /*carousel*/
 #carousel{
    /* margin: 0 auto;
