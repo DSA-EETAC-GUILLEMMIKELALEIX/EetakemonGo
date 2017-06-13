@@ -137,7 +137,7 @@ function loadUserTable() {
                         "<td>" + obj.nombre + "</td>" +
                         "<td>" + obj.email + "</td>" +
                         "<td class=\"admin\" onclick='changeAdmin("+obj.id+","+obj.admin+")'>" + admin(obj.admin) + "</td>" +
-                        "<td class=\"edit\" >" +"Editar"+ "</td>"+
+                        /*"<td class=\"edit\" >" +"Editar"+ "</td>"+*/
                         "<td class=\"delete\" onclick='deleteUser("+obj.id+")'>" +"Borrar"+ "</td>"+
                         "</tr>");
                 });
@@ -177,7 +177,7 @@ function loadEetakemonTable(){
                         "<td>" +obj.nombre+ "</td>"+
                         "<td>" +obj.tipo+ "</td>"+
                         "<td>" +obj.nivel+ "</td>"+
-                        "<td class=\"edit\">" +"Editar"+ "</td>"+
+                        /*"<td class=\"edit\">" +"Editar"+ "</td>"+*/
                         "<td class=\"delete\" onclick='deleteEetakemon("+obj.id+")'>" +"Borrar"+ "</td>"+
                         "</tr>");
                 });
