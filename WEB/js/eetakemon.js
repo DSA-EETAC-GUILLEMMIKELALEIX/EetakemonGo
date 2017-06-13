@@ -23,7 +23,7 @@ $(document).ready( function () {
             statusCode: {
                 200: function (result) {
                     $("#image-div").append(
-                        "<img id=\"imagen\" src = \" /images/" + result.nombre + ".png\" style=\"width:20%;height:20%;\" '>"
+                        "<img id=\"imagen\" src = \" /images/" + result.nombre.toLowerCase() + ".png\" style=\"width:20%;height:20%;\" '>"
                     );
 
                     $("#tabla-info").append("<tr class=\"eetakemon\">" +
