@@ -6,8 +6,6 @@ import Model.Eetakemon.EetakemonManager;
 import Model.Exceptions.NotSuchPrivilegeException;
 import Model.Exceptions.UnauthorizedException;
 import Model.Location.LocationManager;
-import Model.Question.QuestionManager;
-import Model.Relation.RelationManager;
 
 import javax.inject.Singleton;
 import javax.ws.rs.*;
@@ -168,4 +166,5 @@ public class EetakemonService {
         }
 
     }
+
 }

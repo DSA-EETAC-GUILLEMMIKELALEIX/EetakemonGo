@@ -6,6 +6,7 @@ import Model.Question.Question;
 import Model.Question.QuestionManager;
 
 import javax.inject.Singleton;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -27,6 +28,7 @@ public class QuestionService {
     //Pregunta
     @POST
     @Path("/Question")
+    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response getQuestionTipo(@Context HttpHeaders header, Eetakemon eetak) {
         Question q = new Question(); //Poner funcion para la pregunta

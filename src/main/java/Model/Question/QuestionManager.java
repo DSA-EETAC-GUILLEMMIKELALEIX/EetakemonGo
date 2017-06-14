@@ -15,6 +15,10 @@ public class QuestionManager {
     private final static Logger logger = Logger.getLogger(QuestionManager.class);//
     private AuthenticationManager authManager;
 
+    public QuestionManager(){
+        authManager= new AuthenticationManager();
+    }
+
 
     //obtener pregunta por id
     public Question getEetakemonById(HttpHeaders header, int id) throws UnauthorizedException {
@@ -77,7 +81,7 @@ public class QuestionManager {
         Verification v = new Verification();
 
         try {
-            authManager.verify(header, v);
+            authManager.verify(header,v);
             list = new Question().getByType(tipo);
             Random rand = new Random();
             int a = list.size();
