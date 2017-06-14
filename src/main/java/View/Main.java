@@ -15,7 +15,7 @@ import java.net.URI;
 public class Main {
     // Base URI the Grizzly HTTP server will listen on
    // public static final String BASE_URI = "http://10.192.230.97:8080/";
-    public static final String BASE_URI = "http://localhost:8080/";
+    public static final String BASE_URI = "http://localhost:8080";
 
     /**
      * Starts Grizzly HTTP server exposing JAX-RS resources defined in this application.
@@ -28,7 +28,7 @@ public class Main {
 
         // create and start a new instance of grizzly http server
         // exposing the Jersey application at BASE_URI
-        return GrizzlyHttpServerFactory.createHttpServer(URI.create(BASE_URI+"EetakemonGo"), rc);
+        return GrizzlyHttpServerFactory.createHttpServer(URI.create(BASE_URI+"/EetakemonGo"), rc);
     }
 
 
