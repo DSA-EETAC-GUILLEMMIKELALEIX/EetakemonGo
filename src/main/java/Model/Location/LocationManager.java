@@ -121,8 +121,10 @@ public class LocationManager {
 
         for(int i=0; i<locs.size();i++){
             if(l==locs.get(i)){
-                locs.add(l);
                 l=getLocation();
+            }else{
+                locs.add(l);
+                return l;
             }
         }
 

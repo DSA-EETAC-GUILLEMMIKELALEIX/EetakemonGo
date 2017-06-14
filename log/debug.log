@@ -7686,3 +7686,53 @@
 2017-06-14 22:27:14 INFO  DAO:41 - INFO: Get by type statement: com.mysql.jdbc.JDBC4PreparedStatement@75d305d3: SELECT * FROM Eetakemon WHERE tipo='Inferior';
 2017-06-14 22:27:14 INFO  DAO:25 - INFO: conexión creada
 2017-06-14 22:27:14 INFO  DAO:41 - INFO: Get by type statement: com.mysql.jdbc.JDBC4PreparedStatement@5587f66c: SELECT * FROM Eetakemon WHERE tipo='Inferior';
+2017-06-14 22:28:58 INFO  DAO:25 - INFO: conexión creada
+2017-06-14 22:28:58 INFO  DAO:65 - INFO: Select captured: com.mysql.jdbc.JDBC4PreparedStatement@77d8bfa0: SELECT Eetakemon.id, Eetakemon.nombre, Relation.level, Eetakemon.foto FROM Eetakemon, Relation WHERE Relation.idEetakemon=Eetakemon.id AND Relation.idUser=1;
+2017-06-14 22:35:13 INFO  DAO:25 - INFO: conexión creada
+2017-06-14 22:35:13 INFO  DAO:41 - INFO: Get by type statement: com.mysql.jdbc.JDBC4PreparedStatement@26843974: SELECT * FROM Eetakemon WHERE tipo='Inferior';
+2017-06-14 22:35:13 INFO  DAO:25 - INFO: conexión creada
+2017-06-14 22:35:13 INFO  DAO:41 - INFO: Get by type statement: com.mysql.jdbc.JDBC4PreparedStatement@48264965: SELECT * FROM Eetakemon WHERE tipo='Normal';
+2017-06-14 22:35:13 INFO  DAO:25 - INFO: conexión creada
+2017-06-14 22:35:13 INFO  DAO:41 - INFO: Get by type statement: com.mysql.jdbc.JDBC4PreparedStatement@5617d732: SELECT * FROM Eetakemon WHERE tipo='Legendario';
+2017-06-14 22:36:16 INFO  DAO:25 - INFO: conexión creada
+2017-06-14 22:36:16 INFO  DAO:41 - INFO: Get by type statement: com.mysql.jdbc.JDBC4PreparedStatement@5762c99a: SELECT * FROM Eetakemon WHERE tipo='Inferior';
+2017-06-14 22:36:16 INFO  DAO:25 - INFO: conexión creada
+2017-06-14 22:36:16 INFO  DAO:41 - INFO: Get by type statement: com.mysql.jdbc.JDBC4PreparedStatement@159062e3: SELECT * FROM Eetakemon WHERE tipo='Inferior';
+2017-06-14 22:36:16 INFO  DAO:25 - INFO: conexión creada
+2017-06-14 22:36:16 INFO  DAO:41 - INFO: Get by type statement: com.mysql.jdbc.JDBC4PreparedStatement@22d59591: SELECT * FROM Eetakemon WHERE tipo='Inferior';
+2017-06-14 22:37:09 INFO  DAO:25 - INFO: conexión creada
+2017-06-14 22:37:09 INFO  DAO:41 - INFO: Get by type statement: com.mysql.jdbc.JDBC4PreparedStatement@7b5f55a5: SELECT * FROM Eetakemon WHERE tipo='Inferior';
+2017-06-14 22:37:09 INFO  DAO:25 - INFO: conexión creada
+2017-06-14 22:37:09 INFO  DAO:41 - INFO: Get by type statement: com.mysql.jdbc.JDBC4PreparedStatement@4de2e2f6: SELECT * FROM Eetakemon WHERE tipo='Normal';
+2017-06-14 22:37:09 INFO  DAO:25 - INFO: conexión creada
+2017-06-14 22:37:09 INFO  DAO:41 - INFO: Get by type statement: com.mysql.jdbc.JDBC4PreparedStatement@10f819e1: SELECT * FROM Eetakemon WHERE tipo='Legendario';
+2017-06-14 22:37:40 INFO  DAO:25 - INFO: conexión creada
+2017-06-14 22:37:40 INFO  DAO:41 - INFO: Get by type statement: com.mysql.jdbc.JDBC4PreparedStatement@5a62ffb6: SELECT * FROM Eetakemon WHERE tipo='Inferior';
+2017-06-14 22:37:57 INFO  DAO:25 - INFO: conexión creada
+2017-06-14 22:37:57 INFO  DAO:41 - INFO: Get by type statement: com.mysql.jdbc.JDBC4PreparedStatement@1a10ae63: SELECT * FROM Eetakemon WHERE tipo='Inferior';
+2017-06-14 22:37:57 INFO  DAO:25 - INFO: conexión creada
+2017-06-14 22:37:57 INFO  DAO:41 - INFO: Get by type statement: com.mysql.jdbc.JDBC4PreparedStatement@362af39a: SELECT * FROM Eetakemon WHERE tipo='Inferior';
+2017-06-14 22:38:50 INFO  DAO:25 - INFO: conexión creada
+2017-06-14 22:38:50 INFO  DAO:41 - INFO: Get by type statement: com.mysql.jdbc.JDBC4PreparedStatement@5799e199: SELECT * FROM Eetakemon WHERE tipo='Inferior';
+2017-06-14 22:38:50 INFO  DAO:25 - INFO: conexión creada
+2017-06-14 22:38:50 INFO  DAO:41 - INFO: Get by type statement: com.mysql.jdbc.JDBC4PreparedStatement@2b313c13: SELECT * FROM Eetakemon WHERE tipo='Normal';
+2017-06-14 22:38:50 INFO  DAO:25 - INFO: conexión creada
+2017-06-14 22:38:50 INFO  DAO:41 - INFO: Get by type statement: com.mysql.jdbc.JDBC4PreparedStatement@3b7afd83: SELECT * FROM Eetakemon WHERE tipo='Legendario';
+2017-06-14 22:39:05 INFO  DAO:25 - INFO: conexión creada
+2017-06-14 22:39:05 INFO  DAO:41 - INFO: Get by type statement: com.mysql.jdbc.JDBC4PreparedStatement@4a62ea65: SELECT * FROM Eetakemon WHERE tipo='Inferior';
+2017-06-14 22:39:05 INFO  DAO:25 - INFO: conexión creada
+2017-06-14 22:39:05 INFO  DAO:41 - INFO: Get by type statement: com.mysql.jdbc.JDBC4PreparedStatement@5ae8086f: SELECT * FROM Eetakemon WHERE tipo='Inferior';
+2017-06-14 22:39:05 INFO  DAO:25 - INFO: conexión creada
+2017-06-14 22:39:05 INFO  DAO:41 - INFO: Get by type statement: com.mysql.jdbc.JDBC4PreparedStatement@5a98d392: SELECT * FROM Eetakemon WHERE tipo='Inferior';
+2017-06-14 22:41:37 INFO  DAO:25 - INFO: conexión creada
+2017-06-14 22:41:37 INFO  DAO:41 - INFO: Get by type statement: com.mysql.jdbc.JDBC4PreparedStatement@1d0c541a: SELECT * FROM Eetakemon WHERE tipo='Inferior';
+2017-06-14 22:41:37 INFO  DAO:25 - INFO: conexión creada
+2017-06-14 22:41:37 INFO  DAO:41 - INFO: Get by type statement: com.mysql.jdbc.JDBC4PreparedStatement@3b21a2bd: SELECT * FROM Eetakemon WHERE tipo='Normal';
+2017-06-14 22:41:37 INFO  DAO:25 - INFO: conexión creada
+2017-06-14 22:41:37 INFO  DAO:41 - INFO: Get by type statement: com.mysql.jdbc.JDBC4PreparedStatement@48b1066e: SELECT * FROM Eetakemon WHERE tipo='Legendario';
+2017-06-14 22:41:57 INFO  DAO:25 - INFO: conexión creada
+2017-06-14 22:41:57 INFO  DAO:41 - INFO: Get by type statement: com.mysql.jdbc.JDBC4PreparedStatement@44fd383: SELECT * FROM Eetakemon WHERE tipo='Inferior';
+2017-06-14 22:42:13 INFO  DAO:25 - INFO: conexión creada
+2017-06-14 22:42:13 INFO  DAO:41 - INFO: Get by type statement: com.mysql.jdbc.JDBC4PreparedStatement@333c6517: SELECT * FROM Eetakemon WHERE tipo='Inferior';
+2017-06-14 22:42:14 INFO  DAO:25 - INFO: conexión creada
+2017-06-14 22:42:14 INFO  DAO:41 - INFO: Get by type statement: com.mysql.jdbc.JDBC4PreparedStatement@7591077e: SELECT * FROM Eetakemon WHERE tipo='Inferior';
