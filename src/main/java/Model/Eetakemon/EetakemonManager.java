@@ -149,7 +149,6 @@ public class EetakemonManager {
            int i=temp.size();
            int j= rand.nextInt(i);
            e=temp.get(j);
-           setUrlImage(e);
 
         }catch (UnauthorizedException ex) {
             throw new UnauthorizedException("Unauthorized: user is not authorized");

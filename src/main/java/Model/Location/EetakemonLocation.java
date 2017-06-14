@@ -5,14 +5,14 @@ import Model.Eetakemon.Eetakemon;
 
 public class EetakemonLocation {
     private Eetakemon eetakemon;
-    public Location location;
+    public Location latLong;
 
     public EetakemonLocation(){}
 
     public EetakemonLocation(Eetakemon eetakemon, Location location)
     {
         this.eetakemon  = eetakemon;
-        this.location = location;
+        this.latLong = location;
     }
 
     public Eetakemon getEetakemon() {
@@ -23,11 +23,11 @@ public class EetakemonLocation {
         this.eetakemon = eetakemon;
     }
 
-    public Location getLocation() {
-        return location;
+    public Location getLatLong() {
+        return latLong;
     }
 
-    public void setLocation(Location location) {
-        this.location = location;
+    public void setLatLong(Location latLong) {
+        this.latLong = latLong;
     }
 }

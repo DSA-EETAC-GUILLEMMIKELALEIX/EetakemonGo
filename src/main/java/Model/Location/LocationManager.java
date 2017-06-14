@@ -3,16 +3,11 @@ package Model.Location;
 import Model.Eetakemon.Eetakemon;
 import Model.Eetakemon.EetakemonManager;
 import Model.Exceptions.UnauthorizedException;
-import Model.Location.Location;
-import com.sun.org.apache.xpath.internal.operations.Bool;
-import com.sun.xml.internal.ws.server.sei.MessageFiller;
 
 import javax.ws.rs.core.HttpHeaders;
 import java.util.*;
 
-/**
- * Created by aleix on 05/06/2017.
- */
+
 public class LocationManager {
 
     /*LatLng aa = new LatLng(41.27539318720677, 1.9851908683449437); //Biblioteca
@@ -109,7 +104,7 @@ public class LocationManager {
                 }
                 EetakemonLocation temp=new EetakemonLocation();
                 temp.setEetakemon(inferior.get(i));
-                temp.setLocation(tempLoc);
+                temp.setLatLong(tempLoc);
                 list.add(temp);
             }
 
