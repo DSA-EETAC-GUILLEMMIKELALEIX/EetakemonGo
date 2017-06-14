@@ -12,6 +12,15 @@ CREATE TABLE User (
   PRIMARY KEY (id)   
 )ENGINE = InnoDB;
 
+CREATE TABLE Question (
+
+  id INTEGER NOT NULL AUTO_INCREMENT,
+  tipo VARCHAR(255),
+  question VARCHAR(255),
+  answer INTEGER NOT NULL,
+  PRIMARY KEY (id)
+)ENGINE = InnoDB;
+
 
 CREATE TABLE Eetakemon (
 
@@ -38,6 +47,10 @@ CREATE TABLE Relation (
 Insert INTO User (nombre, contrasena, email, admin) VALUES ('mikel', 'TAv5pbyzSuw=', 'mikel@gmail.com', 1);
 Insert INTO User (nombre, contrasena, email, admin) VALUES ('aleix', '7ZOZ9CzlKJs=', 'aleix@gmail.com', 1);
 Insert INTO User (nombre, contrasena, email, admin) VALUES ('guillem', 'AT0D6sMGdKM=', 'guillem@gmail.com', 1);
+
+Insert INTO Question (tipo, question, answer) VALUES ('Inferior', 'Es Jesus Alcober profesor de Empresa?', 1);
+Insert INTO Question (tipo, question, answer) VALUES ('Normal', 'Es Jordi Berenguer profesor de ER?', 1);
+Insert INTO Question (tipo, question, answer) VALUES ('Legendario', 'Es Lluis Casals profesor de IX?', 1);
 
 Insert INTO Eetakemon (nombre, tipo, nivel, foto) VALUES ('Bernorlax', 'Normal', 15, 'http://147.83.7.158:8080/images/bernorlax.png');
 Insert INTO Eetakemon (nombre, tipo, nivel, foto) VALUES ('Davyphno', 'Normal', 15, 'http://147.83.7.158:8080/images/davyphno.png');
