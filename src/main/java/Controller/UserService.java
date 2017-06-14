@@ -20,7 +20,7 @@ public class UserService {
     private UserManager manager;
 
     public UserService() {
-        manager=new UserManager();
+        manager = new UserManager();
     }
 
 
@@ -31,11 +31,11 @@ public class UserService {
     public Response register(User user) {
         int code;
         code = manager.register(user);
-        if (code==0) {
+        if (code == 0) {
             return Response.status(Response.Status.CREATED).entity("User registered").build();//201
-        } else if (code==1){
+        } else if (code == 1) {
             return Response.status(Response.Status.ACCEPTED).entity("User already exists").build();///202
-        }else{
+        } else {
             return Response.status(Response.Status.BAD_REQUEST).entity("Bad request").build();//400
         }
     }
@@ -47,14 +47,13 @@ public class UserService {
     public Response Login(User usuario) {
         int code;
         System.out.println(usuario.toString());
-        code=manager.login(usuario);
-        System.out.println("Code: "+code);
-        if (code==0) {
+        code = manager.login(usuario);
+        System.out.println("Code: " + code);
+        if (code == 0) {
             String token = manager.generateToken(usuario);
             System.out.println(token);
             return Response.status(Response.Status.OK).entity(token).build();//200
-        }
-        else{
+        } else {
             return Response.status(Response.Status.UNAUTHORIZED).entity("Incorrect user").build();//401
         }
     }
@@ -73,10 +72,10 @@ public class UserService {
             } else {
                 return Response.status(Response.Status.BAD_REQUEST).entity("Bad request").build();//400
             }
-        }catch(UnauthorizedException ex){
+        } catch (UnauthorizedException ex) {
             return Response.status(Response.Status.UNAUTHORIZED).entity("Unauthorized").build();//401
 
-        }catch(NotSuchPrivilegeException ex){
+        } catch (NotSuchPrivilegeException ex) {
             return Response.status(Response.Status.FORBIDDEN).entity("Forbidden").build();//403
         }
     }
@@ -84,8 +83,8 @@ public class UserService {
     //modificar user
     @POST
     @Path("/{id}")
-    public Response modifyUser(@Context HttpHeaders header,@PathParam("id") int id, User user) {
-        Boolean a=false;
+    public Response modifyUser(@Context HttpHeaders header, @PathParam("id") int id, User user) {
+        Boolean a = false;
         try {
             a = manager.updateUser(header, id, user);
             if (a) {
@@ -93,10 +92,10 @@ public class UserService {
             } else {
                 return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error modifying").build();//500
             }
-        }catch(UnauthorizedException ex){
-        return Response.status(Response.Status.UNAUTHORIZED).entity("Unauthorized").build();//401
+        } catch (UnauthorizedException ex) {
+            return Response.status(Response.Status.UNAUTHORIZED).entity("Unauthorized").build();//401
 
-        }catch(NotSuchPrivilegeException ex){
+        } catch (NotSuchPrivilegeException ex) {
             return Response.status(Response.Status.FORBIDDEN).entity("Forbidden").build();//403
         }
     }
@@ -105,8 +104,8 @@ public class UserService {
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getUserId(@Context HttpHeaders header,@PathParam("id") int id) {
-        Verification v= new Verification();
+    public Response getUserId(@Context HttpHeaders header, @PathParam("id") int id) {
+        Verification v = new Verification();
         User u;
         try {
             u = manager.getUserById(header, id);
@@ -115,9 +114,9 @@ public class UserService {
             } else {
                 return Response.status(Response.Status.NO_CONTENT).entity("No user found").build();//204
             }
-        }catch (UnauthorizedException ex){
+        } catch (UnauthorizedException ex) {
             return Response.status(Response.Status.UNAUTHORIZED).entity("Unauthorized").build();//401
-        }catch(NotSuchPrivilegeException ex){
+        } catch (NotSuchPrivilegeException ex) {
             return Response.status(Response.Status.FORBIDDEN).entity("Forbidden").build();//403
         }
     }
@@ -127,15 +126,15 @@ public class UserService {
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response deleteUser(@Context HttpHeaders header, @PathParam("id") int id) {
-        Verification v= new Verification();
+        Verification v = new Verification();
         try {
             manager.deleteUser(header, id);
             return Response.status(Response.Status.OK).entity("User deleted").build();//200
 
-        }catch(UnauthorizedException ex){
+        } catch (UnauthorizedException ex) {
             return Response.status(Response.Status.UNAUTHORIZED).entity("Unauthorized").build();//401
 
-        }catch(NotSuchPrivilegeException ex){
+        } catch (NotSuchPrivilegeException ex) {
             return Response.status(Response.Status.FORBIDDEN).entity("Forbidden").build();//403
         }
     }
@@ -145,7 +144,7 @@ public class UserService {
     @Path("/all")
     @Produces(MediaType.APPLICATION_JSON)
     public Response ListUsers(@Context HttpHeaders header) {
-        Verification v= new Verification();
+        Verification v = new Verification();
         try {
             List<User> list;
             list = manager.listAllUsers(header);
@@ -158,10 +157,10 @@ public class UserService {
             } else {
                 return Response.status(Response.Status.NO_CONTENT).entity("No users found: ").build();//204
             }
-        }catch(UnauthorizedException ex){
+        } catch (UnauthorizedException ex) {
             return Response.status(Response.Status.UNAUTHORIZED).entity("Unauthorized").build();//401
 
-        }catch(NotSuchPrivilegeException ex){
+        } catch (NotSuchPrivilegeException ex) {
             return Response.status(Response.Status.FORBIDDEN).entity("Forbidden").build();//403
         }
     }
@@ -172,9 +171,9 @@ public class UserService {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getInitialInfo(@Context HttpHeaders header) {
         try {
-            String info=getInfo(header);
+            String info = getInfo(header);
             return Response.status(Response.Status.OK).entity(info).build();//200
-        }catch(UnauthorizedException ex){
+        } catch (UnauthorizedException ex) {
             return Response.status(Response.Status.UNAUTHORIZED).entity("Unauthorized").build();//401
 
         }
@@ -184,12 +183,12 @@ public class UserService {
     @POST
     @Path("/Password")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response restorePassword(User usuario){
+    public Response restorePassword(User usuario) {
         boolean a;
-        a=manager.resetPassword(usuario);
+        a = manager.resetPassword(usuario);
         if (a)
             return Response.status(Response.Status.OK).entity("E-mail sended").build(); //200
-        else{
+        else {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error reseting password").build();//500
         }
     }
@@ -198,64 +197,33 @@ public class UserService {
     @POST
     @Path("/Admin/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response changeAdmin(@Context HttpHeaders header, @PathParam("id") int id,  User user){
+    public Response changeAdmin(@Context HttpHeaders header, @PathParam("id") int id, User user) {
         boolean a;
-        try{
-            a=manager.changeAdmin(header,id,user);
+        try {
+            a = manager.changeAdmin(header, id, user);
             if (a)
                 return Response.status(Response.Status.OK).entity("E-mail sended").build(); //200
-            else{
+            else {
                 return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error reseting password").build();//500
             }
-        }catch(UnauthorizedException ex){
+        } catch (UnauthorizedException ex) {
             return Response.status(Response.Status.UNAUTHORIZED).entity("Unauthorized").build();//401
 
-        }catch(NotSuchPrivilegeException ex){
+        } catch (NotSuchPrivilegeException ex) {
             return Response.status(Response.Status.FORBIDDEN).entity("Forbidden").build();//403
         }
     }
 
 
-    private String getInfo(HttpHeaders header) throws UnauthorizedException{
+    private String getInfo(HttpHeaders header) throws UnauthorizedException {
         try {
             String numU = manager.getNumUsers(header);
             String numE = new EetakemonManager().getNumEetakemons(header);
             String numR = new RelationManager().getNumCaptured(header);
-            String info=numU+"/"+numE+"/"+numR;
+            String info = numU + "/" + numE + "/" + numR;
             return info;
-        }catch(UnauthorizedException ex){
-            throw  new UnauthorizedException("Unauthorized: user is not authorized");
+        } catch (UnauthorizedException ex) {
+            throw new UnauthorizedException("Unauthorized: user is not authorized");
         }
     }
-
-    //logearse
-    @POST
-    @Path("/LoginApp")
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response LoginApp(User usuario) {
-        int code;
-        code=manager.login(usuario);
-        if (code==0) {
-            System.out.println(usuario.getId());
-            return Response.status(201).entity(usuario).build();
-            }
-        else{
-            System.out.println("Errooooor");
-            return Response.status(202).entity(usuario).build();
-        }
-    }
-    @POST
-    @Path("/RegisterApp")
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response registerApp(User user) {
-            int code;
-            code = manager.register(user);
-            if (code==0) {
-                return Response.status(201).entity(user).build();
-            } else if (code==1){
-                return Response.status(202).entity("Usuario ya utilizado: ").build();
-            }else{
-                return Response.status(203).entity("Error al registrarse: ").build();
-            }
-        }
-    }
+}
