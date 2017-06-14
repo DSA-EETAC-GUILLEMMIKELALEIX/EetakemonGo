@@ -33,7 +33,7 @@ public class AuthenticationManager {
         builder.setIssuer("DSA_Application");
         builder.signWith(signatureAlgorithm, SECRET.getBytes());
 
-        long expMillis = nowMillis + 7200000;
+        long expMillis = nowMillis +7200000;
         Date exp = new Date(expMillis);
         builder.setExpiration(exp);
         //Builds the JWT and serializes it to a compact, URL-safe string

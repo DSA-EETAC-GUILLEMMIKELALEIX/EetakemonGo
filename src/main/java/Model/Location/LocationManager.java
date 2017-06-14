@@ -37,8 +37,6 @@ public class LocationManager {
     public Location getLocation() {
         Location locat = new Location();
 
-        ArrayList<Integer> list = new ArrayList<Integer>(9);
-
         int n = rand.nextInt(9);
 
         if (n == 0) {
@@ -83,7 +81,6 @@ public class LocationManager {
         Eetakemon inferior= new Eetakemon();
         Eetakemon normal = new Eetakemon();
         Eetakemon legend = new Eetakemon();
-        Location tempLoc;
         boolean repeat=true;
 
         try {
@@ -91,7 +88,7 @@ public class LocationManager {
             inferior = em.getOneByType(header, "Inferior");
             normal=em.getOneByType(header, "Normal");
             legend=em.getOneByType(header, "Legendario");
-            locations.add(getLocation());
+            loadLIstLocations(locations);
 
             //añadir tres inferiores
             for(int i=0; i<3;i++){
@@ -115,19 +112,25 @@ public class LocationManager {
         return list;
     }
 
-    private Location generateNewLocation(List<Location> locs){
-        Location l= new Location();
-        l= getLocation();
+    private Location generateNewLocation(List<Location> l){
+        int i= rand.nextInt(l.size());
+        Location temp=l.get(i);
+        l.remove(i);
 
-        for(int i=0; i<locs.size();i++){
-            if(l==locs.get(i)){
-                l=getLocation();
-            }else{
-                locs.add(l);
-                return l;
-            }
-        }
+        return temp;
+    }
 
-        return l;
+    private void loadLIstLocations(List<Location> l){
+        l.add(aa);
+        l.add(bb);
+        l.add(cc);
+        l.add(dd);
+        l.add(ee);
+        l.add(ff);
+        l.add(gg);
+        l.add(hh);
+        l.add(ii);
+        l.add(jj);
+
     }
 }
