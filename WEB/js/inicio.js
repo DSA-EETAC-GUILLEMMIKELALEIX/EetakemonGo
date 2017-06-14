@@ -42,4 +42,6 @@ $(document).ready(function(){
         $('.opciones-usuario').hide();
         $('.opciones-eetakemon').show();
     });
+
+    console.log(sessionStorage.getItem("Token"))
 });
