@@ -6,6 +6,7 @@ import Model.Relation.Relation;
 import Model.Relation.RelationManager;
 import Model.Security.AuthenticationManager;
 import Model.Security.Verification;
+import View.Main;
 import org.apache.log4j.Logger;
 
 import javax.imageio.ImageIO;
@@ -35,6 +36,7 @@ public class EetakemonManager {
         try {
             authManager.verify(header,v);
             e.selectEetakemonById(id);
+            setUrlImage(e);
         }catch (UnauthorizedException ex) {
             throw new UnauthorizedException("Unauthorized: user is not authorized");
         }
@@ -96,6 +98,9 @@ public class EetakemonManager {
         try {
             authManager.verify(header, v);
             list = new Eetakemon().findAllEetakemons();
+            for(int i=0; i<list.size();i++){
+                setUrlImage(list.get(i));
+            }
         }catch (UnauthorizedException ex) {
             throw new UnauthorizedException("Unauthorized: user is not authorized");
 
@@ -115,48 +120,46 @@ public class EetakemonManager {
         }
     }
 
-    //falta acabar
-    public Eetakemon getEetakemonByTypeeee(HttpHeaders header,String tipo) throws UnauthorizedException{
+    public List<Eetakemon> getEetakemonByType(HttpHeaders header,String tipo) throws UnauthorizedException{
         List<Eetakemon> list;
         Eetakemon e = new Eetakemon();
         Verification v = new Verification();
+
         try {
             authManager.verify(header, v);
             list = new Eetakemon().getByType(tipo);
+
+            for(int i=0; i<list.size();i++){
+                setUrlImage(list.get(i));
+            }
         }catch (UnauthorizedException ex) {
             throw new UnauthorizedException("Unauthorized: user is not authorized");
 
         }
 
-        return e;
-    }
-
-    //falta acabar
-    public Eetakemon getEetakemonByType(String tipo){
-        List<Eetakemon> list;
-        Eetakemon e = new Eetakemon();
-        System.out.println("tipo: "+tipo);
-
-        list = new Eetakemon().getByType(tipo);
-
-
-        Random rand = new Random();
-        int a = list.size();
-        System.out.println("AAAAA: "+a);
-        int n = rand.nextInt(a);
-        e=list.get(n);
-        System.out.println("ddddd:" + e);
-        return e;
-    }
-
-    public List listAllEetakemon(){
-        List<Eetakemon> list;
-        list = new Eetakemon().findAllEetakemons();
         return list;
     }
 
+    public Eetakemon getOneByType(HttpHeaders header, String tipo) throws UnauthorizedException{
+        Eetakemon e;
+        List <Eetakemon> temp;
+        try{
+           temp= getEetakemonByType(header,tipo);
+           Random rand = new Random();
+           int i=temp.size();
+           int j= rand.nextInt(i);
+           e=temp.get(j);
+           setUrlImage(e);
+
+        }catch (UnauthorizedException ex) {
+            throw new UnauthorizedException("Unauthorized: user is not authorized");
+        }
+
+        return e;
+    }
 
 
+    /*Private methods*/
     private void saveImage(Eetakemon e){
         String base64Image = e.getFoto().split(",")[1];
         byte[] imageBytes = javax.xml.bind.DatatypeConverter.parseBase64Binary(base64Image);
@@ -164,7 +167,7 @@ public class EetakemonManager {
         try {
             BufferedImage bufferedImage = ImageIO.read(new ByteArrayInputStream(imageBytes));
             ImageIO.write(bufferedImage, "png", imageFile);
-            e.setFoto("http://147.83.7.158:8080/images/"+e.getNombre().toLowerCase()+".png");
+            e.setFoto("/images/"+e.getNombre().toLowerCase()+".png");
         }
         catch(Exception ex){
             ex.printStackTrace();
@@ -174,11 +177,19 @@ public class EetakemonManager {
 
     private void deleteImage(Eetakemon e){
         try {
-            Files.deleteIfExists(Paths.get("WEB\\images\\" + e.getNombre() + ".png"));
+            Files.deleteIfExists(Paths.get("WEB\\images\\" + e.getNombre().toLowerCase() + ".png"));
         }catch(Exception ex){
             ex.printStackTrace();
         }
     }
 
 
+    private void setUrlImage(Eetakemon e){
+        String temp;
+        String imgUrl;
+
+        temp=e.getFoto();
+        imgUrl= Main.BASE_URI+temp;
+        e.setFoto(imgUrl);
+    }
 }

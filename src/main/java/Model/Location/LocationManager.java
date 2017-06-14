@@ -1,12 +1,14 @@
 package Model.Location;
 
+import Model.Eetakemon.Eetakemon;
+import Model.Eetakemon.EetakemonManager;
+import Model.Exceptions.UnauthorizedException;
 import Model.Location.Location;
 import com.sun.org.apache.xpath.internal.operations.Bool;
+import com.sun.xml.internal.ws.server.sei.MessageFiller;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Random;
+import javax.ws.rs.core.HttpHeaders;
+import java.util.*;
 
 /**
  * Created by aleix on 05/06/2017.
@@ -24,74 +26,130 @@ public class LocationManager {
     LatLng ii = new LatLng(41.27523514765666, 1.9881053566871287); //Entrada UOC
     LatLng jj = new LatLng(41.275731035685105, 1.989977538569292); //Parking*/
 
-    private Location aa = new Location(41.27539318720677, 1.9851908683449437);
-    private Location bb = new Location(41.274566700768275, 1.9851908683449437);
-    private Location cc = new Location(41.275224665468244, 1.986177653066079);
-    private Location dd = new Location(41.275561305325134, 1.9871539771884272);
-    private Location ee = new Location(41.27564395319903, 1.9865638912051509);
-    private Location ff = new Location(41.27557178752102, 1.9858227968461506);
-    private Location gg = new Location(41.275515250643224, 1.9840220282936217);
-    private Location hh = new Location(41.27581166751877, 1.9877861738041247);
-    private Location ii = new Location(41.27523514765666, 1.9881053566871287);
-    private Location jj = new Location(41.275731035685105, 1.989977538569292);
+    private final Location aa = new Location(41.27539318720677, 1.9851908683449437);
+    private final Location bb = new Location(41.274566700768275, 1.9851908683449437);
+    private final Location cc = new Location(41.275224665468244, 1.986177653066079);
+    private final Location dd = new Location(41.275561305325134, 1.9871539771884272);
+    private final Location ee = new Location(41.27564395319903, 1.9865638912051509);
+    private final Location ff = new Location(41.27557178752102, 1.9858227968461506);
+    private final Location gg = new Location(41.275515250643224, 1.9840220282936217);
+    private final Location hh = new Location(41.27581166751877, 1.9877861738041247);
+    private final Location ii = new Location(41.27523514765666, 1.9881053566871287);
+    private final Location jj = new Location(41.275731035685105, 1.989977538569292);
 
     private Random rand = new Random();
-    private Boolean bool = false;
 
-    public Location locat() {
+    public Location getNewLocation() {
         Location locat = new Location();
 
         ArrayList<Integer> list = new ArrayList<Integer>(9);
 
         int n = rand.nextInt(9);
 
-        System.out.println("Randm: "+n);
-
-        for(int i = 1; i <= 9; i++) {
-            list.add(i);
-        }
-
-        while(list.size() > 0) {
-            int index = rand.nextInt(list.size());
-            System.out.println("Selected: "+list.remove(index));
-        }
-
-        System.out.println("bool: "+bool);
-
-        //BORRAR CUANDO EL FOR DE ANTES VAYA
-        bool =true;
-
-        if (n == 0 && bool) {
+        if (n == 0) {
             locat = aa;
         }
-        if (n == 1 && bool) {
+        if (n == 1) {
             locat = bb;
         }
-        if (n == 2 && bool) {
+        if (n == 2) {
             locat = cc;
         }
-        if (n == 3 && bool) {
+        if (n == 3) {
             locat = dd;
         }
-        if (n == 4 && bool) {
+        if (n == 4) {
             locat = ee;
         }
-        if (n == 5 && bool) {
+        if (n == 5) {
             locat = ff;
         }
-        if (n == 6 && bool) {
+        if (n == 6) {
             locat = gg;
         }
-        if (n == 7 && bool) {
+        if (n == 7) {
             locat = hh;
         }
-        if (n == 8 && bool) {
+        if (n == 8) {
             locat = ii;
         }
-        if (n == 9 && bool) {
+        if (n == 9) {
             locat = jj;
         }
 
         return locat;
+    }
+
+    public List<EetakemonLocation> getListMap(HttpHeaders header) throws UnauthorizedException{
+        List<EetakemonLocation> list = new ArrayList<EetakemonLocation>();
+        Location loc= new Location();
+        List<Location> locations= new ArrayList<>();
+        EetakemonManager em = new EetakemonManager();
+        List<Eetakemon> inferior= new ArrayList<>();
+        Eetakemon normal = new Eetakemon();
+        Eetakemon legend = new Eetakemon();
+        Location tempLoc;
+        boolean repeat=true;
+
+        try {
+
+            inferior = em.getEetakemonByType(header, "Inferior");
+            normal=em.getOneByType(header, "Normal");
+            legend=em.getOneByType(header, "Legendario");
+            locations.add(getNewLocation());
+
+            //añadir tres inferiores
+            for(int i=0; i<inferior.size();i++){
+                tempLoc=getNewLocation();
+                while(repeat){
+                    repeat=checkLocation(locations,tempLoc);
+                    if(repeat){
+                        tempLoc=getNewLocation();
+                    }
+                }
+                EetakemonLocation temp=new EetakemonLocation();
+                temp.setEetakemon(inferior.get(i));
+                temp.setLocation(tempLoc);
+                list.add(temp);
+            }
+
+            //añadir normal
+            repeat=true;
+            tempLoc=getNewLocation();
+            while(repeat){
+                repeat=checkLocation(locations,tempLoc);
+                if(repeat){
+                    tempLoc=getNewLocation();
+                }
+            }
+            list.add(new EetakemonLocation(normal, tempLoc));
+
+            //añadir legendario
+            repeat=true;
+            tempLoc=getNewLocation();
+            while(repeat){
+                repeat=checkLocation(locations,tempLoc);
+                if(repeat){
+                    tempLoc=getNewLocation();
+                }
+            }
+            list.add(new EetakemonLocation(legend, tempLoc));
+
+        }catch(UnauthorizedException ex){
+            throw new UnauthorizedException("Unauthorized: user is not authorized");
+        }
+
+        return list;
+    }
+
+    private boolean checkLocation(List<Location> locs, Location l){
+
+        for(int i=0; i<locs.size();i++){
+            if(l==locs.get(i)){
+                return true;
+            }
+        }
+
+        return false;
     }
 }

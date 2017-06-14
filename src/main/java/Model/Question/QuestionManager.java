@@ -4,15 +4,13 @@ import Model.Exceptions.*;
 import Model.Security.AuthenticationManager;
 import Model.Security.Verification;
 import org.apache.log4j.Logger;
-import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Random;
 
 import javax.ws.rs.core.HttpHeaders;
 
-/**
- * Created by usuario on 06/06/2017.
- */
+
 public class QuestionManager {
     private final static Logger logger = Logger.getLogger(QuestionManager.class);//
     private AuthenticationManager authManager;
@@ -40,10 +38,7 @@ public class QuestionManager {
     public Question deleteQuestion(HttpHeaders header, int id) throws UnauthorizedException, NotSuchPrivilegeException{
         Question e = new Question();
         Verification v = new Verification();
-
-        e.selectQuestionById(id);
-        e.deleteQuestion();
-        /*try {
+        try {
             authManager.verify(header,v);
             authManager.verifyAdmin(v);
             e.selectQuestionById(id);
@@ -54,7 +49,7 @@ public class QuestionManager {
         }catch (NotSuchPrivilegeException ex){
             throw new NotSuchPrivilegeException("Forbidden: User has not privileges");
 
-        }*/
+        }
 
         return e;
     }
@@ -64,41 +59,34 @@ public class QuestionManager {
         List<Question> list;
         Verification v = new Verification();
 
-        /*try {
+        try {
             authManager.verify(header, v);
             list = new Question().findAllQuestions();
         }catch (UnauthorizedException ex) {
             throw new UnauthorizedException("Unauthorized: user is not authorized");
 
-        }*/
-        list = new Question().findAllQuestions();
+        }
 
         return list;
     }
 
     //falta acabar
-    public Question getQuestionByTipo(String Tipo){
+    public Question getQuestionByType(HttpHeaders header, String tipo)throws UnauthorizedException{
         List<Question> list;
         Question q = new Question();
-        /*Verification v = new Verification();
+        Verification v = new Verification();
 
         try {
             authManager.verify(header, v);
             list = new Question().getByType(tipo);
+            Random rand = new Random();
+            int a = list.size();
+            int n = rand.nextInt(a);
+            q=list.get(n);
+            return q;
         }catch (UnauthorizedException ex) {
             throw new UnauthorizedException("Unauthorized: user is not authorized");
 
-        }*/
-        System.out.println("AAAAA");
-
-        list = new Question().getByTipo(Tipo);
-
-        System.out.println("BBBBB");
-
-        Random rand = new Random();
-        int a = list.size();
-        int n = rand.nextInt(a);
-        q=list.get(n);
-        return q;
+        }
     }
 }

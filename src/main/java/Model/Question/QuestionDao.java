@@ -7,9 +7,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by usuario on 06/06/2017.
- */
+
 public class QuestionDao extends DAO {
     protected void insertQuestion(){
         insert();
@@ -30,7 +28,7 @@ public class QuestionDao extends DAO {
         return checkExistent("question",question);
     }
 
-    protected List getByTipo(String tipo){
+    protected List getByType(String tipo){
         Connection con = getConnection();
         List<Question> list= new ArrayList<>();
         StringBuffer query = new StringBuffer("SELECT * FROM ");
