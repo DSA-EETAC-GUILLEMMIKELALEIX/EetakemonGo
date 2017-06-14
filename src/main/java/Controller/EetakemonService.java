@@ -8,6 +8,7 @@ import Model.Exceptions.UnauthorizedException;
 import Model.Location.Location;
 import Model.Location.LocationManager;
 import Model.Question.Question;
+import Model.Question.QuestionManager;
 import Model.Relation.Captured;
 import Model.Relation.Relation;
 import Model.Relation.RelationManager;
@@ -29,11 +30,13 @@ public class EetakemonService {
     private AuthenticationManager authManager;
     private LocationManager locManager;
     private RelationManager relmanager;
+    private QuestionManager questmanager;
 
     public EetakemonService() {
         manager= new EetakemonManager();
         authManager= new AuthenticationManager();
         locManager= new LocationManager();
+        questmanager = new QuestionManager();
     }
 
     //Obtener eetakemon por id
@@ -250,9 +253,10 @@ public class EetakemonService {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getQuestionTipo(Eetakemon eetak) {
         Question q = new Question(); //Poner funcion para la pregunta
-        q.setQuestion("¿Pregunta de prueba?");
-        q.setAnswer(1);
-        System.out.println(q.getQuestion());
+        q=questmanager.getQuestionByTipo(eetak.getTipo());
+       /* q.setQuestion("¿Pregunta de prueba?");
+        q.setAnswer(1);*/
+        System.out.println("Pregunta: " + q.getQuestion() + "Respuesta: " + q.getAnswer());
         if (q.getQuestion()!=null) {
             return Response.status(201).entity(q).build();
         }

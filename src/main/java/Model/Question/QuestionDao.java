@@ -30,18 +30,18 @@ public class QuestionDao extends DAO {
         return checkExistent("question",question);
     }
 
-    protected List getByLevel(String level){
+    protected List getByTipo(String tipo){
         Connection con = getConnection();
         List<Question> list= new ArrayList<>();
         StringBuffer query = new StringBuffer("SELECT * FROM ");
         query.append(this.getClass().getSimpleName());
-        query.append(" WHERE level='");
-        query.append(level);
+        query.append(" WHERE tipo='");
+        query.append(tipo);
         query.append("';");
 
         try {
             PreparedStatement ps = con.prepareStatement(query.toString());
-            logger.info("INFO: Get by level statement: "+ps.toString());
+            logger.info("INFO: Get by tipo statement: "+ps.toString());
             ResultSet rs = ps.executeQuery();
             ResultSetMetaData resultSetMetaData = rs.getMetaData();
 

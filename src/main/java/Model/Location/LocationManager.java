@@ -3,6 +3,7 @@ package Model.Location;
 import Model.Location.Location;
 import com.sun.org.apache.xpath.internal.operations.Bool;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Random;
@@ -34,27 +35,28 @@ public class LocationManager {
     private Location ii = new Location(41.27523514765666, 1.9881053566871287);
     private Location jj = new Location(41.275731035685105, 1.989977538569292);
 
-
-    private Integer[] arr = new Integer[9];
     private Random rand = new Random();
     private Boolean bool = false;
 
     public Location locat() {
         Location locat = new Location();
 
+        ArrayList<Integer> list = new ArrayList<Integer>(9);
+
         int n = rand.nextInt(9);
 
         System.out.println("Randm: "+n);
 
-        /*for(int i=0;i<arr.length;i++){
-            if((arr[i]!=n || arr[0]==111 ) && !bool){
-                System.out.println("BBBBB");
-                arr[i]=n;
-                System.out.println("CCCCC");
-                bool=true;
-            }
+        for(int i = 1; i <= 9; i++) {
+            list.add(i);
         }
-        System.out.println("bool: "+bool);*/
+
+        while(list.size() > 0) {
+            int index = rand.nextInt(list.size());
+            System.out.println("Selected: "+list.remove(index));
+        }
+
+        System.out.println("bool: "+bool);
 
         //BORRAR CUANDO EL FOR DE ANTES VAYA
         bool =true;

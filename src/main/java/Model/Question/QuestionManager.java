@@ -89,7 +89,11 @@ public class QuestionManager {
             throw new UnauthorizedException("Unauthorized: user is not authorized");
 
         }*/
-        list = new Question().getByLevel(Tipo);
+        System.out.println("AAAAA");
+
+        list = new Question().getByTipo(Tipo);
+
+        System.out.println("BBBBB");
 
         Random rand = new Random();
         int a = list.size();

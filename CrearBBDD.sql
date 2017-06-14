@@ -52,13 +52,13 @@ Insert INTO Question (tipo, question, answer) VALUES ('Inferior', 'Es Jesus Alco
 Insert INTO Question (tipo, question, answer) VALUES ('Normal', 'Es Jordi Berenguer profesor de ER?', 1);
 Insert INTO Question (tipo, question, answer) VALUES ('Legendario', 'Es Lluis Casals profesor de IX?', 1);
 
-Insert INTO Eetakemon (nombre, tipo, nivel, foto) VALUES ('Bernorlax', 'Normal', 15, 'http://147.83.7.158:8080/images/bernorlax.png');
-Insert INTO Eetakemon (nombre, tipo, nivel, foto) VALUES ('Davyphno', 'Normal', 15, 'http://147.83.7.158:8080/images/davyphno.png');
-Insert INTO Eetakemon (nombre, tipo, nivel, foto) VALUES ('Francerpie', 'Inferior', 1, 'http://147.83.7.158:8080/images/francerpie.png');
-Insert INTO Eetakemon (nombre, tipo, nivel, foto) VALUES ('Jesuskou', 'Inferior', 1, 'http://147.83.7.158:8080/images/jesuskou.png');
-Insert INTO Eetakemon (nombre, tipo, nivel, foto) VALUES ('Jordinine', 'Normal', 15, 'http://147.83.7.158:8080/images/jordinine.png');
-Insert INTO Eetakemon (nombre, tipo, nivel, foto) VALUES ('Lluiskarp', 'Legendario', 30, 'http://147.83.7.158:8080/images/lluiskarp.png');
-Insert INTO Eetakemon (nombre, tipo, nivel, foto) VALUES ('Mewdecerio', 'Legendario', 30, 'http://147.83.7.158:8080/images/mewdecerio.png');
+Insert INTO Eetakemon (nombre, tipo, nivel, foto) VALUES ('Bernorlax', 'Normal', 15, 'http://10.192.230.97:8081/images/bernorlax.png');
+Insert INTO Eetakemon (nombre, tipo, nivel, foto) VALUES ('Davyphno', 'Normal', 15, 'http://10.192.230.97:8081/images/davyphno.png');
+Insert INTO Eetakemon (nombre, tipo, nivel, foto) VALUES ('Francerpie', 'Inferior', 1, 'http://10.192.230.97:8081/images/francerpie.png');
+Insert INTO Eetakemon (nombre, tipo, nivel, foto) VALUES ('Jesuskou', 'Inferior', 1, 'http://10.192.230.97:8081/images/jesuskou.png');
+Insert INTO Eetakemon (nombre, tipo, nivel, foto) VALUES ('Jordinine', 'Normal', 15, 'http://10.192.230.97:8081/images/jordinine.png');
+Insert INTO Eetakemon (nombre, tipo, nivel, foto) VALUES ('Lluiskarp', 'Legendario', 30, 'http://10.192.230.97:8081/images/lluiskarp.png');
+Insert INTO Eetakemon (nombre, tipo, nivel, foto) VALUES ('Mewdecerio', 'Legendario', 30, 'http://10.192.230.97:8081/images/mewdecerio.png');
 
 Insert INTO Relation (idUser, idEetakemon, level) VALUES (1, 1, 30);
 Insert INTO Relation (idUser, idEetakemon, level) VALUES (2, 1, 30);
