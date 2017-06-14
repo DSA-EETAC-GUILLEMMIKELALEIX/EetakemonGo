@@ -34,7 +34,7 @@ public class LocationManager {
 
     private Random rand = new Random();
 
-    public Location getNewLocation() {
+    public Location getLocation() {
         Location locat = new Location();
 
         ArrayList<Integer> list = new ArrayList<Integer>(9);
@@ -80,7 +80,7 @@ public class LocationManager {
         Location loc= new Location();
         List<Location> locations= new ArrayList<>();
         EetakemonManager em = new EetakemonManager();
-        List<Eetakemon> inferior= new ArrayList<>();
+        Eetakemon inferior= new Eetakemon();
         Eetakemon normal = new Eetakemon();
         Eetakemon legend = new Eetakemon();
         Location tempLoc;
@@ -88,47 +88,25 @@ public class LocationManager {
 
         try {
 
-            inferior = em.getEetakemonByType(header, "Inferior");
+            inferior = em.getOneByType(header, "Inferior");
             normal=em.getOneByType(header, "Normal");
             legend=em.getOneByType(header, "Legendario");
-            locations.add(getNewLocation());
+            locations.add(getLocation());
 
             //añadir tres inferiores
-            for(int i=0; i<inferior.size();i++){
-                tempLoc=getNewLocation();
-                while(repeat){
-                    repeat=checkLocation(locations,tempLoc);
-                    if(repeat){
-                        tempLoc=getNewLocation();
-                    }
-                }
+            for(int i=0; i<3;i++){
                 EetakemonLocation temp=new EetakemonLocation();
-                temp.setEetakemon(inferior.get(i));
-                temp.setLatLong(tempLoc);
+                temp.setEetakemon(inferior);
+                temp.setLatLong(generateNewLocation(locations));
                 list.add(temp);
+                inferior = em.getOneByType(header, "Inferior");
             }
 
             //añadir normal
-            repeat=true;
-            tempLoc=getNewLocation();
-            while(repeat){
-                repeat=checkLocation(locations,tempLoc);
-                if(repeat){
-                    tempLoc=getNewLocation();
-                }
-            }
-            list.add(new EetakemonLocation(normal, tempLoc));
+            list.add(new EetakemonLocation(normal, generateNewLocation(locations)));
 
             //añadir legendario
-            repeat=true;
-            tempLoc=getNewLocation();
-            while(repeat){
-                repeat=checkLocation(locations,tempLoc);
-                if(repeat){
-                    tempLoc=getNewLocation();
-                }
-            }
-            list.add(new EetakemonLocation(legend, tempLoc));
+            list.add(new EetakemonLocation(legend, generateNewLocation(locations)));
 
         }catch(UnauthorizedException ex){
             throw new UnauthorizedException("Unauthorized: user is not authorized");
@@ -137,14 +115,17 @@ public class LocationManager {
         return list;
     }
 
-    private boolean checkLocation(List<Location> locs, Location l){
+    private Location generateNewLocation(List<Location> locs){
+        Location l= new Location();
+        l= getLocation();
 
         for(int i=0; i<locs.size();i++){
             if(l==locs.get(i)){
-                return true;
+                locs.add(l);
+                l=getLocation();
             }
         }
 
-        return false;
+        return l;
     }
 }

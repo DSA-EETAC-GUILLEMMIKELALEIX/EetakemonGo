@@ -6,6 +6,7 @@ import Model.Exceptions.NotSuchPrivilegeException;
 import Model.Exceptions.UnauthorizedException;
 import Model.Security.AuthenticationManager;
 import Model.Security.Verification;
+import View.Main;
 import org.apache.log4j.Logger;
 
 import javax.ws.rs.core.HttpHeaders;
@@ -109,6 +110,9 @@ public class RelationManager {
         try {
             authManager.verify(header, v);
             list = new Relation().getCaptured(idUser);
+            for(int i=0; i<list.size();i++){
+                setUrlImage(list.get(i));
+            }
         }
         catch (UnauthorizedException ex) {
             throw new UnauthorizedException("Unauthorized: user is not authorized");
@@ -170,5 +174,16 @@ public class RelationManager {
         List<Relation> list = new Relation().findAllRelation();
 
         return list;
+    }
+
+
+    /*private methods*/
+    private void setUrlImage(Captured c){
+        String temp;
+        String imgUrl;
+
+        temp=c.getFoto();
+        imgUrl= Main.BASE_URI+temp;
+        c.setFoto(imgUrl);
     }
 }
