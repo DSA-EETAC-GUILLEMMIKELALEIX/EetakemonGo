@@ -71,6 +71,8 @@
 
 .tabla td{
     padding: 15px 0 15px 0;
+	background-color: #AFAFAF;
+	border-bottom: 1px solid white;
 }
 .tabla th{
     padding: 15px 3% 15px 3%;
