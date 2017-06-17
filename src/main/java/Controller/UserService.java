@@ -30,13 +30,17 @@ public class UserService {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response register(User user) {
         int code;
-        code = manager.register(user);
-        if (code == 0) {
-            return Response.status(Response.Status.CREATED).entity("User registered").build();//201
-        } else if (code == 1) {
-            return Response.status(Response.Status.ACCEPTED).entity("User already exists").build();///202
-        } else {
-            return Response.status(Response.Status.BAD_REQUEST).entity("Bad request").build();//400
+        try {
+            code = manager.register(user);
+            if (code == 0) {
+                return Response.status(Response.Status.CREATED).entity("User registered").build();//201
+            } else if (code == 1) {
+                return Response.status(Response.Status.ACCEPTED).entity("User already exists").build();///202
+            } else {
+                return Response.status(Response.Status.BAD_REQUEST).entity("Bad request").build();//400
+            }
+        }catch(Exception ex){
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Internal error").build();//500
         }
     }
 
@@ -46,12 +50,16 @@ public class UserService {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response Login(User usuario) {
         int code;
-        code = manager.login(usuario);
-        if (code == 0) {
-            String token = manager.generateToken(usuario);
-            return Response.status(Response.Status.OK).entity(token).build();//200
-        } else {
-            return Response.status(Response.Status.UNAUTHORIZED).entity("Incorrect user").build();//401
+        try {
+            code = manager.login(usuario);
+            if (code == 0) {
+                String token = manager.generateToken(usuario);
+                return Response.status(Response.Status.OK).entity(token).build();//200
+            } else {
+                return Response.status(Response.Status.UNAUTHORIZED).entity("Incorrect user").build();//401
+            }
+        }catch (Exception ex){
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error en el servidor").build();//500
         }
     }
 
@@ -74,6 +82,8 @@ public class UserService {
 
         } catch (NotSuchPrivilegeException ex) {
             return Response.status(Response.Status.FORBIDDEN).entity("Forbidden").build();//403
+        }catch(Exception ex){
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Internal error").build();//500
         }
     }
 
@@ -94,6 +104,8 @@ public class UserService {
 
         } catch (NotSuchPrivilegeException ex) {
             return Response.status(Response.Status.FORBIDDEN).entity("Forbidden").build();//403
+        }catch(Exception ex){
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Internal error").build();//500
         }
     }
 
@@ -115,6 +127,8 @@ public class UserService {
             return Response.status(Response.Status.UNAUTHORIZED).entity("Unauthorized").build();//401
         } catch (NotSuchPrivilegeException ex) {
             return Response.status(Response.Status.FORBIDDEN).entity("Forbidden").build();//403
+        }catch(Exception ex){
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Internal error").build();//500
         }
     }
 
@@ -133,6 +147,8 @@ public class UserService {
 
         } catch (NotSuchPrivilegeException ex) {
             return Response.status(Response.Status.FORBIDDEN).entity("Forbidden").build();//403
+        }catch(Exception ex){
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Internal error").build();//500
         }
     }
 
@@ -159,6 +175,8 @@ public class UserService {
 
         } catch (NotSuchPrivilegeException ex) {
             return Response.status(Response.Status.FORBIDDEN).entity("Forbidden").build();//403
+        }catch(Exception ex){
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Internal error").build();//500
         }
     }
 
@@ -173,6 +191,8 @@ public class UserService {
         } catch (UnauthorizedException ex) {
             return Response.status(Response.Status.UNAUTHORIZED).entity("Unauthorized").build();//401
 
+        }catch(Exception ex){
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Internal error").build();//500
         }
     }
 
@@ -181,12 +201,18 @@ public class UserService {
     @Path("/Password")
     @Produces(MediaType.APPLICATION_JSON)
     public Response restorePassword(User usuario) {
-        boolean a;
-        a = manager.resetPassword(usuario);
-        if (a)
-            return Response.status(Response.Status.OK).entity("E-mail sended").build(); //200
-        else {
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error reseting password").build();//500
+        int  code;
+        try {
+            code = manager.resetPassword(usuario);
+            if (code == 0)
+                return Response.status(Response.Status.OK).entity("E-mail sended").build(); //200
+            else if (code == 1) {
+                return Response.status(Response.Status.NO_CONTENT).entity("User not found").build();//204
+            } else {
+                return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error reseting password").build();//500
+            }
+        }catch(Exception ex){
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Internal error").build();//500
         }
     }
 
@@ -208,19 +234,23 @@ public class UserService {
 
         } catch (NotSuchPrivilegeException ex) {
             return Response.status(Response.Status.FORBIDDEN).entity("Forbidden").build();//403
+        }catch(Exception ex){
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Internal error").build();//500
         }
     }
 
 
-    private String getInfo(HttpHeaders header) throws UnauthorizedException {
+    private String getInfo(HttpHeaders header) throws UnauthorizedException, Exception {
         try {
             String numU = manager.getNumUsers(header);
             String numE = new EetakemonManager().getNumEetakemons(header);
             String numR = new RelationManager().getNumCaptured(header);
-            String info = numU + "/" + numE + "/" + numR;
+            String info = numU + "-" + numE + "-" + numR;
             return info;
         } catch (UnauthorizedException ex) {
             throw new UnauthorizedException("Unauthorized: user is not authorized");
+        }catch(Exception ex){
+            throw new Exception();
         }
     }
 }

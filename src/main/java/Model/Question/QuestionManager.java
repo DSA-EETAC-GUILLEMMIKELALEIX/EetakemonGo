@@ -21,25 +21,49 @@ public class QuestionManager {
 
 
     //obtener pregunta por id
-    public Question getEetakemonById(HttpHeaders header, int id) throws UnauthorizedException {
+    public Question getQuestionById(HttpHeaders header, int id) throws UnauthorizedException , Exception{
        Question q = new Question();
-        q.selectQuestionById(id);
+        Verification v = new Verification();
+       try {
+           authManager.verify(header,v);
+           q.selectQuestionById(id);
+       }catch (UnauthorizedException ex) {
+           throw new UnauthorizedException("Unauthorized: user is not authorized");
+
+       }catch (Exception ex){
+           throw new Exception();
+       }
         return q;
     }
 
     //añadir pregunta
-    public boolean addQuestion(HttpHeaders header,Question q) throws UnauthorizedException, NotSuchPrivilegeException {
+    public boolean addQuestion(HttpHeaders header,Question q) throws UnauthorizedException,
+            NotSuchPrivilegeException, Exception{
         Boolean exist=false;
         Verification v = new Verification();
-        exist =q.checkQuestionExistent(q.getQuestion());
-        if (!exist) {
-            q.insertQuestion();
+        try{
+            authManager.verify(header,v);
+            authManager.verifyAdmin(v);
+            exist =q.checkQuestionExistent(q.getQuestion());
+            if (!exist) {
+                q.insertQuestion();
+            }
+        }catch (UnauthorizedException ex) {
+            throw new UnauthorizedException("Unauthorized: user is not authorized");
+
+        }catch (NotSuchPrivilegeException ex){
+            throw new NotSuchPrivilegeException("Forbidden: User has not privileges");
+
+        }catch (Exception ex){
+            throw new Exception();
         }
+
         return exist;
     }
 
     //
-    public Question deleteQuestion(HttpHeaders header, int id) throws UnauthorizedException, NotSuchPrivilegeException{
+    public Question deleteQuestion(HttpHeaders header, int id) throws UnauthorizedException,
+            NotSuchPrivilegeException, Exception{
         Question e = new Question();
         Verification v = new Verification();
         try {
@@ -53,29 +77,34 @@ public class QuestionManager {
         }catch (NotSuchPrivilegeException ex){
             throw new NotSuchPrivilegeException("Forbidden: User has not privileges");
 
+        }catch (Exception ex){
+            throw new Exception();
         }
 
         return e;
     }
 
     //listar Questions
-    public List listAllQuestion(HttpHeaders header) throws UnauthorizedException{
+    public List listAllQuestion(HttpHeaders header) throws UnauthorizedException, Exception{
         List<Question> list;
         Verification v = new Verification();
 
         try {
             authManager.verify(header, v);
             list = new Question().findAllQuestions();
-        }catch (UnauthorizedException ex) {
+        } catch (UnauthorizedException ex) {
             throw new UnauthorizedException("Unauthorized: user is not authorized");
 
+        } catch (Exception ex) {
+            throw new Exception();
         }
 
         return list;
+
     }
 
     //falta acabar
-    public Question getQuestionByType(HttpHeaders header, String tipo)throws UnauthorizedException{
+    public Question getQuestionByType(HttpHeaders header, String tipo)throws UnauthorizedException, Exception{
         List<Question> list;
         Question q = new Question();
         Verification v = new Verification();
@@ -91,6 +120,8 @@ public class QuestionManager {
         }catch (UnauthorizedException ex) {
             throw new UnauthorizedException("Unauthorized: user is not authorized");
 
+        }catch (Exception ex){
+            throw new Exception();
         }
     }
 }

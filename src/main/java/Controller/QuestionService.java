@@ -42,6 +42,8 @@ public class QuestionService {
             }
         } catch (UnauthorizedException ex) {
             return Response.status(Response.Status.UNAUTHORIZED).entity("Unauthorized").build();//401
+        }catch(Exception ex){
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Internal error").build();//500
         }
     }
 

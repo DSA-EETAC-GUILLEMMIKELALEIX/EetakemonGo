@@ -7,24 +7,52 @@ import java.util.List;
 
 public class UserDao extends DAO {
 
-    protected void insertUser(){
-        insert();
+    protected void insertUser()throws Exception{
+        try {
+            insert();
+        }catch (Exception ex){
+            throw new Exception();
+        }
     }
-    protected boolean updatetUser(){
-        return update();
+    protected boolean updatetUser()throws Exception{
+        try {
+            return update();
+        }        catch (Exception ex){
+                throw new Exception();
+            }
     }
-    protected void selectUserById(int id){
-        select(id);
+    protected void selectUserById(int id)throws Exception{
+
+        try {
+            select(id);
+        }catch (Exception ex){
+            throw new Exception();
+        }
     }
-    protected void deleteUser(){delete();}
-    protected List findAllUsers(){
-        return findAll();
+    protected void deleteUser()throws Exception{
+        try {
+            delete();
+        }catch (Exception ex){
+            throw new Exception();
+        }
+
     }
-    protected boolean checkUserExistent(String email){
-        return checkExistent("email",email);
+    protected List findAllUsers()throws Exception{
+        try {
+            return findAll();
+        }catch (Exception ex){
+            throw new Exception();
+        }
+    }
+    protected boolean checkUserExistent(String email)throws Exception{
+        try {
+            return checkExistent("email", email);
+        }catch (Exception ex){
+            throw new Exception();
+        }
     }
 
-    protected boolean login(String email, String password) {
+    protected boolean login(String email, String password) throws Exception{
         boolean logeado = false;
         Connection con = getConnection();
         StringBuffer query = new StringBuffer("SELECT nombre,contrasena FROM ");
@@ -44,14 +72,15 @@ public class UserDao extends DAO {
             }
             ps.close();
             con.close();
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
+            throw new Exception();
         }
         return logeado;
     }
 
     //buscar por email en la base de datos
-    protected void selectUserByMail(String email) {
+    protected void selectUserByMail(String email) throws Exception{
         Connection con = getConnection();
         StringBuffer query = new StringBuffer("SELECT * FROM ");
         query.append(this.getClass().getSimpleName());
@@ -71,12 +100,12 @@ public class UserDao extends DAO {
             }
             ps.close();
             con.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception ex){
+            throw new Exception();
         }
     }
 
-    protected void changeAdmin(int admin){
+    protected void changeAdmin(int admin)throws Exception{
         Connection con = getConnection();
         StringBuffer query = new StringBuffer("UPDATE ");
         query.append(this.getClass().getSimpleName());
@@ -91,14 +120,12 @@ public class UserDao extends DAO {
             logger.info("INFO: Change admin statement: "+ps.toString());
             ps.close();
             con.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (NullPointerException e) {
-            e.printStackTrace();
+        } catch (Exception ex){
+            throw new Exception();
         }
     }
 
-    protected String getNumUsers(){
+    protected String getNumUsers() throws Exception{
         String num="0";
         Connection con = getConnection();
         StringBuffer query = new StringBuffer("SELECT COUNT(*) FROM ");
@@ -117,8 +144,8 @@ public class UserDao extends DAO {
             }
             ps.close();
             con.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception ex){
+            throw new Exception();
         }
 
         return num;
