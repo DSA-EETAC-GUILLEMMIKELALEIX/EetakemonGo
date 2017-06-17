@@ -183,10 +183,8 @@ public class EetakemonManager {
     private void saveImage(Eetakemon e)throws Exception{
         String base64Image = e.getFoto().split(",")[1];
         byte[] imageBytes = javax.xml.bind.DatatypeConverter.parseBase64Binary(base64Image);
-        File imageFile = new File("WEB\\images\\" + e.getNombre() + ".png");
+        File imageFile = new File("./WEB/images/" + e.getNombre() + ".png");
         try {
-            System.out.println("Working Directory = " +
-              System.getProperty("user.dir"));
             BufferedImage bufferedImage = ImageIO.read(new ByteArrayInputStream(imageBytes));
             ImageIO.write(bufferedImage, "png", imageFile);
             e.setFoto("/images/"+e.getNombre().toLowerCase()+".png");
