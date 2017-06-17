@@ -69,6 +69,7 @@ Insert INTO Question (tipo, question, answer) VALUES ('Normal', '¿Es Lluis Casa
 Insert INTO Question (tipo, question, answer) VALUES ('Normal', '¿Es Jordi Mataix coordinador de XLAM?', 1);
 Insert INTO Question (tipo, question, answer) VALUES ('Legendario', '¿Es David Perez Diaz de Cerio cordinador de FC?', 1);
 Insert INTO Question (tipo, question, answer) VALUES ('Legendario', '¿Es David Perez Diaz de Cerio cordinador de ER?', 0);
+Insert INTO Question (tipo, question, answer) VALUES ('Legendario', '¿Es DSA la ultima asignatura de programación en telemática?', 0);
 
 Insert INTO Eetakemon (nombre, tipo, nivel, foto) VALUES ('Bernorlax', 'Normal', 15, '/images/bernorlax.png');
 Insert INTO Eetakemon (nombre, tipo, nivel, foto) VALUES ('Davyphno', 'Normal', 15, '/images/davyphno.png');
