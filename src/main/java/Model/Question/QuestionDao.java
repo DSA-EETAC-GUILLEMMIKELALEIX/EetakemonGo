@@ -9,26 +9,55 @@ import java.util.List;
 
 
 public class QuestionDao extends DAO {
-    protected void insertQuestion(){
-        insert();
+    protected void insertQuestion()throws Exception{
+
+        try {
+            insert();
+        }catch (Exception ex){
+            throw new Exception();
+        }
     }
-    protected boolean updatetQuestion(){
-        return update();
+    protected boolean updatetQuestion()throws Exception{
+
+        try {
+            return update();
+        }        catch (Exception ex){
+            throw new Exception();
+        }
     }
-    protected void selectQuestionById(int id){
-        select(id);
+    protected void selectQuestionById(int id)throws Exception{
+
+        try {
+            select(id);
+        }catch (Exception ex){
+            throw new Exception();
+        }
     }
-    protected void deleteQuestion(){
-        delete();
+    protected void deleteQuestion()throws Exception{
+
+        try {
+            delete();
+        }catch (Exception ex){
+            throw new Exception();
+        }
     }
-    protected List findAllQuestions(){
-        return findAll();
-    }
-    protected boolean checkQuestionExistent(String question){
-        return checkExistent("question",question);
+    protected List findAllQuestions()throws Exception{
+        try {
+            return findAll();
+        }catch (Exception ex){
+            throw new Exception();
+        }
     }
 
-    protected List getByType(String tipo){
+    protected boolean checkQuestionExistent(String question)throws Exception{
+        try {
+            return checkExistent("question", question);
+        }catch (Exception ex){
+            throw new Exception();
+        }
+    }
+
+    protected List getByType(String tipo) throws Exception{
         Connection con = getConnection();
         List<Question> list= new ArrayList<>();
         StringBuffer query = new StringBuffer("SELECT * FROM ");
@@ -52,8 +81,9 @@ public class QuestionDao extends DAO {
             ps.close();
             con.close();
 
-        } catch (SQLException | NullPointerException e) {
-            e.printStackTrace();
+        } catch (Exception ex){
+            ex.printStackTrace();
+            throw new Exception();
         }
 
         return list;

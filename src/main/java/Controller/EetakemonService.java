@@ -41,6 +41,8 @@ public class EetakemonService {
         }catch(UnauthorizedException ex){
             return Response.status(Response.Status.UNAUTHORIZED).entity("Unauthorized").build();//401
 
+        }catch(Exception ex){
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Internal error").build();//500
         }
     }
 
@@ -62,6 +64,8 @@ public class EetakemonService {
 
         }catch(NotSuchPrivilegeException ex){
             return Response.status(Response.Status.FORBIDDEN).entity("Forbidden").build();//403
+        }catch(Exception ex){
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Internal error").build();//500
         }
     }
 
@@ -101,6 +105,8 @@ public class EetakemonService {
 
         }catch(NotSuchPrivilegeException ex){
             return Response.status(Response.Status.FORBIDDEN).entity("Forbidden").build();//403
+        }catch(Exception ex){
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Internal error").build();//500
         }
     }
 
@@ -123,6 +129,8 @@ public class EetakemonService {
             }
         }catch(UnauthorizedException ex){
             return Response.status(Response.Status.UNAUTHORIZED).entity("Unauthorized").build();//401
+        }catch(Exception ex){
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Internal error").build();//500
         }
     }
 
@@ -142,6 +150,8 @@ public class EetakemonService {
             }
         }catch(UnauthorizedException ex){
             return Response.status(Response.Status.UNAUTHORIZED).entity("Unauthorized").build();//401
+        }catch(Exception ex){
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Internal error").build();//500
         }
     }
 
@@ -163,6 +173,8 @@ public class EetakemonService {
             }
         }catch(UnauthorizedException ex){
             return Response.status(Response.Status.UNAUTHORIZED).entity("Unauthorized").build();//401
+        }catch(Exception ex){
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Internal error").build();//500
         }
 
     }

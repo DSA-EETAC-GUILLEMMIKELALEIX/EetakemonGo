@@ -31,7 +31,7 @@ public class DAO {
     }
 
     //insertar en la base de datos
-    protected void insert() {
+    protected void insert() throws  Exception{
         Connection con = getConnection();
         StringBuffer query = new StringBuffer("INSERT INTO ");
         query.append(this.getClass().getSimpleName());
@@ -63,16 +63,15 @@ public class DAO {
             con.close();
         } catch (com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException e) {
             logger.info("ALERT: Objeto ya existente");
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
-        } catch (NullPointerException e) {
-            e.printStackTrace();
+            throw new Exception();
         }
     }
 
 
     //actualizar base de datos
-    protected Boolean update() {
+    protected Boolean update()throws  Exception {
         Boolean a = false;
         Connection con = getConnection();
         StringBuffer query = new StringBuffer("UPDATE ");
@@ -98,16 +97,15 @@ public class DAO {
             a=true;
             ps.close();
             con.close();
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
-        } catch (NullPointerException e) {
-            e.printStackTrace();
+            throw new Exception();
         }
         return a;
     }
 
     //buscar por id en la base de datos
-    protected void select(int id) {
+    protected void select(int id) throws  Exception{
         Connection con = getConnection();
         StringBuffer query = new StringBuffer("SELECT * FROM ");
         query.append(this.getClass().getSimpleName());
@@ -125,13 +123,14 @@ public class DAO {
             }
             ps.close();
             con.close();
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
+            throw new Exception();
         }
     }
 
     //eliminar de la base de datos
-    protected void delete() {
+    protected void delete() throws  Exception{
         Connection con = getConnection();
         StringBuffer query = new StringBuffer("DELETE FROM ");
         query.append(this.getClass().getSimpleName());
@@ -144,15 +143,14 @@ public class DAO {
             logger.info("INFO: Delete statement: "+ps.toString());
             ps.close();
             con.close();
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
-        } catch (NullPointerException e) {
-            e.printStackTrace();
+            throw new Exception();
         }
     }
 
     //seleccionar la tabla de una clase de la base de datos
-    protected List findAll() {//a medias
+    protected List findAll() throws  Exception{
         Connection con = getConnection();
         List<Object> list= new ArrayList<>();
         StringBuffer query = new StringBuffer("SELECT * FROM ");
@@ -174,15 +172,16 @@ public class DAO {
             ps.close();
             con.close();
 
-        } catch (SQLException | NullPointerException | InstantiationException | IllegalAccessException e) {
+        } catch (Exception e) {
             e.printStackTrace();
+            throw new Exception();
         }
 
         return list;
     }
 
     //validar Registro
-    protected boolean checkExistent(String field, String value) {
+    protected boolean checkExistent(String field, String value) throws  Exception{
         boolean existent=false;
         Connection con = getConnection();
         StringBuffer query = new StringBuffer("SELECT * FROM ");
@@ -202,8 +201,9 @@ public class DAO {
             }
             ps.close();
             con.close();
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
+            throw new Exception();
         }
         return existent;
     }

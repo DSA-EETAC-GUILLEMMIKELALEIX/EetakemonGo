@@ -30,7 +30,8 @@ public class EetakemonManager {
     }
 
 
-    public Eetakemon getEetakemonById(HttpHeaders header, int id) throws UnauthorizedException{
+    public Eetakemon getEetakemonById(HttpHeaders header, int id) throws UnauthorizedException,
+            Exception{
         Eetakemon e= new Eetakemon();
         Verification v = new Verification();
         try {
@@ -39,13 +40,16 @@ public class EetakemonManager {
             setUrlImage(e);
         }catch (UnauthorizedException ex) {
             throw new UnauthorizedException("Unauthorized: user is not authorized");
+        }catch (Exception ex){
+            throw new Exception();
         }
 
         return e;
     }
 
     //añadir eetakemon
-    public boolean addEetakemon(HttpHeaders header, Eetakemon e) throws UnauthorizedException, NotSuchPrivilegeException{
+    public boolean addEetakemon(HttpHeaders header, Eetakemon e) throws UnauthorizedException, NotSuchPrivilegeException,
+            Exception{
         Boolean exist=false;
         Verification v = new Verification();
         try {
@@ -62,12 +66,15 @@ public class EetakemonManager {
         }catch (NotSuchPrivilegeException ex){
             throw new NotSuchPrivilegeException("Forbidden: User has not privileges");
 
+        }catch (Exception ex){
+            throw new Exception();
         }
         return exist;
     }
 
     //borrar eetakemon
-    public Eetakemon deleteEetakemon(HttpHeaders header, int id) throws UnauthorizedException, NotSuchPrivilegeException{
+    public Eetakemon deleteEetakemon(HttpHeaders header, int id) throws UnauthorizedException, NotSuchPrivilegeException,
+            Exception{
         Eetakemon e = new Eetakemon();
         Verification v = new Verification();
         RelationManager rm = new RelationManager();
@@ -85,13 +92,16 @@ public class EetakemonManager {
         }catch (NotSuchPrivilegeException ex){
             throw new NotSuchPrivilegeException("Forbidden: User has not privileges");
 
+        }catch (Exception ex){
+            throw new Exception();
         }
 
         return e;
     }
 
     //listar eetakemons
-    public List listAllEetakemon(HttpHeaders header) throws UnauthorizedException{
+    public List listAllEetakemon(HttpHeaders header) throws UnauthorizedException,
+            Exception{
         List<Eetakemon> list;
         Verification v = new Verification();
 
@@ -104,12 +114,15 @@ public class EetakemonManager {
         }catch (UnauthorizedException ex) {
             throw new UnauthorizedException("Unauthorized: user is not authorized");
 
+        }catch (Exception ex){
+            throw new Exception();
         }
 
         return list;
     }
 
-    public String getNumEetakemons(HttpHeaders header)throws UnauthorizedException{
+    public String getNumEetakemons(HttpHeaders header)throws UnauthorizedException,
+            Exception{
         Verification v = new Verification();
         try {
             authManager.verify(header, v);
@@ -117,10 +130,13 @@ public class EetakemonManager {
         }catch (UnauthorizedException ex) {
             throw new UnauthorizedException("Unauthorized: user is not authorized");
 
+        }catch (Exception ex){
+            throw new Exception();
         }
     }
 
-    public List<Eetakemon> getEetakemonByType(HttpHeaders header,String tipo) throws UnauthorizedException{
+    public List<Eetakemon> getEetakemonByType(HttpHeaders header,String tipo) throws UnauthorizedException,
+            Exception{
         List<Eetakemon> list;
         Eetakemon e = new Eetakemon();
         Verification v = new Verification();
@@ -135,12 +151,15 @@ public class EetakemonManager {
         }catch (UnauthorizedException ex) {
             throw new UnauthorizedException("Unauthorized: user is not authorized");
 
+        }catch (Exception ex){
+            throw new Exception();
         }
 
         return list;
     }
 
-    public Eetakemon getOneByType(HttpHeaders header, String tipo) throws UnauthorizedException{
+    public Eetakemon getOneByType(HttpHeaders header, String tipo) throws UnauthorizedException,
+             Exception{
         Eetakemon e;
         List <Eetakemon> temp;
         try{
@@ -152,6 +171,8 @@ public class EetakemonManager {
 
         }catch (UnauthorizedException ex) {
             throw new UnauthorizedException("Unauthorized: user is not authorized");
+        }catch (Exception ex){
+            throw new Exception();
         }
 
         return e;
@@ -159,7 +180,7 @@ public class EetakemonManager {
 
 
     /*Private methods*/
-    private void saveImage(Eetakemon e){
+    private void saveImage(Eetakemon e)throws Exception{
         String base64Image = e.getFoto().split(",")[1];
         byte[] imageBytes = javax.xml.bind.DatatypeConverter.parseBase64Binary(base64Image);
         File imageFile = new File("WEB\\images\\" + e.getNombre() + ".png");
@@ -170,15 +191,17 @@ public class EetakemonManager {
         }
         catch(Exception ex){
             ex.printStackTrace();
+            throw new Exception();
         }
 
     }
 
-    private void deleteImage(Eetakemon e){
+    private void deleteImage(Eetakemon e)throws Exception{
         try {
             Files.deleteIfExists(Paths.get("WEB\\images\\" + e.getNombre().toLowerCase() + ".png"));
         }catch(Exception ex){
             ex.printStackTrace();
+            throw new Exception();
         }
     }
 

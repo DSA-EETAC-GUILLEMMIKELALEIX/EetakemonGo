@@ -38,19 +38,24 @@ public class UserManager {
     code 0 = logged
     code 1 = not logged
      */
-    public int login(User user){
+    public int login(User user) throws Exception{
         int code=1;
         boolean a;
         String e,c;
-        e=user.getEmail();
-        c=user.getContrasena();
-        String encriptedpass=td.encrypt(c);
-        a=user.login(e,encriptedpass);
-        if(a) {
-            user.selectUserByMail(user.getEmail());
-            code=0;
+        try {
+            e = user.getEmail();
+            c = user.getContrasena();
+            String encriptedpass = td.encrypt(c);
+            a = user.login(e, encriptedpass);
+            if (a) {
+                user.selectUserByMail(user.getEmail());
+                code = 0;
+            } else {
+                user = null;
+            }
+        }catch (Exception ex){
+            throw new Exception();
         }
-        else{user=null;}
 
         return code;
     }
@@ -61,9 +66,10 @@ public class UserManager {
     code 1 = usuario ya utilizado
     code 2 = bad request
      */
-    public int register(User user){
+    public int register(User user)throws Exception{
         boolean a=false,b=true;
         int code;
+        try {
             a = checkNullFields(user);
             if (!a) {
                 b = user.checkUserExistent(user.getEmail());
@@ -80,6 +86,9 @@ public class UserManager {
             } else {
                 code = 2;
             }
+        }catch (Exception ex){
+            throw new Exception();
+        }
         return code;
     }
 
@@ -89,7 +98,7 @@ public class UserManager {
     code 1 = usuario ya utilizado
     code 2 = bad request
      */
-    public int addUser(HttpHeaders header, User user)throws UnauthorizedException, NotSuchPrivilegeException{
+    public int addUser(HttpHeaders header, User user)throws UnauthorizedException, NotSuchPrivilegeException,Exception{
         boolean a=false,b=true;
         int code=2;
         Verification v = new Verification();
@@ -118,8 +127,8 @@ public class UserManager {
             throw new NotSuchPrivilegeException("Forbidden: User has not privileges");
 
         }catch(Exception e){
-            logger.info("INFO: error al modificar usuario");
-            a=false;
+            logger.info("INFO: error al insertar");
+            throw new Exception();
         }
 
         return code;
@@ -132,7 +141,8 @@ public class UserManager {
      */
 
     //falta arreglar si no se quieren cambiar todos los campos
-    public boolean updateUser(HttpHeaders header, int id, User user) throws UnauthorizedException, NotSuchPrivilegeException{
+    public boolean updateUser(HttpHeaders header, int id, User user) throws UnauthorizedException,
+            NotSuchPrivilegeException,Exception{
         Boolean a=false;
         String encriptedpass;
         Verification v = new Verification();
@@ -150,12 +160,13 @@ public class UserManager {
 
         }catch(Exception e){
             logger.info("INFO: error al modificar usuario");
-            a=false;
+            throw new Exception();
         }
         return a;
     }
 
-    public boolean changeAdmin(HttpHeaders header, int id, User user)throws UnauthorizedException, NotSuchPrivilegeException{
+    public boolean changeAdmin(HttpHeaders header, int id, User user)throws UnauthorizedException,
+            NotSuchPrivilegeException,Exception{
         Boolean a=false;
         String encriptedpass;
         Verification v = new Verification();
@@ -179,7 +190,7 @@ public class UserManager {
         return a;
     }
 
-    public User getUserById(HttpHeaders header, int id)throws UnauthorizedException, NotSuchPrivilegeException{
+    public User getUserById(HttpHeaders header, int id)throws UnauthorizedException, NotSuchPrivilegeException,Exception{
         Verification v = new Verification();
         User u= new User();
 
@@ -193,18 +204,24 @@ public class UserManager {
 
         }catch (NotSuchPrivilegeException ex){
             throw new NotSuchPrivilegeException("Forbidden: User has not privileges");
+        }catch (Exception ex){
+            throw new Exception();
         }
         return u;
     }
 
-    public User getUserByEmail(String email){
+    public User getUserByEmail(String email)throws Exception{
         User u= new User();
-        u.selectUserByMail(email);
+        try {
+            u.selectUserByMail(email);
+        }catch (Exception ex){
+            throw new Exception();
+        }
         return u;
     }
 
 
-    public void deleteUser(HttpHeaders header, int id) throws UnauthorizedException, NotSuchPrivilegeException{
+    public void deleteUser(HttpHeaders header, int id) throws UnauthorizedException, NotSuchPrivilegeException,Exception{
         Verification v = new Verification();
         RelationManager rm = new RelationManager();
 
@@ -220,10 +237,12 @@ public class UserManager {
 
         }catch (NotSuchPrivilegeException ex){
             throw new NotSuchPrivilegeException("Forbidden: User has not privileges");
+        }catch(Exception ex){
+            throw new Exception();
         }
     }
 
-    public List listAllUsers(HttpHeaders header) throws UnauthorizedException, NotSuchPrivilegeException{
+    public List listAllUsers(HttpHeaders header) throws UnauthorizedException, NotSuchPrivilegeException,Exception{
         Verification v = new Verification();
         List<User> list;
 
@@ -236,12 +255,14 @@ public class UserManager {
 
         }catch (NotSuchPrivilegeException ex){
             throw new NotSuchPrivilegeException("Forbidden: User has not privileges");
+        }catch(Exception ex){
+            throw new Exception();
         }
 
         return list;
     }
 
-    public String getNumUsers(HttpHeaders header)throws UnauthorizedException{
+    public String getNumUsers(HttpHeaders header)throws UnauthorizedException,Exception{
         Verification v = new Verification();
         try {
             authManager.verify(header, v);
@@ -249,54 +270,69 @@ public class UserManager {
         }catch (UnauthorizedException ex) {
             throw new UnauthorizedException("Unauthorized: user is not authorized");
 
+        }catch(Exception ex){
+            throw new Exception();
         }
     }
 
-    public boolean resetPassword(User u) {
-        boolean bool;
-        u.selectUserByMail(u.getEmail());
-        final String username = u.getEmail();
-        final String password = td.decrypt(u.getContrasena());
+    /*
+    code 0 : ok
+    code 1 : no user found
+    code 2 : error
+    * */
 
-        Properties props = new Properties();
-        props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.host", "smtp.gmail.com");
-        props.put("mail.smtp.port", "587");
-
-        Session session = Session.getInstance(props,
-                new javax.mail.Authenticator() {
-                    protected PasswordAuthentication getPasswordAuthentication() {
-                        return new PasswordAuthentication(username, password);
-                    }
-                });
-
+    public int resetPassword(User u) throws Exception{
+        int code = 0;
         try {
-            MimeMessage message = new MimeMessage(session);
-            message.setRecipients(Message.RecipientType.TO,
-                    InternetAddress.parse(u.getEmail()));
-            message.setSubject("Recuperar contraseña");
-            message.setText("Hola, " + u.getNombre()
-                    + "\n\n Tu contraseña es: " + password);
+            u.selectUserByMail(u.getEmail());
+            if (!u.getNombre().equals(null) && !u.getContrasena().equals(null)) {
+                final String username = u.getEmail();
+                final String password = td.decrypt(u.getContrasena());
 
-            Transport transport = session.getTransport("smtp");
+                Properties props = new Properties();
+                props.put("mail.smtp.auth", "true");
+                props.put("mail.smtp.starttls.enable", "true");
+                props.put("mail.smtp.host", "smtp.gmail.com");
+                props.put("mail.smtp.port", "587");
 
-            // Enter your correct gmail UserID and Password
-            // if you have 2FA enabled then provide App Specific Password
+                Session session = Session.getInstance(props,
+                        new javax.mail.Authenticator() {
+                            protected PasswordAuthentication getPasswordAuthentication() {
+                                return new PasswordAuthentication(username, password);
+                            }
+                        });
 
-            transport.connect("smtp.gmail.com", "DSAproyecto@gmail.com", "aleixguillemmikel");
-            message.setFrom(new InternetAddress("DSAproyecto@gmail.com"));
-            transport.sendMessage(message, message.getAllRecipients());
-            transport.close();
+                try {
+                    MimeMessage message = new MimeMessage(session);
+                    message.setRecipients(Message.RecipientType.TO,
+                            InternetAddress.parse(u.getEmail()));
+                    message.setSubject("Recuperar contraseña");
+                    message.setText("Hola, " + u.getNombre()
+                            + "\n\n Tu contraseña es: " + password);
 
-            System.out.println("Done");
-            bool = true;
+                    Transport transport = session.getTransport("smtp");
 
-        } catch (MessagingException e) {
-            bool = false;
-            throw new RuntimeException(e);
+                    // Enter your correct gmail UserID and Password
+                    // if you have 2FA enabled then provide App Specific Password
+
+                    transport.connect("smtp.gmail.com", "DSAproyecto@gmail.com", "aleixguillemmikel");
+                    message.setFrom(new InternetAddress("DSAproyecto@gmail.com"));
+                    transport.sendMessage(message, message.getAllRecipients());
+                    transport.close();
+
+                    logger.info("Reset password: " + u.getEmail());
+
+                } catch (MessagingException e) {
+                    code = 2;
+                    throw new RuntimeException(e);
+                }
+            } else {
+                code = 1;
+            }
+        } catch (Exception ex){
+            throw new Exception();
         }
-        return bool;
+        return code;
 
     }
 
@@ -314,23 +350,27 @@ public class UserManager {
         return false;
     }
 
-    private void checkUpdateFields(User u){
+    private void checkUpdateFields(User u) throws Exception{
         User temp = new User();
-        temp.selectUserById(u.getId());
+        try {
+            temp.selectUserById(u.getId());
 
-        u.setAdmin(temp.getAdmin());
+            u.setAdmin(temp.getAdmin());
 
-        if(u.getNombre()==null || u.getNombre().equals("")){
-            u.setNombre(temp.getNombre());
-        }
-        if(u.getContrasena()==null || u.getContrasena().equals("")){
-            u.setContrasena(temp.getContrasena());
-        }else{
-            String encryptedPass=td.encrypt(u.getContrasena());
-            u.setContrasena(encryptedPass);
-        }
-        if (u.getEmail()==null || u.getEmail().equals("")){
-            u.setEmail(temp.getEmail());
+            if (u.getNombre() == null || u.getNombre().equals("")) {
+                u.setNombre(temp.getNombre());
+            }
+            if (u.getContrasena() == null || u.getContrasena().equals("")) {
+                u.setContrasena(temp.getContrasena());
+            } else {
+                String encryptedPass = td.encrypt(u.getContrasena());
+                u.setContrasena(encryptedPass);
+            }
+            if (u.getEmail() == null || u.getEmail().equals("")) {
+                u.setEmail(temp.getEmail());
+            }
+        }catch (Exception ex){
+            throw new Exception();
         }
 
     }

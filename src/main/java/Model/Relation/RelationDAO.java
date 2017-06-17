@@ -7,23 +7,47 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RelationDAO extends DAO {
-    protected void insertRelation(){
-        insert();
+    protected void insertRelation()throws Exception{
+        try {
+            insert();
+        }catch (Exception ex){
+            throw new Exception();
+        }
     }
-    protected boolean updateRelation(){
-        return update();
+    protected boolean updateRelation()throws Exception{
+
+        try {
+            return update();
+        }        catch (Exception ex){
+            throw new Exception();
+        }
     }
-    protected void selectRelationById(int id){
-        select(id);
+    protected void selectRelationById(int id)throws Exception{
+
+        try {
+            select(id);
+        }catch (Exception ex){
+            throw new Exception();
+        }
     }
-    protected void deleteRelation(){
-        delete();
+    protected void deleteRelation()throws Exception{
+
+        try {
+            delete();
+        }catch (Exception ex){
+            throw new Exception();
+        }
     }
-    protected List findAllRelation(){
-        return findAll();
+    protected List findAllRelation()throws Exception{
+
+        try {
+            return findAll();
+        }catch (Exception ex){
+            throw new Exception();
+        }
     }
 
-    protected boolean checkRelationExistent(int idUser, int idEetakemon){
+    protected boolean checkRelationExistent(int idUser, int idEetakemon)throws Exception{
         boolean existent = false;
         Connection con = getConnection();
         StringBuffer query = new StringBuffer("SELECT * FROM ");
@@ -45,11 +69,12 @@ public class RelationDAO extends DAO {
             con.close();
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new Exception();
         }
         return existent;
     }
 
-    protected List getCaptured(int idUser)
+    protected List getCaptured(int idUser)throws Exception
     {
         List <Captured> list= new ArrayList<>();
         Connection con = getConnection();
@@ -77,12 +102,13 @@ public class RelationDAO extends DAO {
             con.close();
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new Exception();
         }
 
         return list;
     }
 
-    protected void selectRelation(int idUser, int idEetakemon){
+    protected void selectRelation(int idUser, int idEetakemon)throws Exception{
         Connection con = getConnection();
         StringBuffer query = new StringBuffer("SELECT * FROM ");
         query.append(this.getClass().getSimpleName());
@@ -102,10 +128,11 @@ public class RelationDAO extends DAO {
             con.close();
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new Exception();
         }
     }
 
-    protected void deletetRelationByUser(int idUser){
+    protected void deletetRelationByUser(int idUser)throws Exception{
         Connection con = getConnection();
         StringBuffer query = new StringBuffer("DELETE FROM ");
         query.append(this.getClass().getSimpleName());
@@ -117,12 +144,13 @@ public class RelationDAO extends DAO {
             ps.executeUpdate();
             ps.close();
             con.close();
-        } catch (SQLException | NullPointerException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
+            throw new Exception();
         }
     }
 
-    protected void deleteRelationByEetakemon(int idEetakemon){
+    protected void deleteRelationByEetakemon(int idEetakemon)throws Exception{
         Connection con = getConnection();
         StringBuffer query = new StringBuffer("DELETE FROM ");
         query.append(this.getClass().getSimpleName());
@@ -134,12 +162,13 @@ public class RelationDAO extends DAO {
             ps.executeUpdate();
             ps.close();
             con.close();
-        } catch (SQLException | NullPointerException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
+            throw new Exception();
         }
     }
 
-    protected String getNumCaptured(int idUser){
+    protected String getNumCaptured(int idUser) throws Exception{
         String num="0";
         Connection con = getConnection();
         StringBuffer query = new StringBuffer("SELECT COUNT(*) FROM ");
@@ -162,6 +191,7 @@ public class RelationDAO extends DAO {
             con.close();
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new Exception();
         }
 
         return num;

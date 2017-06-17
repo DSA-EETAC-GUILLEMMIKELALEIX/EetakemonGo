@@ -73,7 +73,7 @@ public class LocationManager {
         return locat;
     }
 
-    public List<EetakemonLocation> getListMap(HttpHeaders header) throws UnauthorizedException{
+    public List<EetakemonLocation> getListMap(HttpHeaders header) throws UnauthorizedException, Exception{
         List<EetakemonLocation> list = new ArrayList<EetakemonLocation>();
         Location loc= new Location();
         List<Location> locations= new ArrayList<>();
@@ -107,6 +107,8 @@ public class LocationManager {
 
         }catch(UnauthorizedException ex){
             throw new UnauthorizedException("Unauthorized: user is not authorized");
+        }catch (Exception ex){
+            throw new Exception();
         }
 
         return list;

@@ -20,7 +20,8 @@ public class RelationManager {
     public RelationManager(){
         authManager=new AuthenticationManager();
     }
-    public List listAllRelation(HttpHeaders header)throws UnauthorizedException, NotSuchPrivilegeException{
+    public List listAllRelation(HttpHeaders header)throws UnauthorizedException, NotSuchPrivilegeException
+            ,Exception{
         Verification v = new Verification();
         List<Relation> list;
 
@@ -36,12 +37,14 @@ public class RelationManager {
         catch (NotSuchPrivilegeException ex){
             throw new NotSuchPrivilegeException("Forbidden: User has not privileges");
 
+        }catch (Exception ex){
+            throw new Exception();
         }
         return list;
     }
 
 
-    public Captured getRelationById(int id, HttpHeaders header)throws UnauthorizedException{
+    public Captured getRelationById(int id, HttpHeaders header)throws UnauthorizedException, Exception{
         Verification v = new Verification();
         Eetakemon e= new Eetakemon();
         EetakemonManager em = new EetakemonManager();
@@ -53,13 +56,15 @@ public class RelationManager {
            e=em.getEetakemonById(header, id);
            c= new Captured(r.getIdEetakemon(),e.getNombre(),r.getLevel(), e.getFoto());
         }
-    catch (UnauthorizedException ex) {
-        throw new UnauthorizedException("Unauthorized: user is not authorized");
-    }
+        catch (UnauthorizedException ex) {
+            throw new UnauthorizedException("Unauthorized: user is not authorized");
+        }catch (Exception ex){
+                throw new Exception();
+            }
         return c;
     }
 
-    public boolean addRelation(Relation r, HttpHeaders header) throws UnauthorizedException{
+    public boolean addRelation(Relation r, HttpHeaders header) throws UnauthorizedException,Exception{
         Verification v = new Verification();
         Boolean exist=false;
         Eetakemon e;
@@ -80,12 +85,15 @@ public class RelationManager {
         }
          catch (UnauthorizedException ex) {
                 throw new UnauthorizedException("Unauthorized: user is not authorized");
-            }
+         }catch (Exception ex){
+            throw new Exception();
+        }
 
         return exist;
     }
 
-    public Relation deleteRelation(int id, HttpHeaders header) throws UnauthorizedException, NotSuchPrivilegeException{
+    public Relation deleteRelation(int id, HttpHeaders header) throws UnauthorizedException,
+            NotSuchPrivilegeException,Exception{
         Verification v = new Verification();
         Relation r = new Relation();
         try {
@@ -99,12 +107,14 @@ public class RelationManager {
             throw new UnauthorizedException("Unauthorized: user is not authorized");
         }catch (NotSuchPrivilegeException ex){
             throw new NotSuchPrivilegeException("Forbidden: User has not privileges");
+        }catch (Exception ex){
+            throw new Exception();
         }
 
         return r;
     }
 
-    public List getCaptured(int idUser, HttpHeaders header) throws UnauthorizedException{
+    public List getCaptured(int idUser, HttpHeaders header) throws UnauthorizedException,Exception{
         Verification v = new Verification();
         List<Captured> list;
         try {
@@ -116,11 +126,14 @@ public class RelationManager {
         }
         catch (UnauthorizedException ex) {
             throw new UnauthorizedException("Unauthorized: user is not authorized");
+        }catch (Exception ex){
+            throw new Exception();
         }
         return list;
     }
 
-    public void deleteRelationByUser(int idUser,HttpHeaders header) throws UnauthorizedException, NotSuchPrivilegeException{
+    public void deleteRelationByUser(int idUser,HttpHeaders header) throws UnauthorizedException, NotSuchPrivilegeException
+            ,Exception{
         Verification v = new Verification();
         List<Relation> e;
 
@@ -133,10 +146,13 @@ public class RelationManager {
             throw new UnauthorizedException("Unauthorized: user is not authorized");
         }catch (NotSuchPrivilegeException ex){
             throw new NotSuchPrivilegeException("Forbidden: User has not privileges");
+        }catch (Exception ex){
+            throw new Exception();
         }
     }
 
-    public void deleteRelationByEetakemon(int idEetakemon,HttpHeaders header) throws UnauthorizedException, NotSuchPrivilegeException{
+    public void deleteRelationByEetakemon(int idEetakemon,HttpHeaders header) throws UnauthorizedException
+        ,NotSuchPrivilegeException,Exception{
         Verification v = new Verification();
         List<Relation> e;
         Relation r=new Relation();
@@ -150,11 +166,13 @@ public class RelationManager {
             throw new UnauthorizedException("Unauthorized: user is not authorized");
         }catch (NotSuchPrivilegeException ex){
             throw new NotSuchPrivilegeException("Forbidden: User has not privileges");
+        }catch (Exception ex){
+            throw new Exception();
         }
     }
 
 
-    public String getNumCaptured(HttpHeaders header)throws UnauthorizedException{
+    public String getNumCaptured(HttpHeaders header)throws UnauthorizedException,Exception{
         Verification v = new Verification();
         try {
             authManager.verify(header, v);
@@ -162,6 +180,8 @@ public class RelationManager {
         }catch (UnauthorizedException ex) {
             throw new UnauthorizedException("Unauthorized: user is not authorized");
 
+        }catch (Exception ex){
+            throw new Exception();
         }
     }
 
@@ -169,12 +189,12 @@ public class RelationManager {
 
 
 
-    public List listAllRelation(){
+    /*public List listAllRelation(){
 
         List<Relation> list = new Relation().findAllRelation();
 
         return list;
-    }
+    }*/
 
 
     /*private methods*/

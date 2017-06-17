@@ -8,26 +8,55 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EetakemonDAO extends DAO {
-    protected void insertEetakemon(){
-        insert();
+    protected void insertEetakemon()throws Exception{
+
+        try {
+            insert();
+        }catch (Exception ex){
+            throw new Exception();
+        }
     }
-    protected boolean updatetEetakemon(){
-        return update();
+    protected boolean updatetEetakemon()throws Exception{
+        try {
+            return update();
+        }        catch (Exception ex){
+            throw new Exception();
+        }
     }
-    protected void selectEetakemonById(int id){
-        select(id);
+    protected void selectEetakemonById(int id)throws Exception{
+
+        try {
+            select(id);
+        }catch (Exception ex){
+            throw new Exception();
+        }
     }
-    protected void deleteEetakemon(){
-        delete();
+    protected void deleteEetakemon()throws Exception{
+
+        try {
+            delete();
+        }catch (Exception ex){
+            throw new Exception();
+        }
     }
-    protected List findAllEetakemons(){
-        return findAll();
+    protected List findAllEetakemons()throws Exception{
+
+        try {
+            return findAll();
+        }catch (Exception ex){
+            throw new Exception();
+        }
     }
-    protected boolean checkEetakemonExistent(String nombre){
-        return checkExistent("nombre",nombre);
+    protected boolean checkEetakemonExistent(String nombre)throws Exception{
+
+        try {
+            return checkExistent("nombre",nombre);
+        }catch (Exception ex){
+            throw new Exception();
+        }
     }
 
-    protected List getByType(String tipo){
+    protected List getByType(String tipo)throws Exception{
         Connection con = getConnection();
         List<Eetakemon> list= new ArrayList<>();
         StringBuffer query = new StringBuffer("SELECT * FROM ");
@@ -51,14 +80,15 @@ public class EetakemonDAO extends DAO {
             ps.close();
             con.close();
 
-        } catch (SQLException | NullPointerException e) {
+        } catch (Exception e) {
             e.printStackTrace();
+            throw new Exception();
         }
 
         return list;
     }
 
-    protected String getNumEetakemons(){
+    protected String getNumEetakemons() throws Exception{
         String num="0";
         Connection con = getConnection();
         StringBuffer query = new StringBuffer("SELECT COUNT(*) FROM ");
@@ -77,8 +107,9 @@ public class EetakemonDAO extends DAO {
             }
             ps.close();
             con.close();
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
+            throw new Exception();
         }
 
         return num;
