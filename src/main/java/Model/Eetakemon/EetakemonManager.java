@@ -198,6 +198,8 @@ public class EetakemonManager {
 
     private void deleteImage(Eetakemon e)throws Exception{
         try {
+            System.out.println("Working Directory = " +
+              System.getProperty("user.dir"));
             Files.deleteIfExists(Paths.get("WEB\\images\\" + e.getNombre().toLowerCase() + ".png"));
         }catch(Exception ex){
             ex.printStackTrace();
