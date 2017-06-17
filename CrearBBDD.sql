@@ -47,6 +47,7 @@ CREATE TABLE Relation (
 Insert INTO User (nombre, contrasena, email, admin) VALUES ('mikel', 'TAv5pbyzSuw=', 'mikel@gmail.com', 1);
 Insert INTO User (nombre, contrasena, email, admin) VALUES ('aleix', '7ZOZ9CzlKJs=', 'aleix@gmail.com', 1);
 Insert INTO User (nombre, contrasena, email, admin) VALUES ('guillem', 'AT0D6sMGdKM=', 'guillem@gmail.com', 1);
+Insert INTO User (nombre, contrasena, email, admin) VALUES ('PresentacionDsa', 'FUw7NUdZ0TJ6Ve9ZkNdPUA==', 'presentaciondsa@gmail.com', 1);
 
 
 Insert INTO Question (tipo, question, answer) VALUES ('Inferior', '¿Es Jesus Alcober profesor de Empresa?', 1);
