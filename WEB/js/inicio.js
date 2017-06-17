@@ -6,7 +6,7 @@ function loadInfo() {
         headers: {"Authorization": "Bearer " + sessionStorage.getItem("Token")},
         statusCode: {
             200: function (result) {
-                var info=result.responseText.split("/");
+                var info=result.responseText.split("-");
                 console.log(info);
                 $("#num-users").append(info[0]);
                 $("#num-eetakemons").append(info[1]);
