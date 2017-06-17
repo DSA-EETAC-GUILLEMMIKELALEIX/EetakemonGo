@@ -39,6 +39,8 @@ public class RelationService {
         } catch (UnauthorizedException ex) {
             return Response.status(Response.Status.UNAUTHORIZED).entity("Unauthorized").build();//401
 
+        }catch(Exception ex){
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Internal error").build();//500
         }
     }
     //Obtener relacion por id
@@ -57,6 +59,8 @@ public class RelationService {
         }catch (UnauthorizedException ex) {
             return Response.status(Response.Status.UNAUTHORIZED).entity("Unauthorized").build();//401
 
+        }catch(Exception ex){
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Internal error").build();//500
         }
     }
 
@@ -78,6 +82,8 @@ public class RelationService {
 
         }catch(NotSuchPrivilegeException ex){
             return Response.status(Response.Status.FORBIDDEN).entity("Forbidden").build();//403
+        }catch(Exception ex){
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Internal error").build();//500
         }
 
     }
@@ -101,7 +107,9 @@ public class RelationService {
         }catch (UnauthorizedException ex) {
                 return Response.status(Response.Status.UNAUTHORIZED).entity("Unauthorized").build();//401
 
-            }
+            }catch(Exception ex){
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Internal error").build();//500
+        }
 
     }
 
@@ -125,11 +133,13 @@ public class RelationService {
 
         }catch(NotSuchPrivilegeException ex){
             return Response.status(Response.Status.FORBIDDEN).entity("Forbidden").build();//403
+        }catch(Exception ex){
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Internal error").build();//500
         }
     }
 
     //Lista todos los capturados de todos los usuarios
-    @GET
+   /* @GET
     @Path("/AllApp")
     @Produces(MediaType.APPLICATION_JSON)
     public Response ListarRelacionApp() {
@@ -143,5 +153,5 @@ public class RelationService {
             return Response.status(202).entity("No se ha podido visualizar el usuario: ").build();
         }
 
-    }
+    }*/
 }
