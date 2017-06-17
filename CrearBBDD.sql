@@ -48,9 +48,27 @@ Insert INTO User (nombre, contrasena, email, admin) VALUES ('mikel', 'TAv5pbyzSu
 Insert INTO User (nombre, contrasena, email, admin) VALUES ('aleix', '7ZOZ9CzlKJs=', 'aleix@gmail.com', 1);
 Insert INTO User (nombre, contrasena, email, admin) VALUES ('guillem', 'AT0D6sMGdKM=', 'guillem@gmail.com', 1);
 
-Insert INTO Question (tipo, question, answer) VALUES ('Inferior', 'Es Jesus Alcober profesor de Empresa?', 1);
-Insert INTO Question (tipo, question, answer) VALUES ('Normal', 'Es Jordi Berenguer profesor de ER?', 1);
-Insert INTO Question (tipo, question, answer) VALUES ('Legendario', 'Es Lluis Casals profesor de IX?', 1);
+
+Insert INTO Question (tipo, question, answer) VALUES ('Inferior', '¿Es Jesus Alcober profesor de Empresa?', 1);
+Insert INTO Question (tipo, question, answer) VALUES ('Normal', '¿Es Jordi Berenguer profesor de ER?', 1);
+Insert INTO Question (tipo, question, answer) VALUES ('Legendario', '¿Es Lluis Casals profesor de IX?', 1);
+Insert INTO Question (tipo, question, answer) VALUES ('Inferior', '¿Cálculo es una asignatura del segundo cuadrimestre?', 0);
+Insert INTO Question (tipo, question, answer) VALUES ('Normal', '¿Es Jordi Berenger doctor en telecomunicaciones?', 1);
+Insert INTO Question (tipo, question, answer) VALUES ('Legendario', '¿Es Luis Gonzaga Alonso Zarate el director de la EETAC?', 1);
+Insert INTO Question (tipo, question, answer) VALUES ('Inferior', '¿Son la galletas de la maquina un manjar de dioses?', 1);
+Insert INTO Question (tipo, question, answer) VALUES ('Normal', '¿Es asequible el menu de la cafeteria?', 0);
+Insert INTO Question (tipo, question, answer) VALUES ('Legendario', '¿La sala de estudios de la EETAC es la 023G?', 1);
+Insert INTO Question (tipo, question, answer) VALUES ('Legendario', '¿La sala de estudios de la EETAC es la 026G?', 0);
+Insert INTO Question (tipo, question, answer) VALUES ('Normal', '¿Puede este grupo obtener el 10 en la asignatura?', 1);
+Insert INTO Question (tipo, question, answer) VALUES ('Inferior', '¿El cafe con leche en la cafeteria cuesta 1 euro?', 0);
+Insert INTO Question (tipo, question, answer) VALUES ('Legendario', '¿Abre la biblioteca a las 8:00?', 0);
+Insert INTO Question (tipo, question, answer) VALUES ('Legendario', '¿Abre la biblioteca a las 9:00?', 1);
+Insert INTO Question (tipo, question, answer) VALUES ('Inferior', '¿Abre la biblioteca a las 8:00?', 0);
+Insert INTO Question (tipo, question, answer) VALUES ('Legendario', '¿Abre la biblioteca a las 9:00?', 1);
+Insert INTO Question (tipo, question, answer) VALUES ('Normal', '¿Es Lluis Casals coordinador de IX?', 0);
+Insert INTO Question (tipo, question, answer) VALUES ('Normal', '¿Es Jordi Mataix coordinador de XLAM?', 1);
+Insert INTO Question (tipo, question, answer) VALUES ('Legendario', '¿Es David Perez Diaz de Cerio cordinador de FC?', 1);
+Insert INTO Question (tipo, question, answer) VALUES ('Legendario', '¿Es David Perez Diaz de Cerio cordinador de ER?', 0);
 
 Insert INTO Eetakemon (nombre, tipo, nivel, foto) VALUES ('Bernorlax', 'Normal', 15, '/images/bernorlax.png');
 Insert INTO Eetakemon (nombre, tipo, nivel, foto) VALUES ('Davyphno', 'Normal', 15, '/images/davyphno.png');
