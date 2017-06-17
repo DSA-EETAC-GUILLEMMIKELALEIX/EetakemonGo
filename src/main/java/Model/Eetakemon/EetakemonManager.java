@@ -185,6 +185,8 @@ public class EetakemonManager {
         byte[] imageBytes = javax.xml.bind.DatatypeConverter.parseBase64Binary(base64Image);
         File imageFile = new File("WEB\\images\\" + e.getNombre() + ".png");
         try {
+            System.out.println("Working Directory = " +
+              System.getProperty("user.dir"));
             BufferedImage bufferedImage = ImageIO.read(new ByteArrayInputStream(imageBytes));
             ImageIO.write(bufferedImage, "png", imageFile);
             e.setFoto("/images/"+e.getNombre().toLowerCase()+".png");
@@ -198,8 +200,7 @@ public class EetakemonManager {
 
     private void deleteImage(Eetakemon e)throws Exception{
         try {
-            System.out.println("Working Directory = " +
-              System.getProperty("user.dir"));
+            
             Files.deleteIfExists(Paths.get("WEB\\images\\" + e.getNombre().toLowerCase() + ".png"));
         }catch(Exception ex){
             ex.printStackTrace();
