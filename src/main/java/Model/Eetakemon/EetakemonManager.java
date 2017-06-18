@@ -186,7 +186,7 @@ public class EetakemonManager {
         File imageFile = new File("/home/ea0/EetakemonGo/WEB/images/" + e.getNombre() + ".png");
         try {
             BufferedImage bufferedImage = ImageIO.read(new ByteArrayInputStream(imageBytes));
-            ImageIO.write(bufferedImage, "png", imageFile);
+            System.out.println(ImageIO.write(bufferedImage, "png", imageFile));
             e.setFoto("/images/"+e.getNombre().toLowerCase()+".png");
         }
         catch(Exception ex){
