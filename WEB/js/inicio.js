@@ -20,9 +20,38 @@ function loadInfo() {
         }
     });
 }
+function checkLogedinicio(){
+    if(sessionStorage.getItem("ID")==null)
+    {
+        sessionStorage.clear();
+        window.location.replace("../index.html");
+    }else {
+        if (sessionStorage.getItem("Admin") != 1) {
+            /*$("#avanzado#).css({"display":"none"});*/
+            loadMenu();
+        }
+        else {
+            loadAdminMenu();
+        }
+    }
+
+    $("#logout").click(function(){
+        sessionStorage.clear();
+        window.location.replace("../index.html");
+    });
+}
+function loadMenu(){
+    $(".menu").load("../forms/MenuInicio.html")
+}
+
+function loadAdminMenu(){
+    $(".menu").load("../forms/AdminMenuInicio.html")
+}
 
 $(document).ready(function(){
-    checkLoged();
+
+
+    checkLogedinicio();
     loadInfo();
 
     //change user-eetakemon options

@@ -8,14 +8,11 @@ import org.glassfish.jersey.server.ResourceConfig;
 import java.io.IOException;
 import java.net.URI;
 
-/**
- * Codigo creado por Mikel, Guillem, Aleix. Se ha escrito el codigo en local y se ha subido
- * directamente al repositorio github de Mikel. Prueba
- */
+
 public class Main {
     // Base URI the Grizzly HTTP server will listen on
     //public static final String BASE_URI = "http://localhost:8081/";
-    public static final String BASE_URI = "http://147.83.7.158:8081";
+    public static final String BASE_URI = "http://localhost:8081";
 
     /**
      * Starts Grizzly HTTP server exposing JAX-RS resources defined in this application.
