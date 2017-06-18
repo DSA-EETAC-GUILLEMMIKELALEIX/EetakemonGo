@@ -173,6 +173,7 @@ public class EetakemonManager {
             throw new UnauthorizedException("Unauthorized: user is not authorized");
         }catch (Exception ex){
             throw new Exception();
+
         }
 
         return e;
@@ -181,14 +182,13 @@ public class EetakemonManager {
 
     /*Private methods*/
     private void saveImage(Eetakemon e)throws Exception{
+        System.out.println("Se para antes");
         String base64Image = e.getFoto().split(",")[1];
         byte[] imageBytes = javax.xml.bind.DatatypeConverter.parseBase64Binary(base64Image);
-        File imageFile = new File("/home/ea0/EetakemonGo/WEB/images/" + e.getNombre() + ".png");
-        System.out.println("fuera: "+imageFile.getPath());
+        File imageFile = new File("//home//ea0//EetakemonGo//WEB//images" + e.getNombre() + ".png");
         try {
-            System.out.println("dentro");
             BufferedImage bufferedImage = ImageIO.read(new ByteArrayInputStream(imageBytes));
-            System.out.println(ImageIO.write(bufferedImage, "png", imageFile));
+            ImageIO.write(bufferedImage, "png", imageFile);
             e.setFoto("/images/"+e.getNombre().toLowerCase()+".png");
         }
         catch(Exception ex){

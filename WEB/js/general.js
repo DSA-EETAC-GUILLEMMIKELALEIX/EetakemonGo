@@ -1,5 +1,5 @@
 var ctxPath = "http://147.83.7.158:8081/EetakemonGo/";
-
+//dfd
 function hideAlert(alert) {
     setTimeout(function() {
         $(alert).slideToggle();
@@ -11,11 +11,11 @@ function setAlertMessage(message, type){
 }
 
 function loadMenu(){
-    $(".menu").load("../forms/ProvisionalMenu.html")
+    $(".menu").load("../forms/Menu.html")
 }
 
 function loadAdminMenu(){
-    $(".menu").load("../forms/ProvisionalMenuAdmin.html")
+    $(".menu").load("../forms/AdminMenu.html")
 }
 
 function logout() {
