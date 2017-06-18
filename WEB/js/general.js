@@ -1,5 +1,5 @@
 var ctxPath = "http://147.83.7.158:8081/EetakemonGo/";
-
+//dfd
 function hideAlert(alert) {
     setTimeout(function() {
         $(alert).slideToggle();
