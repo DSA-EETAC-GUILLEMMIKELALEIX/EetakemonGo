@@ -8814,3 +8814,83 @@
 2017-06-18 12:22:04 INFO  DAO:100 - INFO: Get number of eetakemons: com.mysql.jdbc.JDBC4PreparedStatement@5b69df29: SELECT COUNT(*) FROM Eetakemon;
 2017-06-18 12:22:04 INFO  DAO:25 - INFO: conexión creada
 2017-06-18 12:22:04 INFO  DAO:182 - INFO: Get number of eetakemons captured: com.mysql.jdbc.JDBC4PreparedStatement@1cbbc02f: SELECT COUNT(*) FROM Relation WHERE idUser=3;
+2017-06-18 12:26:13 INFO  DAO:25 - INFO: conexión creada
+2017-06-18 12:26:13 INFO  DAO:70 - INFO: Logeado: guillem@gmail.com
+2017-06-18 12:26:13 INFO  DAO:25 - INFO: conexión creada
+2017-06-18 12:26:13 INFO  DAO:93 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@1a286744: SELECT * FROM User WHERE email='guillem@gmail.com';
+2017-06-18 12:26:13 INFO  DAO:25 - INFO: conexión creada
+2017-06-18 12:26:13 INFO  DAO:137 - INFO: Get number of users: com.mysql.jdbc.JDBC4PreparedStatement@420d690e: SELECT COUNT(*) FROM User;
+2017-06-18 12:26:13 INFO  DAO:25 - INFO: conexión creada
+2017-06-18 12:26:13 INFO  DAO:100 - INFO: Get number of eetakemons: com.mysql.jdbc.JDBC4PreparedStatement@579dec56: SELECT COUNT(*) FROM Eetakemon;
+2017-06-18 12:26:13 INFO  DAO:25 - INFO: conexión creada
+2017-06-18 12:26:13 INFO  DAO:182 - INFO: Get number of eetakemons captured: com.mysql.jdbc.JDBC4PreparedStatement@1caec0c2: SELECT COUNT(*) FROM Relation WHERE idUser=3;
+2017-06-18 12:28:27 INFO  DAO:25 - INFO: conexión creada
+2017-06-18 12:28:27 INFO  DAO:70 - INFO: Logeado: guillem@gmail.com
+2017-06-18 12:28:27 INFO  DAO:25 - INFO: conexión creada
+2017-06-18 12:28:27 INFO  DAO:93 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@27ea7107: SELECT * FROM User WHERE email='guillem@gmail.com';
+2017-06-18 12:28:28 INFO  DAO:25 - INFO: conexión creada
+2017-06-18 12:28:28 INFO  DAO:137 - INFO: Get number of users: com.mysql.jdbc.JDBC4PreparedStatement@ad8079e: SELECT COUNT(*) FROM User;
+2017-06-18 12:28:28 INFO  DAO:25 - INFO: conexión creada
+2017-06-18 12:28:28 INFO  DAO:100 - INFO: Get number of eetakemons: com.mysql.jdbc.JDBC4PreparedStatement@30c899bf: SELECT COUNT(*) FROM Eetakemon;
+2017-06-18 12:28:28 INFO  DAO:25 - INFO: conexión creada
+2017-06-18 12:28:28 INFO  DAO:182 - INFO: Get number of eetakemons captured: com.mysql.jdbc.JDBC4PreparedStatement@1026f361: SELECT COUNT(*) FROM Relation WHERE idUser=3;
+2017-06-18 12:29:23 INFO  DAO:25 - INFO: conexión creada
+2017-06-18 12:29:23 INFO  DAO:162 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@cde0ea5: SELECT * FROM User;
+2017-06-18 12:29:23 INFO  DAO:25 - INFO: conexión creada
+2017-06-18 12:29:23 INFO  DAO:162 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@2c25acc7: SELECT * FROM Eetakemon;
+2017-06-18 12:29:26 INFO  DAO:25 - INFO: conexión creada
+2017-06-18 12:29:26 INFO  DAO:162 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@7804f3b8: SELECT * FROM Eetakemon;
+2017-06-18 12:29:27 INFO  DAO:25 - INFO: conexión creada
+2017-06-18 12:29:27 INFO  DAO:162 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@66c57adb: SELECT * FROM User;
+2017-06-18 12:29:27 INFO  DAO:25 - INFO: conexión creada
+2017-06-18 12:29:27 INFO  DAO:162 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@683698b5: SELECT * FROM Eetakemon;
+2017-06-18 12:29:29 INFO  DAO:25 - INFO: conexión creada
+2017-06-18 12:29:29 INFO  DAO:162 - INFO: List statement: com.mysql.jdbc.JDBC4PreparedStatement@6cf73cb2: SELECT * FROM Eetakemon;
+2017-06-18 12:29:30 INFO  DAO:25 - INFO: conexión creada
+2017-06-18 12:29:30 INFO  DAO:90 - INFO: Select captured: com.mysql.jdbc.JDBC4PreparedStatement@94f9a9: SELECT Eetakemon.id, Eetakemon.nombre, Relation.level, Eetakemon.foto FROM Eetakemon, Relation WHERE Relation.idEetakemon=Eetakemon.id AND Relation.idUser=3;
+2017-06-18 12:29:31 INFO  DAO:25 - INFO: conexión creada
+2017-06-18 12:29:31 INFO  DAO:137 - INFO: Get number of users: com.mysql.jdbc.JDBC4PreparedStatement@c774f66: SELECT COUNT(*) FROM User;
+2017-06-18 12:29:31 INFO  DAO:25 - INFO: conexión creada
+2017-06-18 12:29:31 INFO  DAO:100 - INFO: Get number of eetakemons: com.mysql.jdbc.JDBC4PreparedStatement@4ecce736: SELECT COUNT(*) FROM Eetakemon;
+2017-06-18 12:29:31 INFO  DAO:25 - INFO: conexión creada
+2017-06-18 12:29:31 INFO  DAO:182 - INFO: Get number of eetakemons captured: com.mysql.jdbc.JDBC4PreparedStatement@55c86b75: SELECT COUNT(*) FROM Relation WHERE idUser=3;
+2017-06-18 12:31:49 INFO  DAO:25 - INFO: conexión creada
+2017-06-18 12:31:49 INFO  DAO:70 - INFO: Logeado: guillem@gmail.com
+2017-06-18 12:31:49 INFO  DAO:25 - INFO: conexión creada
+2017-06-18 12:31:49 INFO  DAO:93 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@32e42fb2: SELECT * FROM User WHERE email='guillem@gmail.com';
+2017-06-18 12:31:49 INFO  DAO:25 - INFO: conexión creada
+2017-06-18 12:31:49 INFO  DAO:137 - INFO: Get number of users: com.mysql.jdbc.JDBC4PreparedStatement@5af1183c: SELECT COUNT(*) FROM User;
+2017-06-18 12:31:49 INFO  DAO:25 - INFO: conexión creada
+2017-06-18 12:31:49 INFO  DAO:100 - INFO: Get number of eetakemons: com.mysql.jdbc.JDBC4PreparedStatement@4be805ed: SELECT COUNT(*) FROM Eetakemon;
+2017-06-18 12:31:49 INFO  DAO:25 - INFO: conexión creada
+2017-06-18 12:31:49 INFO  DAO:182 - INFO: Get number of eetakemons captured: com.mysql.jdbc.JDBC4PreparedStatement@5d8b74b8: SELECT COUNT(*) FROM Relation WHERE idUser=3;
+2017-06-18 12:33:26 INFO  DAO:25 - INFO: conexión creada
+2017-06-18 12:33:26 INFO  DAO:70 - INFO: Logeado: guillem@gmail.com
+2017-06-18 12:33:26 INFO  DAO:25 - INFO: conexión creada
+2017-06-18 12:33:26 INFO  DAO:93 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@d698e9: SELECT * FROM User WHERE email='guillem@gmail.com';
+2017-06-18 12:33:26 INFO  DAO:25 - INFO: conexión creada
+2017-06-18 12:33:26 INFO  DAO:137 - INFO: Get number of users: com.mysql.jdbc.JDBC4PreparedStatement@578952a1: SELECT COUNT(*) FROM User;
+2017-06-18 12:33:26 INFO  DAO:25 - INFO: conexión creada
+2017-06-18 12:33:26 INFO  DAO:100 - INFO: Get number of eetakemons: com.mysql.jdbc.JDBC4PreparedStatement@2153bf72: SELECT COUNT(*) FROM Eetakemon;
+2017-06-18 12:33:26 INFO  DAO:25 - INFO: conexión creada
+2017-06-18 12:33:26 INFO  DAO:182 - INFO: Get number of eetakemons captured: com.mysql.jdbc.JDBC4PreparedStatement@19498251: SELECT COUNT(*) FROM Relation WHERE idUser=3;
+2017-06-18 12:35:09 INFO  DAO:25 - INFO: conexión creada
+2017-06-18 12:35:09 INFO  DAO:70 - INFO: Logeado: guillem@gmail.com
+2017-06-18 12:35:09 INFO  DAO:25 - INFO: conexión creada
+2017-06-18 12:35:09 INFO  DAO:93 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@16c0035a: SELECT * FROM User WHERE email='guillem@gmail.com';
+2017-06-18 12:35:09 INFO  DAO:25 - INFO: conexión creada
+2017-06-18 12:35:09 INFO  DAO:137 - INFO: Get number of users: com.mysql.jdbc.JDBC4PreparedStatement@2a622e82: SELECT COUNT(*) FROM User;
+2017-06-18 12:35:09 INFO  DAO:25 - INFO: conexión creada
+2017-06-18 12:35:09 INFO  DAO:100 - INFO: Get number of eetakemons: com.mysql.jdbc.JDBC4PreparedStatement@8bc7df7: SELECT COUNT(*) FROM Eetakemon;
+2017-06-18 12:35:10 INFO  DAO:25 - INFO: conexión creada
+2017-06-18 12:35:10 INFO  DAO:182 - INFO: Get number of eetakemons captured: com.mysql.jdbc.JDBC4PreparedStatement@460a6150: SELECT COUNT(*) FROM Relation WHERE idUser=3;
+2017-06-18 12:36:22 INFO  DAO:25 - INFO: conexión creada
+2017-06-18 12:36:22 INFO  DAO:70 - INFO: Logeado: guillem@gmail.com
+2017-06-18 12:36:22 INFO  DAO:25 - INFO: conexión creada
+2017-06-18 12:36:22 INFO  DAO:93 - INFO: Select by email  statement: com.mysql.jdbc.JDBC4PreparedStatement@3c44a4cd: SELECT * FROM User WHERE email='guillem@gmail.com';
+2017-06-18 12:36:23 INFO  DAO:25 - INFO: conexión creada
+2017-06-18 12:36:23 INFO  DAO:137 - INFO: Get number of users: com.mysql.jdbc.JDBC4PreparedStatement@22ba764: SELECT COUNT(*) FROM User;
+2017-06-18 12:36:23 INFO  DAO:25 - INFO: conexión creada
+2017-06-18 12:36:23 INFO  DAO:100 - INFO: Get number of eetakemons: com.mysql.jdbc.JDBC4PreparedStatement@4bf3d0c8: SELECT COUNT(*) FROM Eetakemon;
+2017-06-18 12:36:23 INFO  DAO:25 - INFO: conexión creada
+2017-06-18 12:36:23 INFO  DAO:182 - INFO: Get number of eetakemons captured: com.mysql.jdbc.JDBC4PreparedStatement@42d69686: SELECT COUNT(*) FROM Relation WHERE idUser=3;
