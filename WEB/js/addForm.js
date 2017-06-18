@@ -76,11 +76,19 @@ $(document).ready(function() {
                              ]
                              });
                              }*/
-                            alert("Eetakemon creado"); //alerta
-                            window.location.replace("./Advanced.html");
+                            $("#writed-message").remove();
+                            setAlertMessage("Eetakemon creado","alert-success");
+                            $(".alert").slideToggle();
+                            hideAlert(".alert");
+                            $("input").each(function () {
+                                $(this).val("");
+                            });
                         },
                         202: function () {
-                            alert("Eetakemon ya existente"); //alerta
+                            $("#writed-message").remove();
+                            setAlertMessage("Eetakemon ya existente","alert-error");
+                            $(".alert").slideToggle();
+                            hideAlert(".alert");
                         },
                         401: function () {
                             alert("No autorizado");
@@ -120,11 +128,19 @@ $(document).ready(function() {
                 headers: {"Authorization": "Bearer " + sessionStorage.getItem("Token")},
                 statusCode: {
                     201: function () {
-                        alert("Usuario creado"); //alerta
-                        //window.location.replace("./Advanced.html");
+                        $("#writed-message").remove();
+                        setAlertMessage("Usuario creado","alert-success");
+                        $(".alert").slideToggle();
+                        hideAlert(".alert");
+                        $("input").each(function () {
+                            $(this).val("");
+                        });
                     },
                     202: function () {
-                        alert("Usuario ya existente"); //alerta
+                        $("#writed-message").remove();
+                        setAlertMessage("Usuario ya existente","alert-error");
+                        $(".alert").slideToggle();
+                        hideAlert(".alert");
                     },
                     401: function () {
                         alert("No autorizado");
