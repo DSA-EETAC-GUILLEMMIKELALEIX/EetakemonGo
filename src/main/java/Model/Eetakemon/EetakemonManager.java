@@ -185,7 +185,7 @@ public class EetakemonManager {
         System.out.println("Se para antes");
         String base64Image = e.getFoto().split(",")[1];
         byte[] imageBytes = javax.xml.bind.DatatypeConverter.parseBase64Binary(base64Image);
-        File imageFile = new File("/home/ea0/EetakemonGo/WEB/images" + e.getNombre() + ".png");
+        File imageFile = new File("//home//ea0//EetakemonGo//WEB//images" + e.getNombre() + ".png");
         try {
             BufferedImage bufferedImage = ImageIO.read(new ByteArrayInputStream(imageBytes));
             ImageIO.write(bufferedImage, "png", imageFile);
