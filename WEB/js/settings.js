@@ -17,7 +17,13 @@ $(document).ready(function(){
                 headers: {"Authorization": "Bearer " + sessionStorage.getItem("Token")},
                 statusCode: {
                     200: function () {
-                        alert("Usuario modificado"); //alerta
+                        $("#writed-message").remove();
+                        setAlertMessage("Usuario modificado","alert-success");
+                        $(".alert").slideToggle();
+                        hideAlert(".alert");
+                        $("input").each(function () {
+                            $(this).val("");
+                        });
                     },
                     401: function () {
                         alert("No autorizado");
@@ -29,7 +35,10 @@ $(document).ready(function(){
                         alert("No tiene permisos suficientes"); //alerta
                     },
                     500: function () {
-                        alert("No modificado: error en el servidor"); //alerta
+                        $("#writed-message").remove();
+                        setAlertMessage("Usuario no modificado","alert-success");
+                        $(".alert").slideToggle();
+                        hideAlert(".alert");
                     }
                 }
             })
